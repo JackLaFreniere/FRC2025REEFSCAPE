@@ -1,5 +1,4 @@
 using UnityEditor;
-using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
@@ -15,7 +14,7 @@ public class MenuButton : MonoBehaviour
     {
         if (Application.isEditor)
         {
-            EditorApplication.ExitPlaymode();
+            //EditorApplication.ExitPlaymode();
         } 
         else
         {
