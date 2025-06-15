@@ -2822,7 +2822,7 @@ GameObject:
   - component: {fileID: 7830978646662602112}
   - component: {fileID: 4692697141024785566}
   m_Layer: 0
-  m_Name: Coral
+  m_Name: Coral_Hole_Prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
