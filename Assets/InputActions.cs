@@ -101,6 +101,33 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
+                    ""name"": ""Rotate"",
+                    ""type"": ""Value"",
+                    ""id"": ""bfd14172-78c7-4c31-b1a9-6a1310099f86"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Algae Intake"",
+                    ""type"": ""Button"",
+                    ""id"": ""d8b9220f-bdda-4e1e-a887-96c8a988d42a"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Coral Intake"",
+                    ""type"": ""Button"",
+                    ""id"": ""f31853e2-cc1f-45b7-b60a-c82f4b6e1907"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
                     ""name"": ""Coral Score"",
                     ""type"": ""Button"",
                     ""id"": ""19c83373-3d4d-4d9e-af88-03ebd7a2f734"",
@@ -110,9 +137,63 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Algae Intake"",
+                    ""name"": ""Net Score"",
                     ""type"": ""Button"",
-                    ""id"": ""d8b9220f-bdda-4e1e-a887-96c8a988d42a"",
+                    ""id"": ""b2421b5a-8fd1-467c-94ec-bba2db7e15c1"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Processor Score"",
+                    ""type"": ""Button"",
+                    ""id"": ""8f83ec9c-2716-4453-b2f7-7c705a316041"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Super Score"",
+                    ""type"": ""Button"",
+                    ""id"": ""b3eb0d9f-f22f-4e41-a082-fe85156d74ae"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Climber Down"",
+                    ""type"": ""Button"",
+                    ""id"": ""964e0f99-1698-4374-bec8-cad6b2ba98f3"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Climber Up"",
+                    ""type"": ""Button"",
+                    ""id"": ""672c4c6b-b6fc-4370-baaa-9bbc25c5252c"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Coral Eject"",
+                    ""type"": ""Button"",
+                    ""id"": ""837abae3-523c-4b7b-b876-5220030c44a7"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Algae Eject"",
+                    ""type"": ""Button"",
+                    ""id"": ""46b3a511-1b18-4ca2-b245-258482e7a750"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
@@ -254,111 +335,276 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""143bb1cd-cc10-4eca-a2f0-a3664166fe91"",
-                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""id"": ""75b5176c-2cee-4429-84a6-32b697267ec7"",
+                    ""path"": ""<Gamepad>/rightStick"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Gamepad"",
-                    ""action"": ""Coral Score"",
+                    ""action"": ""Rotate"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": """",
-                    ""id"": ""05f6913d-c316-48b2-a6bb-e225f14c7960"",
-                    ""path"": ""<Mouse>/leftButton"",
+                    ""name"": ""IJKL"",
+                    ""id"": ""1f51f92f-bfd2-4569-944f-67435c1b6f41"",
+                    ""path"": ""Dpad"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Rotate"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""603e0540-26cc-4926-97fa-30d236cfecde"",
+                    ""path"": ""<Keyboard>/j"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Keyboard&Mouse"",
-                    ""action"": ""Coral Score"",
+                    ""action"": ""Rotate"",
                     ""isComposite"": false,
-                    ""isPartOfComposite"": false
+                    ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": """",
-                    ""id"": ""886e731e-7071-4ae4-95c0-e61739dad6fd"",
-                    ""path"": ""<Touchscreen>/primaryTouch/tap"",
+                    ""name"": ""right"",
+                    ""id"": ""3bc434fa-94f0-4dc0-9f78-2b2f86cfabb0"",
+                    ""path"": ""<Keyboard>/l"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": "";Touch"",
-                    ""action"": ""Coral Score"",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Rotate"",
                     ""isComposite"": false,
-                    ""isPartOfComposite"": false
+                    ""isPartOfComposite"": true
                 },
                 {
                     ""name"": """",
-                    ""id"": ""ee3d0cd2-254e-47a7-a8cb-bc94d9658c54"",
-                    ""path"": ""<Joystick>/trigger"",
+                    ""id"": ""e742475e-0ce1-49a6-9149-6c02acf81d41"",
+                    ""path"": ""<XInputController>/rightStick"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Joystick"",
-                    ""action"": ""Coral Score"",
+                    ""action"": ""Rotate"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""8255d333-5683-4943-a58a-ccb207ff1dce"",
-                    ""path"": ""<XRController>/{PrimaryAction}"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""XR"",
-                    ""action"": ""Coral Score"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""8c9b1bff-4db6-458b-a57e-3271429cf63d"",
-                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""id"": ""bcc4c6fe-ea54-4e2f-ab0a-ac60d9fc6e15"",
+                    ""path"": ""<Gamepad>/select"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Gamepad"",
+                    ""action"": ""Coral Intake"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fbaf6fc7-dec5-4da7-b78e-13e849a34180"",
+                    ""path"": ""<XInputController>/select"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Coral Intake"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3496ec90-1faa-4b84-87a4-3a0ea0286a82"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Net Score"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8ac66aa8-576c-429b-9c38-052609ac1d6c"",
+                    ""path"": ""<XInputController>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Net Score"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""57a3af32-286e-4e70-b177-cdf2a002b74e"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Processor Score"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""232aa584-758a-4575-9cb0-d96068c68554"",
+                    ""path"": ""<XInputController>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Processor Score"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4a19acbd-f3e6-47dc-89d0-d500dfff31a0"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Super Score"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""712d3493-00ed-40ff-9a79-1cabeacaca31"",
+                    ""path"": ""<XInputController>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Super Score"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6816ccf1-661b-42e6-a53a-76de4a2285d0"",
+                    ""path"": ""<Gamepad>/dpad/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Climber Down"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""030ac5f2-3cbf-4bd4-833c-57312d5c1da6"",
+                    ""path"": ""<XInputController>/dpad/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Climber Down"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5d3da04c-c304-4749-9941-61d6055cf80a"",
+                    ""path"": ""<Gamepad>/dpad/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Climber Up"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""11b1f3f9-d25c-461b-8a91-c13659610c86"",
+                    ""path"": ""<XInputController>/dpad/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Climber Up"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e4182757-bc17-455a-bdf0-701420245c7d"",
+                    ""path"": ""<Gamepad>/dpad/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Coral Eject"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""19a5e75e-8bdf-4ea8-a3e7-041c43f4a6eb"",
+                    ""path"": ""<XInputController>/dpad/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Coral Eject"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e6dd78d6-0728-447c-8e23-90f6046ffa4c"",
+                    ""path"": ""<Gamepad>/dpad/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Algae Eject"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""136f91ce-ccc7-4aba-b274-e42bec279255"",
+                    ""path"": ""<XInputController>/dpad/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Algae Eject"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3146e2d2-8f66-42da-a737-d8708c6f41ee"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
                     ""action"": ""Algae Intake"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""443673e1-f49d-489a-94c9-feae64ef8b4e"",
-                    ""path"": ""<Mouse>/leftButton"",
+                    ""id"": ""b6110320-9b69-4560-aa12-8aa6b2d28372"",
+                    ""path"": ""<XInputController>/leftTrigger"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": "";Keyboard&Mouse"",
+                    ""groups"": """",
                     ""action"": ""Algae Intake"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""fbd6af66-981f-4b54-b2f9-f7936161187a"",
-                    ""path"": ""<Touchscreen>/primaryTouch/tap"",
+                    ""id"": ""be9c704c-aef0-4174-9495-ef59479f401b"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": "";Touch"",
-                    ""action"": ""Algae Intake"",
+                    ""groups"": """",
+                    ""action"": ""Coral Score"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""66c93af3-c350-4449-ad81-0880e6eb77f8"",
-                    ""path"": ""<Joystick>/trigger"",
+                    ""id"": ""687b49fc-0a25-447c-96b4-96f75785dc9e"",
+                    ""path"": ""<XInputController>/rightShoulder"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Joystick"",
-                    ""action"": ""Algae Intake"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""03d5498f-d9ca-4afb-bee5-3e43ffbefe7f"",
-                    ""path"": ""<XRController>/{PrimaryAction}"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""XR"",
-                    ""action"": ""Algae Intake"",
+                    ""groups"": """",
+                    ""action"": ""Coral Score"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -947,8 +1193,17 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Drive = m_Player.FindAction("Drive", throwIfNotFound: true);
-        m_Player_CoralScore = m_Player.FindAction("Coral Score", throwIfNotFound: true);
+        m_Player_Rotate = m_Player.FindAction("Rotate", throwIfNotFound: true);
         m_Player_AlgaeIntake = m_Player.FindAction("Algae Intake", throwIfNotFound: true);
+        m_Player_CoralIntake = m_Player.FindAction("Coral Intake", throwIfNotFound: true);
+        m_Player_CoralScore = m_Player.FindAction("Coral Score", throwIfNotFound: true);
+        m_Player_NetScore = m_Player.FindAction("Net Score", throwIfNotFound: true);
+        m_Player_ProcessorScore = m_Player.FindAction("Processor Score", throwIfNotFound: true);
+        m_Player_SuperScore = m_Player.FindAction("Super Score", throwIfNotFound: true);
+        m_Player_ClimberDown = m_Player.FindAction("Climber Down", throwIfNotFound: true);
+        m_Player_ClimberUp = m_Player.FindAction("Climber Up", throwIfNotFound: true);
+        m_Player_CoralEject = m_Player.FindAction("Coral Eject", throwIfNotFound: true);
+        m_Player_AlgaeEject = m_Player.FindAction("Algae Eject", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1043,8 +1298,17 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Player;
     private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
     private readonly InputAction m_Player_Drive;
-    private readonly InputAction m_Player_CoralScore;
+    private readonly InputAction m_Player_Rotate;
     private readonly InputAction m_Player_AlgaeIntake;
+    private readonly InputAction m_Player_CoralIntake;
+    private readonly InputAction m_Player_CoralScore;
+    private readonly InputAction m_Player_NetScore;
+    private readonly InputAction m_Player_ProcessorScore;
+    private readonly InputAction m_Player_SuperScore;
+    private readonly InputAction m_Player_ClimberDown;
+    private readonly InputAction m_Player_ClimberUp;
+    private readonly InputAction m_Player_CoralEject;
+    private readonly InputAction m_Player_AlgaeEject;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -1061,13 +1325,49 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         /// </summary>
         public InputAction @Drive => m_Wrapper.m_Player_Drive;
         /// <summary>
-        /// Provides access to the underlying input action "Player/CoralScore".
+        /// Provides access to the underlying input action "Player/Rotate".
         /// </summary>
-        public InputAction @CoralScore => m_Wrapper.m_Player_CoralScore;
+        public InputAction @Rotate => m_Wrapper.m_Player_Rotate;
         /// <summary>
         /// Provides access to the underlying input action "Player/AlgaeIntake".
         /// </summary>
         public InputAction @AlgaeIntake => m_Wrapper.m_Player_AlgaeIntake;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/CoralIntake".
+        /// </summary>
+        public InputAction @CoralIntake => m_Wrapper.m_Player_CoralIntake;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/CoralScore".
+        /// </summary>
+        public InputAction @CoralScore => m_Wrapper.m_Player_CoralScore;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/NetScore".
+        /// </summary>
+        public InputAction @NetScore => m_Wrapper.m_Player_NetScore;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/ProcessorScore".
+        /// </summary>
+        public InputAction @ProcessorScore => m_Wrapper.m_Player_ProcessorScore;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/SuperScore".
+        /// </summary>
+        public InputAction @SuperScore => m_Wrapper.m_Player_SuperScore;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/ClimberDown".
+        /// </summary>
+        public InputAction @ClimberDown => m_Wrapper.m_Player_ClimberDown;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/ClimberUp".
+        /// </summary>
+        public InputAction @ClimberUp => m_Wrapper.m_Player_ClimberUp;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/CoralEject".
+        /// </summary>
+        public InputAction @CoralEject => m_Wrapper.m_Player_CoralEject;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/AlgaeEject".
+        /// </summary>
+        public InputAction @AlgaeEject => m_Wrapper.m_Player_AlgaeEject;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -1097,12 +1397,39 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
             @Drive.started += instance.OnDrive;
             @Drive.performed += instance.OnDrive;
             @Drive.canceled += instance.OnDrive;
-            @CoralScore.started += instance.OnCoralScore;
-            @CoralScore.performed += instance.OnCoralScore;
-            @CoralScore.canceled += instance.OnCoralScore;
+            @Rotate.started += instance.OnRotate;
+            @Rotate.performed += instance.OnRotate;
+            @Rotate.canceled += instance.OnRotate;
             @AlgaeIntake.started += instance.OnAlgaeIntake;
             @AlgaeIntake.performed += instance.OnAlgaeIntake;
             @AlgaeIntake.canceled += instance.OnAlgaeIntake;
+            @CoralIntake.started += instance.OnCoralIntake;
+            @CoralIntake.performed += instance.OnCoralIntake;
+            @CoralIntake.canceled += instance.OnCoralIntake;
+            @CoralScore.started += instance.OnCoralScore;
+            @CoralScore.performed += instance.OnCoralScore;
+            @CoralScore.canceled += instance.OnCoralScore;
+            @NetScore.started += instance.OnNetScore;
+            @NetScore.performed += instance.OnNetScore;
+            @NetScore.canceled += instance.OnNetScore;
+            @ProcessorScore.started += instance.OnProcessorScore;
+            @ProcessorScore.performed += instance.OnProcessorScore;
+            @ProcessorScore.canceled += instance.OnProcessorScore;
+            @SuperScore.started += instance.OnSuperScore;
+            @SuperScore.performed += instance.OnSuperScore;
+            @SuperScore.canceled += instance.OnSuperScore;
+            @ClimberDown.started += instance.OnClimberDown;
+            @ClimberDown.performed += instance.OnClimberDown;
+            @ClimberDown.canceled += instance.OnClimberDown;
+            @ClimberUp.started += instance.OnClimberUp;
+            @ClimberUp.performed += instance.OnClimberUp;
+            @ClimberUp.canceled += instance.OnClimberUp;
+            @CoralEject.started += instance.OnCoralEject;
+            @CoralEject.performed += instance.OnCoralEject;
+            @CoralEject.canceled += instance.OnCoralEject;
+            @AlgaeEject.started += instance.OnAlgaeEject;
+            @AlgaeEject.performed += instance.OnAlgaeEject;
+            @AlgaeEject.canceled += instance.OnAlgaeEject;
         }
 
         /// <summary>
@@ -1117,12 +1444,39 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
             @Drive.started -= instance.OnDrive;
             @Drive.performed -= instance.OnDrive;
             @Drive.canceled -= instance.OnDrive;
-            @CoralScore.started -= instance.OnCoralScore;
-            @CoralScore.performed -= instance.OnCoralScore;
-            @CoralScore.canceled -= instance.OnCoralScore;
+            @Rotate.started -= instance.OnRotate;
+            @Rotate.performed -= instance.OnRotate;
+            @Rotate.canceled -= instance.OnRotate;
             @AlgaeIntake.started -= instance.OnAlgaeIntake;
             @AlgaeIntake.performed -= instance.OnAlgaeIntake;
             @AlgaeIntake.canceled -= instance.OnAlgaeIntake;
+            @CoralIntake.started -= instance.OnCoralIntake;
+            @CoralIntake.performed -= instance.OnCoralIntake;
+            @CoralIntake.canceled -= instance.OnCoralIntake;
+            @CoralScore.started -= instance.OnCoralScore;
+            @CoralScore.performed -= instance.OnCoralScore;
+            @CoralScore.canceled -= instance.OnCoralScore;
+            @NetScore.started -= instance.OnNetScore;
+            @NetScore.performed -= instance.OnNetScore;
+            @NetScore.canceled -= instance.OnNetScore;
+            @ProcessorScore.started -= instance.OnProcessorScore;
+            @ProcessorScore.performed -= instance.OnProcessorScore;
+            @ProcessorScore.canceled -= instance.OnProcessorScore;
+            @SuperScore.started -= instance.OnSuperScore;
+            @SuperScore.performed -= instance.OnSuperScore;
+            @SuperScore.canceled -= instance.OnSuperScore;
+            @ClimberDown.started -= instance.OnClimberDown;
+            @ClimberDown.performed -= instance.OnClimberDown;
+            @ClimberDown.canceled -= instance.OnClimberDown;
+            @ClimberUp.started -= instance.OnClimberUp;
+            @ClimberUp.performed -= instance.OnClimberUp;
+            @ClimberUp.canceled -= instance.OnClimberUp;
+            @CoralEject.started -= instance.OnCoralEject;
+            @CoralEject.performed -= instance.OnCoralEject;
+            @CoralEject.canceled -= instance.OnCoralEject;
+            @AlgaeEject.started -= instance.OnAlgaeEject;
+            @AlgaeEject.performed -= instance.OnAlgaeEject;
+            @AlgaeEject.canceled -= instance.OnAlgaeEject;
         }
 
         /// <summary>
@@ -1431,12 +1785,12 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnDrive(InputAction.CallbackContext context);
         /// <summary>
-        /// Method invoked when associated input action "Coral Score" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// Method invoked when associated input action "Rotate" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnCoralScore(InputAction.CallbackContext context);
+        void OnRotate(InputAction.CallbackContext context);
         /// <summary>
         /// Method invoked when associated input action "Algae Intake" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
@@ -1444,6 +1798,69 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnAlgaeIntake(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Coral Intake" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnCoralIntake(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Coral Score" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnCoralScore(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Net Score" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnNetScore(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Processor Score" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnProcessorScore(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Super Score" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnSuperScore(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Climber Down" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnClimberDown(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Climber Up" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnClimberUp(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Coral Eject" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnCoralEject(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Algae Eject" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnAlgaeEject(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "UI" which allows adding and removing callbacks.
