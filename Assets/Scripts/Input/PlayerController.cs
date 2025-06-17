@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     public BaseRobot robot;
-    private InputActions playerControls;
+    private MukwonagoBotInput playerControls;
     private BaseRobot robotActions;
 
     private Vector2 moveDirection;
@@ -32,7 +32,7 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
-        playerControls = new InputActions();
+        playerControls = new MukwonagoBotInput();
     }
 
     private InputAction BindInput(ref InputAction actionField, InputAction inputAction)
