@@ -12,64 +12,25 @@ public class BaseRobot : MonoBehaviour
     {
         robotRigidbody = robot.GetComponent<Rigidbody>();
     }
-    public void Drive(Vector2 driveInput, Vector2 rotateInput)
+    public void Drive(Vector2 driveInput)
     {
         robotRigidbody.AddForce(-driveInput.y * driveSpeed * Time.deltaTime, 0, driveInput.x * driveSpeed * Time.deltaTime, ForceMode.Force);
+    }
+
+    public void Rotate(Vector2 rotateInput)
+    {
         robotRigidbody.AddTorque(0, rotateInput.x * rotateSpeed * Time.deltaTime, 0, ForceMode.Force);
     }
 
-    public virtual void CoralIntake()
-    {
-        Debug.Log("BaseRobot is intaking coral.");
-    }
-
-    public virtual void AlgaeIntake()
-    {
-        Debug.Log("BaseRobot is intaking algae.");
-    }
-
-    public virtual void CoralScore()
-    {
-        Debug.Log("BaseRobot is scoring coral.");
-    }
-
-    public virtual void NetScore()
-    {
-        Debug.Log("BaseRobot is scoring in the net.");
-    }
-
-    public virtual void ProcessorScore()
-    {
-        Debug.Log("BaseRobot is scoring in the processor.");
-    }
-
-    public virtual void SuperScore()
-    {
-        Debug.Log("BaseRobot is performing a super score.");
-    }
-
-    public virtual void Climb()
-    {
-        Debug.Log("BaseRobot is climbing.");
-    }
-
-    public virtual void ClimberDown()
-    {
-        Debug.Log("BaseRobot is moving the climber down.");
-    }
-
-    public virtual void ClimberUp()
-    {
-        Debug.Log("BaseRobot is moving the climber up.");
-    }
-
-    public virtual void CoralEject()
-    {
-        Debug.Log("BaseRobot is ejecting coral.");
-    }
-
-    public virtual void AlgaeEject()
-    {
-        Debug.Log("BaseRobot is ejecting algae.");
-    }
+    public virtual void CoralIntake() { }
+    public virtual void AlgaeIntake() { }
+    public virtual void CoralScore() { }
+    public virtual void NetScore() { }
+    public virtual void ProcessorScore() { }
+    public virtual void SuperScore() { }
+    public virtual void Climb() { }
+    public virtual void ClimberDown() { }
+    public virtual void ClimberUp() { }
+    public virtual void CoralEject() { }
+    public virtual void AlgaeEject() { }
 }
