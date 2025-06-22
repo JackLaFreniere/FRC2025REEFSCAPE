@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53bcd07173f0c2540b1dbf8f2ab25436, type: 3}
   m_Name: KitBot
   m_EditorClassIdentifier: 
-  robotPrefab: {fileID: 9131758331810408793, guid: 0dc39d6444e14ed4f943c9974c3e1435, type: 3}
+  robotPrefab: {fileID: 6764355199059621162, guid: 1b433c6c9bc48ea4599e62540f3db7d7, type: 3}
   playerInput: {fileID: -944628639613478452, guid: 767e62c8d7e2c5846a49c2be5bb690fd, type: 3}
