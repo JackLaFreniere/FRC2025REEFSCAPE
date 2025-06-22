@@ -4,5 +4,4 @@ public interface IRobotInputHandler
     void InputAwake();
     void InputOnEnable();
     void InputOnDisable();
-    void InputFixedUpdate();
 }

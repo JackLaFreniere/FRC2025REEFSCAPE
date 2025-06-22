@@ -28,9 +28,4 @@ public class PlayerController : MonoBehaviour
     {
         robotActions.InputOnDisable();
     }
-
-    private void FixedUpdate()
-    {
-        robotActions.InputFixedUpdate();
-    }
 }
