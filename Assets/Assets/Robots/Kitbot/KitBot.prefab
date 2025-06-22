@@ -116,9 +116,10 @@ GameObject:
   - component: {fileID: 2644368287011175992}
   - component: {fileID: 2209298354633568192}
   - component: {fileID: -4678429714710949938}
+  - component: {fileID: 1236426760480247336}
   m_Layer: 0
   m_Name: KitBot
-  m_TagString: Untagged
+  m_TagString: Robot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -195,6 +196,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 2
+--- !u!65 &1236426760480247336
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6764355199059621162}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.6731, y: 0.820674, z: 0.888924}
+  m_Center: {x: 0, y: 0, z: -0.444462}
 --- !u!1 &7016312019057036776
 GameObject:
   m_ObjectHideFlags: 0
@@ -1903,11 +1925,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8032428530237044770, guid: 68b10addd8cf65a44913f6777cee0c74, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.283
+      value: 0.2495146
       objectReference: {fileID: 0}
     - target: {fileID: 8032428530237044770, guid: 68b10addd8cf65a44913f6777cee0c74, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.856
+      value: -0.6524497
       objectReference: {fileID: 0}
     - target: {fileID: 8032428530237044770, guid: 68b10addd8cf65a44913f6777cee0c74, type: 3}
       propertyPath: m_LocalRotation.w

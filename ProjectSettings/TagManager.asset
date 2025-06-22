@@ -5,7 +5,7 @@ TagManager:
   serializedVersion: 3
   tags:
   - CoralScoringWheel
-  - ScoringWheel
+  - Robot
   layers:
   - Default
   - TransparentFX
