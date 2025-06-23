@@ -20,8 +20,8 @@ public class KitBotInputInstructions : MonoBehaviour, IRobotInputHandler
     {
         playerControls.Player.Enable();
 
-        playerControls.Player.CoralScore.performed += ctx => robot.CoralScorePerformed();
-        playerControls.Player.CoralScore.canceled += ctx => robot.CoralScoreCanceled();
+        playerControls.Player.CoralScore.performed += ctx => robot.CoralScore();
+        playerControls.Player.CoralScore.canceled += ctx => robot.Idle();
 
         robot.SetDrive(playerControls.Player.Drive);
         robot.SetRotate(playerControls.Player.Rotate);

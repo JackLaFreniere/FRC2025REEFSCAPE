@@ -49,24 +49,15 @@ public class BaseRobot : MonoBehaviour
         this.rotate = rotate;
     }
 
-    public virtual void CoralIntakePerformed() { }
-    public virtual void CoralIntakeCanceled() { }
-    public virtual void AlgaeIntakePerformed() { }
-    public virtual void AlgaeIntakeCanceled() { }
-    public virtual void CoralScorePerformed() { }
-    public virtual void CoralScoreCanceled() { }
-    public virtual void NetScorePerformed() { }
-    public virtual void NetScoreCanceled() { }
-    public virtual void ProcessorScorePerformed() { }
-    public virtual void ProcessorScoreCanceled() { }
-    public virtual void SuperScorePerformed() { }
-    public virtual void SuperScoreCanceled() { }
-    public virtual void ClimberDownPerformed() { }
-    public virtual void ClimberDownCanceled() { }
-    public virtual void ClimberUpPerformed() { }
-    public virtual void ClimberUpCanceled() { }
-    public virtual void CoralEjectPerformed() { }
-    public virtual void CoralEjectCanceled() { }
-    public virtual void AlgaeEjectPerformed() { }
-    public virtual void AlgaeEjectCanceled() { }
+    public virtual void CoralIntake() { }
+    public virtual void AlgaeIntake() { }
+    public virtual void CoralScore() { }
+    public virtual void NetScore() { }
+    public virtual void ProcessorScore() { }
+    public virtual void SuperScore() { }
+    public virtual void ClimberDown() { }
+    public virtual void ClimberUp() { }
+    public virtual void CoralEject() { }
+    public virtual void AlgaeEject() { }
+    public virtual void Idle() { }
 }
