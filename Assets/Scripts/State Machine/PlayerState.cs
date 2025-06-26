@@ -12,7 +12,6 @@ public abstract class PlayerState
     }
 
     public virtual void Enter() { }
-    public virtual void HandleInput() { }
-    public virtual void UpdateLogic() { }
+    public virtual void Update() { }
     public virtual void Exit() { }
 }

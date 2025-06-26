@@ -2,15 +2,11 @@ using UnityEngine;
 
 public class KitBotStateMachine : BaseRobot
 {
-    private StateMachine stateMachine;
-    private PlayerState idleState;
-    private PlayerState coralScoreState;
-
     private void Awake()
     {
         stateMachine = new StateMachine();
-        idleState = new IdleState(this, stateMachine);
-        coralScoreState = new CoralScoreState(this, stateMachine);
+        idleState = new KitBotIdleState(this, stateMachine);
+        coralScoreState = new KitBotCoralScoreState(this, stateMachine);
     }
 
     protected override void Start()
@@ -21,8 +17,7 @@ public class KitBotStateMachine : BaseRobot
 
     private void Update()
     {
-        stateMachine.CurrentState.HandleInput();
-        stateMachine.CurrentState.UpdateLogic();
+        stateMachine.CurrentState.Update();
     }
 
     public override void CoralScore()

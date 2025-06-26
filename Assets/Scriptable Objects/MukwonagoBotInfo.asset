@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53bcd07173f0c2540b1dbf8f2ab25436, type: 3}
   m_Name: MukwonagoBotInfo
   m_EditorClassIdentifier: 
-  robotPrefab: {fileID: 8286356200058838459, guid: 0bf5be6219f598b4785c39a6fb8ffffc, type: 3}
+  robotPrefab: {fileID: 8815028075416148250, guid: 49a188bc7fa8a68449f1d45a987a9d59, type: 3}
   playerInput: {fileID: -944628639613478452, guid: f2eea90604781f64db5ac6041bd49324, type: 3}
+  spawnEuler: {x: 0, y: -90, z: 0}

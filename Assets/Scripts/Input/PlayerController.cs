@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
-        robotInstance = Instantiate(robotInfo.robotPrefab, new Vector3(4f, 0.1f, -2f), Quaternion.Euler(90f, 90f, 0f));
+        robotInstance = Instantiate(robotInfo.robotPrefab, new Vector3(4f, 0.1f, -2f), Quaternion.Euler(robotInfo.spawnEuler));
 
         robotActions = robotInstance.GetComponent<IRobotInputHandler>();
         this.GetComponent<PlayerInput>().actions = robotInfo.playerInput;

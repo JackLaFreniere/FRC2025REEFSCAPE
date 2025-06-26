@@ -12,6 +12,18 @@ public class BaseRobot : MonoBehaviour
     private InputAction drive;
     private InputAction rotate;
 
+    public StateMachine stateMachine;
+    public PlayerState idleState;
+    public PlayerState algaeIntakeState;
+    public PlayerState coralIntakeState;
+    public PlayerState coralScoreState;
+    public PlayerState netScoreState;
+    public PlayerState processorScoreState;
+    public PlayerState climberDownState;
+    public PlayerState climberUpState;
+    public PlayerState coralEjectState;
+    public PlayerState algaeEjectState;
+
     protected virtual void Start()
     {
         robot = this.gameObject;
@@ -31,12 +43,12 @@ public class BaseRobot : MonoBehaviour
 
     public void Drive(Vector2 driveInput)
     {
-        robotRigidbody.AddForce(-driveInput.y * driveSpeed * Time.deltaTime, 0, driveInput.x * driveSpeed * Time.deltaTime, ForceMode.Force);
+        robotRigidbody.AddForce(-driveInput.y * driveSpeed * Time.deltaTime, 0, driveInput.x * driveSpeed * Time.fixedDeltaTime, ForceMode.Force);
     }
 
     public void Rotate(Vector2 rotateInput)
     {
-        robotRigidbody.AddTorque(0, rotateInput.x * rotateSpeed * Time.deltaTime, 0, ForceMode.Force);
+        robotRigidbody.AddTorque(0, rotateInput.x * rotateSpeed * Time.fixedDeltaTime, 0, ForceMode.Force);
     }
 
     public void SetDrive(InputAction drive)

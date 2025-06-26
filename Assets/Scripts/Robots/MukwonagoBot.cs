@@ -1,59 +1,81 @@
+using Unity.IO.LowLevel.Unsafe;
 using UnityEngine;
 
-public class MukwonagoBot : BaseRobot
+public class MukwonagoBotStateMachine : BaseRobot
 {
-    //public override void CoralIntake()
-    //{
-    //    Debug.Log("MukwonagoBot is intaking coral.");
-    //}
+    private void Awake()
+    {
+        stateMachine = new StateMachine();
+        idleState = new MukwonagoBotIdleState(this, stateMachine);
+        coralIntakeState = new MukwonagoBotCoralIntakeState(this, stateMachine);
+        algaeIntakeState = new MukwonagoBotAlgaeIntakeState(this, stateMachine);
+        coralScoreState = new MukwonagoBotCoralScoreState(this, stateMachine);
+        netScoreState = new MukwonagoBotNetScoreState(this, stateMachine);
+        processorScoreState = new MukwonagoBotProcessorScoreState(this, stateMachine);
+        climberDownState = new MukwonagoBotClimberDownState(this, stateMachine);
+        climberUpState = new MukwonagoBotClimberUpState(this, stateMachine);
+        coralEjectState = new MukwonagoBotCoralEjectState(this, stateMachine);
+        algaeEjectState = new MukwonagoBotAlgaeEjectState(this, stateMachine);
+    }
 
-    //public override void AlgaeIntake()
-    //{
-    //    Debug.Log("MukwonagoBot is intaking algae.");
-    //}
+    protected override void Start()
+    {
+        base.Start();
+        stateMachine.Initialize(idleState);
+    }
 
-    //public override void CoralScore()
-    //{
-    //    Debug.Log("MukwonagoBot is scoring coral.");
-    //}
+    private void Update()
+    {
+        stateMachine.CurrentState.Update();
+    }
 
-    //public override void NetScore() 
-    //{
-    //    Debug.Log("MukwonagoBot is scoring in the net.");
-    //}
+    public override void CoralIntake()
+    {
+        stateMachine.ChangeState(coralIntakeState);
+    }
 
-    //public override void ProcessorScore()
-    //{
-    //    Debug.Log("MukwonagoBot is scoring in the processor.");
-    //}
+    public override void AlgaeIntake()
+    {
+        stateMachine.ChangeState(algaeIntakeState);
+    }
 
-    //public override void SuperScore()
-    //{
-    //    Debug.Log("MukwonagoBot is performing a super score.");
-    //}
+    public override void CoralScore()
+    {
+        stateMachine.ChangeState(coralScoreState);
+    }
 
-    //public override void Climb()
-    //{
-    //    Debug.Log("MukwonagoBot is climbing.");
-    //}
+    public override void NetScore()
+    {
+        stateMachine.ChangeState(netScoreState);
+    }
 
-    //public override void ClimberDown()
-    //{
-    //    Debug.Log("MukwonagoBot is moving the climber down.");
-    //}
+    public override void ProcessorScore()
+    {
+        stateMachine.ChangeState(processorScoreState);
+    }
 
-    //public override void ClimberUp()
-    //{
-    //    Debug.Log("MukwonagoBot is moving the climber up.");
-    //}
+    public override void ClimberDown()
+    {
+        stateMachine.ChangeState(climberDownState);
+    }
 
-    //public override void CoralEject()
-    //{
-    //    Debug.Log("MukwonagoBot is ejecting coral.");
-    //}
+    public override void ClimberUp()
+    {
+        stateMachine.ChangeState(climberUpState);
+    }
 
-    //public override void AlgaeEject()
-    //{
-    //    Debug.Log("MukwonagoBot is ejecting algae.");
-    //}
+    public override void CoralEject()
+    {
+        stateMachine.ChangeState(coralEjectState);
+    }
+
+    public override void AlgaeEject()
+    {
+        stateMachine.ChangeState(algaeEjectState);
+    }
+
+    public override void Idle()
+    {
+        stateMachine.ChangeState(idleState);
+    }
 }
