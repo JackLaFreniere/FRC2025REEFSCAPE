@@ -1,13 +1,25 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class MukwonagoBotIdleState : PlayerState
 {
     public MukwonagoBotIdleState(BaseRobot player, StateMachine stateMachine) : base(player, stateMachine) { }
 
+    private Elevator elevator;
+    private Shoulder shoulder;
+    private Elbow elbow;
+    private Wrist wrist;
+
     public override void Enter()
     {
-        // Logic for entering the idle state
-        Debug.Log("MukwonagoBot is now in Idle State.");
+        elevator = player.transform.Find("Elevator").GetComponent<Elevator>();
+        shoulder = player.transform.Find("Elevator").Find("Shoulder").GetComponent<Shoulder>();
+        elbow = player.transform.Find("Elevator").Find("Shoulder").Find("Elbow").GetComponent<Elbow>();
+        wrist = player.transform.Find("Elevator").Find("Shoulder").Find("Elbow").Find("Wrist").GetComponent<Wrist>();
+        elevator.SetTargetRotation(0f);
+        shoulder.SetTargetRotation(0f);
+        elbow.SetTargetRotation(0f);
+        wrist.SetTargetRotation(0f);
     }
 }
 
@@ -15,10 +27,21 @@ public class MukwonagoBotCoralIntakeState : PlayerState
 {
     public MukwonagoBotCoralIntakeState(BaseRobot player, StateMachine stateMachine) : base(player, stateMachine) { }
 
+    private Elevator elevator;
+    private Shoulder shoulder;
+    private Elbow elbow;
+    private Wrist wrist;
+
     public override void Enter()
     {
-        // Logic for entering the coral intake state
-        Debug.Log("MukwonagoBot is now in Coral Intake State.");
+        elevator = player.transform.Find("Elevator").GetComponent<Elevator>();
+        shoulder = player.transform.Find("Elevator").Find("Shoulder").GetComponent<Shoulder>();
+        elbow = player.transform.Find("Elevator").Find("Shoulder").Find("Elbow").GetComponent<Elbow>();
+        wrist = player.transform.Find("Elevator").Find("Shoulder").Find("Elbow").Find("Wrist").GetComponent<Wrist>();
+        elevator.SetTargetRotation(0f);
+        shoulder.SetTargetRotation(-30f);
+        elbow.SetTargetRotation(45f);
+        wrist.SetTargetRotation(90f);
     }
 }
 

@@ -208,6 +208,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2936585621334500646}
+  - component: {fileID: 4271362915785518592}
   m_Layer: 0
   m_Name: Shoulder
   m_TagString: Untagged
@@ -247,6 +248,19 @@ Transform:
   - {fileID: 3058127439888174371}
   m_Father: {fileID: 4527192823480427610}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4271362915785518592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1044605330798697773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d596870ab8be45544944bb4f0aef799a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 10
 --- !u!1 &1845278072905195437
 GameObject:
   m_ObjectHideFlags: 0
@@ -256,6 +270,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 390313901647610225}
+  - component: {fileID: 6016520649676573109}
   m_Layer: 0
   m_Name: Wrist
   m_TagString: Untagged
@@ -314,6 +329,19 @@ Transform:
   - {fileID: 3816251061227857748}
   m_Father: {fileID: 8052614812948048586}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6016520649676573109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1845278072905195437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b215cc3f8d44f64f93348e24a7aba09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 10
 --- !u!1 &3123702189032668132
 GameObject:
   m_ObjectHideFlags: 0
@@ -323,6 +351,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8052614812948048586}
+  - component: {fileID: 4457062085810101308}
   m_Layer: 0
   m_Name: Elbow
   m_TagString: Untagged
@@ -379,6 +408,19 @@ Transform:
   - {fileID: 2334912376101785965}
   m_Father: {fileID: 2936585621334500646}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4457062085810101308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3123702189032668132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67004d289e575f4498c8818b5da5d91f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 10
 --- !u!1 &3904769542916710377
 GameObject:
   m_ObjectHideFlags: 0
@@ -388,6 +430,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3425345558229293290}
+  - component: {fileID: 1996288683637160151}
   m_Layer: 0
   m_Name: Climber
   m_TagString: Untagged
@@ -435,6 +478,19 @@ Transform:
   - {fileID: 7070504142830171368}
   m_Father: {fileID: 2063219403774413228}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1996288683637160151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3904769542916710377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd70daf730e241249b911a483dd61b41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 10
 --- !u!1 &8173704791868284487
 GameObject:
   m_ObjectHideFlags: 0
@@ -444,6 +500,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4527192823480427610}
+  - component: {fileID: 580688323277240101}
   m_Layer: 0
   m_Name: Elevator
   m_TagString: Untagged
@@ -489,6 +546,19 @@ Transform:
   - {fileID: 7028574745877736053}
   m_Father: {fileID: 2063219403774413228}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &580688323277240101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8173704791868284487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cca3f6eeeca6b7745bd368342604609a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 10
 --- !u!1 &8815028075416148250
 GameObject:
   m_ObjectHideFlags: 0
