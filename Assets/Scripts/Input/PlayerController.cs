@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private RobotInfo robotInfo;
+    public RobotInfo robotInfo;
     private IRobotInputHandler robotActions;
     private GameObject robotInstance;
 

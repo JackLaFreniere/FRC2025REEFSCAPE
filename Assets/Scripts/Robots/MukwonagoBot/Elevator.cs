@@ -2,16 +2,22 @@ using UnityEngine;
 
 public class Elevator : MonoBehaviour
 {
-    private Quaternion targetRotation = Quaternion.Euler(0f, 0f, 0f);
-    [SerializeField] private float rotationSpeed = 10f;
+    private Vector3 targetPosition = Vector3.zero;
+    [SerializeField] private float movementSpeed = 3f;
+    private readonly float elevatorOffset = 0.104692f;
 
     private void FixedUpdate()
     {
-        //transform.localRotation = Quaternion.Lerp(transform.localRotation, targetRotation, Time.fixedDeltaTime * rotationSpeed);
+        transform.localPosition = Vector3.Lerp(transform.localPosition, targetPosition, Time.fixedDeltaTime * movementSpeed);
     }
 
-    public void SetTargetRotation(float rotation)
+    public void SetTargetPosition(float position)
     {
-        targetRotation = Quaternion.Euler(rotation, 0f, 0f);
+        targetPosition = new Vector3(0f, InchesToMeters(position) + elevatorOffset, 0.036309f);
+    }
+
+    public float InchesToMeters(float inches)
+    {
+        return inches * 0.0254f; // Convert inches to meters
     }
 }

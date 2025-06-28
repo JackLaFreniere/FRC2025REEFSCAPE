@@ -1,8 +1,14 @@
 using Unity.IO.LowLevel.Unsafe;
 using UnityEngine;
 
-public class MukwonagoBotStateMachine : BaseRobot
+public class MukwonagoBotManager : BaseRobot
 {
+    public Elevator elevator { get; private set; }
+    public Shoulder shoulder { get; private set; }
+    public Elbow elbow { get; private set; }
+    public Wrist wrist { get; private set; }
+    public Climber climber { get; private set; }
+
     private void Awake()
     {
         stateMachine = new StateMachine();
@@ -20,6 +26,12 @@ public class MukwonagoBotStateMachine : BaseRobot
 
     protected override void Start()
     {
+        elevator = transform.Find("Elevator").GetComponent<Elevator>();
+        shoulder = transform.Find("Elevator").Find("Shoulder").GetComponent<Shoulder>();
+        elbow = transform.Find("Elevator").Find("Shoulder").Find("Elbow").GetComponent<Elbow>();
+        wrist = transform.Find("Elevator").Find("Shoulder").Find("Elbow").Find("Wrist").GetComponent<Wrist>();
+        climber = transform.Find("Climber").GetComponent<Climber>();
+
         base.Start();
         stateMachine.Initialize(idleState);
     }

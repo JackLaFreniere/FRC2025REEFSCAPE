@@ -8,5 +8,5 @@ public class RobotInfo : ScriptableObject
     public GameObject robotPrefab;
     public InputActionAsset playerInput;
     public IRobotInputHandler robotInputHandler;
-    public Vector3 spawnEuler;
+    public Vector3 spawnEuler; 
 }
