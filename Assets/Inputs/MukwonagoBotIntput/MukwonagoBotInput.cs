@@ -412,6 +412,17 @@ public partial class @MukwonagoBotInput: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""07130195-08d8-4f5e-abee-6cc51949b22f"",
+                    ""path"": ""<Keyboard>/k"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Coral Intake"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""3496ec90-1faa-4b84-87a4-3a0ea0286a82"",
                     ""path"": ""<Gamepad>/buttonNorth"",
                     ""interactions"": """",
@@ -601,6 +612,17 @@ public partial class @MukwonagoBotInput: IInputActionCollection2, IDisposable
                     ""name"": """",
                     ""id"": ""687b49fc-0a25-447c-96b4-96f75785dc9e"",
                     ""path"": ""<XInputController>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Coral Score"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9ec6780b-c596-440c-a0db-52206fb79b3a"",
+                    ""path"": ""<Keyboard>/i"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

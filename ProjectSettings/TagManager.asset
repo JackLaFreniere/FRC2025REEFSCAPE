@@ -6,6 +6,8 @@ TagManager:
   tags:
   - CoralScoringWheel
   - Robot
+  - CoralIntakeZone
+  - Coral
   layers:
   - Default
   - TransparentFX
@@ -13,13 +15,13 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Super_Structure
+  - Elevator
+  - Drive_Base
+  - Shoulder
+  - Elbow
+  - Wrist
+  - Climber
   - 
   - 
   - 

@@ -1,14 +1,32 @@
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 
+[RequireComponent(typeof(Rigidbody))]
 public class Elevator : MonoBehaviour
 {
     private Vector3 targetPosition = Vector3.zero;
-    [SerializeField] private float movementSpeed = 3f;
+    [SerializeField] private float forceMultiplier;
     private readonly float elevatorOffset = 0.104692f;
+    private Rigidbody rb;
+    private Quaternion initialRotation;
+    private Vector3 initialPosition;
+
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+        initialRotation = transform.localRotation;
+        initialPosition = transform.localPosition;
+    }
+
+    private void Update()
+    {
+        transform.localRotation = initialRotation;
+        transform.localPosition = new Vector3(initialPosition.x, transform.localPosition.y, initialPosition.z);
+    }
 
     private void FixedUpdate()
     {
-        transform.localPosition = Vector3.Lerp(transform.localPosition, targetPosition, Time.fixedDeltaTime * movementSpeed);
+        rb.MovePosition(Vector3.Lerp(rb.position, targetPosition, Time.fixedDeltaTime * forceMultiplier));
     }
 
     public void SetTargetPosition(float position)
