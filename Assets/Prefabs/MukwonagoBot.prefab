@@ -261,7 +261,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 10
-  rb: {fileID: 0}
 --- !u!1 &1845278072905195437
 GameObject:
   m_ObjectHideFlags: 0
@@ -629,7 +628,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cca3f6eeeca6b7745bd368342604609a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forceMultiplier: 100
+  forceMultiplier: 8
 --- !u!54 &79505163582262745
 Rigidbody:
   m_ObjectHideFlags: 0
