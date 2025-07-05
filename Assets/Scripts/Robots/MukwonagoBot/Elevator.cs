@@ -1,7 +1,6 @@
 using UnityEngine;
-using UnityEngine.PlayerLoop;
 
-[RequireComponent(typeof(Rigidbody))]
+//[RequireComponent(typeof(Rigidbody))]
 public class Elevator : MonoBehaviour
 {
     private Vector3 targetPosition = Vector3.zero;
@@ -13,20 +12,20 @@ public class Elevator : MonoBehaviour
 
     private void Start()
     {
-        rb = GetComponent<Rigidbody>();
-        initialRotation = transform.localRotation;
-        initialPosition = transform.localPosition;
+        //rb = GetComponent<Rigidbody>();
+        //initialRotation = transform.localRotation;
+        //initialPosition = transform.localPosition;
     }
 
     private void Update()
     {
-        transform.localRotation = initialRotation;
-        transform.localPosition = new Vector3(initialPosition.x, transform.localPosition.y, initialPosition.z);
+        //transform.localRotation = initialRotation;
+        //transform.localPosition = new Vector3(initialPosition.x, transform.localPosition.y, initialPosition.z);
     }
 
     private void FixedUpdate()
     {
-        rb.MovePosition(Vector3.Lerp(rb.position, targetPosition, Time.fixedDeltaTime * forceMultiplier));
+        //rb.MovePosition(Vector3.Lerp(rb.position, targetPosition, Time.fixedDeltaTime * forceMultiplier));
     }
 
     public void SetTargetPosition(float position)
