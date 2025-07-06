@@ -4,11 +4,19 @@ using UnityEngine;
 public class Elevator : MonoBehaviour
 {
     [SerializeField] private float speed = 5f;
-    [SerializeField] private Vector3 elevatorOffset = new (0f, 0.104692f, 0.036309f);
 
-    private Vector3 targetPosition;
     private BoxCollider boxCollider;
     private LayerMask fieldLayer;
+
+    private Vector3 targetPosition;
+    private Vector3 elevatorOffset;
+
+    private const float collisionMargin = 0.01f; // 1 cm
+
+    private void Awake()
+    {
+        elevatorOffset = transform.localPosition;
+    }
 
     private void Start()
     {
@@ -43,7 +51,7 @@ public class Elevator : MonoBehaviour
     private void CalculateFieldCollision(Vector3 nextLocalPos)
     {
         // Calculate world position of collider center at next position
-        Vector3 colliderCenter = transform.parent.TransformPoint(nextLocalPos + boxCollider.center);
+        Vector3 colliderCenter = transform.parent.TransformPoint(nextLocalPos + boxCollider.center + new Vector3(0f, collisionMargin, 0f));
         Vector3 colliderSize = Vector3.Scale(boxCollider.size, transform.parent.lossyScale);
 
         // The elevator should only stop for static field objects, so we check how many objects it collides with that are in the fieldLayer
@@ -76,7 +84,7 @@ public class Elevator : MonoBehaviour
     /// </summary>
     /// <param name="inches">The measurement in inches to be converted. Must be a non-negative value.</param>
     /// <returns>The equivalent measurement in meters.</returns>
-    public float InchesToMeters(float inches)
+    private float InchesToMeters(float inches)
     {
         return inches * 0.0254f;
     }
