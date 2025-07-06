@@ -171,6 +171,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Carpet_Blue_StartingLine
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 660f9c3aea80119478b8d30eaef4b811, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -232,6 +236,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: b27cf0c85675f1e43b0edc7c97461e54, type: 3}
       propertyPath: m_Name
       value: CoralStation_Blue_Left_TopPlate
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b27cf0c85675f1e43b0edc7c97461e54, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -295,6 +303,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Amp_Red_Plate001
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 9d16793d0d79cc748b859180e42f7e4e, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -356,6 +368,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 44bd1dcdb87e53f4293c0b9bccdc6826, type: 3}
       propertyPath: m_Name
       value: Amp_Blue_Plate003
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 44bd1dcdb87e53f4293c0b9bccdc6826, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -419,6 +435,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DriverStation_Blue_AngleSupport003
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 62ccec417679da54fbedc42187a4463a, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -480,6 +500,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 7a8ef3dc710f17340979c293d4909e0c, type: 3}
       propertyPath: m_Name
       value: Barge_Right_TrussBase
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7a8ef3dc710f17340979c293d4909e0c, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -543,6 +567,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Amp_Red_WallFrame003
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 614301aaeba5d7145b752dd27e143381, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -605,6 +633,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Barge_Blue_AprilTag4Holder
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 63e58bf01bf832c4ab293135edf606e5, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -624,7 +656,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 35420485}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Reef_Red
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -719,6 +751,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall_Blue_Divider001
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b6db2f7e1c5d18544becf9eaa9ce357c, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -780,6 +816,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 7e9a3b406665dd942b4478c279b64e06, type: 3}
       propertyPath: m_Name
       value: Amp_Red_Ramp
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7e9a3b406665dd942b4478c279b64e06, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -843,6 +883,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Reef_Red_PoleB
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5206752340afffe409dfdb057acd2974, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -904,6 +948,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: b60e3a92ffbf35d40bf3b0c48737192d, type: 3}
       propertyPath: m_Name
       value: Barge_Red_NetSupport001
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b60e3a92ffbf35d40bf3b0c48737192d, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -967,6 +1015,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CoralStation_Red_Right_Frame
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 925bfe5df649d0d44862222e59a6a3be, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -986,7 +1038,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 52752395}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Barge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1100,6 +1152,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall_Blue_VerticalBarConnector002
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ae6504563a958234284d34f23ae4c8c8, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1161,6 +1217,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 2173d7a9de46af34c9a80a9c55c51a7d, type: 3}
       propertyPath: m_Name
       value: Barge_Red_NetSupport002
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 2173d7a9de46af34c9a80a9c55c51a7d, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1224,6 +1284,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CoralStation_Red_Left_LeftSupport
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 68c40f5fb9f228343a47813e76ed5124, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1285,6 +1349,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: e22b14531ddc07b4093943635c0059d9, type: 3}
       propertyPath: m_Name
       value: Wall_Red_VerticleBar003
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e22b14531ddc07b4093943635c0059d9, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1348,6 +1416,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall_Blue_Right_Frame
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7eac73063a8de3c47bf3d9f6c898a054, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1409,6 +1481,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: bd0d8188b00ad0c4aa42affd43c32801, type: 3}
       propertyPath: m_Name
       value: DriverStation_Blue_Bar002
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bd0d8188b00ad0c4aa42affd43c32801, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1472,6 +1548,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Amp_Blue_SideGrid
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 68a5ae4240ea5aa448db18d347027e21, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1534,6 +1614,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Reef_Blue_PoleF
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 59b1c559dac1a294e8b89934582799cb, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1595,6 +1679,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 60709285c304e864ba1c2a234c44e5b1, type: 3}
       propertyPath: m_Name
       value: CoralStation_Red_Left_MiddleIntakePlate
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 60709285c304e864ba1c2a234c44e5b1, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1661,6 +1749,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Amp_Red_WallFrame002
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ef3618d66be5769428d1f07f6b7730c1, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1680,7 +1772,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 139359614}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Coral_Station_Blue_Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1771,10 +1863,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Barge_TransparentPlateCover002
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 090ac0f32a6d3cd4bb014bb6f7dc95cc, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 090ac0f32a6d3cd4bb014bb6f7dc95cc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 774317146}
   m_SourcePrefab: {fileID: 100100000, guid: 090ac0f32a6d3cd4bb014bb6f7dc95cc, type: 3}
 --- !u!4 &140448895 stripped
 Transform:
@@ -1832,6 +1931,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 6d33f950f40512646ab98ef866021eca, type: 3}
       propertyPath: m_Name
       value: CoralStation_Red_Left_LeftSidePlate
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6d33f950f40512646ab98ef866021eca, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1895,6 +1998,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CoralStation_Red_Right_RightSidePlate.001
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e4fcea2cf65766147bf70e4508106526, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1956,6 +2063,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a445f128bb2947b4ebe191f03e169506, type: 3}
       propertyPath: m_Name
       value: Wall_Red_VerticalBarConnector005
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a445f128bb2947b4ebe191f03e169506, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2019,6 +2130,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DriverStation_Red_Middle_Shelf
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d0d0f792ddf55644d8ffc41ad6c8f2d1, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2080,6 +2195,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a152921ea62ebe34eb139b38582f677d, type: 3}
       propertyPath: m_Name
       value: Reef_Blue_PoleD
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a152921ea62ebe34eb139b38582f677d, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2234,6 +2353,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall_Red_VerticleBar013
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1faf3dc486570a349b5fae0ce43260e2, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2295,6 +2418,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 9ad6848c43a6c484ab615e627a04e7f7, type: 3}
       propertyPath: m_Name
       value: CoralStation_Red_Right_TopFrame
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 9ad6848c43a6c484ab615e627a04e7f7, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2358,6 +2485,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Barge_Red_Plate002
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a9e0215ebb6cac94095582695e19f7d9, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2377,7 +2508,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 209959100}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Field_Walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2453,6 +2584,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Carpet_Red_DriverStationZone
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7f2e0a76ed2c797489960790941ffcd2, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2520,6 +2655,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Amp_Red_Frame
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0b829a2b80da7954fb77f8b391d4c805, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2581,6 +2720,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 921968f19ccb40d45a3fe16c217078f5, type: 3}
       propertyPath: m_Name
       value: DriverStation_Red_Bar004
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 921968f19ccb40d45a3fe16c217078f5, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2644,6 +2787,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall_Red_VerticleBar001
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 9b391de4e770a59459d1e2ed6231e865, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2705,6 +2852,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 05b2a75e65d39f04689837837e1a8447, type: 3}
       propertyPath: m_Name
       value: Reef_Blue_AprilTag21
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 05b2a75e65d39f04689837837e1a8447, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2768,10 +2919,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Barge_Left_Truss
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 2dd2ef5ebbb16924b9533613ef98c903, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 2dd2ef5ebbb16924b9533613ef98c903, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1363440096}
   m_SourcePrefab: {fileID: 100100000, guid: 2dd2ef5ebbb16924b9533613ef98c903, type: 3}
 --- !u!4 &306342800 stripped
 Transform:
@@ -2829,6 +2987,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 2c5d41193bc8aba448e00f760f2ed4b6, type: 3}
       propertyPath: m_Name
       value: Wall_Red_VerticleBar009
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 2c5d41193bc8aba448e00f760f2ed4b6, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2892,6 +3054,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Barge_Blue_AprilTag14
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7dd52db8abc169b4d966f81c322e1659, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2953,6 +3119,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 7f93c186f850dde42a9434ea4322d6a8, type: 3}
       propertyPath: m_Name
       value: Barge_Blue_AprilTag14Holder
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7f93c186f850dde42a9434ea4322d6a8, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3016,6 +3186,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DriverStation_Red_AngleSupport004
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 372d4ddfa8a2d6840a97b9f17b5fce56, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3077,6 +3251,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 4773cc7c47ab67d49bfcf93a1a188361, type: 3}
       propertyPath: m_Name
       value: Carpet_Red_Right_AllianceTapeLine
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4773cc7c47ab67d49bfcf93a1a188361, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3140,6 +3318,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall_Red_VerticleBar012
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 08b22ea05e63ddd4fa6d8875ab580b4b, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3201,6 +3383,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: ce510ef35aa7a8c45881722b9bfd9fcc, type: 3}
       propertyPath: m_Name
       value: Wall_Blue_VerticalBarConnector003
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ce510ef35aa7a8c45881722b9bfd9fcc, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3264,6 +3450,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Amp_Red_Plate005
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 50741c735f02e244b9c47ff700f9dfe5, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3325,6 +3515,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 85f0f1a0e14799f42a44861d05f08ca8, type: 3}
       propertyPath: m_Name
       value: CoralStation_Blue_Left_IntakePlate
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 85f0f1a0e14799f42a44861d05f08ca8, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3391,6 +3585,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall_Red_Left_Plate
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 514f897902e943944ad5d2a46b78fcea, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3456,6 +3654,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Amp_Red_Plate006
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4f8b1d8141e7d574e885e140bb51c3ae, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3517,6 +3719,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: ba8f1e8ccd08dc84791af1bb991c122f, type: 3}
       propertyPath: m_Name
       value: Amp_Red_WallFrame005
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ba8f1e8ccd08dc84791af1bb991c122f, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3580,6 +3786,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Reef_Blue_AprilTag19
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a0dad5747d2c0d84886e49d73dad0854, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3641,6 +3851,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: b85ad4c27a3f1d74e8edce8d1c3fa9b9, type: 3}
       propertyPath: m_Name
       value: Reef_Red_ColoredPlate
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b85ad4c27a3f1d74e8edce8d1c3fa9b9, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3704,6 +3918,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Amp_Red_Plate004
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1d49b55cb38715f45bf448fa646e6f96, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3765,6 +3983,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 65f03eb7826fb2e4ebce950b3237cf92, type: 3}
       propertyPath: m_Name
       value: Amp_Blue_WallFrame003
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 65f03eb7826fb2e4ebce950b3237cf92, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3828,6 +4050,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DriverStation_Red_Right_Shelf
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a2da3486a103aa647af658bb76d288c9, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3849,7 +4075,7 @@ GameObject:
   - component: {fileID: 370466643}
   - component: {fileID: 370466642}
   - component: {fileID: 370466644}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Game_Piece_Dropper_Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3959,6 +4185,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall_Blue_YellowPlateSupport003
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 33e5d9ab75bbb4a4194b0a81e4329d9e, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4020,6 +4250,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 679a75b2692b5174cbb127b8f775b5e5, type: 3}
       propertyPath: m_Name
       value: Wall_Red_VerticleBar004
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 679a75b2692b5174cbb127b8f775b5e5, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4083,6 +4317,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CoralStation_Red_Left_AprilTag1
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e9ebf3bbee99f6049a79911ca4ccbfa4, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4145,6 +4383,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DriverStation_Red_TopBar
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4bf1e68be8b209a43a51d723ca0a15a2, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4206,6 +4448,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 8646bdc8557bf2f489ea7cd6f87c8032, type: 3}
       propertyPath: m_Name
       value: CoralStation_Blue_Left_BottomIntakePlate
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 8646bdc8557bf2f489ea7cd6f87c8032, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4272,6 +4518,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CoralStation_Blue_Right_TopIntakePlate
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7b8bed03efc4dfd409858dfcbf828294, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4333,6 +4583,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 02be6541a2fd88a4a8b6e861db3f2789, type: 3}
       propertyPath: m_Name
       value: DriverStation_Red_Bar003
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 02be6541a2fd88a4a8b6e861db3f2789, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4396,6 +4650,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Barge_Blue_Plate001
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b4c6d339fa06c874f98651067f2d02ef, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4457,6 +4715,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 4eacf148ca542be4abc8dbd25f756ae8, type: 3}
       propertyPath: m_Name
       value: Wall_Blue_YellowPlateSupport005
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4eacf148ca542be4abc8dbd25f756ae8, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4520,6 +4782,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall_Red_VerticalBarConnector004
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 20154347a73835a4bb4afea2241b908b, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4581,6 +4847,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: ea10908a0572bb74cba4705229a4b135, type: 3}
       propertyPath: m_Name
       value: CoralStation_Red_Right_ChutePlate
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ea10908a0572bb74cba4705229a4b135, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4647,6 +4917,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Reef_Red_PoleH
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 8bbd84b84691fd144b1a7877a7133d89, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4708,6 +4982,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: cb35bd8361fc2994894e7f735a31b9d1, type: 3}
       propertyPath: m_Name
       value: Barge_Red_Right_Pole
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: cb35bd8361fc2994894e7f735a31b9d1, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4771,6 +5049,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Barge_Blue_Plate002
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 20a6de5d8ae71e04f9a83411f2494a42, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4832,6 +5114,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 11b22ece5d255974ab756c6c3b5047a0, type: 3}
       propertyPath: m_Name
       value: Wall_Blue_Right_Plate
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 11b22ece5d255974ab756c6c3b5047a0, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4925,6 +5211,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Carpet
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: fd110bbf3b7cf5347952ea0868b396c8, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4990,6 +5280,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DriverStation_Blue_BarRest002
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 49aac70b3ad22ba4ba15778670c5b355, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5051,6 +5345,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: bd9e70bee3f863741b66ba41655dfecf, type: 3}
       propertyPath: m_Name
       value: Amp_Blue_Plate004
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bd9e70bee3f863741b66ba41655dfecf, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5114,6 +5412,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall_Red_VerticalBarConnector001
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 8a977f5345b4bf54e989ef6d0b686d7b, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5175,6 +5477,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 8922a5923e87b66449678f73160336f1, type: 3}
       propertyPath: m_Name
       value: Wall_Blue_VerticalBarConnector005
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 8922a5923e87b66449678f73160336f1, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5238,6 +5544,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall_Red_YellowPlateSupport002
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bb6638e942d7d324d8f7f8fb4a0666fe, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5299,6 +5609,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 0041431621dfb2b4ab08b4187bd5c73c, type: 3}
       propertyPath: m_Name
       value: Reef_Blue_PoleB
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0041431621dfb2b4ab08b4187bd5c73c, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5362,6 +5676,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CoralStation_Red_Right_LeftSidePlate.001
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: cac1fdf023ee93046a980bc385c300df, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5424,6 +5742,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CoralStation_Red_Left_BottomPlate
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c6107f3f44312d7438193e46cee4ef78, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5473,7 +5795,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 475053817}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Driver_Station_Blue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5567,6 +5889,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CoralStation_Blue_Right_RightSupport
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7795f46a572f66c4d9a0cd1da6b71aa4, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5628,6 +5954,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 68e0d41b2d1f33f4e90da7af3db3df41, type: 3}
       propertyPath: m_Name
       value: Barge_Red_AprilTag15
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 68e0d41b2d1f33f4e90da7af3db3df41, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5691,6 +6021,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall_Blue_YellowPlate002
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 9477c32ea219db94e84532e17501e872, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5753,6 +6087,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CoralStation_Blue_Right_Bottom_Frame
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 564a05dade4d3804fb82d9a59f4be7ca, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5814,6 +6152,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 558cad842585ee141b0e775b99840f86, type: 3}
       propertyPath: m_Name
       value: CoralStation_Red_Left_IntakePlate
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 558cad842585ee141b0e775b99840f86, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5885,6 +6227,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Barge_Red_AprilTag5
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5141afa9b54169c46a73c35b9e411b3d, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5947,6 +6293,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall_Red_Right_Frame
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 8c6b6fa1b21ea4e4ea51a3819d468e6a, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5968,7 +6318,7 @@ GameObject:
   - component: {fileID: 536276728}
   - component: {fileID: 536276727}
   - component: {fileID: 536276726}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Game_Piece_Dropper_Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6078,6 +6428,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CoralStation_Blue_Left_BottomFrame
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 9f1f3a50affb27647afb6ea37e0314d0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6139,6 +6493,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 8f8280b42d87bbc40b61cc38be4f3570, type: 3}
       propertyPath: m_Name
       value: CoralStation_Blue_Right_BottomIntakePlate
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 8f8280b42d87bbc40b61cc38be4f3570, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6205,6 +6563,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DriverStation_Blue_Bar001
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d5fb0771adef0d74bbe701dc41afe88b, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6266,6 +6628,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 92da45d39e8aaea439a43249a154b8a0, type: 3}
       propertyPath: m_Name
       value: DriverStation_Blue_AngleSupport005
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 92da45d39e8aaea439a43249a154b8a0, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6329,6 +6695,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Carpet_Blue_DriverStationZone
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4155230c0a13324469f8e85adf891ecd, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6390,6 +6760,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: ce7c6c9c88ae3584aac7dc329fe3a48e, type: 3}
       propertyPath: m_Name
       value: CoralStation_Red_Right_RightSupport
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ce7c6c9c88ae3584aac7dc329fe3a48e, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6453,6 +6827,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall_Red_YellowPlate001
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d0d8821552d2d9b41a8425e6d4bad90f, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6514,6 +6892,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: e326390638915194d82e315647a509dc, type: 3}
       propertyPath: m_Name
       value: DriverStation_Blue_Bar003
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e326390638915194d82e315647a509dc, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6577,6 +6959,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall_Red_VerticleBar007
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: de1b2cfffb7edb045970f0025c4bfe17, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6638,6 +7024,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 461c0d3b9b357094c8b7b156e5cd2c30, type: 3}
       propertyPath: m_Name
       value: Barge_Blue_Plate003
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 461c0d3b9b357094c8b7b156e5cd2c30, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6701,10 +7091,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Barge_Top_Truss
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ebb4f2b3eb75fad4c96b9d323e6a5682, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ebb4f2b3eb75fad4c96b9d323e6a5682, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1692736525}
   m_SourcePrefab: {fileID: 100100000, guid: ebb4f2b3eb75fad4c96b9d323e6a5682, type: 3}
 --- !u!4 &579825381 stripped
 Transform:
@@ -6762,6 +7159,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 55cfb0eb074988c478b6e73a54d4c78d, type: 3}
       propertyPath: m_Name
       value: Wall_Blue_YellowPlate003
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 55cfb0eb074988c478b6e73a54d4c78d, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6824,6 +7225,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 4148442eccebf8c4a97cb263b7050f51, type: 3}
       propertyPath: m_Name
       value: CoralStation_Red_Right_IntakePlate
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4148442eccebf8c4a97cb263b7050f51, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6890,6 +7295,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Carpet_Blue_ReefZone
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e49e4af6f4c70334d921b691876d0a22, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6951,6 +7360,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 282fd41e9bf0a1244ba0b4ec6020ba83, type: 3}
       propertyPath: m_Name
       value: Wall_Red_Divider002
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 282fd41e9bf0a1244ba0b4ec6020ba83, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7014,6 +7427,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CoralStation_Red_Left_TopIntakePlate
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 64a63737414d4ca43a22c9f9d80fe438, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7075,6 +7492,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: da2ef4e094ce78d42a1988da236c0d6a, type: 3}
       propertyPath: m_Name
       value: Wall_Red_Divider003
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: da2ef4e094ce78d42a1988da236c0d6a, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7138,6 +7559,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DriverStation_Blue_Frame
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: eaf9397b300b95c498ec1f3c26e5cfdc, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7199,6 +7624,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 5035fdaced0961c4ab33e86d07dcf1e9, type: 3}
       propertyPath: m_Name
       value: DriverStation_Red_FrontPlate
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5035fdaced0961c4ab33e86d07dcf1e9, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7286,6 +7715,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CoralStation_Red_Right_BottomIntakePlate.001
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7afc94525f70c824fbf8abf00778498b, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7310,7 +7743,7 @@ GameObject:
   - component: {fileID: 632658042}
   - component: {fileID: 632658041}
   - component: {fileID: 632658040}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Game_Piece_Dropper_Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7420,6 +7853,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Amp_Blue_Ramp
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 16d68c7f845efb5428c76e8319fe85b5, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7481,6 +7918,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 7f12e5050430ba24ebe833ad476241d1, type: 3}
       propertyPath: m_Name
       value: Wall_Blue_YellowPlateSupport002
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7f12e5050430ba24ebe833ad476241d1, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7544,6 +7985,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CoralStation_Red_Left_RightSidePlate
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6d8a977fa00de504cbdd0d737a003e10, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7605,6 +8050,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 4dbf1f2ccc974d64b8f8d34cf34ea3e1, type: 3}
       propertyPath: m_Name
       value: CoralStation_Blue_Left_RightSidePlate
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4dbf1f2ccc974d64b8f8d34cf34ea3e1, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7668,6 +8117,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Reef_Red_AprilTag9
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: df30df721fa85f343becfacec8cd45df, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7729,6 +8182,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: b895dd1ddad5bdc43aa43751e74acf26, type: 3}
       propertyPath: m_Name
       value: Reef_Red_PoleG
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b895dd1ddad5bdc43aa43751e74acf26, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7792,6 +8249,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Reef_Blue_PoleK
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 455167b6f377cff41b12234c159ff749, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7802,142 +8263,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 455167b6f377cff41b12234c159ff749, type: 3}
   m_PrefabInstance: {fileID: 667292595}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &667470155
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 667470160}
-  - component: {fileID: 667470159}
-  - component: {fileID: 667470158}
-  - component: {fileID: 667470157}
-  - component: {fileID: 667470156}
-  m_Layer: 0
-  m_Name: Cube
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!54 &667470156
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 667470155}
-  serializedVersion: 5
-  m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!65 &667470157
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 667470155}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!23 &667470158
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 667470155}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &667470159
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 667470155}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!4 &667470160
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 667470155}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.831, y: 1.839, z: -2.2}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &669152603
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7989,6 +8314,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: ca1bb9b89006c574b85e8e2b1d36f0c4, type: 3}
       propertyPath: m_Name
       value: Wall_Blue_VerticalBarConnector008
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ca1bb9b89006c574b85e8e2b1d36f0c4, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8052,6 +8381,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DriverStation_Red_BarRest004
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 873893bd32dbaf643ace4022625a6997, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8071,7 +8404,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 673733153}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Coral_Station_Red_Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8161,6 +8494,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DriverStation_Red_BarRest002
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ce2a489acdc9b3641b2cd33266ed6f05, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8182,7 +8519,7 @@ GameObject:
   - component: {fileID: 708992919}
   - component: {fileID: 708992918}
   - component: {fileID: 708992917}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Game_Piece_Dropper_Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8292,6 +8629,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Amp_Red_WallFrame004
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e98caf4d26b3e8041abb680567055415, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8311,7 +8652,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 711110739}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Coral_Station_Red_Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8402,6 +8743,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DriverStation_Red_AngleSupport001
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: cbf80c0178d497441973e110e7090b8f, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8490,6 +8835,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall_Blue_VerticleBar006
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ad298fe5130af834387b1286a822bbda, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8551,6 +8900,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 1a09198056b52fb458d6fb86e270c01f, type: 3}
       propertyPath: m_Name
       value: Carpet_Red_Right_SpikeMark
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1a09198056b52fb458d6fb86e270c01f, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8614,6 +8967,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Reef_Blue_AprilTag17
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d3168b8cd31efa24f8607d1373e770f0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8675,6 +9032,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 9b128e1739003034f85982ec0ef73005, type: 3}
       propertyPath: m_Name
       value: Amp_Blue_Plate001
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 9b128e1739003034f85982ec0ef73005, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8738,6 +9099,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Barge_Red_NetSupport003
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4819688d926d5ef41b5a43746e73dde0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8800,6 +9165,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CoralStation_Red_Right_AprilTag2
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3da021d9110654a40b79d8672209644d, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8819,7 +9188,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 743338207}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Coral_Station_Blue_Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8910,6 +9279,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall_Red_Left_TopPole
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ff655f5ba7863fe45bed0274f825968e, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8971,6 +9344,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 5d47b97bb152c6f49b4b1cb25b807c3b, type: 3}
       propertyPath: m_Name
       value: Wall_Red_YellowPlate003
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5d47b97bb152c6f49b4b1cb25b807c3b, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9034,6 +9411,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Carpet_Blue_Left_AllianceTapeLine
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5b585a5b31381dd4694cab750fd7bddc, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9096,6 +9477,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DriverStation_Blue_TopBar
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: fa0574420b20c764bb79d1f2740b4009, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9106,6 +9491,32 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: fa0574420b20c764bb79d1f2740b4009, type: 3}
   m_PrefabInstance: {fileID: 755136649}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &774317143 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 090ac0f32a6d3cd4bb014bb6f7dc95cc, type: 3}
+  m_PrefabInstance: {fileID: 140448894}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &774317146
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 774317143}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.2984501, y: 0.0031751394, z: 8.226297}
+  m_Center: {x: 0.0002540648, y: 1.8850195, z: -0.000415802}
 --- !u!1001 &776150394
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9157,6 +9568,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a303ef8f714035f43adb2a3b312d7948, type: 3}
       propertyPath: m_Name
       value: Carpet_Red_StartingLine
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a303ef8f714035f43adb2a3b312d7948, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9225,6 +9640,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DriverStation_Blue_Bar004
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 020824910887b2b468fb1bc5082780db, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9286,6 +9705,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 1eadae3fa3e43ca4c8117cd2fa7d296f, type: 3}
       propertyPath: m_Name
       value: Reef_Red_PoleC
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1eadae3fa3e43ca4c8117cd2fa7d296f, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9349,6 +9772,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Reef_Red_AprilTag11
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 899579ef6c667db49a333a4187488df8, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9410,6 +9837,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 111b406831a2fd94ca0b4f5bb23fa554, type: 3}
       propertyPath: m_Name
       value: Wall_Blue_VerticalBarConnector004
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 111b406831a2fd94ca0b4f5bb23fa554, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9473,6 +9904,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DriverStation_Red_AngleSupport003
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: fbe27fd21bb1f044aaf9b27417d251a6, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9534,6 +9969,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: e566cfd0d57e61045a93e695029957fe, type: 3}
       propertyPath: m_Name
       value: CoralStation_Blue_Left_TopFrame
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e566cfd0d57e61045a93e695029957fe, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9718,6 +10157,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Amp_Blue_FrontPlate
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a8efb0545d692d8489913eb1dbd103d4, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9779,6 +10222,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 2481e2f269761d14abfba1f9e6f71fb9, type: 3}
       propertyPath: m_Name
       value: Reef_Red_Base
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 2481e2f269761d14abfba1f9e6f71fb9, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9867,6 +10314,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DriverStation_Red_AngleSupport006
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ea2683bb35702ae459df6e5b17c77b55, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9928,6 +10379,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 4b3ca39ad06edc944808ad1af3b1a289, type: 3}
       propertyPath: m_Name
       value: Amp_Blue_Rim
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4b3ca39ad06edc944808ad1af3b1a289, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9991,6 +10446,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CoralStation_Red_Right_TopPlate
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 8287e525a0f161540828e058d70ef927, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10053,6 +10512,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Amp_Blue_WallFrame002
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a3ba19c9dd839f5438b299efb33ace5b, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10062,6 +10525,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a3ba19c9dd839f5438b299efb33ace5b, type: 3}
   m_PrefabInstance: {fileID: 852808359}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &854905467 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 2081a6ff6d4e1864582405b3cdf2e505, type: 3}
+  m_PrefabInstance: {fileID: 974336206}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &863144111
 PrefabInstance:
@@ -10114,6 +10582,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 621c830f767bc1649b91327fef1f71e1, type: 3}
       propertyPath: m_Name
       value: Amp_Blue_Wedge
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 621c830f767bc1649b91327fef1f71e1, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10176,6 +10648,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a01dbe557e5bea64895a7529b293a999, type: 3}
       propertyPath: m_Name
       value: Reef_Blue_Base
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a01dbe557e5bea64895a7529b293a999, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10264,6 +10740,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall_Blue_Left_Frame
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4418922614eda4d42b42a19dec81eee8, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10283,7 +10763,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 867348121}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Driver_Stations
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10359,6 +10839,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Amp_Blue_WallFrame001
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e367c2319ecabc84292667df399ce342, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10425,6 +10909,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: ad448159ff09acf41891b82ad9f89bce, type: 3}
       propertyPath: m_Name
       value: CoralStation_Blue_Right_IntakePlate
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ad448159ff09acf41891b82ad9f89bce, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10513,6 +11001,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CoralStation_Red_Left_TopPlate
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 9ac6de6afccd2fc4cab15c4438da482a, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10574,6 +11066,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 48236ed2c177f284b94ce1fb710a81ba, type: 3}
       propertyPath: m_Name
       value: DriverStation_Blue_AngleSupport004
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 48236ed2c177f284b94ce1fb710a81ba, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10637,6 +11133,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CoralStation_Blue_Right_AprilTag12
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f72e30a68fa483d49bb3cc5e4ad6af59, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10698,6 +11198,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: f7e94f370005b0340b4c7b46306d68cb, type: 3}
       propertyPath: m_Name
       value: Wall_Blue_VerticleBar009
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f7e94f370005b0340b4c7b46306d68cb, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10761,6 +11265,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall_Blue_YellowPlateSupport001
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 110d60d585559c946ab732b42ad49e66, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10822,6 +11330,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 5f4bc7a05d4bfd048967cd825389856e, type: 3}
       propertyPath: m_Name
       value: Carpet_Blue_Left_SpikeMark
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5f4bc7a05d4bfd048967cd825389856e, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10885,6 +11397,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Barge_Middle_TrussBase
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ae47370819e6ea74aa63340e0d4e5600, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10946,6 +11462,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: e98c024ea6d213f42a631828e66f17c2, type: 3}
       propertyPath: m_Name
       value: Amp_Blue_Plate005
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e98c024ea6d213f42a631828e66f17c2, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11009,6 +11529,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Carpet_Blue_Right_AllianceTapeLine
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7102c98b6d7891149b02d9d5dd79afed, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11070,6 +11594,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 9a60384944833ab46ba773b228065a21, type: 3}
       propertyPath: m_Name
       value: Reef_Red_AprilTag10
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 9a60384944833ab46ba773b228065a21, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11133,6 +11661,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall_Blue_YellowPlate005
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 08f7510056f5feb4fa3f7bdf256b6fe1, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11194,6 +11726,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: d94ccabbcfa211e458495f5cd81e32c8, type: 3}
       propertyPath: m_Name
       value: Reef_Red_PoleE
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d94ccabbcfa211e458495f5cd81e32c8, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11257,16 +11793,44 @@ PrefabInstance:
       propertyPath: m_Name
       value: Barge_TransparentPlateCover003
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 2081a6ff6d4e1864582405b3cdf2e505, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 2081a6ff6d4e1864582405b3cdf2e505, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 974336210}
   m_SourcePrefab: {fileID: 100100000, guid: 2081a6ff6d4e1864582405b3cdf2e505, type: 3}
 --- !u!4 &974336207 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2081a6ff6d4e1864582405b3cdf2e505, type: 3}
   m_PrefabInstance: {fileID: 974336206}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &974336210
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 854905467}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.0031749904, y: 0.2984501, z: 8.226297}
+  m_Center: {x: -0.15373355, y: 1.7310362, z: -0.00033187866}
 --- !u!1001 &975225262
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11318,6 +11882,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a672376bf36ddbf4a827699f3f514d13, type: 3}
       propertyPath: m_Name
       value: CoralStation_Blue_Right_Frame
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a672376bf36ddbf4a827699f3f514d13, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11381,6 +11949,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DriverStation_Red_Bar001
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c76bd19fa763d414faca0a8afdaa37f6, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11442,6 +12014,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 8ec78cde73ef70044beff00504d69bb4, type: 3}
       propertyPath: m_Name
       value: Carpet_Red_BargeZone
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 8ec78cde73ef70044beff00504d69bb4, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11505,6 +12081,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CoralStation_Blue_Left_AprilTag13
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5f50cc2c46797cf4f9cc39e59303a436, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11567,6 +12147,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Reef_Blue_PoleE
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 449ccd73cb87e174c9c9c760b5b4f65b, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11628,6 +12212,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: ba415ed826ba0b74f8b5965d1158a935, type: 3}
       propertyPath: m_Name
       value: Wall_Blue_VerticleBar003
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ba415ed826ba0b74f8b5965d1158a935, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11855,6 +12443,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall_Red_YellowPlateSupport005
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 9b61006864a6e6141b66520420538a88, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11916,6 +12508,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 8e5a65f5efd409b42bddae45b31a064b, type: 3}
       propertyPath: m_Name
       value: Barge_Blue_Left_Pole
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 8e5a65f5efd409b42bddae45b31a064b, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11979,6 +12575,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Amp_Red_FrontPlate
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6aeab400f61758b4e81601856b408f90, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12040,6 +12640,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 860b8fa9db4dc164b86f1cd8db53f743, type: 3}
       propertyPath: m_Name
       value: Reef_Blue_PoleG
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 860b8fa9db4dc164b86f1cd8db53f743, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12130,6 +12734,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Barge_Red_Plate003
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e9797472b1292d345a18fa8a0ebe2ef7, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12192,6 +12800,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall_Blue_VerticleBar004
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 479b74fe81526384db2f5b15b8540fbb, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12253,6 +12865,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 3ae6da7aba44eae45bb82bd8382b6d30, type: 3}
       propertyPath: m_Name
       value: CoralStation_Blue_Right_BottomPlate
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3ae6da7aba44eae45bb82bd8382b6d30, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12346,6 +12962,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall_Blue_VerticleBar007
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 93533f94365be4343a0ede8dd995cbc6, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12407,6 +13027,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 02b1d948725f640448ed2df2c25c83d2, type: 3}
       propertyPath: m_Name
       value: Wall_Red_VerticleBar010
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 02b1d948725f640448ed2df2c25c83d2, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12470,6 +13094,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CoralStation_Blue_Left_Frame
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 13c5884f39dd7274894becab23e5ccc5, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12531,6 +13159,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 04f4c3884acf38347b25d9c5d7024def, type: 3}
       propertyPath: m_Name
       value: Amp_Red_SideGrid
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 04f4c3884acf38347b25d9c5d7024def, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12594,6 +13226,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Amp_Red_Rim
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 87079ed0d13d6f74aa3c3cc540d24534, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12655,6 +13291,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 0e0bd365793c00a4ca1da26552e1bd26, type: 3}
       propertyPath: m_Name
       value: CoralStation_Red_Left_ChutePlate
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0e0bd365793c00a4ca1da26552e1bd26, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12726,6 +13366,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall_Blue_VerticalBarConnector007
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f08c76b7798aa9040ac1c80a6161797d, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12788,6 +13432,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Amp_Blue_Frame
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7b659096a0ca1e841ad90f41ac20434b, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12809,7 +13457,7 @@ GameObject:
   - component: {fileID: 1132410653}
   - component: {fileID: 1132410652}
   - component: {fileID: 1132410651}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Game_Piece_Dropper_Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12876,7 +13524,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1135590257}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Reefs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12952,6 +13600,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall_Red_YellowPlate004
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 00eca5b59aa1abe4b8a834e9104b3d84, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -13014,6 +13666,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CoralStation_Blue_Left_ChutePlate
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 2723997c3393c8d478404fbdeb39e1d0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -13060,7 +13716,7 @@ GameObject:
   - component: {fileID: 1158211482}
   - component: {fileID: 1158211481}
   - component: {fileID: 1158211480}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Game_Piece_Dropper_Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13170,6 +13826,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CoralStation_Blue_Right_LeftSidePlate
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d3e854651a09b0948a48d4ad5fd9a66b, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -13189,7 +13849,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1161167937}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Field
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13270,6 +13930,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Carpet_Blue_AmpZone
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 31f34bf8b8cfb784fab46c540bfc85b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -13331,6 +13995,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: ce7c5f9e2a4740243bffdbec5ca9bf04, type: 3}
       propertyPath: m_Name
       value: Wall_Red_VerticleBar002
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ce7c5f9e2a4740243bffdbec5ca9bf04, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -13394,6 +14062,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Barge_Blue_NetSupport002
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ca510c6823c393a4f9de2b1721d2440a, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -13413,7 +14085,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1180550702}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Field_Wall_Red
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13528,6 +14200,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Carpet_Blue_BargeZone
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b6ce3fce96ed2a54e9271bb75262aa8e, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -13589,6 +14265,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 3d9be59a33ebe6d44bb9b0f459923c84, type: 3}
       propertyPath: m_Name
       value: CoralStation_Red_Right_MiddleIntakePlate.001
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3d9be59a33ebe6d44bb9b0f459923c84, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -13655,6 +14335,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Amp_Red_WallFrame001
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 25ae4eeae76e9274ab5b66ace1e3294b, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -13716,6 +14400,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 4c7484b0584f73149b2a2c184e809853, type: 3}
       propertyPath: m_Name
       value: CoralStation_Red_Left_TopFrame
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4c7484b0584f73149b2a2c184e809853, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -13779,6 +14467,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall_Red_YellowPlateSupport004
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a5e944e4f89361343a99ed7950892783, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -13840,6 +14532,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 19a70312ae9eb094aa7310c005186fdf, type: 3}
       propertyPath: m_Name
       value: Amp_Red_Wedge
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 19a70312ae9eb094aa7310c005186fdf, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -13903,6 +14599,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CoralStation_Blue_Right_RightSidePlate
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3eab5d7170fcd014e8636e7808ce5d47, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -13964,6 +14664,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 5ae937e1c707e4e4480cfd6c34c5ff2b, type: 3}
       propertyPath: m_Name
       value: Reef_Red_AprilTag7
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5ae937e1c707e4e4480cfd6c34c5ff2b, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -14027,6 +14731,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CoralStation_Red_Left_RightSupport
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 57ebbb062a56f9248b71e2c56891ed70, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -14088,6 +14796,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 6fd4c77ca4f1ce34e9c7975267345ac5, type: 3}
       propertyPath: m_Name
       value: CoralStation_Blue_Left_TopIntakePlate
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6fd4c77ca4f1ce34e9c7975267345ac5, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -14151,6 +14863,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DriverStation_Blue_AngleSupport006
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3e2f81f7ddfd7c84e8677d06f24399d5, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -14212,6 +14928,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a348a78d7f504de4099d1fec78a8377c, type: 3}
       propertyPath: m_Name
       value: CoralStation_Red_Right_LeftSupport
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a348a78d7f504de4099d1fec78a8377c, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -14275,6 +14995,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Carpet_Blue_Right_SpikeMark
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d81360b5bfcab7b4ab408527cbfae1c5, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -14336,6 +15060,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: b0d12d84afd153542b5e11deb492e704, type: 3}
       propertyPath: m_Name
       value: DriverStation_Red_Frame
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b0d12d84afd153542b5e11deb492e704, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -14453,6 +15181,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Carpet_Red_Middle_SpikeMark
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ff79ec8c6589a0e43beeb274caff4e92, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -14514,6 +15246,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 04ea0a0d80186504a815548694ed5950, type: 3}
       propertyPath: m_Name
       value: Barge_Red_AprilTag5Holder
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 04ea0a0d80186504a815548694ed5950, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -14577,6 +15313,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Reef_Red_AprilTag6
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ec7dcb0a19c00a24faf9bef3cd51bd84, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -14639,6 +15379,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Reef_Blue_PoleC
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3f08b8c4e778fbb45bd2e6288682a000, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -14648,6 +15392,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 3f08b8c4e778fbb45bd2e6288682a000, type: 3}
   m_PrefabInstance: {fileID: 1296175332}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1298094985 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: dbc2fb03da4654741b7a84f2496c5409, type: 3}
+  m_PrefabInstance: {fileID: 1490425073}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1299220827
 PrefabInstance:
@@ -14700,6 +15449,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 79a8816d94e04f64fafbe28ef8724e74, type: 3}
       propertyPath: m_Name
       value: Reef_Blue_AprilTag22
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 79a8816d94e04f64fafbe28ef8724e74, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -14763,6 +15516,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall_Blue_VerticalBarConnector006
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 34198c00b53c13946b7215d9e00d7719, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -14824,6 +15581,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a4dea3ca8aa18c044922b55c5ced96a4, type: 3}
       propertyPath: m_Name
       value: Carpet_Red_Left_SpikeMark
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a4dea3ca8aa18c044922b55c5ced96a4, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -14887,6 +15648,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall_Blue_VerticleBar012
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 978b8a40b2e8d2b449bc83d0216718d2, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -14948,6 +15713,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 605157ad1ad99fb41825bd74ac39cb0d, type: 3}
       propertyPath: m_Name
       value: CoralStation_Red_Right_BottomPlate
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 605157ad1ad99fb41825bd74ac39cb0d, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -15041,6 +15810,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CoralStation_Blue_Left_BottomPlate
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 979157d2b67b42f449e02d5c16f6af2b, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -15133,6 +15906,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Amp_Blue_WallFrame005
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 8c8039056d590664a9629d5bacb021a6, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -15194,6 +15971,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 68389338674bdee46ad5e9bafd00a9ed, type: 3}
       propertyPath: m_Name
       value: CoralStation_Blue_Left_RightSupport
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 68389338674bdee46ad5e9bafd00a9ed, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -15257,6 +16038,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall_Blue_Right_TopPole
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1cd9b0a45b6dc0c448dc72838e57b4fe, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -15318,6 +16103,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 52260d709ac4ae7479f7cfd7e6de44d8, type: 3}
       propertyPath: m_Name
       value: Wall_Blue_YellowPlateSupport004
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 52260d709ac4ae7479f7cfd7e6de44d8, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -15381,6 +16170,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall_Blue_Divider003
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1de048a2140b9ce49b3402532876fd9f, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -15443,6 +16236,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Barge_Red_Plate001
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 97b778e7974f06a4083a039e5a056bea, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -15453,6 +16250,32 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 97b778e7974f06a4083a039e5a056bea, type: 3}
   m_PrefabInstance: {fileID: 1356124558}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1363440093 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 2dd2ef5ebbb16924b9533613ef98c903, type: 3}
+  m_PrefabInstance: {fileID: 306342799}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1363440096
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1363440093}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.304803, y: 1.5240045, z: 0.3048005}
+  m_Center: {x: 0.000253506, y: 0.8071095, z: -4.2859964}
 --- !u!1 &1367987649 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 0e0bd365793c00a4ca1da26552e1bd26, type: 3}
@@ -15532,6 +16355,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Reef_Red_PoleD
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 9b0ffbb73c3f3564ca2fb2e8b045384e, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -15593,6 +16420,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a233e9c0d56bb1947bbe1048eb499178, type: 3}
       propertyPath: m_Name
       value: Wall_Blue_VerticleBar014
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a233e9c0d56bb1947bbe1048eb499178, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -15683,6 +16514,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall_Red_VerticleBar014
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 8f44767f70afb0a4e9b723143ff88758, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -15744,6 +16579,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 824bf1111cad6ed448215b016ff7901e, type: 3}
       propertyPath: m_Name
       value: Wall_Red_Right_TopPole
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 824bf1111cad6ed448215b016ff7901e, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -15807,6 +16646,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Reef_Red_AprilTag8
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 8c914cbc4b557454b82a33a121490a87, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -15868,6 +16711,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 5d52416bb5ccd734dae5dcecb6f0dac3, type: 3}
       propertyPath: m_Name
       value: Barge_Blue_Right_Pole
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5d52416bb5ccd734dae5dcecb6f0dac3, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -15931,6 +16778,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Carpet_Red_AmpZone
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5baf3d9cc44b986409d79b48c13c9b69, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -15992,6 +16843,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 482a9ee1e887353468a4b84f0d7b5c5d, type: 3}
       propertyPath: m_Name
       value: Wall_Red_YellowPlate005
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 482a9ee1e887353468a4b84f0d7b5c5d, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -16055,6 +16910,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DriverStation_Red_BarRest001
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f667ff280a2e676409113023840a6f23, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -16117,6 +16976,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DriverStation_Red_Bar002
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 88d9cb300d332824bb60f6dea3923f7c, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -16178,6 +17041,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 2c197c83f4c5ba64d8a8ace16109f0f1, type: 3}
       propertyPath: m_Name
       value: CoralStation_Blue_Left_MiddleIntakePlate
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 2c197c83f4c5ba64d8a8ace16109f0f1, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -16271,6 +17138,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Reef_Red_PoleI
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4d7d5209031ca864a8ba6909fb7f8031, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -16332,6 +17203,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 1c25cdd7f5364b74db8b401b4c030c0d, type: 3}
       propertyPath: m_Name
       value: Reef_Blue_PoleH
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1c25cdd7f5364b74db8b401b4c030c0d, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -16395,6 +17270,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall_Red_VerticalBarConnector003
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 9710256b120460741a172cab6623165c, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -16456,6 +17335,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 250884ccca4053349af17b8f37aad80b, type: 3}
       propertyPath: m_Name
       value: Wall_Red_VerticleBar006
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 250884ccca4053349af17b8f37aad80b, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -16519,6 +17402,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall_Blue_VerticleBar010
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: df071094f9668924aa25dca0a395d63f, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -16581,16 +17468,44 @@ PrefabInstance:
       propertyPath: m_Name
       value: Barge_TransparentPlateCover001
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: dbc2fb03da4654741b7a84f2496c5409, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: dbc2fb03da4654741b7a84f2496c5409, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1490425077}
   m_SourcePrefab: {fileID: 100100000, guid: dbc2fb03da4654741b7a84f2496c5409, type: 3}
 --- !u!4 &1490425074 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: dbc2fb03da4654741b7a84f2496c5409, type: 3}
   m_PrefabInstance: {fileID: 1490425073}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &1490425077
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1298094985}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.0031749904, y: 0.2984501, z: 8.226297}
+  m_Center: {x: 0.1542415, y: 1.7310362, z: -0.00033187866}
 --- !u!1001 &1492041017
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16642,6 +17557,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 92157694fab32f046ba65c1511de2aca, type: 3}
       propertyPath: m_Name
       value: Barge_Blue_NetSupport003
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 92157694fab32f046ba65c1511de2aca, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -16705,6 +17624,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall_Red_YellowPlateSupport001
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c83e2b1915ea32d47881737ebd4ae864, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -16766,6 +17689,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 59dc135824816be44b724e965de75532, type: 3}
       propertyPath: m_Name
       value: CoralStation_Blue_Right_ChutePlate
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 59dc135824816be44b724e965de75532, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -16832,6 +17759,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall_Red_YellowPlate002
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b91a2115e9b03ae44aecf97ffcdacd37, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -16893,6 +17824,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 29066f5708328db42b573aab8f04d78b, type: 3}
       propertyPath: m_Name
       value: CoralStation_Blue_Left_LeftSupport
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 29066f5708328db42b573aab8f04d78b, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -16956,6 +17891,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall_Red_VerticalBarConnector002
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 8e953dbf71aa957479de09047f620500, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -17017,6 +17956,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 18d3eda2b3a585f4fa5f9003d8f9bbc9, type: 3}
       propertyPath: m_Name
       value: DriverStation_Blue_Middle_Shelf
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 18d3eda2b3a585f4fa5f9003d8f9bbc9, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -17080,6 +18023,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Reef_Blue_TroughProtector
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e9564cff19b7ae2469e8f3a9ee3593c9, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -17142,6 +18089,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CoralStation_Red_Left_Frame
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5f9d3d586b491404f87c8f2641cb83ad, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -17161,7 +18112,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1561014618}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Reef_Blue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17256,6 +18207,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Amp_Blue_WallFrame004
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 25ac2d5b665a7f949a3f900731663bb8, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -17317,6 +18272,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a7eda76a280c3bf4c9212b2124593a0e, type: 3}
       propertyPath: m_Name
       value: Wall_Blue_VerticleBar008
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a7eda76a280c3bf4c9212b2124593a0e, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -17380,6 +18339,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Reef_Blue_AprilTag18
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a02e3b895e1e84040b2ba53e6da61cfa, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -17441,6 +18404,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 346481e0afb224046873d989e58889a7, type: 3}
       propertyPath: m_Name
       value: CoralStation_Blue_Right_MiddleIntakePlate
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 346481e0afb224046873d989e58889a7, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -17507,6 +18474,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall_Red_Divider001
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6888c31f059aa774c81169c11d3691cc, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -17568,6 +18539,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: d147c1fd488ceb54f9ab3eb274d4170f, type: 3}
       propertyPath: m_Name
       value: DriverStation_Blue_BarRest003
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d147c1fd488ceb54f9ab3eb274d4170f, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -17631,6 +18606,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Reef_Blue_PoleI
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6a030d8f5b5c6db43a86f881dd366f83, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -17692,6 +18671,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 9e2c0196d48ef0e479b5cb2dbc80b7a6, type: 3}
       propertyPath: m_Name
       value: DriverStation_Blue_FrontPlate
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 9e2c0196d48ef0e479b5cb2dbc80b7a6, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -17779,6 +18762,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DriverStation_Blue_BarRest001
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: efcfc0b56e552ea46977555eef45c63d, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -17840,6 +18827,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 9bb3a59a5b3013c45945a0161eec84a0, type: 3}
       propertyPath: m_Name
       value: Reef_Blue_PoleJ
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 9bb3a59a5b3013c45945a0161eec84a0, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -17903,6 +18894,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall_Blue_Left_TopPole
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1d9590537183302459bbdfe9ec99dea8, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -17964,6 +18959,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 1b6513390a77ac443a9cf3f9237782cb, type: 3}
       propertyPath: m_Name
       value: Amp_Blue_FrontGrid
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1b6513390a77ac443a9cf3f9237782cb, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -18027,6 +19026,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DriverStation_Blue_Left_Shelf
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 19dc5d90ff59c6f49a56a769268ea1cb, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -18088,6 +19091,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 634fdfd1a837cd94ab61b4f1792967d4, type: 3}
       propertyPath: m_Name
       value: DriverStation_Red_AngleSupport005
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 634fdfd1a837cd94ab61b4f1792967d4, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -18151,6 +19158,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall_Red_VerticleBar008
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ca03dc4fe8266bc498607f1591c3e329, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -18212,6 +19223,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 0d57a20a642290a4b91e2ecc15130127, type: 3}
       propertyPath: m_Name
       value: Reef_Red_PoleJ
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0d57a20a642290a4b91e2ecc15130127, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -18275,6 +19290,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DriverStation_Blue_Right_Shelf
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b1d966549dc839b47876c48e5949a212, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -18336,6 +19355,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 0eb0c52e7bc50a848ba3b08bf7fe8430, type: 3}
       propertyPath: m_Name
       value: DriverStation_Blue_BarRest004
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0eb0c52e7bc50a848ba3b08bf7fe8430, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -18399,6 +19422,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall_Red_VerticleBar005
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 8c44442ac84e2d342bd3a7bcb1b3bbda, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -18461,6 +19488,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall_Red_VerticleBar011
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e62f212e6c86fa84f9dba7fd3f0120a3, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -18480,7 +19511,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1691097641}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Amps
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18504,6 +19535,32 @@ Transform:
   - {fileID: 2103915120}
   m_Father: {fileID: 1161167937}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1692736522 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: ebb4f2b3eb75fad4c96b9d323e6a5682, type: 3}
+  m_PrefabInstance: {fileID: 579825380}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1692736525
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1692736522}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.30480003, y: 0.30480206, z: 8.89635}
+  m_Center: {x: 0.0002540201, y: 1.7310319, z: -0.00025510788}
 --- !u!1001 &1696039349
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18555,6 +19612,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 35b3cfe607d644843956f328fde0d4f3, type: 3}
       propertyPath: m_Name
       value: Barge_Blue_AprilTag4
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 35b3cfe607d644843956f328fde0d4f3, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -18618,6 +19679,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Amp_Blue_Plate002
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ae69e2f6b8de50241bc1170021ea8efd, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -18679,6 +19744,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 06ff7bf75e56d924f860a1280473465e, type: 3}
       propertyPath: m_Name
       value: DriverStation_Blue_AngleSupport001
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 06ff7bf75e56d924f860a1280473465e, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -18742,6 +19811,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Amp_Red_Funnel
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 829512b218c961c4bae6de586c02f40f, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -18804,6 +19877,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DriverStation_Blue_AngleSupport002
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: cf8f492893ca284478353e6fecfcd6e5, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -18825,7 +19902,7 @@ GameObject:
   - component: {fileID: 1716604265}
   - component: {fileID: 1716604264}
   - component: {fileID: 1716604263}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Game_Piece_Dropper_Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18935,6 +20012,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall_Blue_VerticleBar001
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 77e76e4000c88f541aec87cbd2a11218, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -18944,6 +20025,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 77e76e4000c88f541aec87cbd2a11218, type: 3}
   m_PrefabInstance: {fileID: 1724260006}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1728379438 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 0796e6a002af1754583b457096b3048f, type: 3}
+  m_PrefabInstance: {fileID: 1899341702}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1733136852
 PrefabInstance:
@@ -18996,6 +20082,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: f1f22d4011c2378488e26aa1de861124, type: 3}
       propertyPath: m_Name
       value: Wall_Red_VerticalBarConnector006
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f1f22d4011c2378488e26aa1de861124, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -19059,6 +20149,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DriverStation_Red_Left_Shelf
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c465b38fb3a50904389aacf13058b2e8, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -19120,6 +20214,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 65bd595f128a720499e6fe0500e1a298, type: 3}
       propertyPath: m_Name
       value: Amp_Blue_Funnel
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 65bd595f128a720499e6fe0500e1a298, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -19183,6 +20281,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CoralStation_Blue_Right_TopPlate
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1c8bd452719bb1546bdbbff1ee8d17e7, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -19245,6 +20347,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CoralStation_Red_Left_BottomIntakePlate
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c01eb2061ec8f874ebd6d45992f9e5e3, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -19280,6 +20386,11 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 6618124889972567128, guid: c01eb2061ec8f874ebd6d45992f9e5e3, type: 3}
+--- !u!1 &1761187761 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: e35e319b13dface4486b080c40b234ea, type: 3}
+  m_PrefabInstance: {fileID: 1926270567}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1763473992
 GameObject:
   m_ObjectHideFlags: 0
@@ -19291,7 +20402,7 @@ GameObject:
   - component: {fileID: 1763473995}
   - component: {fileID: 1763473994}
   - component: {fileID: 1763473993}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Game_Piece_Dropper_Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19401,6 +20512,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall_Blue_Divider002
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7f6fb2619e414df41852d5531254a7bf, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -19463,6 +20578,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Reef_Blue_PoleL
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 34c4e59e5a75cd1488f19ab6a380fab7, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -19524,6 +20643,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: f402487cfe3cba140a2ac97cd90e0ae7, type: 3}
       propertyPath: m_Name
       value: CoralStation_Blue_Left_LeftSidePlate
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f402487cfe3cba140a2ac97cd90e0ae7, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -19614,6 +20737,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall_Blue_VerticalBarConnector001
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d1ccd9fd4651dc440b7dabb7c36242a6, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -19675,6 +20802,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: d6e81af5c4fd2db4599b511607feb316, type: 3}
       propertyPath: m_Name
       value: Reef_Red_PoleA
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d6e81af5c4fd2db4599b511607feb316, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -19738,6 +20869,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Amp_Red_Plate002
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c3c9d288758696b4a8c620f758fbad00, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -19799,6 +20934,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a713a5cc3fd36a94288a9a11ccfba911, type: 3}
       propertyPath: m_Name
       value: Wall_Blue_VerticleBar002
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a713a5cc3fd36a94288a9a11ccfba911, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -19862,6 +21001,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall_Red_VerticalBarConnector008
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c579b7f77e824d643ae2ff1ade28b96f, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -19923,6 +21066,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 7a01f96a42175964d8255672b79ae8ed, type: 3}
       propertyPath: m_Name
       value: Reef_Red_PoleF
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7a01f96a42175964d8255672b79ae8ed, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -19986,6 +21133,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Reef_Blue_PoleA
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4999ff81bf099e54c88d9cbbc47378e5, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -20047,6 +21198,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: c9143bec148f834448a153f3ee444c1b, type: 3}
       propertyPath: m_Name
       value: Barge_Blue_NetSupport001
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c9143bec148f834448a153f3ee444c1b, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -20154,6 +21309,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Reef_Blue_ColoredPlate
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 869cde5b5c26ecf4ba5a5409761d7d1e, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -20215,6 +21374,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: c24d7d4a78689cd41a538130d0324df9, type: 3}
       propertyPath: m_Name
       value: Carpet_Blue_Middle_SpikeMark
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c24d7d4a78689cd41a538130d0324df9, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -20278,6 +21441,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall_Red_YellowPlateSupport003
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f3150e12f13a3e342a2730761a7b8e45, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -20339,6 +21506,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 4a79fdc5eccf8e64ca044b2046caaa4e, type: 3}
       propertyPath: m_Name
       value: CoralStation_Red_Left_Bottom_Frame
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4a79fdc5eccf8e64ca044b2046caaa4e, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -20402,6 +21573,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Reef_Red_PoleL
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 8fa8e590b2cd2a04e86fbcbecfadb309, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -20463,6 +21638,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 512a5556282585b4697738213de8b8ad, type: 3}
       propertyPath: m_Name
       value: DriverStation_Red_BarRest003
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 512a5556282585b4697738213de8b8ad, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -20526,6 +21705,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Amp_Blue_AprilTag3
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3090198d9f21ce94aa166a4c9178563c, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -20587,6 +21770,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: ca0d9bdbb5fc72547ad0f097b8e5093d, type: 3}
       propertyPath: m_Name
       value: Wall_Red_Left_Frame
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ca0d9bdbb5fc72547ad0f097b8e5093d, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -20650,16 +21837,44 @@ PrefabInstance:
       propertyPath: m_Name
       value: Barge_Right_Truss
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0796e6a002af1754583b457096b3048f, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 0796e6a002af1754583b457096b3048f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1899341706}
   m_SourcePrefab: {fileID: 100100000, guid: 0796e6a002af1754583b457096b3048f, type: 3}
 --- !u!4 &1899341703 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 0796e6a002af1754583b457096b3048f, type: 3}
   m_PrefabInstance: {fileID: 1899341702}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &1899341706
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1728379438}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.304803, y: 1.5240045, z: 0.3048005}
+  m_Center: {x: 0.000253506, y: 0.8071095, z: 4.2859545}
 --- !u!1001 &1902130745
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20711,6 +21926,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a3352f76eb9fb2b4f8b96c611d30e563, type: 3}
       propertyPath: m_Name
       value: CoralStation_Blue_Right_RightSupport
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a3352f76eb9fb2b4f8b96c611d30e563, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -20774,6 +21993,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall_Blue_VerticleBar013
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: aafcbf43df427f0419c709d7ac73bf58, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -20835,6 +22058,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 3267b62ec040a4a42a11c23261b8bd07, type: 3}
       propertyPath: m_Name
       value: Amp_Red_AprilTag16
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3267b62ec040a4a42a11c23261b8bd07, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -20898,16 +22125,44 @@ PrefabInstance:
       propertyPath: m_Name
       value: Barge_Middle_Truss
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e35e319b13dface4486b080c40b234ea, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e35e319b13dface4486b080c40b234ea, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1926270571}
   m_SourcePrefab: {fileID: 100100000, guid: e35e319b13dface4486b080c40b234ea, type: 3}
 --- !u!4 &1926270568 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e35e319b13dface4486b080c40b234ea, type: 3}
   m_PrefabInstance: {fileID: 1926270567}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &1926270571
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1761187761}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.304803, y: 1.5240045, z: 0.3048004}
+  m_Center: {x: 0.000253506, y: 0.8071095, z: -0.000016309321}
 --- !u!1001 &1935247059
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20959,6 +22214,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 182a77b81efc8524dab5e46577bbe3a2, type: 3}
       propertyPath: m_Name
       value: DriverStation_Red_AngleSupport002
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 182a77b81efc8524dab5e46577bbe3a2, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -21022,6 +22281,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall_Red_VerticalBarConnector007
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6a1fcb8e1aeeace4982e270cbd5a77c9, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -21083,6 +22346,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 70bd9a0c1a334d447b6a2debc05bab9e, type: 3}
       propertyPath: m_Name
       value: Amp_Blue_Plate006
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 70bd9a0c1a334d447b6a2debc05bab9e, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -21146,6 +22413,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Barge_Red_AprilTag15Holder
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 365696fd10f5cbe48a914f583a76de0e, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -21208,6 +22479,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Barge_Red_Left_Pole
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ddb3c8179f1dc0640bf31ea3a62936c9, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -21227,7 +22502,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1957330385}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Coral_Stations
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21289,7 +22564,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1976559740}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Driver_Station_Red
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21383,6 +22658,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Amp_Red_FrontGrid
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 408f6ae05fbba4f4497011907d6e6e35, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -21472,6 +22751,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall_Blue_Left_Plate
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 9c12563ac36f82e4cad42565f255a5f0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -21557,6 +22840,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 1c3ae2bea6c25224f88923671bc54d0b, type: 3}
       propertyPath: m_Name
       value: Wall_Blue_VerticleBar011
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1c3ae2bea6c25224f88923671bc54d0b, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -21646,6 +22933,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Amp_Red_Plate003
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1a59bb76ed843184ca50d1ce02d6240b, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -21707,6 +22998,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: f4ea6d16f50058044964ae452fb69672, type: 3}
       propertyPath: m_Name
       value: Wall_Blue_YellowPlate004
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f4ea6d16f50058044964ae452fb69672, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -21770,6 +23065,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall_Red_Right_Plate
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0e9602e6059b5354991356d66ab01fbb, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -21813,7 +23112,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2036487524}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Amp_Blue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21907,6 +23206,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall_Blue_YellowPlate001
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e5025b2e692ed56428e102300140405f, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -21926,7 +23229,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2038566549}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Field_Wall_Blue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22041,6 +23344,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Barge_Left_TrussBase
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 8dd0626a46ee5164d9b68d3c670f77d3, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -22102,6 +23409,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: b012e23819cbc5b43b7cd323b6718bd7, type: 3}
       propertyPath: m_Name
       value: CoralStation_Blue_Right_TopFrame
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b012e23819cbc5b43b7cd323b6718bd7, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -22192,6 +23503,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CoralStation_Red_Right_BottomFrame
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f6f904a99f9b9e14eb30f07bc75e544b, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -22253,6 +23568,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 09a99c653409ace4ea3e61669e228e85, type: 3}
       propertyPath: m_Name
       value: Carpet_Red_ReefZone
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 09a99c653409ace4ea3e61669e228e85, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -22342,6 +23661,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall_Blue_VerticleBar005
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 060528f9f654bce4aa066c5def4ebce9, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -22388,7 +23711,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2103915120}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Amp_Red
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22482,6 +23805,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Reef_Blue_AprilTag20
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 028fb9317bf225d4f9699fe7e6a2ba97, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -22543,6 +23870,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 8a5efebf5aa35c943a26850a2f0b3524, type: 3}
       propertyPath: m_Name
       value: Reef_Red_TroughProtector
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 8a5efebf5aa35c943a26850a2f0b3524, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -22606,6 +23937,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Carpet_Red_Left_AllianceTapeLine
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f6ddf69253eac444bb03854a3d917ec9, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -22668,6 +24003,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CoralStation_Red_Right_TopIntakePlate.001
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 30e08ea663084f744a601d9cd6765b8f, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -22687,7 +24026,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2134615726}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Carpet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22782,6 +24121,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Reef_Red_PoleK
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3d2b375c9f539a64697b7a17da07f919, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -22801,4 +24144,3 @@ SceneRoots:
   - {fileID: 1043349434}
   - {fileID: 1161167937}
   - {fileID: 190227435}
-  - {fileID: 667470160}

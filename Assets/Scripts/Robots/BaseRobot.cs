@@ -43,13 +43,11 @@ public class BaseRobot : MonoBehaviour
 
     public void Drive(Vector2 driveInput)
     {
-        Debug.Log($"Drive Input: {driveInput}");
         robotRigidbody.AddForce(-driveInput.y * driveSpeed * Time.deltaTime, 0, driveInput.x * driveSpeed * Time.fixedDeltaTime, ForceMode.Force);
     }
 
     public void Rotate(Vector2 rotateInput)
     {
-        Debug.Log($"Rotate Input: {rotateInput}");
         robotRigidbody.AddTorque(0, rotateInput.x * rotateSpeed * Time.fixedDeltaTime, 0, ForceMode.Force);
     }
 
