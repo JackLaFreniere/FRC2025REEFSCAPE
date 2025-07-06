@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Climber : MonoBehaviour
 {
-    private Quaternion targetRotation = Quaternion.Euler(0f, 0f, 0f);
+    private Quaternion targetRotation;
     [SerializeField] private float rotationSpeed = 2f;
     private readonly float climberOffset = 22f;
 

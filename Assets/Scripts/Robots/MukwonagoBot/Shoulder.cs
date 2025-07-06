@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Shoulder : MonoBehaviour
 {
-    private Quaternion targetRotation = Quaternion.Euler(0f, 0f, 0f);
+    private Quaternion targetRotation;
     [SerializeField] private float rotationSpeed = 10f;
     private readonly float shoulderOffset = 90f;
 

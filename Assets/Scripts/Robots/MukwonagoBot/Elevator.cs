@@ -6,7 +6,7 @@ public class Elevator : MonoBehaviour
     [SerializeField] private float speed = 5f;
     [SerializeField] private Vector3 elevatorOffset = new (0f, 0.104692f, 0.036309f);
 
-    private Vector3 targetPosition = Vector3.zero;
+    private Vector3 targetPosition;
     private BoxCollider boxCollider;
     private LayerMask fieldLayer;
 
