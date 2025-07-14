@@ -260,7 +260,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d596870ab8be45544944bb4f0aef799a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: 10
+  rotationSpeed: 6
 --- !u!1 &1845278072905195437
 GameObject:
   m_ObjectHideFlags: 0
@@ -342,7 +342,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b215cc3f8d44f64f93348e24a7aba09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: 10
+  rotationSpeed: 7
 --- !u!1 &3123702189032668132
 GameObject:
   m_ObjectHideFlags: 0
@@ -421,7 +421,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67004d289e575f4498c8818b5da5d91f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: 10
+  rotationSpeed: 7
 --- !u!1 &3904769542916710377
 GameObject:
   m_ObjectHideFlags: 0
@@ -544,8 +544,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.05, y: 0.12, z: 0.123}
-  m_Center: {x: 0, y: 0.01, z: 0}
+  m_Size: {x: 0.1, y: 0.03, z: 0.01}
+  m_Center: {x: 0, y: 0.03, z: 0}
 --- !u!114 &2786937414347387941
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -558,8 +558,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecc9a431d4b44b44e97352a0c2f2881e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  intakeTarget: {fileID: 3697743029734525300}
-  intakeForce: 30
+  moveSpeed: 10
 --- !u!1 &8173704791868284487
 GameObject:
   m_ObjectHideFlags: 0

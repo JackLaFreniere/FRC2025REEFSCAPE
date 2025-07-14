@@ -25,6 +25,7 @@ public class BaseRobot : MonoBehaviour
     public PlayerState climberUpState;
     public PlayerState coralEjectState;
     public PlayerState algaeEjectState;
+    public PlayerState confirmCoralScore;
 
     protected virtual void Start()
     {
@@ -115,5 +116,6 @@ public class BaseRobot : MonoBehaviour
     public virtual void ClimberUp() { }
     public virtual void CoralEject() { }
     public virtual void AlgaeEject() { }
+    public virtual void ConfirmCoralScore() { }
     public virtual void Idle() { }
 }

@@ -1,6 +1,3 @@
-using Unity.IO.LowLevel.Unsafe;
-using UnityEngine;
-
 public class MukwonagoBotManager : BaseRobot
 {
     public Elevator elevator { get; private set; }
@@ -22,6 +19,7 @@ public class MukwonagoBotManager : BaseRobot
         climberUpState = new MukwonagoBotClimberUpState(this, stateMachine);
         coralEjectState = new MukwonagoBotCoralEjectState(this, stateMachine);
         algaeEjectState = new MukwonagoBotAlgaeEjectState(this, stateMachine);
+        confirmCoralScore = new MukwonagoBotConfirmCoralScoreState(this, stateMachine);
     }
 
     protected override void Start()
@@ -84,6 +82,11 @@ public class MukwonagoBotManager : BaseRobot
     public override void AlgaeEject()
     {
         stateMachine.ChangeState(algaeEjectState);
+    }
+
+    public override void ConfirmCoralScore()
+    {
+        stateMachine.ChangeState(confirmCoralScore);
     }
 
     public override void Idle()

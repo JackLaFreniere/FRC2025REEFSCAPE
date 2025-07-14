@@ -1,6 +1,3 @@
-using Unity.VisualScripting;
-using UnityEngine;
-
 public class MukwonagoBotIdleState : PlayerState
 {
     private readonly MukwonagoBotManager bot;
@@ -199,5 +196,22 @@ public class MukwonagoBotAlgaeEjectState : PlayerState
         bot.elbow.SetTargetRotation(65f);
         bot.wrist.SetTargetRotation(0f);
         bot.elevator.SetTargetPosition(0f);
+    }
+}
+
+public class MukwonagoBotConfirmCoralScoreState : PlayerState
+{
+    private readonly MukwonagoBotManager bot;
+
+    public MukwonagoBotConfirmCoralScoreState(BaseRobot player, StateMachine stateMachine) : base(player, stateMachine)
+    {
+        bot = (MukwonagoBotManager)player;
+    }
+
+    public override void Enter()
+    {
+        //L3
+        bot.shoulder.SetTargetRotation(47f);
+        bot.elbow.SetTargetRotation(-50f);
     }
 }

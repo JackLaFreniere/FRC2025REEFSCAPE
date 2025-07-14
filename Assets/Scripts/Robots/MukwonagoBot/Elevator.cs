@@ -44,6 +44,15 @@ public class Elevator : MonoBehaviour
     }
 
     /// <summary>
+    /// Updates the local position of the object to the specified value.
+    /// </summary>
+    /// <param name="newPosition">The new position to set, represented as a <see cref="Vector3"/>.</param>
+    private void UpdatePosition(Vector3 newPosition)
+    {
+        transform.localPosition = newPosition;
+    }
+
+    /// <summary>
     /// Checks if the elevator's next position would collide with objects in the Field layer.
     /// layer.
     /// </summary>
@@ -59,15 +68,6 @@ public class Elevator : MonoBehaviour
 
         // If no collisions are detected, move the elevator to the next position
         if (hits.Length == 0) UpdatePosition(nextLocalPos);
-    }
-
-    /// <summary>
-    /// Updates the local position of the object to the specified value.
-    /// </summary>
-    /// <param name="newPosition">The new position to set, represented as a <see cref="Vector3"/>.</param>
-    private void UpdatePosition(Vector3 newPosition)
-    {
-        transform.localPosition = newPosition;
     }
 
     /// <summary>

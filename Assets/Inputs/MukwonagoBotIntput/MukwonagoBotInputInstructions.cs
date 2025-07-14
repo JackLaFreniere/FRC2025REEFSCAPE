@@ -1,16 +1,9 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class MukwonagoBotInputInstructions : MonoBehaviour, IRobotInputHandler
 {
     private MukwonagoBotInput playerControls;
     private BaseRobot robot;
-
-    private InputAction drive;
-    private InputAction rotate;
-
-    private Vector2 moveDirection;
-    private Vector2 rotateDirection;
 
     public void SetBaseRobot(BaseRobot robot)
     {
@@ -26,9 +19,6 @@ public class MukwonagoBotInputInstructions : MonoBehaviour, IRobotInputHandler
     {
         playerControls.Player.Enable();
 
-        drive = playerControls.Player.Drive;
-        rotate = playerControls.Player.Rotate;
-
         playerControls.Player.CoralIntake.performed += ctx => robot.CoralIntake();
         playerControls.Player.AlgaeIntake.performed += ctx => robot.AlgaeIntake();
         playerControls.Player.CoralScore.performed += ctx => robot.CoralScore();
@@ -38,6 +28,7 @@ public class MukwonagoBotInputInstructions : MonoBehaviour, IRobotInputHandler
         playerControls.Player.ClimberUp.performed += ctx => robot.ClimberUp();
         playerControls.Player.CoralEject.performed += ctx => robot.CoralEject();
         playerControls.Player.AlgaeEject.performed += ctx => robot.AlgaeEject();
+        playerControls.Player.ConfirmScore.performed += ctx => robot.ConfirmCoralScore();
 
         playerControls.Player.CoralIntake.canceled += ctx => robot.Idle();
         playerControls.Player.AlgaeIntake.canceled += ctx => robot.Idle();
@@ -48,6 +39,7 @@ public class MukwonagoBotInputInstructions : MonoBehaviour, IRobotInputHandler
         playerControls.Player.ClimberUp.canceled += ctx => robot.Idle();
         playerControls.Player.CoralEject.canceled += ctx => robot.Idle();
         playerControls.Player.AlgaeEject.canceled += ctx => robot.Idle();
+        playerControls.Player.ConfirmScore.canceled += ctx => robot.CoralScore();
 
         robot.SetDrive(playerControls.Player.Drive);
         robot.SetRotate(playerControls.Player.Rotate);
