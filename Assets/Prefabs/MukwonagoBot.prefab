@@ -841,6 +841,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   driveSpeed: 50000
   rotateSpeed: 25000
+  maxAngularSpeed: 480
+  rotationAcceleration: 700
+  rotationDeceleration: 1400
+  maxDriveSpeed: 3
+  driveAcceleration: 5
+  driveDeceleration: 8
 --- !u!114 &7375209052347026933
 MonoBehaviour:
   m_ObjectHideFlags: 0

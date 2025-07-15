@@ -3,9 +3,19 @@ using UnityEngine.InputSystem;
 
 public class BaseRobot : MonoBehaviour
 {
-    [Header("Movement Settings")]
-    [SerializeField] private float driveSpeed;
-    [SerializeField] private float rotateSpeed;
+    [Header("Rotation Settings")]
+    [SerializeField] private float maxAngularSpeed = 180f; // degrees/sec
+    [SerializeField] private float rotationAcceleration = 720f; // degrees/sec^2
+    [SerializeField] private float rotationDeceleration = 1080f; // degrees/sec^2
+    [SerializeField] private float rotationStickDeadBand = 0.05f; // Deadband for rotation input
+    private float currentAngularVelocity = 0f;
+
+    [Header("Drive Settings")]
+    [SerializeField] private float maxDriveSpeed = 5f;          // meters per second
+    [SerializeField] private float driveAcceleration = 10f;     // meters per second^2
+    [SerializeField] private float driveDeceleration = 15f;     // meters per second^2
+    [SerializeField] private float driveStickDeadBand = 0.1f; // Deadband for drive input
+    private Vector3 currentVelocity = Vector3.zero;
 
     private GameObject robot;
     private Rigidbody robotRigidbody;
@@ -39,14 +49,15 @@ public class BaseRobot : MonoBehaviour
         {
             Vector2 driveInput = drive.ReadValue<Vector2>();
             Vector2 rotateInput = rotate.ReadValue<Vector2>();
-            if (ToggleCamera.IsRobotCamera)
-            {
-                RobotCentricDrive(driveInput);
-            }
-            else
-            {
-                FieldCentricDrive(driveInput);
-            }
+            //if (ToggleCamera.IsRobotCamera)
+            //{
+            //    RobotCentricDrive(driveInput);
+            //}
+            //else
+            //{
+            //    FieldCentricDrive(driveInput);
+            //}
+            Drive(driveInput);
             Rotate(rotateInput);
 
             FreezeTransform();
@@ -67,36 +78,50 @@ public class BaseRobot : MonoBehaviour
     }
 
     /// <summary>
-    /// Drives the robot in a field-centric manner based on the provided input vector.
+    /// Drives the robot based on the specified input vector, adjusting its velocity and direction.
     /// </summary>
-    /// <param name="driveInput">A <see cref="Vector2"/> representing the desired movement direction and magnitude. The X component controls lateral
-    /// movement, and the Y component controls forward and backward movement.</param>
-    public void FieldCentricDrive(Vector2 driveInput)
+    /// <param name="driveInput">A 2D vector representing the input for driving. The X component controls lateral movement,  and the Y component
+    /// controls forward and backward movement. Values should typically range between -1 and 1 for each component.</param>
+    public void Drive(Vector2 driveInput)
     {
-        robotRigidbody.AddForce(-driveInput.y * driveSpeed * Time.deltaTime, 0, driveInput.x * driveSpeed * Time.fixedDeltaTime, ForceMode.Force);
+        // Gets the user inputs and accomodates for robot/field centric driving
+        Vector3 input = new(-driveInput.y, 0f, driveInput.x);
+        Vector3 desiredDirection = GetDirection(input);
+
+        // Clamps the input and create a Vector3 to represent a properly scaled target velocity
+        float inputMagnitude = Mathf.Clamp01(driveInput.magnitude);
+        Vector3 targetVelocity = desiredDirection * (inputMagnitude * maxDriveSpeed);
+
+        // Uses a deadband to determine if the robot should accelerate or decelerate, and then gets a velocity calculated form the acceleration
+        float accel = inputMagnitude > driveStickDeadBand ? driveAcceleration : driveDeceleration;
+        currentVelocity = Vector3.MoveTowards(currentVelocity, targetVelocity, accel * Time.fixedDeltaTime);
+
+        robotRigidbody.linearVelocity = new (currentVelocity.x, 0f, currentVelocity.z);
+    }
+
+    public Vector3 GetDirection(Vector3 input)
+    {
+        if (ToggleCamera.IsRobotCamera) return Quaternion.Euler(0f, -90f, 0f) * transform.TransformDirection(input).normalized;
+        return input.normalized;
     }
 
     /// <summary>
-    /// Moves the robot in a direction relative to its local coordinate system based on the provided input.
+    /// Rotates the robot based on the specified input.
     /// </summary>
-    /// <param name="driveInput">A <see cref="Vector2"/> representing the desired movement direction in the robot's local space. The X component
-    /// controls lateral movement, and the Y component controls forward/backward movement.</param>
-    public void RobotCentricDrive(Vector2 driveInput)
-    {
-        Vector3 localInput = new (-driveInput.x, 0, -driveInput.y);
-        Vector3 worldDirection = transform.TransformDirection(localInput);
-
-        robotRigidbody.AddForce(driveSpeed * Time.fixedDeltaTime * worldDirection, ForceMode.Force);
-    }
-
-    /// <summary>
-    /// Rotates the robot based on the specified input vector.
-    /// </summary>
-    /// <param name="rotateInput">A <see cref="Vector2"/> representing the rotation input. The <c>x</c> component determines the rotation speed
-    /// and direction.</param>
+    /// <param name="rotateInput">A <see cref="Vector2"/> representing the rotation input. The X component determines the rotation speed, where
+    /// positive values rotate clockwise and negative values rotate counterclockwise. The Y component is ignored.</param>
     public void Rotate(Vector2 rotateInput)
     {
-        robotRigidbody.AddTorque(0, rotateInput.x * rotateSpeed * Time.fixedDeltaTime, 0, ForceMode.Force);
+        float input = rotateInput.x;
+        float targetSpeed = input * maxAngularSpeed;
+
+        // Accelerate or decelerate toward target
+        float accel = Mathf.Abs(input) > rotationStickDeadBand ? rotationAcceleration : rotationDeceleration;
+        currentAngularVelocity = Mathf.MoveTowards(currentAngularVelocity, targetSpeed, accel * Time.fixedDeltaTime);
+
+        // Apply rotation as torque (convert to radians)
+        float angularVelocityRad = currentAngularVelocity * Mathf.Deg2Rad;
+        robotRigidbody.angularVelocity = new Vector3(0f, angularVelocityRad, 0f);
     }
 
     /// <summary>
