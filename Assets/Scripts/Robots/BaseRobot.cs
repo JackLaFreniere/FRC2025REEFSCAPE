@@ -39,7 +39,14 @@ public class BaseRobot : MonoBehaviour
         {
             Vector2 driveInput = drive.ReadValue<Vector2>();
             Vector2 rotateInput = rotate.ReadValue<Vector2>();
-            Drive(driveInput);
+            if (ToggleCamera.IsRobotCamera)
+            {
+                RobotCentricDrive(driveInput);
+            }
+            else
+            {
+                FieldCentricDrive(driveInput);
+            }
             Rotate(rotateInput);
 
             FreezeTransform();
@@ -60,13 +67,26 @@ public class BaseRobot : MonoBehaviour
     }
 
     /// <summary>
-    /// Moves the robot based on the specified input vector.
+    /// Drives the robot in a field-centric manner based on the provided input vector.
     /// </summary>
-    /// <param name="driveInput">A <see cref="Vector2"/> representing the movement input, where the Y component controls forward and backward
-    /// movement,  and the X component controls lateral movement.</param>
-    public void Drive(Vector2 driveInput)
+    /// <param name="driveInput">A <see cref="Vector2"/> representing the desired movement direction and magnitude. The X component controls lateral
+    /// movement, and the Y component controls forward and backward movement.</param>
+    public void FieldCentricDrive(Vector2 driveInput)
     {
         robotRigidbody.AddForce(-driveInput.y * driveSpeed * Time.deltaTime, 0, driveInput.x * driveSpeed * Time.fixedDeltaTime, ForceMode.Force);
+    }
+
+    /// <summary>
+    /// Moves the robot in a direction relative to its local coordinate system based on the provided input.
+    /// </summary>
+    /// <param name="driveInput">A <see cref="Vector2"/> representing the desired movement direction in the robot's local space. The X component
+    /// controls lateral movement, and the Y component controls forward/backward movement.</param>
+    public void RobotCentricDrive(Vector2 driveInput)
+    {
+        Vector3 localInput = new (-driveInput.x, 0, -driveInput.y);
+        Vector3 worldDirection = transform.TransformDirection(localInput);
+
+        robotRigidbody.AddForce(driveSpeed * Time.fixedDeltaTime * worldDirection, ForceMode.Force);
     }
 
     /// <summary>
@@ -104,6 +124,15 @@ public class BaseRobot : MonoBehaviour
     public void SetRobotInfo(RobotInfo robotInfo)
     {
         this.robotInfo = robotInfo;
+    }
+
+    /// <summary>
+    /// Retrieves the camera component attached to the GameObject named "RobotCamera".
+    /// </summary>
+    /// <returns>The <see cref="Camera"/> component of the GameObject named "RobotCamera"</returns>
+    public static Camera GetRobotCamera()
+    {
+        return GameObject.Find("RobotCamera").GetComponent<Camera>();
     }
 
     public virtual void CoralIntake() { }

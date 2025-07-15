@@ -8,6 +8,7 @@ TagManager:
   - Robot
   - CoralIntakeZone
   - Coral
+  - RobotCamera
   layers:
   - Default
   - TransparentFX

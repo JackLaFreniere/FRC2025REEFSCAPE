@@ -12266,8 +12266,9 @@ GameObject:
   - component: {fileID: 1043349433}
   - component: {fileID: 1043349432}
   - component: {fileID: 1043349431}
+  - component: {fileID: 1043349435}
   m_Layer: 0
-  m_Name: Driver_Station_Camera
+  m_Name: DriverStationCamera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12385,12 +12386,25 @@ Transform:
   m_GameObject: {fileID: 1043349430}
   serializedVersion: 2
   m_LocalRotation: {x: 0.06162845, y: -0.70441604, z: 0.06162845, w: 0.70441604}
-  m_LocalPosition: {x: 9.931578, y: 1.651, z: -1.8127067}
+  m_LocalPosition: {x: 9.602, y: 1.651, z: -1.8127067}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 10, y: -90, z: 0}
+--- !u!114 &1043349435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1043349430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 280b04ca15989d646a84b46f14277c48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraOffset: {x: 0, y: 0.6, z: 0}
 --- !u!1001 &1069522679
 PrefabInstance:
   m_ObjectHideFlags: 0

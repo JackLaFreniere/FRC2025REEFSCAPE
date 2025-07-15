@@ -1,10 +1,12 @@
 public class MukwonagoBotManager : BaseRobot
 {
+#pragma warning disable IDE1006
     public Elevator elevator { get; private set; }
     public Shoulder shoulder { get; private set; }
     public Elbow elbow { get; private set; }
     public Wrist wrist { get; private set; }
     public Climber climber { get; private set; }
+#pragma warning restore IDE1006
 
     private void Awake()
     {
