@@ -24,6 +24,8 @@ public class CoralIntakeZone : MonoBehaviour
         // Ensures that only a coral is accepted when the intake zone is empty
         if (!other.CompareTag("Coral") || intakingCoral != null) return;
 
+        BaseRobot.hasCoral = true;
+
         // Parents the coral under the wrist's intakezone
         Transform coral = other.transform;
         coral.SetParent(transform, worldPositionStays: true);

@@ -2300,7 +2300,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71c9498fa024b1d4db47bd6e38973864, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  robotInfo: {fileID: 11400000, guid: a3cad5785e47dc14196df8dab465b3b9, type: 2}
+  robotInfo: {fileID: 11400000, guid: 9fef847e3ffaa9d4b8a3f333fef94de2, type: 2}
 --- !u!1001 &192612688
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -6,11 +6,45 @@ public class CoralStation : MonoBehaviour
     [SerializeField] private Vector3 coralTransform;
     [SerializeField] private Vector3 coralEuler;
 
+    private bool hasDroppedCoral = false;
+
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Robot"))
+        TryDropCoral(other);
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        TryDropCoral(other);
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (!other.CompareTag("Robot")) return;
+        hasDroppedCoral = false;
+    }
+
+    private void TryDropCoral(Collider other)
+    {
+        // Only drops Coral for robots
+        if (!other.CompareTag("Robot")) return;
+
+        BaseRobot robot = other.GetComponent<BaseRobot>();
+        if (robot.stateMachine.CurrentState is MukwonagoBotCoralIntakeState)
         {
-            Instantiate(coralPrefab, coralTransform, Quaternion.Euler(coralEuler));
+            DropCoral(other);
         }
+        else if (robot.stateMachine.CurrentState is MukwonagoBotIdleState)
+        {
+            hasDroppedCoral = false;
+        }
+    }
+
+    private void DropCoral(Collider other)
+    {
+        if (hasDroppedCoral || BaseRobot.hasCoral) return;
+
+        Instantiate(coralPrefab, coralTransform, Quaternion.Euler(coralEuler));
+        hasDroppedCoral = true;
     }
 }

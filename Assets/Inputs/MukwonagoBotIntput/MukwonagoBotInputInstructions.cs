@@ -39,7 +39,7 @@ public class MukwonagoBotInputInstructions : MonoBehaviour, IRobotInputHandler
         playerControls.Player.ClimberUp.canceled += ctx => robot.Idle();
         playerControls.Player.CoralEject.canceled += ctx => robot.Idle();
         playerControls.Player.AlgaeEject.canceled += ctx => robot.Idle();
-        playerControls.Player.ConfirmScore.canceled += ctx => robot.CoralScore();
+        playerControls.Player.ConfirmScore.canceled += ctx => robot.Idle();
 
         robot.SetDrive(playerControls.Player.Drive);
         robot.SetRotate(playerControls.Player.Rotate);

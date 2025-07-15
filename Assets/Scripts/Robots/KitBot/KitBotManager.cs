@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class KitBotStateMachine : BaseRobot
+public class KitBotManager : BaseRobot
 {
     private void Awake()
     {

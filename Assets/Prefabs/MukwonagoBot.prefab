@@ -816,7 +816,7 @@ Transform:
   m_GameObject: {fileID: 8815028075416148250}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.005579762, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -839,14 +839,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1449e9652951b854dac376c33476a70b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  driveSpeed: 50000
-  rotateSpeed: 25000
   maxAngularSpeed: 480
   rotationAcceleration: 700
   rotationDeceleration: 1400
+  rotationStickDeadBand: 0.05
   maxDriveSpeed: 3
   driveAcceleration: 5
   driveDeceleration: 8
+  driveStickDeadBand: 0.1
 --- !u!114 &7375209052347026933
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -883,7 +883,7 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 2
 --- !u!65 &6567298398163999812

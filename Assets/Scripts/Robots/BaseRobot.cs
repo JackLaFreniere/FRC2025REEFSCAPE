@@ -3,6 +3,8 @@ using UnityEngine.InputSystem;
 
 public class BaseRobot : MonoBehaviour
 {
+    public static bool hasCoral = false;
+
     [Header("Rotation Settings")]
     [SerializeField] private float maxAngularSpeed = 180f; // degrees/sec
     [SerializeField] private float rotationAcceleration = 720f; // degrees/sec^2
@@ -49,14 +51,7 @@ public class BaseRobot : MonoBehaviour
         {
             Vector2 driveInput = drive.ReadValue<Vector2>();
             Vector2 rotateInput = rotate.ReadValue<Vector2>();
-            //if (ToggleCamera.IsRobotCamera)
-            //{
-            //    RobotCentricDrive(driveInput);
-            //}
-            //else
-            //{
-            //    FieldCentricDrive(driveInput);
-            //}
+
             Drive(driveInput);
             Rotate(rotateInput);
 
@@ -69,10 +64,12 @@ public class BaseRobot : MonoBehaviour
     /// </summary>
     private void FreezeTransform()
     {
+        // Gets the robot's position from Transform, and rotation from RobotInfo.spawnEuler
         transform.GetPositionAndRotation(out Vector3 position, out Quaternion rotation);
+        Vector3 startEuler = robotInfo.spawnEuler;
 
         Vector3 targetPosition = new (position.x, robotInfo.spawnPosition.y, position.z);
-        Quaternion targetRotation = Quaternion.Euler(0, rotation.eulerAngles.y, 0);
+        Quaternion targetRotation = Quaternion.Euler(startEuler.x, rotation.eulerAngles.y, startEuler.z);
 
         transform.SetPositionAndRotation(targetPosition, targetRotation);
     }
