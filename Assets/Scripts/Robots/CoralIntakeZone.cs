@@ -23,6 +23,9 @@ public class CoralIntakeZone : MonoBehaviour
     {
         // Ensures that only a coral is accepted when the intake zone is empty
         if (!other.CompareTag("Coral") || intakingCoral != null) return;
+        
+        // If the coral is already scored, do not intake it
+        if (other.GetComponent<Coral>().GetIsScored()) return;
 
         BaseRobot.hasCoral = true;
 

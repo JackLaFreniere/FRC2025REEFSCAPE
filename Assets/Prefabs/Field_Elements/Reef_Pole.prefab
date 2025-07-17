@@ -137,7 +137,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d566f6d834480434d8b5111f4347054c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coralReefLocation: {fileID: 11400000, guid: 092c48d15fbc0574cb8be183c384924b, type: 2}
+  coralReefLocation: {fileID: 11400000, guid: 877cbcd5b0438764ebc5eae260469f51, type: 2}
 --- !u!1 &4789229563292341848
 GameObject:
   m_ObjectHideFlags: 0
@@ -264,10 +264,10 @@ PrefabInstance:
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 3a331aaea14fde64babcdaa465f0970a, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 5149975660227005470}
+      addedObject: {fileID: 817106911969573416}
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 3a331aaea14fde64babcdaa465f0970a, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 817106911969573416}
+      addedObject: {fileID: 5149975660227005470}
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 3a331aaea14fde64babcdaa465f0970a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5851325577978908205}
