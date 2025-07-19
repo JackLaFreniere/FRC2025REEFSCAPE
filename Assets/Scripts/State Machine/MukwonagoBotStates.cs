@@ -213,5 +213,7 @@ public class MukwonagoBotConfirmCoralScoreState : PlayerState
         //L3
         bot.shoulder.SetTargetRotation(47f);
         bot.elbow.SetTargetRotation(-50f);
+
+        bot.wrist.GetComponentInChildren<CoralIntakeZone>().EjectCoral();
     }
 }

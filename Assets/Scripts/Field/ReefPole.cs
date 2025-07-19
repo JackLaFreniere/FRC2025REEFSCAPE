@@ -17,11 +17,8 @@ public class ReefPole : MonoBehaviour
         // Check if the collider is a coral and if it hasn't been scored yet
         if (!other.CompareTag("Coral") || scoredOn) return;
 
-
-        scoredOn = true; // Lets the pole know it has scored a coral
-        other.GetComponent<Coral>().Score(); // Lets the coral know that it has been scored
-        BaseRobot.hasCoral = false; // Lets the robot know it no longer has coral
-        CoralIntakeZone.intakingCoral = null; // Clears the intake zone's coral
+        scoredOn = true; // Lets the pole know it has scored a 
+        BaseRobot.RemoveCoral(); // Removes the coral from the robot's manipulator
 
         // Stores the coral locally and parents it to the pole
         scoredCoral = other.transform;

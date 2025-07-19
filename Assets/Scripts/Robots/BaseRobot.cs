@@ -19,6 +19,8 @@ public class BaseRobot : MonoBehaviour
     [SerializeField] private float driveStickDeadBand = 0.1f; // Deadband for drive input
     private Vector3 currentVelocity = Vector3.zero;
 
+    public static Collider coral = null;
+
     private GameObject robot;
     private Rigidbody robotRigidbody;
     private RobotInfo robotInfo;
@@ -119,6 +121,17 @@ public class BaseRobot : MonoBehaviour
         // Apply rotation as torque (convert to radians)
         float angularVelocityRad = currentAngularVelocity * Mathf.Deg2Rad;
         robotRigidbody.angularVelocity = new Vector3(0f, angularVelocityRad, 0f);
+    }
+
+    /// <summary>
+    /// Sets the Coral as scored and removes it from the robot's manipulator.
+    /// </summary>
+    public static void RemoveCoral()
+    {
+        coral.GetComponent<Coral>().Score();
+
+        coral = null;
+        hasCoral = false;
     }
 
     /// <summary>
