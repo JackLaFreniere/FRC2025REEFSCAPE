@@ -34,7 +34,7 @@ public class CoralStation : MonoBehaviour
         {
             DropCoral(other);
         }
-        else if (robot.stateMachine.CurrentState is MukwonagoBotIdleState)
+        else if (robot.stateMachine.CurrentState is Stow)
         {
             hasDroppedCoral = false;
         }

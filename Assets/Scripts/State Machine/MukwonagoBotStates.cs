@@ -1,10 +1,8 @@
-using UnityEngine;
-
-public class MukwonagoBotIdleState : PlayerState
+public class Stow : PlayerState
 {
     private readonly MukwonagoBotManager bot;
 
-    public MukwonagoBotIdleState(BaseRobot player, StateMachine stateMachine) : base(player, stateMachine)
+    public Stow(BaseRobot player, StateMachine stateMachine) : base(player, stateMachine)
     {
         bot = (MukwonagoBotManager) player;
     }
@@ -12,10 +10,20 @@ public class MukwonagoBotIdleState : PlayerState
 
     public override void Enter()
     {
-        bot.shoulder.SetTargetRotation(90f);
-        bot.elbow.SetTargetRotation(65f);
-        bot.wrist.SetTargetRotation(0f);
-        bot.elevator.SetTargetPosition(0f);
+        if (BaseRobot.hasAlgae)
+        {
+            bot.shoulder.SetTargetRotation(60f);
+            bot.elbow.SetTargetRotation(155f);
+            bot.wrist.SetTargetRotation(0f);
+            bot.elevator.SetTargetPosition(0f);
+        }
+        else
+        {
+            bot.shoulder.SetTargetRotation(90f);
+            bot.elbow.SetTargetRotation(65f);
+            bot.wrist.SetTargetRotation(0f);
+            bot.elevator.SetTargetPosition(0f);
+        }
     }
 }
 

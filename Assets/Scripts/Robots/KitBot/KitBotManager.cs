@@ -25,7 +25,7 @@ public class KitBotManager : BaseRobot
         stateMachine.ChangeState(coralScoreState);
     }
 
-    public override void Idle()
+    public override void Stow()
     {
         stateMachine.ChangeState(idleState);
     }

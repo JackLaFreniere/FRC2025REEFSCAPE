@@ -11,7 +11,7 @@ public class MukwonagoBotManager : BaseRobot
     private void Awake()
     {
         stateMachine = new StateMachine();
-        idleState = new MukwonagoBotIdleState(this, stateMachine);
+        idleState = new Stow(this, stateMachine);
         coralIntakeState = new MukwonagoBotCoralIntakeState(this, stateMachine);
         algaeIntakeState = new MukwonagoBotAlgaeIntakeState(this, stateMachine);
         coralScoreState = new MukwonagoBotCoralScoreState(this, stateMachine);
@@ -91,7 +91,7 @@ public class MukwonagoBotManager : BaseRobot
         stateMachine.ChangeState(confirmCoralScore);
     }
 
-    public override void Idle()
+    public override void Stow()
     {
         stateMachine.ChangeState(idleState);
     }

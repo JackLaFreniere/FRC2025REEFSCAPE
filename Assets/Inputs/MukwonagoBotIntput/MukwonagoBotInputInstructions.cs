@@ -30,16 +30,16 @@ public class MukwonagoBotInputInstructions : MonoBehaviour, IRobotInputHandler
         playerControls.Player.AlgaeEject.performed += ctx => robot.AlgaeEject();
         playerControls.Player.ConfirmScore.performed += ctx => robot.ConfirmCoralScore();
 
-        playerControls.Player.CoralIntake.canceled += ctx => robot.Idle();
-        playerControls.Player.AlgaeIntake.canceled += ctx => robot.Idle();
-        playerControls.Player.CoralScore.canceled += ctx => robot.Idle();
-        playerControls.Player.NetScore.canceled += ctx => robot.Idle();
-        playerControls.Player.ProcessorScore.canceled += ctx => robot.Idle();
-        playerControls.Player.ClimberDown.canceled += ctx => robot.Idle();
-        playerControls.Player.ClimberUp.canceled += ctx => robot.Idle();
-        playerControls.Player.CoralEject.canceled += ctx => robot.Idle();
-        playerControls.Player.AlgaeEject.canceled += ctx => robot.Idle();
-        playerControls.Player.ConfirmScore.canceled += ctx => robot.Idle();
+        playerControls.Player.CoralIntake.canceled += ctx => robot.Stow();
+        playerControls.Player.AlgaeIntake.canceled += ctx => robot.Stow();
+        playerControls.Player.CoralScore.canceled += ctx => robot.Stow();
+        playerControls.Player.NetScore.canceled += ctx => robot.Stow();
+        playerControls.Player.ProcessorScore.canceled += ctx => robot.Stow();
+        playerControls.Player.ClimberDown.canceled += ctx => robot.Stow();
+        playerControls.Player.ClimberUp.canceled += ctx => robot.Stow();
+        playerControls.Player.CoralEject.canceled += ctx => robot.Stow();
+        playerControls.Player.AlgaeEject.canceled += ctx => robot.Stow();
+        playerControls.Player.ConfirmScore.canceled += ctx => robot.Stow();
 
         robot.SetDrive(playerControls.Player.Drive);
         robot.SetRotate(playerControls.Player.Rotate);

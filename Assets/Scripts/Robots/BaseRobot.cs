@@ -201,5 +201,5 @@ public class BaseRobot : MonoBehaviour
     public virtual void CoralEject() { }
     public virtual void AlgaeEject() { }
     public virtual void ConfirmCoralScore() { }
-    public virtual void Idle() { }
+    public virtual void Stow() { }
 }
