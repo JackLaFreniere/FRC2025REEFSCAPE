@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 public class BaseRobot : MonoBehaviour
 {
     public static bool hasCoral = false;
+    public static bool hasAlgae = false;
 
     [Header("Rotation Settings")]
     [SerializeField] private float maxAngularSpeed = 180f; // degrees/sec
@@ -20,6 +21,7 @@ public class BaseRobot : MonoBehaviour
     private Vector3 currentVelocity = Vector3.zero;
 
     public static Collider coral = null;
+    public static Collider algae = null;
 
     private GameObject robot;
     private Rigidbody robotRigidbody;
@@ -43,6 +45,13 @@ public class BaseRobot : MonoBehaviour
 
     protected virtual void Start()
     {
+        // Resets the game pieces between instances
+        hasCoral = false;
+        hasAlgae = false;
+        
+        coral = null;
+        algae = null;
+
         robot = this.gameObject;
         robotRigidbody = robot.GetComponent<Rigidbody>();
     }
