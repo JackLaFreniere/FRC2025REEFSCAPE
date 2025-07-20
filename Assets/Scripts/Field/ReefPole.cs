@@ -17,6 +17,9 @@ public class ReefPole : MonoBehaviour
         // Check if the collider is a coral and if it hasn't been scored yet
         if (!other.CompareTag("Coral") || scoredOn) return;
 
+        // Makes sure the Coral is currently being held by a robot. Cannot fall and score itself
+        if (other.transform.root == other.transform) return;
+
         scoredOn = true; // Lets the pole know it has scored a 
         BaseRobot.RemoveCoral(); // Removes the coral from the robot's manipulator
 

@@ -1,3 +1,5 @@
+using UnityEngine;
+
 public class MukwonagoBotIdleState : PlayerState
 {
     private readonly MukwonagoBotManager bot;
@@ -174,10 +176,7 @@ public class MukwonagoBotCoralEjectState : PlayerState
 
     public override void Enter()
     {
-        bot.shoulder.SetTargetRotation(90f);
-        bot.elbow.SetTargetRotation(65f);
-        bot.wrist.SetTargetRotation(0f);
-        bot.elevator.SetTargetPosition(0f);
+        bot.wrist.GetComponentInChildren<CoralIntakeZone>().EjectCoral();
     }
 }
 
@@ -213,7 +212,15 @@ public class MukwonagoBotConfirmCoralScoreState : PlayerState
         //L3
         bot.shoulder.SetTargetRotation(47f);
         bot.elbow.SetTargetRotation(-50f);
+    }
 
-        bot.wrist.GetComponentInChildren<CoralIntakeZone>().EjectCoral();
+    public override void Update()
+    {
+        if (!BaseRobot.hasCoral) return;
+
+        if (bot.shoulder.IsAtTargetRotation() && bot.elbow.IsAtTargetRotation() && BaseRobot.hasCoral)
+        {
+            bot.wrist.GetComponentInChildren<CoralIntakeZone>().EjectCoral();
+        }
     }
 }

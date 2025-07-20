@@ -4,6 +4,7 @@ using UnityEngine;
 public class Elevator : MonoBehaviour
 {
     [SerializeField] private float speed = 5f;
+    private const float tolerance = 5f;
 
     private BoxCollider boxCollider;
     private LayerMask fieldLayer;
@@ -76,16 +77,15 @@ public class Elevator : MonoBehaviour
     /// <param name="height">The desired height in inches. Must be a positive value.</param>
     public void SetTargetPosition(float height)
     {
-        targetPosition = new Vector3(elevatorOffset.x, InchesToMeters(height) + elevatorOffset.y, elevatorOffset.z);
+        targetPosition = new Vector3(elevatorOffset.x, SubsystemHelper.InchesToMeters(height) + elevatorOffset.y, elevatorOffset.z);
     }
 
     /// <summary>
-    /// Converts a measurement in inches to meters.
+    /// Determines if the Elevator is at its target position within a specified tolerance.
     /// </summary>
-    /// <param name="inches">The measurement in inches to be converted. Must be a non-negative value.</param>
-    /// <returns>The equivalent measurement in meters.</returns>
-    private float InchesToMeters(float inches)
+    /// <returns>If within tolerance</returns>
+    public bool IsAtTargetPosition()
     {
-        return inches * 0.0254f;
+        return SubsystemHelper.IsAtPosition(transform.localPosition.y, targetPosition.y, tolerance);
     }
 }
