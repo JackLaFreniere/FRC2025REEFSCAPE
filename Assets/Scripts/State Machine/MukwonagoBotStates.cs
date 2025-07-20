@@ -191,10 +191,7 @@ public class MukwonagoBotAlgaeEjectState : PlayerState
 
     public override void Enter()
     {
-        bot.shoulder.SetTargetRotation(90f);
-        bot.elbow.SetTargetRotation(65f);
-        bot.wrist.SetTargetRotation(0f);
-        bot.elevator.SetTargetPosition(0f);
+        bot.elbow.GetComponentInChildren<AlgaeIntakeZone>().EjectAlgae();
     }
 }
 

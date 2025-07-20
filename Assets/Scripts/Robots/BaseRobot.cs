@@ -144,6 +144,17 @@ public class BaseRobot : MonoBehaviour
     }
 
     /// <summary>
+    /// Sets the Algae as scored and removes it from the robot's manipulator.
+    /// </summary>
+    public static void RemoveAlgae()
+    {
+        algae.GetComponent<Algae>().Score();
+
+        algae = null;
+        hasAlgae = false;
+    }
+
+    /// <summary>
     /// Sets the input action used to control the drive mechanism.
     /// </summary>
     /// <param name="drive">The input action that defines the drive behavior. Cannot be null.</param>

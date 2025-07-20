@@ -9,6 +9,7 @@ TagManager:
   - CoralIntakeZone
   - Coral
   - RobotCamera
+  - Algae
   layers:
   - Default
   - TransparentFX
