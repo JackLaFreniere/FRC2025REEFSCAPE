@@ -26,6 +26,8 @@ public class ReefPole : MonoBehaviour
         // Stores the coral locally and parents it to the pole
         scoredCoral = other.transform;
         scoredCoral.SetParent(transform, worldPositionStays: true);
+
+        ScoreManager.AddScore(coralReefLocation.score);
     }
 
     private void FixedUpdate()
