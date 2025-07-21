@@ -17,36 +17,29 @@ public class ToggleCamera : MonoBehaviour
 
     private void Start()
     {
+        IsRobotCamera = false;
+
         // Get instances of the cameras and audio listeners
         driverStationCamera = GameObject.Find("DriverStationCamera").GetComponent<Camera>();
         robotCamera = BaseRobot.GetRobotCamera();
-        robotCamera.enabled = false; // The Camera has to start enabled to get an instance before being disabled
 
         driverStationAudioListener = driverStationCamera.GetComponent<AudioListener>();
         robotAudioListener = robotCamera.GetComponent<AudioListener>();
 
-        // Verifie that only the driver station camera is active at the start
-        driverStationCamera.gameObject.SetActive(true);
-        driverStationAudioListener.enabled = true;
-        robotCamera.gameObject.SetActive(false);
-        robotAudioListener.enabled = false;
-
         // Get the robot's Transform component
-        robot = robotCamera.transform.GetComponentInParent<Transform>();
+        robot = GameObject.FindAnyObjectByType<BaseRobot>().transform;
     }
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             // Toggle the camera's view between the driver station and the robot
             IsRobotCamera = !IsRobotCamera;
 
-            driverStationCamera.gameObject.SetActive(!IsRobotCamera);
             driverStationAudioListener.enabled = !IsRobotCamera;
             driverStationCamera.enabled = !IsRobotCamera;
 
-            robotCamera.gameObject.SetActive(IsRobotCamera);
             robotAudioListener.enabled = IsRobotCamera;
             robotCamera.enabled = IsRobotCamera;
         }
@@ -54,7 +47,7 @@ public class ToggleCamera : MonoBehaviour
         if (!IsRobotCamera)
         {
             // Update the driver station camera to track the position of the robot
-            Vector3 targetPosition = robot.position + cameraOffset;
+            Vector3 targetPosition = robot.position;// robot.TransformPoint(cameraOffset);
             driverStationCamera.transform.LookAt(targetPosition);
         }
     }
