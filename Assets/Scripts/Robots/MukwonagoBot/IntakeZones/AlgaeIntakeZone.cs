@@ -24,6 +24,9 @@ public class AlgaeIntakeZone : MonoBehaviour
         // Ensures that only a algae is accepted when the intake zone is empty
         if (!other.CompareTag("Algae") || BaseRobot.algae != null) return;
 
+        // Makes sure that you can only intake Algae when the robot is in the Algae Intake State
+        if (BaseRobot.stateMachine.CurrentState is not MukwonagoBotAlgaeIntakeState) return;
+
         // If the algae is already scored, do not intake it
         if (other.GetComponent<Algae>().GetIsScored()) return;
 

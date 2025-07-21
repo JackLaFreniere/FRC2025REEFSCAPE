@@ -11,7 +11,7 @@ public class MukwonagoBotManager : BaseRobot
     private void Awake()
     {
         stateMachine = new StateMachine();
-        idleState = new Stow(this, stateMachine);
+        stowState = new Stow(this, stateMachine);
         coralIntakeState = new MukwonagoBotCoralIntakeState(this, stateMachine);
         algaeIntakeState = new MukwonagoBotAlgaeIntakeState(this, stateMachine);
         coralScoreState = new MukwonagoBotCoralScoreState(this, stateMachine);
@@ -33,7 +33,7 @@ public class MukwonagoBotManager : BaseRobot
         climber = transform.Find("Climber").GetComponent<Climber>();
 
         base.Start();
-        stateMachine.Initialize(idleState);
+        stateMachine.Initialize(stowState);
     }
 
     private void Update()
@@ -93,6 +93,6 @@ public class MukwonagoBotManager : BaseRobot
 
     public override void Stow()
     {
-        stateMachine.ChangeState(idleState);
+        stateMachine.ChangeState(stowState);
     }
 }

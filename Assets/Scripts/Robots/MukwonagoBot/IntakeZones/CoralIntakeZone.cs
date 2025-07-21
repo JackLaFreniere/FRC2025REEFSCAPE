@@ -23,7 +23,10 @@ public class CoralIntakeZone : MonoBehaviour
     {
         // Ensures that only a coral is accepted when the intake zone is empty
         if (!other.CompareTag("Coral") || BaseRobot.coral != null) return;
-        
+
+        // Makes sure that you can only intake Coral when the robot is in the Coral Intake State
+        if (BaseRobot.stateMachine.CurrentState is not MukwonagoBotCoralIntakeState) return;
+
         // If the coral is already scored, do not intake it
         if (other.GetComponent<Coral>().GetIsScored()) return;
 

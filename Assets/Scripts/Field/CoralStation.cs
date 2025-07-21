@@ -29,12 +29,11 @@ public class CoralStation : MonoBehaviour
         // Only drops Coral for robots
         if (!other.CompareTag("Robot")) return;
 
-        BaseRobot robot = other.GetComponent<BaseRobot>();
-        if (robot.stateMachine.CurrentState is MukwonagoBotCoralIntakeState)
+        if (BaseRobot.stateMachine.CurrentState is MukwonagoBotCoralIntakeState)
         {
             DropCoral(other);
         }
-        else if (robot.stateMachine.CurrentState is Stow)
+        else if (BaseRobot.stateMachine.CurrentState is Stow)
         {
             hasDroppedCoral = false;
         }

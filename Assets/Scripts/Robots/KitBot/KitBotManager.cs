@@ -5,14 +5,14 @@ public class KitBotManager : BaseRobot
     private void Awake()
     {
         stateMachine = new StateMachine();
-        idleState = new KitBotIdleState(this, stateMachine);
+        stowState = new KitBotIdleState(this, stateMachine);
         coralScoreState = new KitBotCoralScoreState(this, stateMachine);
     }
 
     protected override void Start()
     {
         base.Start();
-        stateMachine.Initialize(idleState);
+        stateMachine.Initialize(stowState);
     }
 
     private void Update()
@@ -27,6 +27,6 @@ public class KitBotManager : BaseRobot
 
     public override void Stow()
     {
-        stateMachine.ChangeState(idleState);
+        stateMachine.ChangeState(stowState);
     }
 }

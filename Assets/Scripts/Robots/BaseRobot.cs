@@ -31,8 +31,8 @@ public class BaseRobot : MonoBehaviour
     private InputAction drive;
     private InputAction rotate;
 
-    public StateMachine stateMachine;
-    public PlayerState idleState;
+    public static StateMachine stateMachine;
+    public PlayerState stowState;
     public PlayerState algaeIntakeState;
     public PlayerState coralIntakeState;
     public PlayerState coralScoreState;
