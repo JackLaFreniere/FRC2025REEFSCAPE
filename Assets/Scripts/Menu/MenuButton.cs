@@ -1,13 +1,18 @@
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UIElements;
 
 public class MenuButton : MonoBehaviour
 {
+    private AsyncOperation gameSceneLoadOp;
+    private void Start()
+    {
+        gameSceneLoadOp = SceneManager.LoadSceneAsync("GameScene", LoadSceneMode.Single);
+        gameSceneLoadOp.allowSceneActivation = false;
+    }
+
     public void LoadGameScene(Object obj)
     {
-        SceneManager.LoadScene("GameScene");
+        gameSceneLoadOp.allowSceneActivation = true;
         Destroy(obj);
     }
     public void ExitMenuScene()
