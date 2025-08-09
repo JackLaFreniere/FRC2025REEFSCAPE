@@ -1,3 +1,5 @@
+using UnityEngine;
+
 public class MukwonagoBotManager : BaseRobot
 {
 #pragma warning disable IDE1006
@@ -43,26 +45,37 @@ public class MukwonagoBotManager : BaseRobot
 
     public override void CoralIntake()
     {
+        if (hasAlgae || hasCoral) return;
+
         stateMachine.ChangeState(coralIntakeState);
     }
 
     public override void AlgaeIntake()
     {
+        if (hasAlgae || hasCoral) return;
+
         stateMachine.ChangeState(algaeIntakeState);
     }
 
     public override void CoralScore()
     {
+        if (hasAlgae) return;
+
         stateMachine.ChangeState(coralScoreState);
+        Debug.Log("CoralScore");
     }
 
     public override void NetScore()
     {
+        if (hasCoral) return;
+
         stateMachine.ChangeState(netScoreState);
     }
 
     public override void ProcessorScore()
     {
+        if (hasCoral) return;
+
         stateMachine.ChangeState(processorScoreState);
     }
 
@@ -88,11 +101,15 @@ public class MukwonagoBotManager : BaseRobot
 
     public override void ConfirmCoralScore()
     {
+        if (stateMachine.CurrentState is not MukwonagoBotCoralScoreState) return;
+
         stateMachine.ChangeState(confirmCoralScore);
+        Debug.Log("ConfirmCoralScore");
     }
 
     public override void Stow()
     {
         stateMachine.ChangeState(stowState);
+        Debug.Log("Stow");
     }
 }

@@ -38,8 +38,6 @@ public class MukwonagoBotCoralIntakeState : PlayerState
 
     public override void Enter()
     {
-        if (BaseRobot.hasAlgae || BaseRobot.hasCoral) return;
-
         bot.shoulder.SetTargetRotation(121.5f);
         bot.elbow.SetTargetRotation(142.5f);
         bot.wrist.SetTargetRotation(-90f);
@@ -58,8 +56,6 @@ public class MukwonagoBotAlgaeIntakeState : PlayerState
 
     public override void Enter()
     {
-        if (BaseRobot.hasAlgae || BaseRobot.hasCoral) return;
-
         //L2/Low
         bot.shoulder.SetTargetRotation(15f);
         bot.elbow.SetTargetRotation(100f);
@@ -85,8 +81,6 @@ public class MukwonagoBotCoralScoreState : PlayerState
 
     public override void Enter()
     {
-        if (BaseRobot.hasAlgae) return;
-
         //L1
         //bot.shoulder.SetTargetRotation(55f);
         //bot.elbow.SetTargetRotation(-20f);
@@ -124,8 +118,6 @@ public class MukwonagoBotNetScoreState : PlayerState
 
     public override void Enter()
     {
-        if (BaseRobot.hasCoral) return;
-
         bot.shoulder.SetTargetRotation(-85f);
         bot.elbow.SetTargetRotation(65f);
         bot.wrist.SetTargetRotation(0f);
@@ -144,8 +136,6 @@ public class MukwonagoBotProcessorScoreState : PlayerState
 
     public override void Enter()
     {
-        if (BaseRobot.hasCoral) return;
-
         bot.shoulder.SetTargetRotation(50f);
         bot.elbow.SetTargetRotation(120f);
         bot.wrist.SetTargetRotation(0f);
@@ -224,8 +214,6 @@ public class MukwonagoBotConfirmCoralScoreState : PlayerState
 
     public override void Enter()
     {
-        if (stateMachine.PreviousState is not MukwonagoBotCoralScoreState) return;
-
         //L3
         bot.shoulder.SetTargetRotation(47f);
         bot.elbow.SetTargetRotation(-50f);
@@ -233,10 +221,6 @@ public class MukwonagoBotConfirmCoralScoreState : PlayerState
 
     public override void Update()
     {
-        if (!BaseRobot.hasCoral) return;
-
-        if (stateMachine.PreviousState is not MukwonagoBotCoralScoreState) return;
-
         if (bot.shoulder.IsAtTargetRotation() && bot.elbow.IsAtTargetRotation() && BaseRobot.hasCoral)
         {
             bot.wrist.GetComponentInChildren<CoralIntakeZone>().EjectCoral();
