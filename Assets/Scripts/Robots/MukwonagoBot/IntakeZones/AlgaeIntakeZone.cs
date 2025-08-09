@@ -2,8 +2,14 @@ using UnityEngine;
 
 public class AlgaeIntakeZone : MonoBehaviour
 {
+    [Header("Intake Settings")]
     [SerializeField] private float moveSpeed = 3f;
     [SerializeField] private float rotateSpeed = 100f;
+
+    [Header("Eject Settings")]
+    [SerializeField] private float ejectForce = 100f;
+
+    private Vector3 ejectDirection = Vector3.up;
 
     private void FixedUpdate()
     {
@@ -50,8 +56,11 @@ public class AlgaeIntakeZone : MonoBehaviour
         if (BaseRobot.algae == null) return;
 
         BaseRobot.algae.transform.parent = null;
-        BaseRobot.algae.GetComponent<Rigidbody>().useGravity = true;
-        BaseRobot.algae.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+
+        Rigidbody algaeRB = BaseRobot.algae.GetComponent<Rigidbody>();
+        algaeRB.useGravity = true;
+        algaeRB.constraints = RigidbodyConstraints.None;
+        algaeRB.AddRelativeForce(ejectDirection * ejectForce, ForceMode.Impulse);
 
         BaseRobot.RemoveAlgae();
     }

@@ -10,6 +10,7 @@ TagManager:
   - Coral
   - RobotCamera
   - Algae
+  - Wrist
   layers:
   - Default
   - TransparentFX

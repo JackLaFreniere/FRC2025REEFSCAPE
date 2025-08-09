@@ -467,6 +467,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 3
   rotateSpeed: 100
+  ejectForce: 3
 --- !u!1 &3426482544176868429
 GameObject:
   m_ObjectHideFlags: 0
@@ -949,6 +950,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 10
   rotateSpeed: 100
+  ejectForce: 100
 --- !u!1 &6885320491126109535
 GameObject:
   m_ObjectHideFlags: 0
@@ -1682,6 +1684,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 769bab1d1f7824348be5fa9be7e83daf, type: 3}
+      propertyPath: m_TagString
+      value: Wrist
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2042,6 +2048,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: fa5299d7784475b4d90c0a5987a852b1, type: 3}
+      propertyPath: m_TagString
+      value: Wrist
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2077,7 +2087,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 0.014687166, y: 0.028980672, z: 0.08577507}
   m_Center: {x: 0.04280729, y: 0.83756757, z: 0.03721815}
@@ -2559,6 +2569,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 26db39a189ad6a04298402f90a7ab743, type: 3}
+      propertyPath: m_TagString
+      value: Wrist
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2594,7 +2608,7 @@ CapsuleCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.025194556
   m_Height: 0.05041051
@@ -2853,6 +2867,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: f09e6323acf46ec49b040e8e5f55e981, type: 3}
       propertyPath: m_Layer
       value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f09e6323acf46ec49b040e8e5f55e981, type: 3}
+      propertyPath: m_TagString
+      value: Wrist
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3471,6 +3489,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 49abed195fedf6749869db741bd605d2, type: 3}
+      propertyPath: m_TagString
+      value: Wrist
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3959,6 +3981,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 8deda966c231b5a4998eb57e4d2d0d1e, type: 3}
+      propertyPath: m_TagString
+      value: Wrist
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3994,7 +4020,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 0.014687166, y: 0.028980672, z: 0.08577507}
   m_Center: {x: -0.045836844, y: 0.83756757, z: 0.03721815}
@@ -4283,6 +4309,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b5e954765406c8c4ebace47adb6876d2, type: 3}
+      propertyPath: m_TagString
+      value: Wrist
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4318,7 +4348,7 @@ CapsuleCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.02519451
   m_Height: 0.05041057
@@ -4842,6 +4872,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5f2fc93d120c16747bbd99dd7de67032, type: 3}
+      propertyPath: m_TagString
+      value: Wrist
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5232,6 +5266,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 263ece02c7709fa44949838a79335885, type: 3}
+      propertyPath: m_TagString
+      value: Wrist
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5267,7 +5305,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 0.2169738, y: 0.1781295, z: 0.0032495256}
   m_Center: {x: -0.0014848411, y: 0.8420242, z: -0.0027225015}
@@ -6531,6 +6569,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: fc2c7c7abd92fcb46bb98e364d7057bd, type: 3}
+      propertyPath: m_TagString
+      value: Wrist
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6992,6 +7034,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: f20870ae32f54234dae5e4b3aa432c41, type: 3}
       propertyPath: m_Layer
       value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f20870ae32f54234dae5e4b3aa432c41, type: 3}
+      propertyPath: m_TagString
+      value: Wrist
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9653,6 +9699,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a473e2e20fc86544ab1c869c68f84c8f, type: 3}
+      propertyPath: m_TagString
+      value: Wrist
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9948,6 +9998,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 24492d19755d7cb4ba22ba452a74902b, type: 3}
+      propertyPath: m_TagString
+      value: Wrist
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9983,7 +10037,7 @@ CapsuleCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.025194282
   m_Height: 0.050411344
@@ -10308,6 +10362,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: de1a9446d1337b244ac05b6953387b80, type: 3}
       propertyPath: m_Layer
       value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: de1a9446d1337b244ac05b6953387b80, type: 3}
+      propertyPath: m_TagString
+      value: Wrist
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11451,6 +11509,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ce82bda49ddff4a4d9f218638df571f0, type: 3}
+      propertyPath: m_TagString
+      value: Wrist
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11679,6 +11741,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: babf12be2a601ca4d8e12323d1c35d94, type: 3}
       propertyPath: m_Layer
       value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: babf12be2a601ca4d8e12323d1c35d94, type: 3}
+      propertyPath: m_TagString
+      value: Wrist
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12432,6 +12498,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 71cb5c6fbef14c741b138edaf2c3e0f9, type: 3}
+      propertyPath: m_TagString
+      value: Wrist
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12497,6 +12567,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: d65a35f05510c6c429654d3fec4e2f35, type: 3}
       propertyPath: m_Layer
       value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d65a35f05510c6c429654d3fec4e2f35, type: 3}
+      propertyPath: m_TagString
+      value: Wrist
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -13484,6 +13558,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 89c22fa74eb494a4c8f8146c9fa875f4, type: 3}
+      propertyPath: m_TagString
+      value: Wrist
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -13550,6 +13628,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 539276289edf10a4591b8ee974fd3ca6, type: 3}
+      propertyPath: m_TagString
+      value: Wrist
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -13580,7 +13662,7 @@ CapsuleCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.025194434
   m_Height: 0.050411224
@@ -14008,6 +14090,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c32352f2041156042b7faccda03eb033, type: 3}
+      propertyPath: m_TagString
+      value: Wrist
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -14038,7 +14124,7 @@ CapsuleCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.025194712
   m_Height: 0.050410032
@@ -14951,6 +15037,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d3665c00969024f4c8fa6410bbf9b879, type: 3}
+      propertyPath: m_TagString
+      value: Wrist
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -15016,6 +15106,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: df780a378c837e74b9423d2cf98ee8d0, type: 3}
       propertyPath: m_Layer
       value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: df780a378c837e74b9423d2cf98ee8d0, type: 3}
+      propertyPath: m_TagString
+      value: Wrist
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -15870,6 +15964,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: fdcb632d5df25fb4b99403bbf5f646df, type: 3}
+      propertyPath: m_TagString
+      value: Wrist
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -15900,7 +15998,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 0.06352547, y: 0.09229219, z: 0.08899732}
   m_Center: {x: -0.0015329085, y: 0.7919864, z: 0.036974914}
@@ -16127,6 +16225,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 693873d06a3156d4b85b8189dba0ed5a, type: 3}
       propertyPath: m_Layer
       value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 693873d06a3156d4b85b8189dba0ed5a, type: 3}
+      propertyPath: m_TagString
+      value: Wrist
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -17503,6 +17605,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e0992b77e90f33449bda08c5aa8cfd76, type: 3}
+      propertyPath: m_TagString
+      value: Wrist
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -17538,7 +17644,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 0.21697381, y: 0.1781295, z: 0.0032495782}
   m_Center: {x: -0.0014848374, y: 0.8420242, z: 0.07720031}
@@ -17597,6 +17703,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: d92f88b7ce744774c935be2ba1b14495, type: 3}
       propertyPath: m_Layer
       value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d92f88b7ce744774c935be2ba1b14495, type: 3}
+      propertyPath: m_TagString
+      value: Wrist
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -18252,6 +18362,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e3f48d8e6b4fcfa45aa8a4f704fc640b, type: 3}
+      propertyPath: m_TagString
+      value: Wrist
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -18317,6 +18431,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 5212337d6591a4d48a37cdfc3ce18f49, type: 3}
       propertyPath: m_Layer
       value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5212337d6591a4d48a37cdfc3ce18f49, type: 3}
+      propertyPath: m_TagString
+      value: Wrist
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -18648,6 +18766,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: baab0146019ee0640a12dedfd0e43530, type: 3}
+      propertyPath: m_TagString
+      value: Wrist
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -18683,7 +18805,7 @@ CapsuleCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.025194533
   m_Height: 0.05041015
@@ -19531,6 +19653,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bccd77a543f9bc941afe47f66f11f3aa, type: 3}
+      propertyPath: m_TagString
+      value: Wrist
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -19826,6 +19952,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e462732a36197184399eef2d352a8e8a, type: 3}
+      propertyPath: m_TagString
+      value: Wrist
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -20120,6 +20250,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 15f89a2c6bb53c64f8799a55e5b4e2fb, type: 3}
       propertyPath: m_Layer
       value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 15f89a2c6bb53c64f8799a55e5b4e2fb, type: 3}
+      propertyPath: m_TagString
+      value: Wrist
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -20701,6 +20835,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 530c2fbe03797134888c8ef497db7b5f, type: 3}
+      propertyPath: m_TagString
+      value: Wrist
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -21163,6 +21301,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0bb3d7f23f09c0348931aa3933b999cc, type: 3}
+      propertyPath: m_TagString
+      value: Wrist
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -21228,6 +21370,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 40e5d466ca3c4314dad2adf88074181c, type: 3}
       propertyPath: m_Layer
       value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 40e5d466ca3c4314dad2adf88074181c, type: 3}
+      propertyPath: m_TagString
+      value: Wrist
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

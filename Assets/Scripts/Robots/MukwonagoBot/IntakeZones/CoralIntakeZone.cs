@@ -2,8 +2,14 @@ using UnityEngine;
 
 public class CoralIntakeZone : MonoBehaviour
 {
+    [Header("Intake Settings")]
     [SerializeField] private float moveSpeed = 3f;
     [SerializeField] private float rotateSpeed = 100f;
+
+    [Header("Eject Settings")]
+    [SerializeField] private float ejectForce = 100f;
+
+    private Vector3 ejectDirection = Vector3.up;
 
     private void FixedUpdate()
     {
@@ -50,8 +56,11 @@ public class CoralIntakeZone : MonoBehaviour
         if (BaseRobot.coral == null) return;
 
         BaseRobot.coral.transform.parent = null;
-        BaseRobot.coral.GetComponent<Rigidbody>().useGravity = true;
-        BaseRobot.coral.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+
+        Rigidbody coralRB = BaseRobot.coral.GetComponent<Rigidbody>();
+        coralRB.useGravity = true;
+        coralRB.constraints = RigidbodyConstraints.None;
+        coralRB.AddRelativeForce(ejectDirection * ejectForce, ForceMode.Impulse);
 
         BaseRobot.RemoveCoral();
     }
