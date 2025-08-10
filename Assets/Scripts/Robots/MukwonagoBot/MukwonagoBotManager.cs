@@ -62,7 +62,6 @@ public class MukwonagoBotManager : BaseRobot
         if (hasAlgae) return;
 
         stateMachine.ChangeState(coralScoreState);
-        Debug.Log("CoralScore");
     }
 
     public override void NetScore()
@@ -104,12 +103,10 @@ public class MukwonagoBotManager : BaseRobot
         if (stateMachine.CurrentState is not MukwonagoBotCoralScoreState) return;
 
         stateMachine.ChangeState(confirmCoralScore);
-        Debug.Log("ConfirmCoralScore");
     }
 
     public override void Stow()
     {
         stateMachine.ChangeState(stowState);
-        Debug.Log("Stow");
     }
 }
