@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -42,6 +43,8 @@ public class ScoreManager : MonoBehaviour
     /// cref="AllianceColor.Red"/>.</param>
     public void AddScore(int points, AllianceColor allianceColor)
     {
+        if (Timer.IsMatchOver()) return; 
+
         switch (allianceColor)
         {
             case AllianceColor.Blue:

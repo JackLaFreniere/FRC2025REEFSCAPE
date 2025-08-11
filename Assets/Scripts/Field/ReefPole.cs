@@ -37,7 +37,7 @@ public class ReefPole : MonoBehaviour
         scoredCoral = other.transform;
         scoredCoral.SetParent(transform, worldPositionStays: true);
 
-        scoreManager.AddScore(coralReefLocation.score, allianceColor);
+        scoreManager.AddScore(GetScore(), allianceColor);
     }
 
     private void FixedUpdate()
@@ -51,5 +51,14 @@ public class ReefPole : MonoBehaviour
         Vector3 targetPosition = Vector3.Lerp(transform.localPosition, coralReefLocation.localPosition, moveSpeed * Time.fixedDeltaTime);
         Quaternion targetRotation = Quaternion.Lerp(transform.localRotation, coralReefLocation.localRotation, rotateSpeed * Time.fixedDeltaTime);
         scoredCoral.transform.SetLocalPositionAndRotation(targetPosition, targetRotation);
+    }
+
+    /// <summary>
+    /// Retrieves the score for the coral reef location, including any auto bonus if applicable.
+    /// </summary>
+    /// <returns>The point value of scoring on that specific location accounting for any auto bonus points.</returns>
+    private int GetScore()
+    {
+        return coralReefLocation.score + (Timer.IsAuto() ? coralReefLocation.autoBonus : 0);
     }
 }

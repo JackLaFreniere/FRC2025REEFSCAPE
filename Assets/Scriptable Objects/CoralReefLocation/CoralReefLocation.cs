@@ -7,4 +7,5 @@ public class CoralReefLocation : ScriptableObject
     public Vector3 localPosition;
     public Quaternion localRotation;
     public int score;
+    public int autoBonus;
 }

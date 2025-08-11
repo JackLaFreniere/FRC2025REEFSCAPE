@@ -16,3 +16,4 @@ MonoBehaviour:
   localPosition: {x: 0, y: -0.09, z: 0}
   localRotation: {x: 0.70710677, y: 0, z: 0, w: -0.70710677}
   score: 5
+  autoBonus: 2

@@ -6,10 +6,16 @@ public class Timer : MonoBehaviour
 {
     private Button timeButton;
     [SerializeField] private string buttonName;
-    private int timeLeft = 150;
+    private static int timeLeft = 150;
+
+    private readonly static int startTime = 150;
+    private readonly static int autoDuration = 15;
+    private readonly static int endgameDuration = 20;
 
     private void Start()
     {
+        timeLeft = startTime;
+
         timeButton = GetComponent<UIDocument>().rootVisualElement.Q<Button>(buttonName);
         UpdateButtonValue();
 
@@ -54,5 +60,35 @@ public class Timer : MonoBehaviour
         int minutes = seconds / 60;
         int remainingSeconds = seconds % 60;
         return $"{minutes:D1}:{remainingSeconds:D2}";
+    }
+
+    /// <summary>
+    /// Determines whether the current state is considered "auto" based on the remaining time.
+    /// </summary>
+    /// <returns><see langword="true"/> if the remaining time is greater than or equal to 135; otherwise, <see
+    /// langword="false"/>.</returns>
+    public static bool IsAuto()
+    {
+        return timeLeft >= startTime - autoDuration;
+    }
+
+    /// <summary>
+    /// Determines whether the current state is considered "endgame" based on the remaining time.
+    /// </summary>
+    /// <returns><see langword="true"/> if the remaining time is less than or equal to 20; otherwise, <see
+    /// langword="false"/>.</returns>
+    public static bool IsEndgame()
+    {
+        return timeLeft <= endgameDuration;
+    }
+
+    /// <summary>
+    /// Determines whether the match is over based on the remaining time.
+    /// </summary>
+    /// <returns><see langword="true"/> if the remaining time is equal to 0; otherwise, <see
+    /// langword="false"/>.</returns>    
+    public static bool IsMatchOver()
+    {
+        return timeLeft == 0;
     }
 }
