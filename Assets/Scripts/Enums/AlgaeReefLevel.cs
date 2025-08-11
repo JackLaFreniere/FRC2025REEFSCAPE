@@ -1,1 +1,1 @@
-public enum AlgaeReefLevel { low, high };
+public enum AlgaeReefLevel { Low, High };

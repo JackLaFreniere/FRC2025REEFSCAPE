@@ -60,13 +60,13 @@ public override void Enter()
 
     switch (algaeReefLevel)
     {
-        case AlgaeReefLevel.low:
+        case AlgaeReefLevel.Low:
             bot.shoulder.SetTargetRotation(15f);
             bot.elbow.SetTargetRotation(100f);
             bot.wrist.SetTargetRotation(0f);
             bot.elevator.SetTargetPosition(6f); 
             break;
-        case AlgaeReefLevel.high:
+        case AlgaeReefLevel.High:
             bot.shoulder.SetTargetRotation(-35f);
             bot.elbow.SetTargetRotation(57f);
             bot.wrist.SetTargetRotation(0f);
