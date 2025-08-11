@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class ReefPole : MonoBehaviour
 {
+    private static ScoreManager scoreManager;
+
     [Header("Coral Scoring Settings")]
     [SerializeField] private CoralReefLocation coralReefLocation;
 
@@ -11,6 +13,14 @@ public class ReefPole : MonoBehaviour
 
     private Transform scoredCoral = null;
     private bool scoredOn = false;
+
+    [SerializeField] private AllianceColor allianceColor;
+
+    private void Start()
+    {
+        if (scoreManager == null)
+            scoreManager = FindAnyObjectByType<ScoreManager>();
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -27,7 +37,7 @@ public class ReefPole : MonoBehaviour
         scoredCoral = other.transform;
         scoredCoral.SetParent(transform, worldPositionStays: true);
 
-        ScoreManager.AddScore(coralReefLocation.score);
+        scoreManager.AddScore(coralReefLocation.score, allianceColor);
     }
 
     private void FixedUpdate()
