@@ -1,73 +1,79 @@
 public class Stow : PlayerState
 {
-    private readonly MukwonagoBotManager bot;
+private readonly MukwonagoBotManager bot;
 
-    public Stow(BaseRobot player, StateMachine stateMachine) : base(player, stateMachine)
+public Stow(BaseRobot player, StateMachine stateMachine) : base(player, stateMachine)
+{
+    bot = (MukwonagoBotManager) player;
+}
+
+
+public override void Enter()
+{
+    if (BaseRobot.hasAlgae)
     {
-        bot = (MukwonagoBotManager) player;
+        bot.shoulder.SetTargetRotation(60f);
+        bot.elbow.SetTargetRotation(155f);
+        bot.wrist.SetTargetRotation(0f);
+        bot.elevator.SetTargetPosition(0f);
     }
-
-
-    public override void Enter()
+    else
     {
-        if (BaseRobot.hasAlgae)
-        {
-            bot.shoulder.SetTargetRotation(60f);
-            bot.elbow.SetTargetRotation(155f);
-            bot.wrist.SetTargetRotation(0f);
-            bot.elevator.SetTargetPosition(0f);
-        }
-        else
-        {
-            bot.shoulder.SetTargetRotation(90f);
-            bot.elbow.SetTargetRotation(65f);
-            bot.wrist.SetTargetRotation(0f);
-            bot.elevator.SetTargetPosition(0f);
-        }
+        bot.shoulder.SetTargetRotation(90f);
+        bot.elbow.SetTargetRotation(65f);
+        bot.wrist.SetTargetRotation(0f);
+        bot.elevator.SetTargetPosition(0f);
     }
+}
 }
 
 public class MukwonagoBotCoralIntakeState : PlayerState
 {
-    private readonly MukwonagoBotManager bot;
+private readonly MukwonagoBotManager bot;
 
-    public MukwonagoBotCoralIntakeState(BaseRobot player, StateMachine stateMachine) : base(player, stateMachine)
-    {
-        bot = (MukwonagoBotManager) player;
-    }
+public MukwonagoBotCoralIntakeState(BaseRobot player, StateMachine stateMachine) : base(player, stateMachine)
+{
+    bot = (MukwonagoBotManager) player;
+}
 
-    public override void Enter()
-    {
-        bot.shoulder.SetTargetRotation(121.5f);
-        bot.elbow.SetTargetRotation(142.5f);
-        bot.wrist.SetTargetRotation(-90f);
-        bot.elevator.SetTargetPosition(0f);
-    }
+public override void Enter()
+{
+    bot.shoulder.SetTargetRotation(121.5f);
+    bot.elbow.SetTargetRotation(142.5f);
+    bot.wrist.SetTargetRotation(-90f);
+    bot.elevator.SetTargetPosition(0f);
+}
 }
 
 public class MukwonagoBotAlgaeIntakeState : PlayerState
 {
-    private readonly MukwonagoBotManager bot;
+private readonly MukwonagoBotManager bot;
 
-    public MukwonagoBotAlgaeIntakeState(BaseRobot player, StateMachine stateMachine) : base(player, stateMachine)
+public MukwonagoBotAlgaeIntakeState(BaseRobot player, StateMachine stateMachine) : base(player, stateMachine)
+{
+    bot = (MukwonagoBotManager)player;
+}
+
+public override void Enter()
+{
+    AlgaeReefLevel algaeReefLevel = MukwonagoBotPresets.algaeReefLevel;
+
+    switch (algaeReefLevel)
     {
-        bot = (MukwonagoBotManager) player;
+        case AlgaeReefLevel.low:
+            bot.shoulder.SetTargetRotation(15f);
+            bot.elbow.SetTargetRotation(100f);
+            bot.wrist.SetTargetRotation(0f);
+            bot.elevator.SetTargetPosition(6f); 
+            break;
+        case AlgaeReefLevel.high:
+            bot.shoulder.SetTargetRotation(-35f);
+            bot.elbow.SetTargetRotation(57f);
+            bot.wrist.SetTargetRotation(0f);
+            bot.elevator.SetTargetPosition(7f);
+            break;
     }
-
-    public override void Enter()
-    {
-        //L2/Low
-        bot.shoulder.SetTargetRotation(15f);
-        bot.elbow.SetTargetRotation(100f);
-        bot.wrist.SetTargetRotation(0f);
-        bot.elevator.SetTargetPosition(6f);
-
-        //L3/High
-        //bot.shoulder.SetTargetRotation(-35f);
-        //bot.elbow.SetTargetRotation(57f);
-        //bot.wrist.SetTargetRotation(0f);
-        //bot.elevator.SetTargetPosition(7f);
-    }
+}
 }
 
 public class MukwonagoBotCoralScoreState : PlayerState
@@ -81,29 +87,35 @@ public class MukwonagoBotCoralScoreState : PlayerState
 
     public override void Enter()
     {
-        //L1
-        //bot.shoulder.SetTargetRotation(55f);
-        //bot.elbow.SetTargetRotation(-20f);
-        //bot.wrist.SetTargetRotation(90f);
-        //bot.elevator.SetTargetPosition(0f);
+        CoralReefLevel coralReefLevel = MukwonagoBotPresets.coralReefLevel;
 
-        //L2
-        //bot.shoulder.SetTargetRotation(35f);
-        //bot.elbow.SetTargetRotation(20f);
-        //bot.wrist.SetTargetRotation(0f);
-        //bot.elevator.SetTargetPosition(0f);
-
-        //L3
-        bot.shoulder.SetTargetRotation(32.5f);
-        bot.elbow.SetTargetRotation(20f);
-        bot.wrist.SetTargetRotation(0f);
-        bot.elevator.SetTargetPosition(15f);
-
-        //L4
-        //bot.shoulder.SetTargetRotation(-60f);
-        //bot.elbow.SetTargetRotation(-140f);
-        //bot.wrist.SetTargetRotation(0f);
-        //bot.elevator.SetTargetPosition(18f);
+        switch (coralReefLevel)
+        {
+            case CoralReefLevel.L1:
+                bot.shoulder.SetTargetRotation(55f);
+                bot.elbow.SetTargetRotation(-40f);
+                bot.wrist.SetTargetRotation(90f);
+                bot.elevator.SetTargetPosition(0f); 
+                break;
+            case CoralReefLevel.L2:
+                bot.shoulder.SetTargetRotation(35f);
+                bot.elbow.SetTargetRotation(20f);
+                bot.wrist.SetTargetRotation(0f);
+                bot.elevator.SetTargetPosition(0f); 
+                break;
+            case CoralReefLevel.L3:
+                bot.shoulder.SetTargetRotation(32.5f);
+                bot.elbow.SetTargetRotation(20f);
+                bot.wrist.SetTargetRotation(0f);
+                bot.elevator.SetTargetPosition(15f); 
+                break;
+            case CoralReefLevel.L4:
+                bot.shoulder.SetTargetRotation(-60f);
+                bot.elbow.SetTargetRotation(-100f);
+                bot.wrist.SetTargetRotation(0f);
+                bot.elevator.SetTargetPosition(18f); 
+                break;
+        }
     }
 }
 
@@ -214,14 +226,27 @@ public class MukwonagoBotConfirmCoralScoreState : PlayerState
 
     public override void Enter()
     {
-        //L3
-        bot.shoulder.SetTargetRotation(47f);
-        bot.elbow.SetTargetRotation(-50f);
+        CoralReefLevel coralReefLevel = MukwonagoBotPresets.coralReefLevel;
+
+        switch (coralReefLevel)
+        {
+            case CoralReefLevel.L2:
+                bot.shoulder.SetTargetRotation(70f);
+                bot.elbow.SetTargetRotation(-20f);
+                break;
+            case CoralReefLevel.L3:
+                bot.shoulder.SetTargetRotation(47f);
+                bot.elbow.SetTargetRotation(-50f); 
+                break;
+            case CoralReefLevel.L4:
+                bot.elbow.SetTargetRotation(-150f);
+                break;
+        }
     }
 
     public override void Update()
     {
-        if (bot.shoulder.IsAtTargetRotation() && bot.elbow.IsAtTargetRotation() && BaseRobot.hasCoral)
+        if (bot.shoulder.IsAtTargetRotation() && bot.elbow.IsAtTargetRotation() && bot.elevator.IsAtTargetPosition() && bot.wrist.IsAtTargetRotation() && BaseRobot.hasCoral)
         {
             bot.wrist.GetComponentInChildren<CoralIntakeZone>().EjectCoral();
         }

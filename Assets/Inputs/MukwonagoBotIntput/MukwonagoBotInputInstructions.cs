@@ -40,7 +40,13 @@ public class MukwonagoBotInputInstructions : MonoBehaviour, IRobotInputHandler
         playerControls.Player.ClimberUp.canceled += ctx => robot.Stow();
         playerControls.Player.CoralEject.canceled += ctx => robot.Stow();
         playerControls.Player.AlgaeEject.canceled += ctx => robot.Stow();
-        playerControls.Player.ConfirmScore.canceled += ctx => robot.Stow();
+        playerControls.Player.ConfirmScore.canceled += ctx =>
+        {
+            if (BaseRobot.stateMachine.PreviousState is not MukwonagoBotCoralScoreState)
+                robot.Stow();
+            else
+                robot.CoralScore();
+        };
 
         robot.SetDrive(playerControls.Player.Drive);
         robot.SetRotate(playerControls.Player.Rotate);
