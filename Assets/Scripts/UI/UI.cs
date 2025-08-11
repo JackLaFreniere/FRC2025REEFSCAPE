@@ -27,7 +27,7 @@ public class UI : MonoBehaviour
         rootElement = uiDocument.rootVisualElement;
 
         //Obtain instances of the current buttons and the next buttons
-        GetAllButtons(ref coralButton, ref algaeButton);
+        GetAllButtons();
 
         //Store the unselected button styles
         unselectedColor = coralButton.style.borderTopColor.value;
