@@ -29,6 +29,7 @@ public class MukwonagoBotInputInstructions : MonoBehaviour, IRobotInputHandler
         playerControls.Player.CoralEject.performed += ctx => robot.CoralEject();
         playerControls.Player.AlgaeEject.performed += ctx => robot.AlgaeEject();
         playerControls.Player.ConfirmScore.performed += ctx => robot.ConfirmCoralScore();
+        playerControls.Player.TogglePreset.performed += ctx => robot.TogglePreset();
 
         playerControls.Player.CoralIntake.canceled += ctx => robot.Stow();
         playerControls.Player.AlgaeIntake.canceled += ctx => robot.Stow();

@@ -207,6 +207,15 @@ public partial class @MukwonagoBotInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Toggle Preset"",
+                    ""type"": ""Button"",
+                    ""id"": ""9c2f2cb9-f788-4686-94e0-eb4f420fa29a"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -658,6 +667,28 @@ public partial class @MukwonagoBotInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Confirm Score"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""792e3f4b-4d3c-448c-9bac-47d8e010fd44"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Toggle Preset"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ea2b59a9-4de5-40d7-b2ce-cf8277a30097"",
+                    ""path"": ""<XInputController>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Toggle Preset"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1258,6 +1289,7 @@ public partial class @MukwonagoBotInput: IInputActionCollection2, IDisposable
         m_Player_CoralEject = m_Player.FindAction("Coral Eject", throwIfNotFound: true);
         m_Player_AlgaeEject = m_Player.FindAction("Algae Eject", throwIfNotFound: true);
         m_Player_ConfirmScore = m_Player.FindAction("Confirm Score", throwIfNotFound: true);
+        m_Player_TogglePreset = m_Player.FindAction("Toggle Preset", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1364,6 +1396,7 @@ public partial class @MukwonagoBotInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_CoralEject;
     private readonly InputAction m_Player_AlgaeEject;
     private readonly InputAction m_Player_ConfirmScore;
+    private readonly InputAction m_Player_TogglePreset;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -1427,6 +1460,10 @@ public partial class @MukwonagoBotInput: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Player/ConfirmScore".
         /// </summary>
         public InputAction @ConfirmScore => m_Wrapper.m_Player_ConfirmScore;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/TogglePreset".
+        /// </summary>
+        public InputAction @TogglePreset => m_Wrapper.m_Player_TogglePreset;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -1492,6 +1529,9 @@ public partial class @MukwonagoBotInput: IInputActionCollection2, IDisposable
             @ConfirmScore.started += instance.OnConfirmScore;
             @ConfirmScore.performed += instance.OnConfirmScore;
             @ConfirmScore.canceled += instance.OnConfirmScore;
+            @TogglePreset.started += instance.OnTogglePreset;
+            @TogglePreset.performed += instance.OnTogglePreset;
+            @TogglePreset.canceled += instance.OnTogglePreset;
         }
 
         /// <summary>
@@ -1542,6 +1582,9 @@ public partial class @MukwonagoBotInput: IInputActionCollection2, IDisposable
             @ConfirmScore.started -= instance.OnConfirmScore;
             @ConfirmScore.performed -= instance.OnConfirmScore;
             @ConfirmScore.canceled -= instance.OnConfirmScore;
+            @TogglePreset.started -= instance.OnTogglePreset;
+            @TogglePreset.performed -= instance.OnTogglePreset;
+            @TogglePreset.canceled -= instance.OnTogglePreset;
         }
 
         /// <summary>
@@ -1933,6 +1976,13 @@ public partial class @MukwonagoBotInput: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnConfirmScore(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Toggle Preset" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnTogglePreset(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "UI" which allows adding and removing callbacks.

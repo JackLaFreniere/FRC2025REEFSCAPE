@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -203,4 +202,5 @@ public class BaseRobot : MonoBehaviour
     public virtual void AlgaeEject() { }
     public virtual void ConfirmCoralScore() { }
     public virtual void Stow() { }
+    public virtual void TogglePreset() { }
 }
