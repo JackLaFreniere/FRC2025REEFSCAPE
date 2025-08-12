@@ -1,55 +1,69 @@
 using UnityEngine;
 
-public class ReefPole : MonoBehaviour
+public class ReefPole : ScoreableLocation
 {
-    private static ScoreManager scoreManager;
-
     [Header("Coral Scoring Settings")]
     [SerializeField] private CoralReefLocation coralReefLocation;
 
     [Header("Movement Speeds")]
-    private const float moveSpeed = 10f;
-    private const float rotateSpeed = 10f;
+    [SerializeField] private float moveSpeed = 10f;
+    [SerializeField] private float rotateSpeed = 10f;
 
     private Transform scoredCoral = null;
-    private bool scoredOn = false;
-
-    [SerializeField] private AllianceColor allianceColor;
-
-    private void Start()
-    {
-        if (scoreManager == null)
-            scoreManager = FindAnyObjectByType<ScoreManager>();
-    }
+    private bool scored = false;
 
     private void OnTriggerEnter(Collider other)
     {
-        // Check if the collider is a coral and if it hasn't been scored yet
-        if (!other.CompareTag("Coral") || scoredOn) return;
+        if (!IsValidScoringObject(other) || scored) return;
 
-        // Makes sure the Coral is currently being held by a robot. Cannot fall and score itself
-        if (other.transform.root == other.transform) return;
+        OnScored(other);
+    }
 
-        scoredOn = true; // Lets the pole know it has scored a 
-        BaseRobot.RemoveCoral(); // Removes the coral from the robot's manipulator
+    private void Update()
+    {
+        if (!scored) return;
 
-        // Stores the coral locally and parents it to the pole
+        MoveToPosition();
+    }
+
+    /// <summary>
+    /// When a coral is scored, this method is called to handle the scoring process.
+    /// </summary>
+    /// <param name="other">The Collider of the scored coral.</param>
+    public override void OnScored(Collider other)
+    {
+        scored = true; //Lets the pole know it has scored a coral 
+        BaseRobot.RemoveCoral(); //Removes the coral from the robot's manipulator
+
+        //Stores the coral locally and parents it to the pole
         scoredCoral = other.transform;
         scoredCoral.SetParent(transform, worldPositionStays: true);
 
-        scoreManager.AddScore(GetScore(), allianceColor);
+        scoreManager.AddScore(GetScore(), allianceColor); //Updates the score
     }
 
-    private void FixedUpdate()
+    /// <summary>
+    /// Determines if the given collider is a valid scoring object (a coral that can be scored).
+    /// </summary>
+    /// <param name="other">Collider that is being checked.</param>
+    /// <returns>Whether the Collider is a valid scorable Coral.</returns>
+    public override bool IsValidScoringObject(Collider other)
     {
-        if (!scoredOn) return; // If the pole has not scored a coral, do nothing
+        // Makes sure the Coral is currently being held by a robot.
+        return (other.CompareTag(scoringElementTag) && other.transform.root != other.transform);
+    }
 
+    /// <summary>
+    /// Moves and rotates the Coral to a location on the pole to make it look scored.
+    /// </summary>
+    public void MoveToPosition()
+    {
         // Get the transform of the scored coral
         Transform transform = scoredCoral.transform;
 
         // Smoothly move and rotate the coral onto the pole
-        Vector3 targetPosition = Vector3.Lerp(transform.localPosition, coralReefLocation.localPosition, moveSpeed * Time.fixedDeltaTime);
-        Quaternion targetRotation = Quaternion.Lerp(transform.localRotation, coralReefLocation.localRotation, rotateSpeed * Time.fixedDeltaTime);
+        Vector3 targetPosition = Vector3.Lerp(transform.localPosition, coralReefLocation.localPosition, moveSpeed * Time.deltaTime);
+        Quaternion targetRotation = Quaternion.Lerp(transform.localRotation, coralReefLocation.localRotation, rotateSpeed * Time.deltaTime);
         scoredCoral.transform.SetLocalPositionAndRotation(targetPosition, targetRotation);
     }
 

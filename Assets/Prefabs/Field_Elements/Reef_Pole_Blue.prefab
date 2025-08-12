@@ -68,8 +68,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d566f6d834480434d8b5111f4347054c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coralReefLocation: {fileID: 11400000, guid: 47d9439d786f6a049bf311542cf4430e, type: 2}
   allianceColor: 1
+  scoringElementTag: Coral
+  coralReefLocation: {fileID: 11400000, guid: 47d9439d786f6a049bf311542cf4430e, type: 2}
+  moveSpeed: 10
+  rotateSpeed: 10
 --- !u!1 &2793483994006034985
 GameObject:
   m_ObjectHideFlags: 0
@@ -138,8 +141,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d566f6d834480434d8b5111f4347054c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coralReefLocation: {fileID: 11400000, guid: 877cbcd5b0438764ebc5eae260469f51, type: 2}
   allianceColor: 1
+  scoringElementTag: Coral
+  coralReefLocation: {fileID: 11400000, guid: 877cbcd5b0438764ebc5eae260469f51, type: 2}
+  moveSpeed: 10
+  rotateSpeed: 10
 --- !u!1 &4789229563292341848
 GameObject:
   m_ObjectHideFlags: 0
@@ -208,8 +214,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d566f6d834480434d8b5111f4347054c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coralReefLocation: {fileID: 11400000, guid: 092c48d15fbc0574cb8be183c384924b, type: 2}
   allianceColor: 1
+  scoringElementTag: Coral
+  coralReefLocation: {fileID: 11400000, guid: 092c48d15fbc0574cb8be183c384924b, type: 2}
+  moveSpeed: 10
+  rotateSpeed: 10
 --- !u!1001 &5908716199463322178
 PrefabInstance:
   m_ObjectHideFlags: 0
