@@ -29,16 +29,6 @@ public class Net : ScoreableLocation
     }
 
     /// <summary>
-    /// Checks if is valid scoring object.
-    /// </summary>
-    /// <param name="other">The collider to check.</param>
-    /// <returns>If the collider was an acceptable Algae.</returns>
-    public override bool IsValidScoringObject(Collider other)
-    {
-        return other.CompareTag(scoringElementTag) && other.transform.root == other.transform;
-    }
-
-    /// <summary>
     /// Code to run when an algae is scored.
     /// </summary>
     /// <param name="other">The Algae that is being scored.</param>

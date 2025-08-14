@@ -13,5 +13,8 @@ public abstract class ScoreableLocation : MonoBehaviour
     }
 
     public abstract void OnScored(Collider other);
-    public abstract bool IsValidScoringObject(Collider other);
+    public virtual bool IsValidScoringObject(Collider other)
+    {
+        return other.CompareTag(scoringElementTag) && other.transform.root == other.transform;
+    }
 }
