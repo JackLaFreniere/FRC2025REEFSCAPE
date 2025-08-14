@@ -13,6 +13,14 @@ public class Algae : MonoBehaviour
     }
 
     /// <summary>
+    /// Marks the current instance as unscored.
+    /// </summary>
+    public void Unscore()
+    {
+        isScored = false;
+    }
+
+    /// <summary>
     /// Determines whether the current instance is marked as scored.
     /// </summary>
     /// <returns><see langword="true"/> if the instance is scored; otherwise, <see langword="false"/>.</returns>

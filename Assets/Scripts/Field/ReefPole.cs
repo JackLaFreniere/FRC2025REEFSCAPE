@@ -50,7 +50,7 @@ public class ReefPole : ScoreableLocation
     public override bool IsValidScoringObject(Collider other)
     {
         // Makes sure the Coral is currently being held by a robot.
-        return (other.CompareTag(scoringElementTag) && other.transform.root != other.transform);
+        return other.CompareTag(scoringElementTag) && other.transform.root != other.transform;
     }
 
     /// <summary>
