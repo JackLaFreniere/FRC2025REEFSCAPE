@@ -183,6 +183,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8809e07408da44040835c59732d37582, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainMenuTree: {fileID: 9197481963319205126, guid: 265e06dfd0c702a49937d6b1592882cf, type: 3}
+  settingsMenuTree: {fileID: 9197481963319205126, guid: a4d0ca5bdab083e4f93c886df9fea471, type: 3}
 --- !u!1 &1043739802
 GameObject:
   m_ObjectHideFlags: 0

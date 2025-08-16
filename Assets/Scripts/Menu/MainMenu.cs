@@ -4,17 +4,23 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
-public class MenuButton : MonoBehaviour
+public class MainMenu : MonoBehaviour
 {
+    [Header("UI Trees")]
+    [SerializeField] private VisualTreeAsset mainMenuTree;
+    [SerializeField] private VisualTreeAsset settingsMenuTree;
+
+    private UIDocument ui;
     private VisualElement root;
 
-    private static AsyncOperation gameSceneLoadOp;
+    private AsyncOperation gameSceneLoadOp;
 
-    private readonly Dictionary<string, System.Action> buttonActions = new()
+    private Dictionary<string, System.Action> buttonActions;
+
+    private void Awake()
     {
-        { "PlayButton", () => LoadGameScene() },
-        { "ExitButton", () => ExitMenuScene() }
-    };
+        UpdateUIDocument();
+    }
 
     private void Start()
     {
@@ -25,18 +31,18 @@ public class MenuButton : MonoBehaviour
     {
         UpdateUIDocument();
 
-        MainMenuAddCallBack();
+        AddCallbacks();
     }
 
     private void OnDisable()
     {
-        MainMenuRemoveCallBack();
+        RemoveCallbacks();
     }
 
     /// <summary>
     /// Goes through all buttons in the dictionary and adds a callback to run a method when clicked.
     /// </summary>
-    private void MainMenuAddCallBack()
+    private void AddCallbacks()
     {
         foreach (var pair in buttonActions)
         {
@@ -48,7 +54,7 @@ public class MenuButton : MonoBehaviour
     /// <summary>
     /// Goes through all buttons in the dictionary and removes the callback that ran when the button was clicked.
     /// </summary>
-    private void MainMenuRemoveCallBack()
+    private void RemoveCallbacks()
     {
         foreach (var pair in buttonActions)
         {
@@ -79,7 +85,16 @@ public class MenuButton : MonoBehaviour
     /// </summary>
     private void UpdateUIDocument()
     {
-        root = GetComponent<UIDocument>().rootVisualElement;
+        ui = GetComponent<UIDocument>();
+        root = ui.rootVisualElement;
+
+        buttonActions = new Dictionary<string, System.Action>
+        {
+        { "PlayButton", () => LoadGameScene() },
+        { "ExitButton", () => ExitMenuScene() },
+        { "SettingsButton", () => SettingsButton() },
+        { "SettingsBackButton", () => SettingsBackButton() }
+        };
     }
 
     /// <summary>
@@ -94,20 +109,40 @@ public class MenuButton : MonoBehaviour
     /// <summary>
     /// Confirms the action of opening the Game Scene.
     /// </summary>
-    private static void LoadGameScene()
+    private void LoadGameScene()
     {
+        Debug.Log("Bruh");
         gameSceneLoadOp.allowSceneActivation = true;
     }
 
     /// <summary>
     /// Exits and closes the project.
     /// </summary>
-    private static void ExitMenuScene()
+    private void ExitMenuScene()
     {
 #if UNITY_EDITOR
         EditorApplication.ExitPlaymode();
 #else
         Application.Quit();
 #endif
+    }
+
+    private void SettingsButton()
+    {
+        ChangeUI(settingsMenuTree);
+    }
+
+    private void SettingsBackButton()
+    {
+        ChangeUI(mainMenuTree);
+    }
+
+    private void ChangeUI(VisualTreeAsset tree)
+    {
+        RemoveCallbacks();
+        ui.visualTreeAsset = tree;
+
+        UpdateUIDocument(); 
+        AddCallbacks();
     }
 }
