@@ -1,0 +1,23 @@
+:root {
+}
+
+.Button {
+    width: 60%;
+    height: 15%;
+    -unity-font-definition: url("project://database/Assets/UI%20Toolkit/Fonts/tahomabd.ttf?fileID=12800000&guid=8e5131a084cadb94486ccdb8b05bd043&type=3#tahomabd");
+    -unity-font-style: normal;
+    font-size: 800%;
+    -unity-text-align: middle-center;
+    min-width: 60%;
+    min-height: 15%;
+    max-width: 60%;
+    max-height: 15%;
+    margin-top: 55px;
+    margin-right: 55px;
+    margin-bottom: 55px;
+    margin-left: 55px;
+}
+
+.BackgroundColor {
+    background-color: rgb(255, 0, 235);
+}
