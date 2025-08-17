@@ -6,12 +6,9 @@ using UnityEngine.UIElements;
 
 public class MainMenu : MonoBehaviour
 {
-    [Header("UI Trees")]
-    [SerializeField] private VisualTreeAsset mainMenuTree;
-    [SerializeField] private VisualTreeAsset settingsMenuTree;
-
-    private UIDocument ui;
+    [SerializeField] private UIDocument ui;
     private VisualElement root;
+    private VisualElement panel;
 
     private AsyncOperation gameSceneLoadOp;
 
@@ -19,7 +16,10 @@ public class MainMenu : MonoBehaviour
 
     private void Awake()
     {
-        UpdateUIDocument();
+        root = ui.rootVisualElement;
+        panel = GetPanel("MainPanel");
+
+        InitializeButtonActions();
     }
 
     private void Start()
@@ -29,14 +29,43 @@ public class MainMenu : MonoBehaviour
 
     private void OnEnable()
     {
-        UpdateUIDocument();
-
         AddCallbacks();
     }
 
     private void OnDisable()
     {
         RemoveCallbacks();
+    }
+
+    /// <summary>
+    /// Updates the button actions dictionary with the corresponding methods.
+    /// </summary>
+    private void InitializeButtonActions()
+    {
+        buttonActions = new Dictionary<string, System.Action>
+        {
+            { "MainPlayButton", LoadGameScene },
+            { "MainExitButton", ExitMenuScene },
+            { "MainSettingsButton", OpenSettingsPanel },
+            { "SettingsBackButton", CloseSettingsPanel },
+        };
+    }
+
+    /// <summary>
+    /// Gets a specified button from the current UI Document.
+    /// </summary>
+    /// <param name="name">The name of the button.</param>
+    /// <returns>The specified Button if found, null if not.</returns>
+    private Button GetButton(string name)
+    {
+        Button button = root.Q<Button>(name);
+        if (button == null)
+        {
+            Debug.LogWarning($"Button '{name}' not found.");
+            return null;
+        }
+
+        return button;
     }
 
     /// <summary>
@@ -64,37 +93,30 @@ public class MainMenu : MonoBehaviour
     }
 
     /// <summary>
-    /// Gets a specified button from the current UI Document.
+    /// Obtains a specified panel from the current UI Document.
     /// </summary>
-    /// <param name="name">The name of the button.</param>
-    /// <returns>The specified Button if found, null if not.</returns>
-    private Button GetButton(string name)
+    /// <param name="name">The name of the desired panel.</param>
+    /// <returns>The panel as a VisualElement.</returns>
+    private VisualElement GetPanel(string name)
     {
-        Button button = root.Q<Button>(name);
-        if (button == null)
-        {
-            Debug.LogWarning($"Button '{name}' not found.");
-            return null;
-        }
-
-        return button;
+        return root.Q<VisualElement>(name);
     }
 
     /// <summary>
-    /// Obtains the currently applied UIDocument and stores the rootVisualElements.
+    /// Changes the currently active panel to the specified one.
     /// </summary>
-    private void UpdateUIDocument()
+    /// <param name="name">The name of the desired panel.</param>
+    private void UpdatePanel(string name)
     {
-        ui = GetComponent<UIDocument>();
-        root = ui.rootVisualElement;
-
-        buttonActions = new Dictionary<string, System.Action>
+        panel.style.display = DisplayStyle.None;
+        var newPanel = GetPanel(name);
+        if (newPanel == null) // Error handling
         {
-        { "PlayButton", () => LoadGameScene() },
-        { "ExitButton", () => ExitMenuScene() },
-        { "SettingsButton", () => SettingsButton() },
-        { "SettingsBackButton", () => SettingsBackButton() }
-        };
+            Debug.LogWarning($"Panel '{name}' not found.");
+            return;
+        }
+        panel = newPanel;
+        panel.style.display = DisplayStyle.Flex;
     }
 
     /// <summary>
@@ -111,7 +133,6 @@ public class MainMenu : MonoBehaviour
     /// </summary>
     private void LoadGameScene()
     {
-        Debug.Log("Bruh");
         gameSceneLoadOp.allowSceneActivation = true;
     }
 
@@ -127,22 +148,19 @@ public class MainMenu : MonoBehaviour
 #endif
     }
 
-    private void SettingsButton()
+    /// <summary>
+    /// Closes the Main Panel and opens the Settings Panel.
+    /// </summary>
+    private void OpenSettingsPanel()
     {
-        ChangeUI(settingsMenuTree);
+        UpdatePanel("SettingsPanel");
     }
 
-    private void SettingsBackButton()
+    /// <summary>
+    /// Closes the Settings Panel and opens the Main Panel.
+    /// </summary>
+    private void CloseSettingsPanel()
     {
-        ChangeUI(mainMenuTree);
-    }
-
-    private void ChangeUI(VisualTreeAsset tree)
-    {
-        RemoveCallbacks();
-        ui.visualTreeAsset = tree;
-
-        UpdateUIDocument(); 
-        AddCallbacks();
+        UpdatePanel("MainPanel");
     }
 }

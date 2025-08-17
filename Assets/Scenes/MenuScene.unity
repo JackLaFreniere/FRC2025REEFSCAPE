@@ -130,6 +130,7 @@ GameObject:
   - component: {fileID: 288410299}
   - component: {fileID: 288410300}
   - component: {fileID: 288410301}
+  - component: {fileID: 288410302}
   m_Layer: 0
   m_Name: UIManager
   m_TagString: Untagged
@@ -183,8 +184,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8809e07408da44040835c59732d37582, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainMenuTree: {fileID: 9197481963319205126, guid: 265e06dfd0c702a49937d6b1592882cf, type: 3}
-  settingsMenuTree: {fileID: 9197481963319205126, guid: a4d0ca5bdab083e4f93c886df9fea471, type: 3}
+  ui: {fileID: 288410300}
+--- !u!114 &288410302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 288410298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4cd8c141c1753f47ade709087c75fbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ui: {fileID: 288410300}
+  gameChoices:
+  - Reefscape
 --- !u!1 &1043739802
 GameObject:
   m_ObjectHideFlags: 0
