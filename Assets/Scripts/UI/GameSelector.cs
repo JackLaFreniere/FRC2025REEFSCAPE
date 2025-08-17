@@ -5,14 +5,18 @@ public class GameSelector : MonoBehaviour
 {
     [SerializeField] private UIDocument ui;
     private VisualElement root;
+    private VisualElement imagePanel;
+
     private DropdownField gameDropdown;
 
-    [SerializeField] private string[] gameChoices;
+
+    [SerializeField] private GameIcons[] gameChoices;
 
     private void Awake()
     {
         root = ui.rootVisualElement;
         gameDropdown = root.Q<DropdownField>("GameSelector");
+        imagePanel = root.Q<VisualElement>("ImagePanel");
 
         SetupDropdown();
     }
@@ -24,11 +28,18 @@ public class GameSelector : MonoBehaviour
     {
         gameDropdown.choices.Clear();
 
-        foreach (string str in gameChoices)
+        foreach (GameIcons game in gameChoices)
         {
-            gameDropdown.choices.Add(str);
+            gameDropdown.choices.Add(game.iconName);
         }
 
-        gameDropdown.index = 0;
+        if (gameDropdown.index == -1) gameDropdown.index = 0;
+
+        gameDropdown.RegisterValueChangedCallback(evt => { OnValueChanged(gameDropdown.index); });
+    }
+
+    private void OnValueChanged(int index)
+    {
+        imagePanel.style.backgroundImage = new StyleBackground(gameChoices[index].iconTexture);
     }
 }

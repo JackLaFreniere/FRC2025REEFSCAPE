@@ -199,7 +199,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ui: {fileID: 288410300}
   gameChoices:
-  - Reefscape
+  - {fileID: 11400000, guid: 1bd6b2c30df76644c8463d0ce6c1b2e6, type: 2}
+  - {fileID: 11400000, guid: 4d954ce88837f6f43ab1965fcea911ba, type: 2}
+  - {fileID: 11400000, guid: 97bea850ab5795644a0fc9c7339aa9ad, type: 2}
 --- !u!1 &1043739802
 GameObject:
   m_ObjectHideFlags: 0
