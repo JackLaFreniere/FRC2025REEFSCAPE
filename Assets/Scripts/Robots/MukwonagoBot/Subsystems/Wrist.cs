@@ -2,18 +2,21 @@ using UnityEngine;
 
 public class Wrist : MonoBehaviour
 {
-    private Quaternion targetRotation;
-    [SerializeField] private float rotationSpeed = 10f;
-    private const float tolerance = 5f;
+    [SerializeField] private HingeJoint hinge;
 
-    private void FixedUpdate()
-    {
-        transform.localRotation = Quaternion.Lerp(transform.localRotation, targetRotation, Time.fixedDeltaTime * rotationSpeed);
-    }
+    private readonly float tolerance = SubsystemHelper.defaultAngularTolerance;
 
+    private float targetRotation;
+
+    /// <summary>
+    /// Sets the target rotation for the hinge joint.
+    /// </summary>
+    /// <param name="rotation">The desired rotation angle, in degrees, to set as the target for the hinge joint.</param>
     public void SetTargetRotation(float rotation)
     {
-        targetRotation = Quaternion.Euler(0f, rotation, 0f);
+        targetRotation = rotation;
+
+        SubsystemHelper.UpdateHingeJointSpring(hinge, targetRotation);
     }
 
     /// <summary>

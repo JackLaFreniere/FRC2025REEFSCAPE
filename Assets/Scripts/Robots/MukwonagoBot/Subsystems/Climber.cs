@@ -2,17 +2,29 @@ using UnityEngine;
 
 public class Climber : MonoBehaviour
 {
-    private Quaternion targetRotation;
-    [SerializeField] private float rotationSpeed = 2f;
-    private readonly float climberOffset = 22f;
+    [SerializeField] private HingeJoint hinge;
 
-    private void FixedUpdate()
-    {
-        transform.localRotation = Quaternion.Lerp(transform.localRotation, targetRotation, Time.fixedDeltaTime * rotationSpeed);
-    }
+    private readonly float tolerance = SubsystemHelper.defaultAngularTolerance;
 
+    private float targetRotation;
+
+    /// <summary>
+    /// Sets the target rotation for the hinge joint, adjusted by the climber offset.
+    /// </summary>
+    /// <param name="targetAngle">The desired target angle, in degrees, for the hinge joint before applying the climber offset.</param>
     public void SetTargetRotation(float targetAngle)
     {
-        targetRotation = Quaternion.Euler(-targetAngle - climberOffset, 0f, 0f);
+        targetRotation = -targetAngle;
+
+        SubsystemHelper.UpdateHingeJointSpring(hinge, targetRotation);
+    }
+
+    /// <summary>
+    /// Determines if the Climber is at its target rotation within a specified tolerance.
+    /// </summary>
+    /// <returns>If within tolerance</returns>
+    public bool IsAtTargetRotation()
+    {
+        return SubsystemHelper.IsAtRotation(transform.localRotation, targetRotation, tolerance);
     }
 }

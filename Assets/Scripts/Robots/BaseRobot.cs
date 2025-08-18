@@ -24,7 +24,7 @@ public class BaseRobot : MonoBehaviour
     public static Collider algae = null;
 
     private GameObject robot;
-    private Rigidbody robotRigidbody;
+    [SerializeField] private Rigidbody robotRigidbody;
     private RobotInfo robotInfo;
 
     private InputAction drive;
@@ -52,8 +52,7 @@ public class BaseRobot : MonoBehaviour
         coral = null;
         algae = null;
 
-        robot = this.gameObject;
-        robotRigidbody = robot.GetComponent<Rigidbody>();
+        robot = GameObject.Find("Drive_Base");
     }
 
     private void FixedUpdate()
@@ -109,7 +108,7 @@ public class BaseRobot : MonoBehaviour
 
     public Vector3 GetDirection(Vector3 input)
     {
-        if (ToggleCamera.IsRobotCamera) return Quaternion.Euler(0f, -90f, 0f) * transform.TransformDirection(input).normalized;
+        if (ToggleCamera.IsRobotCamera) return Quaternion.Euler(0f, -90f, 0f) * robot.transform.TransformDirection(input).normalized;
         return input.normalized;
     }
 

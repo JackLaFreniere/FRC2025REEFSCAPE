@@ -2,19 +2,22 @@ using UnityEngine;
 
 public class Elbow : MonoBehaviour
 {
-    private Quaternion targetRotation;
-    [SerializeField] private float rotationSpeed = 10f;
+    [SerializeField] private HingeJoint hinge;
+
+    private readonly float tolerance = SubsystemHelper.defaultAngularTolerance;
+
     private const float elbowOffset = 90f;
-    private const float tolerance = 5f;
+    private float targetRotation;
 
-    private void FixedUpdate()
-    {
-        transform.localRotation = Quaternion.Lerp(transform.localRotation, targetRotation, Time.fixedDeltaTime * rotationSpeed);
-    }
-
+    /// <summary>
+    /// Sets the target rotation for the hinge joint, adjusted by the elbow offset.
+    /// </summary>
+    /// <param name="targetAngle">The desired target angle, in degrees, for the hinge joint before applying the elbow offset.</param>
     public void SetTargetRotation(float targetAngle)
     {
-        targetRotation = Quaternion.Euler(targetAngle - elbowOffset, 0f, 0f);
+        targetRotation = targetAngle - elbowOffset;
+
+        SubsystemHelper.UpdateHingeJointSpring(hinge, targetRotation);
     }
 
     /// <summary>

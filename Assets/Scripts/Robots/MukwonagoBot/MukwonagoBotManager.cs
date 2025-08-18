@@ -29,9 +29,9 @@ public class MukwonagoBotManager : BaseRobot
     protected override void Start()
     {
         elevator = transform.Find("Elevator").GetComponent<Elevator>();
-        shoulder = transform.Find("Elevator").Find("Shoulder").GetComponent<Shoulder>();
-        elbow = transform.Find("Elevator").Find("Shoulder").Find("Elbow").GetComponent<Elbow>();
-        wrist = transform.Find("Elevator").Find("Shoulder").Find("Elbow").Find("Wrist").GetComponent<Wrist>();
+        shoulder = transform.Find("Shoulder").GetComponent<Shoulder>();
+        elbow = transform.Find("Elbow").GetComponent<Elbow>();
+        wrist = transform.Find("Wrist").GetComponent<Wrist>();
         climber = transform.Find("Climber").GetComponent<Climber>();
 
         base.Start();

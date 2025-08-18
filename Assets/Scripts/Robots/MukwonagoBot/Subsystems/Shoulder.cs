@@ -1,28 +1,31 @@
-using UnityEngine;
+    using UnityEngine;
 
-public class Shoulder : MonoBehaviour
-{
-    private Quaternion targetRotation;
-    [SerializeField] private float rotationSpeed = 10f;
-    private const float shoulderOffset = 90f;
-    private const float tolerance = 5f;
-
-    private void FixedUpdate()
+    public class Shoulder : MonoBehaviour
     {
-        transform.localRotation = Quaternion.Lerp(transform.localRotation, targetRotation, Time.fixedDeltaTime * rotationSpeed);
+        [SerializeField] private HingeJoint hinge;
+
+        private readonly float tolerance = SubsystemHelper.defaultAngularTolerance;
+
+        private const float shoulderOffset = 90f;
+        private float targetRotation;
+
+        /// <summary>
+        /// Sets the target rotation for the Shoulder subsystem.
+        /// </summary>
+        /// <param name="targetAngle">The desired angle for the shoulder.</param>
+        public void SetTargetRotation(float targetAngle)
+        {
+            targetRotation = -targetAngle + shoulderOffset;
+
+            SubsystemHelper.UpdateHingeJointSpring(hinge, targetRotation);
     }
 
-    public void SetTargetRotation(float targetAngle)
-    {
-        targetRotation = Quaternion.Euler(-targetAngle + shoulderOffset, 0f, 0f);
+        /// <summary>
+        /// Determines if the Shoulder is at its target rotation within a specified tolerance.
+        /// </summary>
+        /// <returns>If within tolerance</returns>
+        public bool IsAtTargetRotation()
+        {
+            return SubsystemHelper.IsAtRotation(transform.localRotation, targetRotation, tolerance);
+        }
     }
-
-    /// <summary>
-    /// Determines if the Shoulder is at its target rotation within a specified tolerance.
-    /// </summary>
-    /// <returns>If within tolerance</returns>
-    public bool IsAtTargetRotation()
-    {
-        return SubsystemHelper.IsAtRotation(transform.localRotation, targetRotation, tolerance);
-    }
-}
