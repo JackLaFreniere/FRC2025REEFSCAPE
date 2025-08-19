@@ -1,13 +1,11 @@
-using UnityEngine;
-
 public class MukwonagoBotManager : BaseRobot
 {
 #pragma warning disable IDE1006
-    public Elevator elevator { get; private set; }
-    public Shoulder shoulder { get; private set; }
-    public Elbow elbow { get; private set; }
-    public Wrist wrist { get; private set; }
-    public Climber climber { get; private set; }
+    public TranslatingSubsystem elevator { get; private set; }
+    public RotatingSubsystem shoulder { get; private set; }
+    public RotatingSubsystem elbow { get; private set; }
+    public RotatingSubsystem wrist { get; private set; }
+    public RotatingSubsystem climber { get; private set; }
 #pragma warning restore IDE1006
 
     private void Awake()
@@ -28,11 +26,11 @@ public class MukwonagoBotManager : BaseRobot
 
     protected override void Start()
     {
-        elevator = transform.Find("Elevator").GetComponent<Elevator>();
-        shoulder = transform.Find("Shoulder").GetComponent<Shoulder>();
-        elbow = transform.Find("Elbow").GetComponent<Elbow>();
-        wrist = transform.Find("Wrist").GetComponent<Wrist>();
-        climber = transform.Find("Climber").GetComponent<Climber>();
+        elevator = transform.Find("Elevator").GetComponent<TranslatingSubsystem>();
+        shoulder = transform.Find("Shoulder").GetComponent<RotatingSubsystem>();
+        elbow = transform.Find("Elbow").GetComponent<RotatingSubsystem>();
+        wrist = transform.Find("Wrist").GetComponent<RotatingSubsystem>();
+        climber = transform.Find("Climber").GetComponent<RotatingSubsystem>();
 
         base.Start();
         stateMachine.Initialize(stowState);
