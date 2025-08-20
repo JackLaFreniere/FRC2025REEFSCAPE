@@ -95,7 +95,7 @@ public class MukwonagoBotCoralScoreState : PlayerState
         {
             case CoralReefLevel.L1:
                 bot.shoulder.SetTargetRotation(55f);
-                bot.elbow.SetTargetRotation(-40f);
+                bot.elbow.SetTargetRotation(-25f);// -40f);
                 bot.wrist.SetTargetRotation(90f);
                 bot.elevator.SetTargetPosition(0f); 
                 break;

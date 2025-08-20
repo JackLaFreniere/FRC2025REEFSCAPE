@@ -136,7 +136,7 @@ public class BaseRobot : MonoBehaviour
     /// </summary>
     public static void RemoveCoral()
     {
-        coral.GetComponent<Coral>().Score();
+        coral.GetComponent<Coral>().SetScore();
 
         coral = null;
         hasCoral = false;
