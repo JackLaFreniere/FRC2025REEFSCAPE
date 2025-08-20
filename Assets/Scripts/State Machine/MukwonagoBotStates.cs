@@ -241,7 +241,7 @@ public class MukwonagoBotConfirmCoralScoreState : PlayerState
                 bot.elbow.SetTargetRotation(-50f); 
                 break;
             case CoralReefLevel.L4:
-                bot.elbow.SetTargetRotation(-150f);
+                bot.elbow.SetTargetRotation(230f);
                 break;
         }
     }
