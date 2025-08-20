@@ -1,3 +1,5 @@
+using UnityEngine;
+
 public class Stow : PlayerState
 {
 private readonly MukwonagoBotManager bot;

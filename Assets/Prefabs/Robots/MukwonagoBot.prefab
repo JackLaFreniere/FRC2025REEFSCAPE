@@ -88,10 +88,10 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 862236531861316496}
   serializedVersion: 5
-  m_Mass: 68
+  m_Mass: 27.215542
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_CenterOfMass: {x: 0, y: 0.1, z: 0}
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
   m_IncludeLayers:
@@ -138,8 +138,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2936585621334500646}
   - component: {fileID: 490735884039232411}
-  - component: {fileID: 6040200475299517756}
   - component: {fileID: 7508599496078746104}
+  - component: {fileID: 6040200475299517756}
   m_Layer: 9
   m_Name: Shoulder
   m_TagString: Untagged
@@ -189,33 +189,6 @@ MonoBehaviour:
   hinge: {fileID: 7508599496078746104}
   isInverted: 1
   offsetAngle: 90
---- !u!54 &6040200475299517756
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1044605330798697773}
-  serializedVersion: 5
-  m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 2
 --- !u!59 &7508599496078746104
 HingeJoint:
   m_ObjectHideFlags: 0
@@ -232,8 +205,8 @@ HingeJoint:
   m_ConnectedAnchor: {x: 0, y: 0.867285, z: 0}
   m_UseSpring: 1
   m_Spring:
-    spring: 150
-    damper: 20
+    spring: 250
+    damper: 15
     targetPosition: 0
   m_UseMotor: 0
   m_Motor:
@@ -255,6 +228,33 @@ HingeJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!54 &6040200475299517756
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1044605330798697773}
+  serializedVersion: 5
+  m_Mass: 4.5359235
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 2
 --- !u!1 &1845278072905195437
 GameObject:
   m_ObjectHideFlags: 0
@@ -325,7 +325,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1845278072905195437}
   serializedVersion: 5
-  m_Mass: 1
+  m_Mass: 4.5359235
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -660,7 +660,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3123702189032668132}
   serializedVersion: 5
-  m_Mass: 1
+  m_Mass: 4.5359235
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -973,7 +973,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3904769542916710377}
   serializedVersion: 5
-  m_Mass: 1
+  m_Mass: 6.803885
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -1456,7 +1456,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8173704791868284487}
   serializedVersion: 5
-  m_Mass: 1
+  m_Mass: 4.5359235
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -1535,8 +1535,8 @@ ConfigurableJoint:
     useAcceleration: 0
   m_YDrive:
     serializedVersion: 4
-    positionSpring: 10000
-    positionDamper: 1000
+    positionSpring: 6000
+    positionDamper: 600
     maximumForce: 3.4028233e+38
     useAcceleration: 0
   m_ZDrive:
@@ -1597,7 +1597,7 @@ MonoBehaviour:
   lockYRot: 1
   lockZRot: 1
   minX: -Infinity
-  minY: -Infinity
+  minY: 0.104692
   minZ: -Infinity
   offset: {x: 0, y: 0.104692, z: 0.036309}
   joint: {fileID: 5704965068942388880}
