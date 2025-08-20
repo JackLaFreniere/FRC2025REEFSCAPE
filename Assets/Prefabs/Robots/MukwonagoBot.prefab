@@ -955,15 +955,15 @@ MonoBehaviour:
   lockXPos: 1
   lockYPos: 1
   lockZPos: 1
-  lockXRot: 1
+  lockXRot: 0
   lockYRot: 1
   lockZRot: 1
   minX: -Infinity
   minY: -Infinity
   minZ: -Infinity
-  offset: {x: 0, y: 0, z: 0}
+  offset: {x: 0, y: 0.19368, z: -0.319046}
   hinge: {fileID: 6066417350881723898}
-  isInverted: 0
+  isInverted: 1
   offsetAngle: 0
 --- !u!54 &6421128260026447418
 Rigidbody:
@@ -1634,11 +1634,11 @@ Transform:
   m_Children:
   - {fileID: 6119192653728008171}
   - {fileID: 1703038345796512090}
-  - {fileID: 3425345558229293290}
   - {fileID: 4527192823480427610}
   - {fileID: 2936585621334500646}
   - {fileID: 8052614812948048586}
   - {fileID: 390313901647610225}
+  - {fileID: 3425345558229293290}
   - {fileID: 6349245293779830340}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
