@@ -14812,10 +14812,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1043349434}
+  - component: {fileID: 1043349435}
   - component: {fileID: 1043349433}
   - component: {fileID: 1043349432}
   - component: {fileID: 1043349431}
-  - component: {fileID: 1043349435}
   m_Layer: 0
   m_Name: DriverStationCamera
   m_TagString: Untagged
@@ -14954,6 +14954,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraOffset: {x: 0, y: 0.6, z: 0}
+  driverStationCameraName: DriverStationCamera
+  robotDriveBaseName: Drive_Base
 --- !u!1001 &1048933223
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -3,11 +3,11 @@ using UnityEngine;
 public class ToggleCamera : MonoBehaviour
 {
     [Header("Camera Settings")]
-    private readonly Vector3 cameraOffset = Vector3.zero;
-    private const string driverStationCameraName = "DriverStationCamera";
+    [SerializeField] private Vector3 cameraOffset = Vector3.zero;
+    [SerializeField] private string driverStationCameraName = "DriverStationCamera";
 
     [Header("Robot Settings")]
-    private const string robotDriveBaseName = "Drive_Base";
+    [SerializeField] private string robotDriveBaseName = "Drive_Base";
 
     public static bool IsRobotCamera { get; private set; } = false;
 
