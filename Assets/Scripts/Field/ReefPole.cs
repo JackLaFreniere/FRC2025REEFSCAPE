@@ -39,7 +39,7 @@ public class ReefPole : ScoreableLocation
         scoredCoral = other.transform;
         scoredCoral.SetParent(transform, worldPositionStays: true);
 
-        scoreManager.AddScore(GetScore(), allianceColor); //Updates the score
+        ScoreManager.AddScore(GetScore(), allianceColor); //Updates the score
     }
 
     /// <summary>

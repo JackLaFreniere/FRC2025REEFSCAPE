@@ -30,6 +30,6 @@ public class Processor : ScoreableLocation
     public override void OnScored(Collider other)
     {
         other.GetComponent<Algae>().Score();
-        scoreManager.AddScore(score, allianceColor);
+        ScoreManager.AddScore(score, allianceColor);
     }
 }

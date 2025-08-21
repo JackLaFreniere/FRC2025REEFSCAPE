@@ -15,4 +15,4 @@ MonoBehaviour:
   robotPrefab: {fileID: 8815028075416148250, guid: 49a188bc7fa8a68449f1d45a987a9d59, type: 3}
   playerInput: {fileID: -944628639613478452, guid: f2eea90604781f64db5ac6041bd49324, type: 3}
   spawnEuler: {x: 0, y: -90, z: 0}
-  spawnPosition: {x: 4, y: 0.005579762, z: -2}
+  spawnPosition: {x: 0.66675, y: 0.005579762, z: -2}

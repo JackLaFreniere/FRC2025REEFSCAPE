@@ -95,7 +95,7 @@ public class Trough : ScoreableLocation
     /// <param name="other">The <see cref="Collider"/> involved in the scoring event. This represents the object that triggered the score.</param>
     public override void OnScored(Collider other)
     {
-        scoreManager.AddScore(GetScore(other), allianceColor);
+        ScoreManager.AddScore(GetScore(other), allianceColor);
     }
 
     /// <summary>
@@ -107,7 +107,7 @@ public class Trough : ScoreableLocation
     /// <param name="other">The <see cref="Collider"/> representing the object that triggered the unscore event.</param>
     public void OnUnscored(Collider other)
     {
-        scoreManager.AddScore(-GetUnscore(other), allianceColor);
+        ScoreManager.AddScore(-GetUnscore(other), allianceColor);
     }
 
     /// <summary>

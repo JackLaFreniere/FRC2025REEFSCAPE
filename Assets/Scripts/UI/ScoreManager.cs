@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -7,14 +6,17 @@ public class ScoreManager : MonoBehaviour
     [SerializeField] private string blueButtonName;
     [SerializeField] private string redButtonName;
 
-    private Button blueButton;
-    private Button redButton;
+    private static Button blueButton;
+    private static Button redButton;
 
-    private int blueScore = 0;
-    private int redScore = 0;
+    private static int blueScore = 0;
+    private static int redScore = 0;
 
     private void Start()
     {
+        blueScore = 0;
+        redScore = 0;
+
         blueButton = GetButton(blueButtonName);
         redButton = GetButton(redButtonName);
 
@@ -27,7 +29,7 @@ public class ScoreManager : MonoBehaviour
     /// <remarks>This method updates the text of the blue and red score buttons to reflect the current values
     /// of the <c>blueScore</c> and <c>redScore</c> fields, respectively. Ensure that these fields are properly
     /// initialized and updated before calling this method.</remarks>
-    private void UpdateScore()
+    private static void UpdateScore()
     {
         blueButton.text = blueScore.ToString();
         redButton.text = redScore.ToString();
@@ -41,7 +43,7 @@ public class ScoreManager : MonoBehaviour
     /// <param name="points">The number of points to add. Must be a non-negative integer.</param>
     /// <param name="allianceColor">The alliance to which the points should be added. Valid values are <see cref="AllianceColor.Blue"/> and <see
     /// cref="AllianceColor.Red"/>.</param>
-    public void AddScore(int points, AllianceColor allianceColor)
+    public static void AddScore(int points, AllianceColor allianceColor)
     {
         if (Timer.IsMatchOver()) return; 
 

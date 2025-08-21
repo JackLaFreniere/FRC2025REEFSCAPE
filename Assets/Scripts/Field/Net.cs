@@ -36,7 +36,7 @@ public class Net : ScoreableLocation
     {
         other.GetComponent<Algae>().Score();
 
-        scoreManager.AddScore(score, allianceColor);
+        ScoreManager.AddScore(score, allianceColor);
     }
 
     /// <summary>
@@ -47,6 +47,6 @@ public class Net : ScoreableLocation
     {
         other.GetComponent<Algae>().Unscore();
 
-        scoreManager.AddScore(-score, allianceColor);
+        ScoreManager.AddScore(-score, allianceColor);
     }
 }
