@@ -2,24 +2,31 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!78 &1
 TagManager:
-  serializedVersion: 2
-  tags: []
+  serializedVersion: 3
+  tags:
+  - CoralScoringWheel
+  - Robot
+  - CoralIntakeZone
+  - Coral
+  - RobotCamera
+  - Algae
+  - Wrist
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Field
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Super_Structure
+  - Elevator
+  - Drive_Base
+  - Shoulder
+  - Elbow
+  - Wrist
+  - Climber
+  - Coral
+  - Algae
   - 
   - 
   - 
@@ -50,27 +57,3 @@ TagManager:
   - Light Layer 5
   - Light Layer 6
   - Light Layer 7
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 

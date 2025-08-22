@@ -1,0 +1,1 @@
+public enum AlgaeReefLevel { Low, High };
