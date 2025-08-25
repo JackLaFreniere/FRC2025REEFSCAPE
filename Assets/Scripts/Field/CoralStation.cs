@@ -1,49 +1,30 @@
 using UnityEngine;
 
-public class CoralStation : MonoBehaviour
+namespace FRC2025
 {
-    [SerializeField] private GameObject coralPrefab;
-    [SerializeField] private Vector3 coralTransform;
-    [SerializeField] private Vector3 coralEuler;
-
-    private bool hasDroppedCoral = false;
-
-    private void OnTriggerEnter(Collider other)
+    public class CoralStation : HumanPlayerStation
     {
-        TryDropCoral(other);
-    }
-
-    private void OnTriggerStay(Collider other)
-    {
-        TryDropCoral(other);
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (!other.CompareTag("Robot")) return;
-        hasDroppedCoral = false;
-    }
-
-    private void TryDropCoral(Collider other)
-    {
-        // Only drops Coral for robots
-        if (!other.CompareTag("Robot")) return;
-
-        if (BaseRobot.stateMachine.CurrentState is MukwonagoBotCoralIntakeState)
+        /// <summary>
+        /// Handles the event when another collider enters the trigger collider attached to this object.
+        /// </summary>
+        /// <remarks>This method checks if the entering object is a robot and whether it is carrying coral. If the
+        /// conditions are met, it triggers the logic to drop a scoring element.</remarks>
+        /// <param name="other">The <see cref="Collider"/> of the object that entered the trigger.</param>
+        private void OnTriggerEnter(Collider other)
         {
-            DropCoral(other);
+            if (!IsRobot(other) || BaseRobot.hasCoral) return;
+
+            DropScoringElement();
         }
-        else if (BaseRobot.stateMachine.CurrentState is Stow)
+
+        /// <summary>
+        /// Spawns a scoring element at a specified position and rotation.
+        /// </summary>
+        /// <remarks>This method instantiates a scoring element using the predefined prefab, position, and
+        /// rotation. Ensure that the prefab is assigned and valid before calling this method.</remarks>
+        public override void DropScoringElement()
         {
-            hasDroppedCoral = false;
+            Instantiate(_scoringElementPrefab, GetScoringElementPosition(), GetScoringElementRotation());
         }
-    }
-
-    private void DropCoral(Collider other)
-    {
-        if (hasDroppedCoral || BaseRobot.hasCoral) return;
-
-        Instantiate(coralPrefab, coralTransform, Quaternion.Euler(coralEuler));
-        hasDroppedCoral = true;
     }
 }
