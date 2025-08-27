@@ -1,0 +1,23 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/Styles/SampleStyle.uss?fileID=7433441132597879392&amp;guid=bfecc3234067aa74b8d025dff98b80a6&amp;type=3#SampleStyle" />
+    <ui:VisualElement name="VisualElementManager" style="flex-grow: 1; flex-direction: row;">
+        <ui:VisualElement name="LeftVisualElement" style="flex-grow: 1; flex-direction: column; align-items: center; max-width: 33%;" />
+        <ui:VisualElement name="ButtonManager" style="flex-grow: 1; align-items: flex-start; justify-content: center; flex-direction: row; border-left-color: rgba(22, 19, 17, 0); border-right-color: rgba(22, 19, 17, 0); border-top-color: rgba(22, 19, 17, 0); border-bottom-color: rgba(22, 19, 17, 0); border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0; width: auto; max-width: 34%;">
+            <ui:Button text="0" name="BlueScore" class="button match font" style="background-color: rgb(11, 85, 144); width: 20%; height: 10%; color: rgb(223, 223, 215); font-size: 45%; border-left-color: rgb(238, 238, 238); border-right-color: rgb(238, 238, 238); border-top-color: rgb(238, 238, 238); border-bottom-color: rgb(238, 238, 238); border-top-width: 2px; border-right-width: 2px; border-bottom-width: 2px; border-left-width: 2px; margin-top: 2%; margin-right: 4%; margin-bottom: 2%; margin-left: 4%; padding-top: 2%; padding-right: 0%; padding-bottom: 2%; padding-left: 0%;" />
+            <ui:Button text="0:00&#10;" name="Timer" class="button match font" style="color: rgb(19, 16, 17); background-color: rgb(238, 238, 238); border-left-color: rgb(22, 19, 17); border-right-color: rgb(22, 19, 17); border-top-color: rgb(22, 19, 17); border-bottom-color: rgb(22, 19, 17); border-top-width: 3px; border-right-width: 3px; border-bottom-width: 3px; border-left-width: 3px; height: 13%; width: 30%; font-size: 50%; padding-top: 2%; padding-right: 0%; padding-bottom: 2%; padding-left: 0%;" />
+            <ui:Button text="0" name="RedScore" class="button match font" style="background-color: rgb(188, 26, 32); height: 10%; width: 20%; color: rgb(223, 223, 215); font-size: 45%; border-left-color: rgb(238, 238, 238); border-right-color: rgb(238, 238, 238); border-top-color: rgb(238, 238, 238); border-bottom-color: rgb(238, 238, 238); border-top-width: 2px; border-right-width: 2px; border-bottom-width: 2px; border-left-width: 2px; margin-top: 2%; margin-right: 4%; margin-bottom: 2%; margin-left: 4%; padding-top: 2%; padding-right: 0%; padding-bottom: 2%; padding-left: 0%;" />
+        </ui:VisualElement>
+        <ui:VisualElement name="ToggleablesVisualElement" style="flex-grow: 1; flex-direction: row; max-width: 33%;">
+            <ui:VisualElement name="Algae" class="font" style="flex-grow: 1; flex-direction: column; max-width: 50%; align-items: center;">
+                <ui:Button text="High Algae" name="High" class="algae fontsize-algae presets" />
+                <ui:Button text="Low Algae" name="Low" class="algae fontsize-algae presets" />
+            </ui:VisualElement>
+            <ui:VisualElement name="Coral" class="font" style="flex-grow: 1; flex-direction: column; justify-content: flex-start; max-width: 50%; align-items: center;">
+                <ui:Button text="L4 Coral" name="L4Coral" class="coral fontsize-coral presets" />
+                <ui:Button text="L3 Coral" name="L3Coral" class="coral fontsize-coral presets" />
+                <ui:Button text="L2 Coral" name="L2Coral" class="coral fontsize-coral presets" />
+                <ui:Button text="L1 Coral" name="L1Coral" class="coral fontsize-coral presets" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
