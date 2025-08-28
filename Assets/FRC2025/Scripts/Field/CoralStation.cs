@@ -14,9 +14,12 @@ namespace FRC2025
         /// <param name="other">The <see cref="Collider"/> of the object that entered the trigger.</param>
         private void OnTriggerEnter(Collider other)
         {
-            if (!IsRobot(other)) return;
+            if (!RobotHelper.IsRobot(other)) return;
 
-            CacheBaseRobot(other);
+            if (_baseRobot == null || !_baseRobot.gameObject.Equals(other.gameObject))
+            {
+                RobotHelper.CacheBaseRobot(other, ref _baseRobot);
+            }
 
             if (_baseRobot.hasCoral) return;
 
@@ -31,14 +34,6 @@ namespace FRC2025
         public override void DropScoringElement()
         {
             Instantiate(_scoringElementPrefab, GetScoringElementPosition(), GetScoringElementRotation());
-        }
-
-        private void CacheBaseRobot(Collider other)
-        {
-            if (_baseRobot == null)
-            {
-                _baseRobot = RobotHelper.GetBaseRobotScript(other);
-            }
         }
     }
 }

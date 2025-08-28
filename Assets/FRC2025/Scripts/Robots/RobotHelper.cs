@@ -4,27 +4,16 @@ namespace FRC2025
 {
     public class RobotHelper : MonoBehaviour
     {
-        private static string _robotName;
         private const string _robotTag = "Robot";
 
-        public static void SetRobotName(string name)
+        public static bool IsRobot(Collider collider)
         {
-            _robotName = name;
+            return collider.CompareTag(_robotTag);
         }
 
-        public static string GetRobotName()
+        public static bool IsRobot(GameObject gameObject)
         {
-            return _robotName;
-        }
-
-        public static bool IsRobot(Collider collider, string tag = _robotTag)
-        {
-            return collider.CompareTag(tag);
-        }
-
-        public static bool IsRobot(GameObject gameObject, string tag = _robotTag)
-        {
-            return gameObject.CompareTag(tag);
+            return gameObject.CompareTag(_robotTag);
         }
 
         public static BaseRobot GetBaseRobotScript(Collider collider)
@@ -39,7 +28,23 @@ namespace FRC2025
 
         public static BaseRobot GetBaseRobotScript(string name)
         {
-            return UnityEngine.GameObject.Find(name).GetComponent<BaseRobot>();
+            return GameObject.Find(name).GetComponent<BaseRobot>();
+        }
+
+        public static void CacheBaseRobot(Collider collider, ref BaseRobot baseRobot)
+        {
+            if (baseRobot == null)
+            {
+                baseRobot = GetBaseRobotScript(collider);
+            }
+        }
+
+        public static void CacheBaseRobot(GameObject gameObject, ref BaseRobot baseRobot)
+        {
+            if (baseRobot == null)
+            {
+                baseRobot = GetBaseRobotScript(gameObject);
+            }
         }
     }
 }

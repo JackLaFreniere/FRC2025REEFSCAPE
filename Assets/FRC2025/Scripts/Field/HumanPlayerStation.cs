@@ -29,7 +29,6 @@ namespace FRC2025
 #endif
 
         public abstract void DropScoringElement();
-        protected bool IsRobot(Collider other) => RobotHelper.IsRobot(other);
         protected Vector3 GetScoringElementPosition() => transform.TransformPoint(ScoringElementPosition);
         protected Quaternion GetScoringElementRotation() => transform.rotation * Quaternion.Euler(ScoringElementRotation);
 
