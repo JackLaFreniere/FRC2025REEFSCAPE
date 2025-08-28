@@ -1,33 +1,38 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerController : MonoBehaviour
+namespace FRC2025
 {
-    public RobotInfo robotInfo;
-    private IRobotInputHandler robotActions;
-    private GameObject robotInstance;
-
-    private void Awake()
+    public class PlayerController : MonoBehaviour
     {
-        robotInstance = Instantiate(robotInfo.robotPrefab, robotInfo.spawnPosition, Quaternion.Euler(robotInfo.spawnEuler));
-        
-        BaseRobot baseRobotScript = robotInstance.GetComponent<BaseRobot>();
-        baseRobotScript.SetRobotInfo(robotInfo);
+        public RobotInfo robotInfo;
+        public ToggleCamera driverStationCamera;
+        private IRobotInputHandler robotActions;
+        private GameObject robotInstance;
 
-        robotActions = robotInstance.GetComponent<IRobotInputHandler>();
-        this.GetComponent<PlayerInput>().actions = robotInfo.playerInput;
+        private void Awake()
+        {
+            robotInstance = Instantiate(robotInfo.robotPrefab, robotInfo.spawnPosition, Quaternion.Euler(robotInfo.spawnEuler));
 
-        robotActions.SetBaseRobot(robotInstance.GetComponent<BaseRobot>());
-        robotActions.InputAwake();
-    }
+            driverStationCamera.SetActiveRobot(robotInstance.GetComponent<BaseRobot>());
+            BaseRobot baseRobotScript = robotInstance.GetComponent<BaseRobot>();
+            baseRobotScript.SetRobotInfo(robotInfo);
 
-    private void OnEnable()
-    {
-        robotActions.InputOnEnable();
-    }
+            robotActions = robotInstance.GetComponent<IRobotInputHandler>();
+            this.GetComponent<PlayerInput>().actions = robotInfo.playerInput;
 
-    private void OnDisable()
-    {
-        robotActions.InputOnDisable();
+            robotActions.SetBaseRobot(robotInstance.GetComponent<BaseRobot>());
+            robotActions.InputAwake();
+        }
+
+        private void OnEnable()
+        {
+            robotActions.InputOnEnable();
+        }
+
+        private void OnDisable()
+        {
+            robotActions.InputOnDisable();
+        }
     }
 }

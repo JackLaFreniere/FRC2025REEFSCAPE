@@ -1,19 +1,22 @@
-public class StateMachine
+namespace FRC2025
 {
-    public PlayerState PreviousState { get; private set; }
-    public PlayerState CurrentState { get; private set; }
-
-    public void Initialize(PlayerState startState)
+    public class StateMachine
     {
-        CurrentState = startState;
-        CurrentState.Enter();
-    }
+        public PlayerState PreviousState { get; private set; }
+        public PlayerState CurrentState { get; private set; }
 
-    public void ChangeState(PlayerState newState)
-    {
-        PreviousState = CurrentState;
-        CurrentState.Exit();
-        CurrentState = newState;
-        CurrentState.Enter();
+        public void Initialize(PlayerState startState)
+        {
+            CurrentState = startState;
+            CurrentState.Enter();
+        }
+
+        public void ChangeState(PlayerState newState)
+        {
+            PreviousState = CurrentState;
+            CurrentState.Exit();
+            CurrentState = newState;
+            CurrentState.Enter();
+        }
     }
 }

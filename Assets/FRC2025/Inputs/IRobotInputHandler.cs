@@ -1,7 +1,10 @@
-public interface IRobotInputHandler
+namespace FRC2025
 {
-    void SetBaseRobot(BaseRobot robot);
-    void InputAwake();
-    void InputOnEnable();
-    void InputOnDisable();
+    public interface IRobotInputHandler
+    {
+        void SetBaseRobot(BaseRobot robot);
+        void InputAwake();
+        void InputOnEnable();
+        void InputOnDisable();
+    }
 }

@@ -1,32 +1,35 @@
 using UnityEngine;
 
-public class KitBotManager : BaseRobot
+namespace FRC2025
 {
-    private void Awake()
+    public class KitBotManager : BaseRobot
     {
-        stateMachine = new StateMachine();
-        stowState = new KitBotIdleState(this, stateMachine);
-        coralScoreState = new KitBotCoralScoreState(this, stateMachine);
-    }
+        private void Awake()
+        {
+            stateMachine = new StateMachine();
+            stowState = new KitBotIdleState(this, stateMachine);
+            coralScoreState = new KitBotCoralScoreState(this, stateMachine);
+        }
 
-    protected override void Start()
-    {
-        base.Start();
-        stateMachine.Initialize(stowState);
-    }
+        protected override void Start()
+        {
+            base.Start();
+            stateMachine.Initialize(stowState);
+        }
 
-    private void Update()
-    {
-        stateMachine.CurrentState.Update();
-    }
+        private void Update()
+        {
+            stateMachine.CurrentState.Update();
+        }
 
-    public override void CoralScore()
-    {
-        stateMachine.ChangeState(coralScoreState);
-    }
+        public override void CoralScore()
+        {
+            stateMachine.ChangeState(coralScoreState);
+        }
 
-    public override void Stow()
-    {
-        stateMachine.ChangeState(stowState);
+        public override void Stow()
+        {
+            stateMachine.ChangeState(stowState);
+        }
     }
 }

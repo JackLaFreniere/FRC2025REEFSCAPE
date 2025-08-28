@@ -1,34 +1,36 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 
-public class KitBotInputInstructions : MonoBehaviour, IRobotInputHandler
+namespace FRC2025
 {
-    private KitBotInput playerControls;
-    private BaseRobot robot;
-
-    public void SetBaseRobot(BaseRobot robot)
+    public class KitBotInputInstructions : MonoBehaviour, IRobotInputHandler
     {
-        this.robot = robot;
-    }
+        private KitBotInput playerControls;
+        private BaseRobot robot;
 
-    public void InputAwake()
-    {
-        playerControls = new KitBotInput();
-    }
+        public void SetBaseRobot(BaseRobot robot)
+        {
+            this.robot = robot;
+        }
 
-    public void InputOnEnable()
-    {
-        playerControls.Player.Enable();
+        public void InputAwake()
+        {
+            playerControls = new KitBotInput();
+        }
 
-        playerControls.Player.CoralScore.performed += ctx => robot.CoralScore();
-        playerControls.Player.CoralScore.canceled += ctx => robot.Stow();
+        public void InputOnEnable()
+        {
+            playerControls.Player.Enable();
 
-        robot.SetDrive(playerControls.Player.Drive);
-        robot.SetRotate(playerControls.Player.Rotate);
-    }
+            playerControls.Player.CoralScore.performed += ctx => robot.CoralScore();
+            playerControls.Player.CoralScore.canceled += ctx => robot.Stow();
 
-    public void InputOnDisable()
-    {
-        playerControls.Player.Disable();
+            robot.SetDrive(playerControls.Player.Drive);
+            robot.SetRotate(playerControls.Player.Rotate);
+        }
+
+        public void InputOnDisable()
+        {
+            playerControls.Player.Disable();
+        }
     }
 }

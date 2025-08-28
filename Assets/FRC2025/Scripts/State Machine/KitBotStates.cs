@@ -1,42 +1,45 @@
 using UnityEngine;
 
-public class KitBotIdleState : PlayerState
+namespace FRC2025
 {
-    public KitBotIdleState(BaseRobot player, StateMachine stateMachine) : base(player, stateMachine) { }
-}
-
-public class KitBotCoralScoreState : PlayerState
-{
-    private GameObject scoringMechanism;
-    private readonly float rotationSpeed = 360f;
-    private Vector3 rotationAxis = Vector3.left;
-    private GameObject[] scoringWheels;
-
-
-    public KitBotCoralScoreState(BaseRobot player, StateMachine stateMachine) : base(player, stateMachine) { }
-
-    public override void Enter()
+    public class KitBotIdleState : PlayerState
     {
-        scoringMechanism = player.gameObject.transform.Find("Coral_Scoring_Mechanism").gameObject;
+        public KitBotIdleState(BaseRobot player, StateMachine stateMachine) : base(player, stateMachine) { }
+    }
 
-        scoringWheels = GameObject.FindGameObjectsWithTag("CoralScoringWheel");
+    public class KitBotCoralScoreState : PlayerState
+    {
+        private GameObject scoringMechanism;
+        private readonly float rotationSpeed = 360f;
+        private Vector3 rotationAxis = Vector3.left;
+        private GameObject[] scoringWheels;
 
-        foreach (GameObject wheel in scoringWheels)
+
+        public KitBotCoralScoreState(BaseRobot player, StateMachine stateMachine) : base(player, stateMachine) { }
+
+        public override void Enter()
         {
-            wheel.GetComponent<CapsuleCollider>().enabled = false;
+            scoringMechanism = player.gameObject.transform.Find("Coral_Scoring_Mechanism").gameObject;
+
+            scoringWheels = GameObject.FindGameObjectsWithTag("CoralScoringWheel");
+
+            foreach (GameObject wheel in scoringWheels)
+            {
+                wheel.GetComponent<CapsuleCollider>().enabled = false;
+            }
         }
-    }
 
-    public override void Update()
-    {
-        scoringMechanism.transform.Rotate(rotationAxis, rotationSpeed * Time.deltaTime);
-    }
-
-    public override void Exit()
-    {
-        foreach (GameObject wheel in scoringWheels)
+        public override void Update()
         {
-            wheel.GetComponent<CapsuleCollider>().enabled = true;
+            scoringMechanism.transform.Rotate(rotationAxis, rotationSpeed * Time.deltaTime);
+        }
+
+        public override void Exit()
+        {
+            foreach (GameObject wheel in scoringWheels)
+            {
+                wheel.GetComponent<CapsuleCollider>().enabled = true;
+            }
         }
     }
 }

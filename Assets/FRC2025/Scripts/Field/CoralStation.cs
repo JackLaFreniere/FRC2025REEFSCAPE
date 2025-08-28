@@ -4,6 +4,8 @@ namespace FRC2025
 {
     public class CoralStation : HumanPlayerStation
     {
+        private BaseRobot _baseRobot;
+
         /// <summary>
         /// Handles the event when another collider enters the trigger collider attached to this object.
         /// </summary>
@@ -12,7 +14,11 @@ namespace FRC2025
         /// <param name="other">The <see cref="Collider"/> of the object that entered the trigger.</param>
         private void OnTriggerEnter(Collider other)
         {
-            if (!IsRobot(other) || BaseRobot.hasCoral) return;
+            if (!IsRobot(other)) return;
+
+            CacheBaseRobot(other);
+
+            if (_baseRobot.hasCoral) return;
 
             DropScoringElement();
         }
@@ -25,6 +31,14 @@ namespace FRC2025
         public override void DropScoringElement()
         {
             Instantiate(_scoringElementPrefab, GetScoringElementPosition(), GetScoringElementRotation());
+        }
+
+        private void CacheBaseRobot(Collider other)
+        {
+            if (_baseRobot == null)
+            {
+                _baseRobot = RobotHelper.GetBaseRobotScript(other);
+            }
         }
     }
 }

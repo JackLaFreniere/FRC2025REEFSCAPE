@@ -21,7 +21,6 @@ namespace FRC2025
         [SerializeField] protected Vector3 ScoringElementPosition = Vector3.zero;
         [SerializeField] protected Vector3 ScoringElementRotation = Vector3.zero;
 
-        private const string _robotTag = "Robot";
         protected BoxCollider _boxCollider;
 
 #if UNITY_EDITOR
@@ -30,7 +29,7 @@ namespace FRC2025
 #endif
 
         public abstract void DropScoringElement();
-        protected bool IsRobot(Collider other, string tag = _robotTag) => other.CompareTag(tag);
+        protected bool IsRobot(Collider other) => RobotHelper.IsRobot(other);
         protected Vector3 GetScoringElementPosition() => transform.TransformPoint(ScoringElementPosition);
         protected Quaternion GetScoringElementRotation() => transform.rotation * Quaternion.Euler(ScoringElementRotation);
 

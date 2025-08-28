@@ -1,67 +1,77 @@
 using UnityEngine;
 
-public class CoralIntakeZone : MonoBehaviour
+namespace FRC2025
 {
-    [Header("Intake Settings")]
-    [SerializeField] private float moveSpeed = 3f;
-    [SerializeField] private float rotateSpeed = 100f;
-
-    [Header("Eject Settings")]
-    [SerializeField] private float ejectForce = 100f;
-
-    private Vector3 ejectDirection = Vector3.up;
-
-    private void FixedUpdate()
+    public class CoralIntakeZone : MonoBehaviour
     {
-        Collider coralCollider = BaseRobot.coral;
+        [Header("Intake Settings")]
+        [SerializeField] private float moveSpeed = 3f;
+        [SerializeField] private float rotateSpeed = 100f;
 
-        if (coralCollider == null) return;
+        [Header("Eject Settings")]
+        [SerializeField] private float ejectForce = 100f;
 
-        Transform transform = coralCollider.transform;
+        private BaseRobot _baseRobot;
 
-        // Smoothly move and rotate the coral towards the wrist's intake zone
-        Vector3 targetPosition = Vector3.Lerp(transform.localPosition, Vector3.zero, moveSpeed * Time.fixedDeltaTime);
-        Quaternion targetRotation = Quaternion.Lerp(transform.localRotation, Quaternion.identity, rotateSpeed * Time.fixedDeltaTime);
-        coralCollider.transform.SetLocalPositionAndRotation(targetPosition, targetRotation);
-    }
+        private Vector3 ejectDirection = Vector3.up;
 
-    private void OnTriggerEnter(Collider other)
-    {
-        // Ensures that only a coral is accepted when the intake zone is empty
-        if (!other.CompareTag("Coral") || BaseRobot.coral != null) return;
+        private void Start()
+        {
+            _baseRobot = RobotHelper.GetBaseRobotScript(gameObject);
+        }
 
-        // Makes sure that you can only intake Coral when the robot is in the Coral Intake State
-        if (BaseRobot.stateMachine.CurrentState is not MukwonagoBotCoralIntakeState) return;
+        private void FixedUpdate()
+        {
+            Collider coralCollider = _baseRobot.coral;
 
-        // If the coral is already scored, do not intake it
-        if (other.GetComponent<Coral>().GetIsScored()) return;
+            if (coralCollider == null) return;
 
-        BaseRobot.hasCoral = true;
+            Transform transform = coralCollider.transform;
 
-        // Parents the coral under the wrist's intakezone
-        Transform coral = other.transform;
-        coral.SetParent(transform, worldPositionStays: true);
+            // Smoothly move and rotate the coral towards the wrist's intake zone
+            Vector3 targetPosition = Vector3.Lerp(transform.localPosition, Vector3.zero, moveSpeed * Time.fixedDeltaTime);
+            Quaternion targetRotation = Quaternion.Lerp(transform.localRotation, Quaternion.identity, rotateSpeed * Time.fixedDeltaTime);
+            coralCollider.transform.SetLocalPositionAndRotation(targetPosition, targetRotation);
+        }
 
-        // Disables the coral's physics to animate it smoothly
-        Rigidbody rb = coral.GetComponent<Rigidbody>();
-        rb.useGravity = false;
-        rb.constraints = RigidbodyConstraints.FreezeAll;
+        private void OnTriggerEnter(Collider other)
+        {
+            // Ensures that only a coral is accepted when the intake zone is empty
+            if (!other.CompareTag("Coral") || _baseRobot.coral != null) return;
 
-        // Stores the coral in the intake zone
-        BaseRobot.coral = other;
-    }
+            // Makes sure that you can only intake Coral when the robot is in the Coral Intake State
+            if (BaseRobot.stateMachine.CurrentState is not MukwonagoBotCoralIntakeState) return;
 
-    public void EjectCoral()
-    {
-        if (BaseRobot.coral == null) return;
+            // If the coral is already scored, do not intake it
+            if (other.GetComponent<Coral>().GetIsScored()) return;
 
-        BaseRobot.coral.transform.parent = null;
+            _baseRobot.hasCoral = true;
 
-        Rigidbody coralRB = BaseRobot.coral.GetComponent<Rigidbody>();
-        coralRB.useGravity = true;
-        coralRB.constraints = RigidbodyConstraints.None;
-        coralRB.AddRelativeForce(ejectDirection * ejectForce, ForceMode.Impulse);
+            // Parents the coral under the wrist's intakezone
+            Transform coral = other.transform;
+            coral.SetParent(transform, worldPositionStays: true);
 
-        BaseRobot.RemoveCoral();
+            // Disables the coral's physics to animate it smoothly
+            Rigidbody rb = coral.GetComponent<Rigidbody>();
+            rb.useGravity = false;
+            rb.constraints = RigidbodyConstraints.FreezeAll;
+
+            // Stores the coral in the intake zone
+            _baseRobot.coral = other;
+        }
+
+        public void EjectCoral()
+        {
+            if (_baseRobot.coral == null) return;
+
+            _baseRobot.coral.transform.parent = null;
+
+            Rigidbody coralRB = _baseRobot.coral.GetComponent<Rigidbody>();
+            coralRB.useGravity = true;
+            coralRB.constraints = RigidbodyConstraints.None;
+            coralRB.AddRelativeForce(ejectDirection * ejectForce, ForceMode.Impulse);
+
+            _baseRobot.RemoveCoral();
+        }
     }
 }

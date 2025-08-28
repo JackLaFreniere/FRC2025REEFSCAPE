@@ -1,3 +1,4 @@
+using FRC2025;
 using UnityEngine;
 
 public class ToggleCamera : MonoBehaviour
@@ -17,6 +18,8 @@ public class ToggleCamera : MonoBehaviour
     private AudioListener driverStationAudioListener;
     private AudioListener robotAudioListener;
 
+    private BaseRobot _baseRobot;
+
     private Transform robot;
 
     private void Start()
@@ -33,7 +36,7 @@ public class ToggleCamera : MonoBehaviour
         }
 
         // Get robot camera from BaseRobot
-        robotCamera = BaseRobot.GetRobotCamera();
+        robotCamera = _baseRobot.GetRobotCamera();
         if (robotCamera == null)
         {
             Debug.LogError("Robot camera not found.");
@@ -108,5 +111,10 @@ public class ToggleCamera : MonoBehaviour
             Vector3 targetPosition = robot.position + cameraOffset;
             driverStationCamera.transform.LookAt(targetPosition);
         }
+    }
+
+    public void SetActiveRobot(BaseRobot baseRobot)
+    {
+        _baseRobot = baseRobot;
     }
 }
