@@ -124,7 +124,7 @@ public class MainMenu : MonoBehaviour
     /// </summary>
     private void StartGameSceneLoad()
     {
-        gameSceneLoadOp = SceneManager.LoadSceneAsync("GameScene", LoadSceneMode.Single);
+        gameSceneLoadOp = SceneManager.LoadSceneAsync("FRC2025Scene", LoadSceneMode.Single);
         gameSceneLoadOp.allowSceneActivation = false;
     }
 
