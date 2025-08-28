@@ -56,7 +56,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6119192653728008171}
   - component: {fileID: 2806830469258929261}
-  - component: {fileID: 2475407362939621469}
+  - component: {fileID: 1335324787255751646}
   m_Layer: 8
   m_Name: Drive_Base
   m_TagString: Robot
@@ -107,7 +107,7 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 2
---- !u!65 &2475407362939621469
+--- !u!65 &1335324787255751646
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1654,6 +1654,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1449e9652951b854dac376c33476a70b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  allianceColor: 1
   maxAngularSpeed: 480
   rotationAcceleration: 700
   rotationDeceleration: 1400

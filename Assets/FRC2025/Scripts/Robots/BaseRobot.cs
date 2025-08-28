@@ -3,6 +3,7 @@ using UnityEngine.InputSystem;
 
 public class BaseRobot : MonoBehaviour
 {
+    public AllianceColor allianceColor = AllianceColor.Blue;
     public static bool hasCoral = false;
     public static bool hasAlgae = false;
 
