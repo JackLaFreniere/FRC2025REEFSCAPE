@@ -1,13 +1,19 @@
 using UnityEngine;
 
-public abstract class ScoreableLocation : MonoBehaviour
+namespace FRC2025
 {
-    public AllianceColor allianceColor;
-    public string scoringElementTag;
-
-    public abstract void OnScored(Collider other);
-    public virtual bool IsValidScoringObject(Collider other)
+    public abstract class ScoreableLocation : MonoBehaviour
     {
-        return other.CompareTag(scoringElementTag) && other.transform.root == other.transform;
+        [SerializeField] protected AllianceColor allianceColor;
+        [SerializeField] protected string scoringElementTag;
+
+        protected virtual bool IsValidScoringObject(Collider other) =>
+            other.CompareTag(scoringElementTag) && other.transform.root == other.transform;
+
+        protected abstract void OnScored(Collider other);
+        protected abstract void CacheCollider();
+        protected abstract void UpdateColliderSettings();
+        protected abstract void FixEditor();
+        protected virtual void OnTriggerEnter(Collider other) { }
     }
 }

@@ -21,7 +21,7 @@ namespace FRC2025
             _baseRobot = RobotHelper.GetBaseRobotScript(gameObject);
         }
 
-        private void OnTriggerEnter(Collider other)
+        protected override void OnTriggerEnter(Collider other)
         {
             if (!IsValidScoringObject(other) || scored) return;
 
@@ -39,7 +39,7 @@ namespace FRC2025
         /// When a coral is scored, this method is called to handle the scoring process.
         /// </summary>
         /// <param name="other">The Collider of the scored coral.</param>
-        public override void OnScored(Collider other)
+        protected override void OnScored(Collider other)
         {
             scored = true; //Lets the pole know it has scored a coral 
             _baseRobot.RemoveCoral(); //Removes the coral from the robot's manipulator
@@ -56,7 +56,7 @@ namespace FRC2025
         /// </summary>
         /// <param name="other">Collider that is being checked.</param>
         /// <returns>Whether the Collider is a valid scorable Coral.</returns>
-        public override bool IsValidScoringObject(Collider other)
+        protected override bool IsValidScoringObject(Collider other)
         {
             // Makes sure the Coral is currently being held by a robot.
             return other.CompareTag(scoringElementTag) && other.transform.root != other.transform;
@@ -83,6 +83,21 @@ namespace FRC2025
         private int GetScore()
         {
             return coralReefLocation.score + (Timer.IsAuto() ? coralReefLocation.autoBonus : 0);
+        }
+
+        protected override void CacheCollider()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        protected override void FixEditor()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        protected override void UpdateColliderSettings()
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

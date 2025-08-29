@@ -1,52 +1,70 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Net : ScoreableLocation
+namespace FRC2025
 {
-    private readonly int score = 4;
-    private readonly HashSet<Collider> scoredAlgae = new();
-
-    private void OnTriggerEnter(Collider other)
+    public class Net : ScoreableLocation
     {
-        if (!IsValidScoringObject(other)) return;
+        private readonly int score = 4;
+        private readonly HashSet<Collider> scoredAlgae = new();
 
-        scoredAlgae.Add(other);
-        OnScored(other);
-    }
+        protected override void OnTriggerEnter(Collider other)
+        {
+            if (!IsValidScoringObject(other)) return;
 
-    private void OnTriggerStay(Collider other)
-    {
-        if (!IsValidScoringObject(other)) return;
+            scoredAlgae.Add(other);
+            OnScored(other);
+        }
 
-        if (scoredAlgae.Add(other)) OnScored(other);
-    }
+        private void OnTriggerStay(Collider other)
+        {
+            if (!IsValidScoringObject(other)) return;
 
-    private void OnTriggerExit(Collider other)
-    {
-        if (!IsValidScoringObject(other)) return;
+            if (scoredAlgae.Add(other)) OnScored(other);
+        }
 
-        if (scoredAlgae.Remove(other)) OnUnscored(other);
-    }
+        private void OnTriggerExit(Collider other)
+        {
+            if (!IsValidScoringObject(other)) return;
 
-    /// <summary>
-    /// Code to run when an algae is scored.
-    /// </summary>
-    /// <param name="other">The Algae that is being scored.</param>
-    public override void OnScored(Collider other)
-    {
-        other.GetComponent<Algae>().Score();
+            if (scoredAlgae.Remove(other)) OnUnscored(other);
+        }
 
-        ScoreManager.AddScore(score, allianceColor);
-    }
+        /// <summary>
+        /// Code to run when an algae is scored.
+        /// </summary>
+        /// <param name="other">The Algae that is being scored.</param>
+        protected override void OnScored(Collider other)
+        {
+            other.GetComponent<Algae>().Score();
 
-    /// <summary>
-    /// Code to run when an algae is unscored.
-    /// </summary>
-    /// <param name="other">The Algae that is being unscored.</param>
-    public void OnUnscored(Collider other)
-    {
-        other.GetComponent<Algae>().Unscore();
+            ScoreManager.AddScore(score, allianceColor);
+        }
 
-        ScoreManager.AddScore(-score, allianceColor);
+        /// <summary>
+        /// Code to run when an algae is unscored.
+        /// </summary>
+        /// <param name="other">The Algae that is being unscored.</param>
+        public void OnUnscored(Collider other)
+        {
+            other.GetComponent<Algae>().Unscore();
+
+            ScoreManager.AddScore(-score, allianceColor);
+        }
+
+        protected override void CacheCollider()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        protected override void FixEditor()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        protected override void UpdateColliderSettings()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
