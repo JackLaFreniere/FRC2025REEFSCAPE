@@ -1,4 +1,3 @@
-using UnityEditor;
 using UnityEditorInternal;
 using UnityEngine;
 
@@ -8,18 +7,21 @@ namespace FRC2025
     public class Processor : ScoreableLocation
     {
         [Header("Box Collider Information")]
-        [SerializeField] protected Vector3 BoxColliderCenter = Vector3.zero;
-        [SerializeField] protected Vector3 BoxColliderSize = Vector3.one;
+        [SerializeField] private Vector3 _boxColliderCenter = Vector3.zero;
+        [SerializeField] private Vector3 _boxColliderSize = Vector3.one;
 
-        private BoxCollider _boxCollider;
         private readonly int _processorScore = 6;
         private readonly int _netScore = 4;
+
+#if UNITY_EDITOR
+        private BoxCollider _boxCollider;
+#endif
 
         /// <summary>
         /// Handles the event when another collider enters the trigger collider attached to this object.
         /// </summary>
         /// <remarks>This method processes the collider if it represents a valid scoring object. If the object is
-        /// valid,  it triggers the scoring logic and destroys the object.</remarks>
+        /// valid, it triggers the scoring logic and destroys the object.</remarks>
         /// <param name="other">The <see cref="Collider"/> of the object that entered the trigger.</param>
         private void OnTriggerEnter(Collider other)
         {
@@ -51,20 +53,39 @@ namespace FRC2025
         }
 
 #if UNITY_EDITOR
+        /// <summary>
+        /// Caches the reference to the BoxCollider component for use in the editor.
+        /// </summary>
+        /// <remarks>This method is only available in the Unity Editor and is used to ensure the <see
+        /// cref="BoxCollider"/> reference is properly cached. It overrides the base implementation to specifically
+        /// cache the <see cref="_boxCollider"/> field.</remarks>
         protected override void CacheCollider()
         {
             CacheCollider(ref _boxCollider);
         }
 
+        /// <summary>
+        /// Updates the settings of the associated box collider.
+        /// </summary>
+        /// <remarks>This method ensures that the box collider is configured as a trigger and updates its
+        /// center and size based on the current values of <see cref="_boxColliderCenter"/> and <see
+        /// cref="_boxColliderSize"/>. If the box collider is not assigned, the method exits without making any
+        /// changes.</remarks>
         protected override void UpdateColliderSettings()
         {
             if (_boxCollider == null) return;
 
             _boxCollider.isTrigger = true;
-            _boxCollider.center = BoxColliderCenter;
-            _boxCollider.size = BoxColliderSize;
+            _boxCollider.center = _boxColliderCenter;
+            _boxCollider.size = _boxColliderSize;
         }
 
+        /// <summary>
+        /// Ensures that the editor components are properly configured and arranged.
+        /// </summary>
+        /// <remarks>This method adjusts the state and order of editor-related components to ensure they
+        /// are set up correctly. It operates on the current object and its associated components, such as the box
+        /// collider.</remarks>
         protected override void FixEditor()
         {
             HandleEditorComponent(this);
