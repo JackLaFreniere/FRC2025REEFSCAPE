@@ -79,17 +79,6 @@ namespace FRC2025
         }
 
         /// <summary>
-        /// Determines whether the specified <see cref="Collider"/> is a valid scoring object.
-        /// </summary>
-        /// <param name="other">The <see cref="Collider"/> to evaluate.</param>
-        /// <returns><see langword="true"/> if the <paramref name="other"/> collider has the specified scoring tag  and is the root
-        /// of its transform hierarchy; otherwise, <see langword="false"/>.</returns>
-        protected override bool IsValidScoringObject(Collider other)
-        {
-            return other.CompareTag(scoringElementTag) && other.transform.root == other.transform;
-        }
-
-        /// <summary>
         /// Handles the scoring event when a collision occurs with the specified object.
         /// </summary>
         /// <remarks>This method updates the score by calculating the points associated with the specified
@@ -97,7 +86,7 @@ namespace FRC2025
         /// <param name="other">The <see cref="Collider"/> involved in the scoring event. This represents the object that triggered the score.</param>
         protected override void OnScored(Collider other)
         {
-            ScoreManager.AddScore(GetScore(other), allianceColor);
+            ScoreManager.AddScore(GetScore(other), _allianceColor);
         }
 
         /// <summary>
@@ -109,7 +98,7 @@ namespace FRC2025
         /// <param name="other">The <see cref="Collider"/> representing the object that triggered the unscore event.</param>
         public void OnUnscored(Collider other)
         {
-            ScoreManager.AddScore(-GetUnscore(other), allianceColor);
+            ScoreManager.AddScore(-GetUnscore(other), _allianceColor);
         }
 
         /// <summary>

@@ -21,7 +21,7 @@ namespace FRC2025
             _baseRobot = RobotHelper.GetBaseRobotScript(gameObject);
         }
 
-        protected override void OnTriggerEnter(Collider other)
+        private void OnTriggerEnter(Collider other)
         {
             if (!IsValidScoringObject(other) || scored) return;
 
@@ -48,7 +48,7 @@ namespace FRC2025
             scoredCoral = other.transform;
             scoredCoral.SetParent(transform, worldPositionStays: true);
 
-            ScoreManager.AddScore(GetScore(), allianceColor); //Updates the score
+            ScoreManager.AddScore(GetScore(), _allianceColor); //Updates the score
         }
 
         /// <summary>
@@ -59,7 +59,7 @@ namespace FRC2025
         protected override bool IsValidScoringObject(Collider other)
         {
             // Makes sure the Coral is currently being held by a robot.
-            return other.CompareTag(scoringElementTag) && other.transform.root != other.transform;
+            return other.CompareTag(_scoringElement.tag) && other.transform.root != other.transform;
         }
 
         /// <summary>

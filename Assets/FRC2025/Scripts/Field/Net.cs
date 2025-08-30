@@ -8,7 +8,7 @@ namespace FRC2025
         private readonly int score = 4;
         private readonly HashSet<Collider> scoredAlgae = new();
 
-        protected override void OnTriggerEnter(Collider other)
+        private void OnTriggerEnter(Collider other)
         {
             if (!IsValidScoringObject(other)) return;
 
@@ -38,7 +38,7 @@ namespace FRC2025
         {
             other.GetComponent<Algae>().Score();
 
-            ScoreManager.AddScore(score, allianceColor);
+            ScoreManager.AddScore(score, _allianceColor);
         }
 
         /// <summary>
@@ -49,7 +49,7 @@ namespace FRC2025
         {
             other.GetComponent<Algae>().Unscore();
 
-            ScoreManager.AddScore(-score, allianceColor);
+            ScoreManager.AddScore(-score, _allianceColor);
         }
 
         protected override void CacheCollider()
