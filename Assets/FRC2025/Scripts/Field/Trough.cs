@@ -134,20 +134,5 @@ namespace FRC2025
 
             return coralReefLocation.score + bonusScore;
         }
-
-        protected override void CacheCollider()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        protected override void FixEditor()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        protected override void UpdateColliderSettings()
-        {
-            throw new System.NotImplementedException();
-        }
     }
 }

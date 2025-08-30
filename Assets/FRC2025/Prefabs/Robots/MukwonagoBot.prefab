@@ -1655,6 +1655,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   allianceColor: 1
+  hasCoral: 0
+  hasAlgae: 0
   maxAngularSpeed: 480
   rotationAcceleration: 700
   rotationDeceleration: 1400
@@ -1663,6 +1665,8 @@ MonoBehaviour:
   driveAcceleration: 5
   driveDeceleration: 8
   driveStickDeadBand: 0.1
+  coral: {fileID: 0}
+  algae: {fileID: 0}
   robotRigidbody: {fileID: 2806830469258929261}
 --- !u!114 &8008867757501863287
 MonoBehaviour:
