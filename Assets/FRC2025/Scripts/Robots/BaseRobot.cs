@@ -139,7 +139,7 @@ namespace FRC2025
         /// </summary>
         public void RemoveCoral()
         {
-            coral.GetComponent<Coral>().SetScore();
+            coral.GetComponent<Coral>().SetScored(false);
 
             coral = null;
             hasCoral = false;
@@ -150,7 +150,7 @@ namespace FRC2025
         /// </summary>
         public void RemoveAlgae()
         {
-            algae.GetComponent<Algae>().Score();
+            algae.GetComponent<Algae>().SetScored();
 
             algae = null;
             hasAlgae = false;

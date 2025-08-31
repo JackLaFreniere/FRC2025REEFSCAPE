@@ -48,7 +48,7 @@ namespace FRC2025
         /// <param name="other">The Algae that is being scored.</param>
         protected override void OnScored(Collider other)
         {
-            other.GetComponent<Algae>().Score();
+            other.GetComponent<Algae>().SetScored();
 
             ScoreManager.AddScore(score, _allianceColor);
         }
@@ -59,7 +59,7 @@ namespace FRC2025
         /// <param name="other">The Algae that is being unscored.</param>
         public void OnUnscored(Collider other)
         {
-            other.GetComponent<Algae>().Unscore();
+            other.GetComponent<Algae>().SetScored(false);
 
             ScoreManager.AddScore(-score, _allianceColor);
         }

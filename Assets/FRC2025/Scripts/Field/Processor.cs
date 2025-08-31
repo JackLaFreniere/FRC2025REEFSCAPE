@@ -44,7 +44,7 @@ namespace FRC2025
         {
             if (other.TryGetComponent<Algae>(out var algae))
             {
-                algae.Score();
+                algae.SetScored();
 
                 ScoreManager.AddScore(_netScore, _allianceColor);
                 AllianceColor oppositeAlliance = _allianceColor == AllianceColor.Blue ? AllianceColor.Red : AllianceColor.Blue;
