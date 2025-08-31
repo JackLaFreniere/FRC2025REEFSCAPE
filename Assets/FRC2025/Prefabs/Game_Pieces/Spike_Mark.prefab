@@ -29,8 +29,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 7104897166527147720}
   - {fileID: 1357563781555625774}
+  - {fileID: 3452466749925654698}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &4113528257594140538
@@ -41,6 +41,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5422735799082452812}
     m_Modifications:
+    - target: {fileID: 1657201588223387600, guid: 378515c6b2ca2174dbb1de3c2e0f2902, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.1508125
+      objectReference: {fileID: 0}
+    - target: {fileID: 1657201588223387600, guid: 378515c6b2ca2174dbb1de3c2e0f2902, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 1657201588223387600, guid: 378515c6b2ca2174dbb1de3c2e0f2902, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 1657201588223387600, guid: 378515c6b2ca2174dbb1de3c2e0f2902, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
+      objectReference: {fileID: 0}
     - target: {fileID: 5819858940600111880, guid: 378515c6b2ca2174dbb1de3c2e0f2902, type: 3}
       propertyPath: m_Name
       value: Coral
@@ -90,9 +106,9 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 378515c6b2ca2174dbb1de3c2e0f2902, type: 3}
---- !u!4 &7104897166527147720 stripped
+--- !u!4 &3452466749925654698 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 6597661800113211826, guid: 378515c6b2ca2174dbb1de3c2e0f2902, type: 3}
+  m_CorrespondingSourceObject: {fileID: 1657201588223387600, guid: 378515c6b2ca2174dbb1de3c2e0f2902, type: 3}
   m_PrefabInstance: {fileID: 4113528257594140538}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8984616439145774356

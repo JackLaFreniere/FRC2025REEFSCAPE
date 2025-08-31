@@ -2,6 +2,7 @@ using UnityEngine;
 
 namespace FRC2025
 {
+    [RequireComponent(typeof(CapsuleCollider))]
     public class ReefPole : ScoreableLocation
     {
         [Header("Coral Scoring Settings")]
@@ -15,11 +16,6 @@ namespace FRC2025
 
         private Transform scoredCoral = null;
         private bool scored = false;
-
-        private void Start()
-        {
-            _baseRobot = RobotHelper.GetBaseRobotScript(gameObject);
-        }
 
         private void OnTriggerEnter(Collider other)
         {
@@ -41,6 +37,8 @@ namespace FRC2025
         /// <param name="other">The Collider of the scored coral.</param>
         protected override void OnScored(Collider other)
         {
+            _baseRobot = RobotHelper.GetBaseRobotScript(other);
+
             scored = true; //Lets the pole know it has scored a coral 
             _baseRobot.RemoveCoral(); //Removes the coral from the robot's manipulator
 
@@ -83,21 +81,6 @@ namespace FRC2025
         private int GetScore()
         {
             return coralReefLocation.score + (Timer.IsAuto() ? coralReefLocation.autoBonus : 0);
-        }
-
-        protected override void CacheCollider()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        protected override void FixEditor()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        protected override void UpdateColliderSettings()
-        {
-            throw new System.NotImplementedException();
         }
     }
 }
