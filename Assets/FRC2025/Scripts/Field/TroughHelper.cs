@@ -4,26 +4,34 @@ namespace FRC2025
 {
     public class TroughHelper : MonoBehaviour
     {
-        private Trough trough;
+        [Header("Trough")]
+        [SerializeField] private Trough _trough;
 
-        private void Awake()
-        {
-            trough = GetComponentInParent<Trough>();
-        }
-
+        /// <summary>
+        /// Handles the event when another collider enters the trigger collider attached to this object.
+        /// </summary>
+        /// <param name="other">The <see cref="Collider"/> that entered the trigger. Represents the interacting object.</param>
         private void OnTriggerEnter(Collider other)
         {
-            trough.OnChildTriggerEnter(other);
+            _trough.OnChildTriggerEnter(other);
         }
 
+        /// <summary>
+        /// Invoked while another collider remains within the trigger collider attached to this object.
+        /// </summary>
+        /// <param name="other">The <see cref="Collider"/> that is currently within the trigger collider.</param>
         private void OnTriggerStay(Collider other)
         {
-            trough.OnChildTriggerStay(other);
+            _trough.OnChildTriggerStay(other);
         }
 
+        /// <summary>
+        /// Handles the event when a collider exits the trigger area.
+        /// </summary>
+        /// <param name="other">The <see cref="Collider"/> that exited the trigger area.</param>
         private void OnTriggerExit(Collider other)
         {
-            trough.OnChildTriggerExit(other);
+            _trough.OnChildTriggerExit(other);
         }
     }
 }

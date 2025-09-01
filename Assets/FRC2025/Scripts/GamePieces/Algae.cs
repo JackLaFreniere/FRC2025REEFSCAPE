@@ -6,7 +6,7 @@ namespace FRC2025
     {
         private void Awake()
         {
-            SetCanBeScored(true);
+            SetInRobot(true);
         }
     }
 }

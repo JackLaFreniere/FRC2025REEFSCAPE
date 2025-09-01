@@ -14,26 +14,27 @@ namespace FRC2025
         [SerializeField] protected GameObject _scoringElementPrefab;
 
         [Header("Box Collider Information")]
-        [SerializeField] protected Vector3 BoxColliderCenter = Vector3.zero;
-        [SerializeField] protected Vector3 BoxColliderSize = Vector3.one;
+        [SerializeField] protected Vector3 _boxColliderCenter = Vector3.zero;
+        [SerializeField] protected Vector3 _boxColliderSize = Vector3.one;
 
         [Header("Scoring Element Transform Information")]
-        [SerializeField] protected Vector3 ScoringElementPosition = Vector3.zero;
-        [SerializeField] protected Vector3 ScoringElementRotation = Vector3.zero;
-
-        protected BoxCollider _boxCollider;
+        [SerializeField] protected Vector3 _scoringElementPosition = Vector3.zero;
+        [SerializeField] protected Vector3 _scoringElementRotation = Vector3.zero;
 
 #if UNITY_EDITOR
+
+        protected BoxCollider _boxCollider;
         private GameObject _previewInstance;
         private bool _previewDirty;
+
 #endif
 
         public abstract void DropScoringElement();
-        protected Vector3 GetScoringElementPosition() => transform.TransformPoint(ScoringElementPosition);
-        protected Quaternion GetScoringElementRotation() => transform.rotation * Quaternion.Euler(ScoringElementRotation);
+        protected Vector3 GetScoringElementPosition() => transform.TransformPoint(_scoringElementPosition);
+        protected Quaternion GetScoringElementRotation() => transform.rotation * Quaternion.Euler(_scoringElementRotation);
 
-        //Only run the following code in the editor so you can see live previews of the scoring element and box collider
 #if UNITY_EDITOR
+
         /// <summary>
         /// Ensures that no stray preview instances exist when the application is not playing.
         /// </summary>
@@ -131,8 +132,8 @@ namespace FRC2025
                 _previewInstance.name = _scoringElementPrefab.name + " (Preview)";
                 _previewInstance.hideFlags = HideFlags.DontSave;
                 _previewInstance.transform.SetLocalPositionAndRotation(
-                    ScoringElementPosition,
-                    Quaternion.Euler(ScoringElementRotation)
+                    _scoringElementPosition,
+                    Quaternion.Euler(_scoringElementRotation)
                 );
             }
         }
@@ -186,16 +187,18 @@ namespace FRC2025
         /// Updates the settings of the associated box collider.
         /// </summary>
         /// <remarks>This method ensures that the box collider is configured as a trigger and updates its center
-        /// and size based on the current values of <see cref="BoxColliderCenter"/> and <see
-        /// cref="BoxColliderSize"/>.</remarks>
+        /// and size based on the current values of <see cref="_boxColliderCenter"/> and <see
+        /// cref="_boxColliderSize"/>.</remarks>
         private void UpdateColliderSettings()
         {
             if (_boxCollider == null) return;
 
             _boxCollider.isTrigger = true;
-            _boxCollider.center = BoxColliderCenter;
-            _boxCollider.size = BoxColliderSize;
+            _boxCollider.center = _boxColliderCenter;
+            _boxCollider.size = _boxColliderSize;
         }
+
 #endif
+
     }
 }

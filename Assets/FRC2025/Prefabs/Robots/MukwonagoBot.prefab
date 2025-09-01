@@ -1350,7 +1350,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 10
   rotateSpeed: 100
-  ejectForce: 100
+  ejectForce: 10
 --- !u!1 &6885320491126109535
 GameObject:
   m_ObjectHideFlags: 0

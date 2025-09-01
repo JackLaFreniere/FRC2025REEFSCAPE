@@ -59,13 +59,14 @@ namespace FRC2025
             // Stores the coral in the intake zone
             _baseRobot.coral = other;
 
-            _baseRobot.coral.GetComponent<Coral>().SetCanBeScored(true);
+            _baseRobot.coral.GetComponent<Coral>().SetInRobot(true);
         }
 
         public void EjectCoral()
         {
             if (_baseRobot.coral == null) return;
 
+            _baseRobot.coral.GetComponent<Coral>().SetInRobot(false);
             _baseRobot.coral.transform.parent = null;
 
             Rigidbody coralRB = _baseRobot.coral.GetComponent<Rigidbody>();
@@ -74,7 +75,6 @@ namespace FRC2025
             coralRB.AddRelativeForce(ejectDirection * ejectForce, ForceMode.Impulse);
 
             _baseRobot.RemoveCoral();
-            _baseRobot.coral.GetComponent<Coral>().SetCanBeScored(false);
         }
     }
 }

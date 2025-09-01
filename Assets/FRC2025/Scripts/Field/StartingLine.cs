@@ -7,11 +7,14 @@ namespace FRC2025
     [RequireComponent(typeof(BoxCollider))]
     public class StartingLine : ZoneBase
     {
+
 #if UNITY_EDITOR
+
         [Header("Box Collider Information")]
         [SerializeField] private Vector3 _boxColliderCenter = Vector3.zero;
         [SerializeField] private Vector3 _boxColliderSize = Vector3.one;
         private BoxCollider _boxCollider;
+
 #endif
 
         /// <summary>
@@ -68,6 +71,7 @@ namespace FRC2025
         }
 
 #if UNITY_EDITOR
+
         /// <summary>
         /// Resets the StartingLine component in the Unity Editor.
         /// Ensures the BoxCollider is cached and editor settings are applied for proper inspector display.
@@ -137,6 +141,8 @@ namespace FRC2025
             EditorUtility.SetDirty(_boxCollider);
             ComponentUtility.MoveComponentDown(_boxCollider);
         }
+
 #endif
+
     }
 }

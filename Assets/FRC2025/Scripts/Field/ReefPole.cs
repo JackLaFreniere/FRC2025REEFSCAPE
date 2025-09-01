@@ -6,27 +6,39 @@ namespace FRC2025
     public class ReefPole : ScoreableLocation
     {
         [Header("Coral Scoring Settings")]
-        [SerializeField] private CoralReefLocation coralReefLocation;
+        [SerializeField] private CoralReefLocation _coralReefLocation;
 
         [Header("Movement Speeds")]
-        [SerializeField] private float moveSpeed = 10f;
-        [SerializeField] private float rotateSpeed = 10f;
+        [SerializeField] private float _moveSpeed = 10f;
+        [SerializeField] private float _rotateSpeed = 10f;
 
         private BaseRobot _baseRobot;
 
-        private Transform scoredCoral = null;
-        private bool scored = false;
+        private Transform _scoredCoral = null;
+        private bool _scored = false;
 
+        /// <summary>
+        /// Handles the event when another collider enters the trigger collider attached to this object.
+        /// </summary>
+        /// <remarks>This method checks if the entering object is a valid scoring object and ensures the
+        /// scoring logic  is executed only once per trigger event. If the object is valid and scoring has not already
+        /// occurred,  it invokes the scoring logic.</remarks>
+        /// <param name="other">The <see cref="Collider"/> of the object that entered the trigger.</param>
         private void OnTriggerEnter(Collider other)
         {
-            if (!IsValidScoringObject(other) || scored) return;
+            if (!IsValidScoringObject(other) || _scored) return;
 
             OnScored(other);
         }
 
+        /// <summary>
+        /// Updates the state of the object by moving it to the target position if scoring has occurred.
+        /// </summary>
+        /// <remarks>This method performs no action if the object has not been scored. Ensure that the
+        /// scoring state  is set appropriately before calling this method.</remarks>
         private void Update()
         {
-            if (!scored) return;
+            if (!_scored) return;
 
             MoveToPosition();
         }
@@ -39,12 +51,12 @@ namespace FRC2025
         {
             _baseRobot = RobotHelper.GetBaseRobotScript(other);
 
-            scored = true; //Lets the pole know it has scored a coral 
+            _scored = true; //Lets the pole know it has scored a coral 
             _baseRobot.RemoveCoral(); //Removes the coral from the robot's manipulator
 
             //Stores the coral locally and parents it to the pole
-            scoredCoral = other.transform;
-            scoredCoral.SetParent(transform, worldPositionStays: true);
+            _scoredCoral = other.transform;
+            _scoredCoral.SetParent(transform, worldPositionStays: true);
 
             ScoreManager.AddScore(GetScore(), _allianceColor); //Updates the score
         }
@@ -66,12 +78,12 @@ namespace FRC2025
         public void MoveToPosition()
         {
             // Get the transform of the scored coral
-            Transform transform = scoredCoral.transform;
+            Transform transform = _scoredCoral.transform;
 
             // Smoothly move and rotate the coral onto the pole
-            Vector3 targetPosition = Vector3.Lerp(transform.localPosition, coralReefLocation.localPosition, moveSpeed * Time.deltaTime);
-            Quaternion targetRotation = Quaternion.Lerp(transform.localRotation, coralReefLocation.localRotation, rotateSpeed * Time.deltaTime);
-            scoredCoral.transform.SetLocalPositionAndRotation(targetPosition, targetRotation);
+            Vector3 targetPosition = Vector3.Lerp(transform.localPosition, _coralReefLocation.localPosition, _moveSpeed * Time.deltaTime);
+            Quaternion targetRotation = Quaternion.Lerp(transform.localRotation, _coralReefLocation.localRotation, _rotateSpeed * Time.deltaTime);
+            _scoredCoral.transform.SetLocalPositionAndRotation(targetPosition, targetRotation);
         }
 
         /// <summary>
@@ -80,7 +92,7 @@ namespace FRC2025
         /// <returns>The point value of scoring on that specific location accounting for any auto bonus points.</returns>
         private int GetScore()
         {
-            return coralReefLocation.score + (Timer.IsAuto() ? coralReefLocation.autoBonus : 0);
+            return _coralReefLocation.score + (Timer.IsAuto() ? _coralReefLocation.autoBonus : 0);
         }
     }
 }

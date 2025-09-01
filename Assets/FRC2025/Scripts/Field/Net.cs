@@ -13,33 +13,54 @@ namespace FRC2025
         [SerializeField] private float _capsuleColliderRadius = 0.5f;
         [SerializeField] private float _capsuleColliderHeight = 1f;
 
-        private readonly int score = 4;
-        private readonly HashSet<Collider> scoredAlgae = new();
+        private readonly int _score = 4;
+        private readonly HashSet<Collider> _scoredAlgae = new();
 
 #if UNITY_EDITOR
         private CapsuleCollider _capsuleCollider;
 #endif
 
+        /// <summary>
+        /// Handles the event when another collider enters the trigger collider attached to this object.
+        /// </summary>
+        /// <remarks>If the collider is determined to be a valid scoring object, it is added to the
+        /// internal collection of scored objects,  and the scoring logic is triggered. Invalid objects are
+        /// ignored.</remarks>
+        /// <param name="other">The <see cref="Collider"/> that entered the trigger. This parameter represents the object being evaluated
+        /// for scoring.</param>
         private void OnTriggerEnter(Collider other)
         {
             if (!IsValidScoringObject(other)) return;
 
-            scoredAlgae.Add(other);
+            _scoredAlgae.Add(other);
             OnScored(other);
         }
 
+        /// <summary>
+        /// Called once per frame for every Collider that remains within the trigger.
+        /// </summary>
+        /// <remarks>This method checks if the specified <paramref name="other"/> is a valid scoring
+        /// object.  If the object is valid and has not been scored yet, it is added to the scored objects  collection,
+        /// and the scoring logic is triggered.</remarks>
+        /// <param name="other">The <see cref="Collider"/> that is currently within the trigger.</param>
         private void OnTriggerStay(Collider other)
         {
             if (!IsValidScoringObject(other)) return;
 
-            if (scoredAlgae.Add(other)) OnScored(other);
+            if (_scoredAlgae.Add(other)) OnScored(other);
         }
 
+        /// <summary>
+        /// Handles the event when a collider exits the trigger area.
+        /// </summary>
+        /// <remarks>This method checks if the exiting collider is a valid scoring object. If it is, the
+        /// object is removed  from the scored list, and the corresponding unscoring logic is triggered.</remarks>
+        /// <param name="other">The <see cref="Collider"/> that exited the trigger area.</param>
         private void OnTriggerExit(Collider other)
         {
             if (!IsValidScoringObject(other)) return;
 
-            if (scoredAlgae.Remove(other)) OnUnscored(other);
+            if (_scoredAlgae.Remove(other)) OnUnscored(other);
         }
 
         /// <summary>
@@ -50,7 +71,7 @@ namespace FRC2025
         {
             other.GetComponent<Algae>().SetScored();
 
-            ScoreManager.AddScore(score, _allianceColor);
+            ScoreManager.AddScore(_score, _allianceColor);
         }
 
         /// <summary>
@@ -61,10 +82,11 @@ namespace FRC2025
         {
             other.GetComponent<Algae>().SetScored(false);
 
-            ScoreManager.AddScore(-score, _allianceColor);
+            ScoreManager.AddScore(-_score, _allianceColor);
         }
 
 #if UNITY_EDITOR
+
         /// <summary>
         /// Caches the reference to the capsule collider used by this component.
         /// </summary>
@@ -104,6 +126,8 @@ namespace FRC2025
             _capsuleCollider.height = _capsuleColliderHeight;
             _capsuleCollider.direction = (int)_axisDirection;
         }
+
 #endif
+
     }
 }

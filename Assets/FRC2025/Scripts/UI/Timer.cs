@@ -9,9 +9,9 @@ namespace FRC2025
         [Header("Game Info Scriptable Object")]
         [SerializeField] private GameInfo gameInfo;
 
-        private readonly static int startTime = 150;
-        private readonly static int autoDuration = 15;
-        private readonly static int endgameDuration = 20;
+        private readonly static int StartTime = 150;
+        private readonly static int AutoDuration = 15;
+        private readonly static int EndgameDuration = 20;
 
         public static event Action MatchStart;
         public static event Action AutoEnd;
@@ -27,7 +27,7 @@ namespace FRC2025
         /// is called automatically when the object becomes active.</remarks>
         private void OnEnable()
         {
-            gameInfo.TimeLeft = FormatTime(startTime);
+            gameInfo.TimeLeft = FormatTime(StartTime);
             gameInfo.BlueScore = 0;
             gameInfo.RedScore = 0;
 
@@ -45,6 +45,7 @@ namespace FRC2025
         {
             UpdateGameInfoTime();
             StartCoroutine(TimerCountdown());
+
             MatchStart?.Invoke();
         }
 
@@ -64,12 +65,13 @@ namespace FRC2025
             while (timeLeft > 0)
             {
                 yield return new WaitForSeconds(1f);
+
                 timeLeft--;
                 UpdateGameInfoTime();
 
-                if (timeLeft == startTime - autoDuration - 1)
+                if (timeLeft == StartTime - AutoDuration - 1)
                     AutoEnd?.Invoke();
-                else if (timeLeft == endgameDuration)
+                else if (timeLeft == EndgameDuration)
                     EndgameStart?.Invoke();
             }
 
@@ -84,10 +86,9 @@ namespace FRC2025
         /// does nothing.</remarks>
         private void UpdateGameInfoTime()
         {
-            if (gameInfo != null)
-            {
-                gameInfo.TimeLeft = FormatTime(timeLeft);
-            }
+            if (gameInfo == null) return;
+            
+            gameInfo.TimeLeft = FormatTime(timeLeft);
         }
 
         /// <summary>
@@ -120,7 +121,7 @@ namespace FRC2025
         /// langword="false"/>.</returns>
         public static bool IsAuto()
         {
-            return timeLeft >= startTime - autoDuration;
+            return timeLeft >= StartTime - AutoDuration;
         }
 
         /// <summary>
@@ -130,7 +131,7 @@ namespace FRC2025
         /// langword="false"/>.</returns>
         public static bool IsEndgame()
         {
-            return timeLeft <= endgameDuration;
+            return timeLeft <= EndgameDuration;
         }
 
         /// <summary>

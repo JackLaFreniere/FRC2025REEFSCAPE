@@ -14,7 +14,9 @@ namespace FRC2025
         private readonly int _netScore = 4;
 
 #if UNITY_EDITOR
+
         private BoxCollider _boxCollider;
+
 #endif
 
         /// <summary>
@@ -53,6 +55,7 @@ namespace FRC2025
         }
 
 #if UNITY_EDITOR
+
         /// <summary>
         /// Caches the reference to the BoxCollider component for use in the editor.
         /// </summary>
@@ -92,6 +95,8 @@ namespace FRC2025
             HandleEditorComponent(_boxCollider, false);
             ComponentUtility.MoveComponentDown(_boxCollider);
         }
+
 #endif
+
     }
 }

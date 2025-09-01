@@ -47,9 +47,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _allianceColor: 0
   _scoringElement: {fileID: 2140406903031004522, guid: 378515c6b2ca2174dbb1de3c2e0f2902, type: 3}
-  coralReefLocation: {fileID: 11400000, guid: 47d9439d786f6a049bf311542cf4430e, type: 2}
-  moveSpeed: 10
-  rotateSpeed: 10
+  _coralReefLocation: {fileID: 11400000, guid: 47d9439d786f6a049bf311542cf4430e, type: 2}
+  _moveSpeed: 10
+  _rotateSpeed: 10
 --- !u!136 &8037670937179581685
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -120,9 +120,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _allianceColor: 0
   _scoringElement: {fileID: 2140406903031004522, guid: 378515c6b2ca2174dbb1de3c2e0f2902, type: 3}
-  coralReefLocation: {fileID: 11400000, guid: 092c48d15fbc0574cb8be183c384924b, type: 2}
-  moveSpeed: 10
-  rotateSpeed: 10
+  _coralReefLocation: {fileID: 11400000, guid: 092c48d15fbc0574cb8be183c384924b, type: 2}
+  _moveSpeed: 10
+  _rotateSpeed: 10
 --- !u!136 &5220366127655235543
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -193,9 +193,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _allianceColor: 0
   _scoringElement: {fileID: 2140406903031004522, guid: 378515c6b2ca2174dbb1de3c2e0f2902, type: 3}
-  coralReefLocation: {fileID: 11400000, guid: 877cbcd5b0438764ebc5eae260469f51, type: 2}
-  moveSpeed: 10
-  rotateSpeed: 10
+  _coralReefLocation: {fileID: 11400000, guid: 877cbcd5b0438764ebc5eae260469f51, type: 2}
+  _moveSpeed: 10
+  _rotateSpeed: 10
 --- !u!136 &7676943641822442016
 CapsuleCollider:
   m_ObjectHideFlags: 0

@@ -1,13 +1,16 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class ExitGame : MonoBehaviour
+namespace FRC2025
 {
-    void Update()
+    public class ExitGame : MonoBehaviour
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        void Update()
         {
-            SceneManager.LoadScene("MenuScene");
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                SceneManager.LoadScene("MenuScene");
+            }
         }
     }
 }

@@ -6,9 +6,9 @@ namespace FRC2025
     public class Trough : ScoreableLocation
     {
         [Header("Coral Scoring Settings")]
-        [SerializeField] private CoralReefLocation coralReefLocation;
+        [SerializeField] private CoralReefLocation _coralReefLocation;
 
-        private readonly Dictionary<int, int> coral = new();
+        private readonly Dictionary<int, int> _coral = new();
 
         /// <summary>
         /// Handles the trigger event when a child collider enters the trigger area.
@@ -22,13 +22,13 @@ namespace FRC2025
             if (!IsValidScoringObject(collider)) return;
 
             int id = collider.GetInstanceID();
-            if (coral.ContainsKey(id))
+            if (_coral.ContainsKey(id))
             {
-                coral[id]++;
+                _coral[id]++;
             }
             else
             {
-                coral[id] = 1;
+                _coral[id] = 1;
 
                 OnScored(collider);
             }
@@ -46,9 +46,9 @@ namespace FRC2025
             if (!IsValidScoringObject(collider)) return;
 
             int id = collider.GetInstanceID();
-            if (!coral.ContainsKey(id))
+            if (!_coral.ContainsKey(id))
             {
-                coral[id] = 1;
+                _coral[id] = 1;
 
                 OnScored(collider);
             }
@@ -66,12 +66,12 @@ namespace FRC2025
             if (!IsValidScoringObject(collider)) return;
 
             int id = collider.GetInstanceID();
-            if (coral.ContainsKey(id))
+            if (_coral.ContainsKey(id))
             {
-                coral[id]--;
-                if (coral[id] <= 0)
+                _coral[id]--;
+                if (_coral[id] <= 0)
                 {
-                    coral.Remove(id);
+                    _coral.Remove(id);
 
                     OnUnscored(collider);
                 }
@@ -111,11 +111,11 @@ namespace FRC2025
             int bonusScore = 0;
             if (Timer.IsAuto())
             {
-                bonusScore = coralReefLocation.autoBonus;
+                bonusScore = _coralReefLocation.autoBonus;
                 other.GetComponent<Coral>().SetScoredInAuto(true);
             }
 
-            return coralReefLocation.score + bonusScore;
+            return _coralReefLocation.score + bonusScore;
         }
 
         /// <summary>
@@ -128,11 +128,22 @@ namespace FRC2025
             int bonusScore = 0;
             if (other.GetComponent<Coral>().ScoredInAuto)
             {
-                bonusScore = coralReefLocation.autoBonus;
+                bonusScore = _coralReefLocation.autoBonus;
                 other.GetComponent<Coral>().SetScoredInAuto(false);
             }
 
-            return coralReefLocation.score + bonusScore;
+            return _coralReefLocation.score + bonusScore;
+        }
+
+        /// <summary>
+        /// Determines whether the specified collider represents a valid scoring object.
+        /// </summary>
+        /// <param name="other">The collider to evaluate.</param>
+        /// <returns><see langword="true"/> if the collider has the same tag as the scoring element  and is not associated with a
+        /// coral object currently in a robot; otherwise, <see langword="false"/>.</returns>
+        protected override bool IsValidScoringObject(Collider other)
+        {
+            return other.CompareTag(_scoringElement.tag) && !other.GetComponent<Coral>().InRobot;
         }
     }
 }

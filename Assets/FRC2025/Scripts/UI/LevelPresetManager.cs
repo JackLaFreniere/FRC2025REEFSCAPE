@@ -23,6 +23,13 @@ namespace FRC2025
         private StyleColor selectedColor = new(Color.green);
         private StyleFloat selectedBorderWidth = new(5f);
 
+        /// <summary>
+        /// Initializes the UI document and visual elements, retrieves button instances, and applies initial styles to
+        /// highlight the current and next buttons.
+        /// </summary>
+        /// <remarks>This method sets up the necessary UI components and applies visual highlighting to
+        /// indicate the current and next selected buttons.  It assumes that the required buttons and styles are
+        /// properly configured in the associated UI document.</remarks>
         private void Start()
         {
             uiDocument = GetComponent<UIDocument>();
@@ -40,25 +47,35 @@ namespace FRC2025
             HighlightButtons(nextCoralButton, nextAlgaeButton, nextColor);
         }
 
+        /// <summary>
+        /// Subscribes to the <see cref="MukwonagoBotPresets.OnReefLevelChanged"/> event to update the buttons when the
+        /// reef level changes.
+        /// </summary>
+        /// <remarks>This method is called automatically when the component is enabled. It ensures that
+        /// the buttons are updated in response to changes in the reef level.</remarks>
         private void OnEnable()
         {
-            //Subscribes to the static event in MukwonagoBotPresets to update the buttons when the reef level changes
             MukwonagoBotPresets.OnReefLevelChanged += UpdateButtons;
         }
-
+        
+        /// <summary>
+        /// Unsubscribes from the <see cref="MukwonagoBotPresets.OnReefLevelChanged"/> event to prevent memory leaks.
+        /// </summary>
+        /// <remarks>This method is called automatically when the object is disabled. It ensures that the
+        /// event handler  <see cref="UpdateButtons"/> is removed from the event subscription, avoiding potential memory
+        /// leaks  caused by lingering references.</remarks>
         private void OnDisable()
         {
-            //Unsubscribes from the static event in MukwonagoBotPresets to prevent memory leaks
             MukwonagoBotPresets.OnReefLevelChanged -= UpdateButtons;
         }
 
         /// <summary>
-        /// Updates the state of the buttons by unhighlighting the current selection, retrieving all buttons, and
+        /// Updates the state of the buttons by unhighlighting the current selection, retrieving all buttons,  and
         /// highlighting the new selection.
         /// </summary>
-        /// <remarks>This method ensures that the button states are refreshed by first clearing any existing
-        /// highlights,  retrieving the current set of buttons, and then applying highlights to the appropriate
-        /// buttons.</remarks>
+        /// <remarks>This method ensures that the button states are refreshed by first clearing any
+        /// existing highlights,  then retrieving the relevant buttons, and finally applying highlights to the updated
+        /// selection.</remarks>
         public void UpdateButtons()
         {
             UnhighlightButtons(coralButton, algaeButton);
