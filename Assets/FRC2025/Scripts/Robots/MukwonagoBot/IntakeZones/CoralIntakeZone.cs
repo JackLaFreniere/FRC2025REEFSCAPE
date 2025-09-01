@@ -43,7 +43,7 @@ namespace FRC2025
             if (BaseRobot.stateMachine.CurrentState is not MukwonagoBotCoralIntakeState) return;
 
             // If the coral is already scored, do not intake it
-            if (other.GetComponent<Coral>().GetIsScored()) return;
+            if (other.GetComponent<Coral>().ScoredInAuto) return;
 
             _baseRobot.hasCoral = true;
 
@@ -58,6 +58,8 @@ namespace FRC2025
 
             // Stores the coral in the intake zone
             _baseRobot.coral = other;
+
+            _baseRobot.coral.GetComponent<Coral>().SetCanBeScored(true);
         }
 
         public void EjectCoral()
@@ -72,6 +74,7 @@ namespace FRC2025
             coralRB.AddRelativeForce(ejectDirection * ejectForce, ForceMode.Impulse);
 
             _baseRobot.RemoveCoral();
+            _baseRobot.coral.GetComponent<Coral>().SetCanBeScored(false);
         }
     }
 }

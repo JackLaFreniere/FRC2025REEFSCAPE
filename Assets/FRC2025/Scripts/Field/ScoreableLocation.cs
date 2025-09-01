@@ -8,7 +8,7 @@ namespace FRC2025
         [SerializeField] protected GameObject _scoringElement;
 
         protected virtual bool IsValidScoringObject(Collider other) =>
-            other.CompareTag(_scoringElement.tag) && other.transform.root == other.transform;
+            other.CompareTag(_scoringElement.tag) && other.GetComponent<ScoringElement>().CanBeScored;
 
         protected abstract void OnScored(Collider other);
 

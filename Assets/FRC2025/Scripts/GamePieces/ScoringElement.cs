@@ -1,12 +1,15 @@
 using UnityEngine;
 
-public class ScoringElement : MonoBehaviour
+namespace FRC2025
 {
-    protected bool _isScored = false;
-    protected bool _scoredInAuto = false;
+    public class ScoringElement : MonoBehaviour
+    {
+        public bool IsScored { get; protected set; } = false;
+        public bool ScoredInAuto { get; protected set; } = false;
+        public bool CanBeScored { get; protected set; } = true;
 
-    public bool GetIsScored() { return _isScored; }
-    public bool GetScoredInAuto() { return _scoredInAuto; }
-    public void SetScored(bool value = true) { _isScored = value; }
-    public void SetScoredInAuto(bool value = true) { _scoredInAuto = value; }
+        public void SetScored(bool value = true) => IsScored = value;
+        public void SetScoredInAuto(bool value = true) => ScoredInAuto = value;
+        public void SetCanBeScored(bool value = true) => CanBeScored = value;
+    }
 }

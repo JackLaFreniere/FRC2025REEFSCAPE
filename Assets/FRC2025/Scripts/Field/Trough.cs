@@ -126,7 +126,7 @@ namespace FRC2025
         private int GetUnscore(Collider other)
         {
             int bonusScore = 0;
-            if (other.GetComponent<Coral>().GetScoredInAuto())
+            if (other.GetComponent<Coral>().ScoredInAuto)
             {
                 bonusScore = coralReefLocation.autoBonus;
                 other.GetComponent<Coral>().SetScoredInAuto(false);

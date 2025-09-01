@@ -43,7 +43,7 @@ namespace FRC2025
             if (BaseRobot.stateMachine.CurrentState is not MukwonagoBotAlgaeIntakeState) return;
 
             // If the algae is already scored, do not intake it
-            if (other.GetComponent<Algae>().GetIsScored()) return;
+            if (other.GetComponent<Algae>().ScoredInAuto) return;
 
             _baseRobot.hasAlgae = true;
 
