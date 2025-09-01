@@ -16,7 +16,7 @@ namespace FRC2025
         public static event Action MatchStart;
         public static event Action AutoEnd;
         public static event Action EndgameStart;
-        public static event Action OnMatchOver;
+        public static event Action MatchOver;
 
         private static int timeLeft;
 
@@ -27,7 +27,7 @@ namespace FRC2025
         /// is called automatically when the object becomes active.</remarks>
         private void OnEnable()
         {
-            gameInfo.TimeLeft = "2:30";
+            gameInfo.TimeLeft = FormatTime(startTime);
             gameInfo.BlueScore = 0;
             gameInfo.RedScore = 0;
 
@@ -55,7 +55,7 @@ namespace FRC2025
         /// the remaining time: <list type="bullet"> <item><description><see cref="AutoEnd"/> is invoked when the time
         /// left reaches <c>startTime - autoDuration - 1</c>.</description></item> <item><description><see
         /// cref="EndgameStart"/> is invoked when the time left equals <c>endgameDuration</c>.</description></item>
-        /// <item><description><see cref="OnMatchOver"/> is invoked when the timer reaches zero.</description></item>
+        /// <item><description><see cref="MatchOver"/> is invoked when the timer reaches zero.</description></item>
         /// </list> The method updates the game state by calling <see cref="UpdateGameInfoTime"/> after each
         /// decrement.</remarks>
         /// <returns>An enumerator that can be used to control the coroutine execution.</returns>
@@ -73,7 +73,7 @@ namespace FRC2025
                     EndgameStart?.Invoke();
             }
 
-            OnMatchOver?.Invoke();
+            MatchOver?.Invoke();
         }
 
         /// <summary>

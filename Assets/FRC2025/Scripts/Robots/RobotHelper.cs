@@ -46,5 +46,19 @@ namespace FRC2025
                 baseRobot = GetBaseRobotScript(gameObject);
             }
         }
+
+        public static bool IsRobotOnAlliance(Collider other, AllianceColor allianceColor)
+        {
+            BaseRobot baseRobot = GetBaseRobotScript(other);
+            
+            return baseRobot.allianceColor == allianceColor;
+        }
+
+        public static bool IsRobotOnAlliance(GameObject gameObject, AllianceColor allianceColor)
+        {
+            BaseRobot baseRobot = GetBaseRobotScript(gameObject);
+            
+            return baseRobot.allianceColor == allianceColor;
+        }
     }
 }
