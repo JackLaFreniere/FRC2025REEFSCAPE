@@ -19,7 +19,7 @@ namespace FRC2025
 
         public override void Enter()
         {
-            scoringMechanism = player.gameObject.transform.Find("Coral_Scoring_Mechanism").gameObject;
+            scoringMechanism = BaseRobot.gameObject.transform.Find("Coral_Scoring_Mechanism").gameObject;
 
             scoringWheels = GameObject.FindGameObjectsWithTag("CoralScoringWheel");
 

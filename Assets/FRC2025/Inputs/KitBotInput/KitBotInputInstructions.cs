@@ -19,13 +19,13 @@ namespace FRC2025
 
         public void InputOnEnable()
         {
-            playerControls.Player.Enable();
+            //playerControls.Player.Enable();
 
-            playerControls.Player.CoralScore.performed += ctx => robot.CoralScore();
-            playerControls.Player.CoralScore.canceled += ctx => robot.Stow();
+            //playerControls.Player.CoralScore.performed += ctx => robot.CoralScore();
+            //playerControls.Player.CoralScore.canceled += ctx => robot.Stow();
 
-            robot.SetDrive(playerControls.Player.Drive);
-            robot.SetRotate(playerControls.Player.Rotate);
+            //robot.SetDrive(playerControls.Player.Drive);
+            //robot.SetRotate(playerControls.Player.Rotate);
         }
 
         public void InputOnDisable()

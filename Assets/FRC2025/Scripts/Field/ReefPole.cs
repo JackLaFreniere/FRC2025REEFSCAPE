@@ -49,16 +49,16 @@ namespace FRC2025
         /// <param name="other">The Collider of the scored coral.</param>
         protected override void OnScored(Collider other)
         {
-            _baseRobot = RobotHelper.GetBaseRobotScript(other);
+            //_baseRobot = RobotHelper.GetBaseRobotScript(other);
 
-            _scored = true; //Lets the pole know it has scored a coral 
-            _baseRobot.RemoveCoral(); //Removes the coral from the robot's manipulator
+            //_scored = true; //Lets the pole know it has scored a coral 
+            //_baseRobot.RemoveCoral(); //Removes the coral from the robot's manipulator
 
-            //Stores the coral locally and parents it to the pole
-            _scoredCoral = other.transform;
-            _scoredCoral.SetParent(transform, worldPositionStays: true);
+            ////Stores the coral locally and parents it to the pole
+            //_scoredCoral = other.transform;
+            //_scoredCoral.SetParent(transform, worldPositionStays: true);
 
-            ScoreManager.AddScore(GetScore(), _allianceColor); //Updates the score
+            //ScoreManager.AddScore(GetScore(), _allianceColor); //Updates the score
         }
 
         /// <summary>
@@ -69,7 +69,8 @@ namespace FRC2025
         protected override bool IsValidScoringObject(Collider other)
         {
             // Makes sure the Coral is currently being held by a robot.
-            return other.CompareTag(_scoringElement.tag) && other.transform.root != other.transform;
+            //return other.CompareTag(_scoringElement.tag) && other.transform.root != other.transform;
+            return false;
         }
 
         /// <summary>

@@ -23,7 +23,7 @@ namespace FRC2025
 
             DriverStationCamera.SetActiveRobot(_robotInstance.GetComponent<BaseRobot>());
             BaseRobot baseRobotScript = _robotInstance.GetComponent<BaseRobot>();
-            baseRobotScript.SetRobotInfo(RobotInfo);
+            //baseRobotScript.SetRobotInfo(RobotInfo);
 
             _robotActions = _robotInstance.GetComponent<IRobotInputHandler>();
             this.GetComponent<PlayerInput>().actions = RobotInfo.playerInput;

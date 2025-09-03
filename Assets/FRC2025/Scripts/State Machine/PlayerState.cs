@@ -2,16 +2,15 @@ namespace FRC2025
 {
     public abstract class PlayerState
     {
-        public BaseRobot player;
-        protected StateMachine stateMachine;
-        protected BaseRobot _baseRobot;
+        public BaseRobot BaseRobot;
+        protected StateMachine _stateMachine;
 
-        public PlayerState(BaseRobot player, StateMachine stateMachine)
+        public PlayerState(BaseRobot robot, StateMachine stateMachine)
         {
-            this.player = player;
-            this.stateMachine = stateMachine;
+            BaseRobot = robot;
+            _stateMachine = stateMachine;
 
-            _baseRobot = RobotHelper.GetBaseRobotScript(player.gameObject);
+            BaseRobot = RobotHelper.GetBaseRobotScript(robot.gameObject);
         }
 
         public virtual void Enter() { }

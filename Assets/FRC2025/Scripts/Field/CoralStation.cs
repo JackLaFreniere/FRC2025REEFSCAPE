@@ -21,8 +21,6 @@ namespace FRC2025
                 RobotHelper.CacheBaseRobot(other, ref _baseRobot);
             }
 
-            if (_baseRobot.hasCoral) return;
-
             DropScoringElement();
         }
 

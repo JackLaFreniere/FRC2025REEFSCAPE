@@ -14,9 +14,11 @@ namespace FRC2025
         public void ChangeState(PlayerState newState)
         {
             PreviousState = CurrentState;
-            CurrentState.Exit();
+            CurrentState?.Exit();
             CurrentState = newState;
             CurrentState.Enter();
         }
+
+        public void Update() => CurrentState?.Update();
     }
 }

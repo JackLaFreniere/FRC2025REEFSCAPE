@@ -1,6 +1,9 @@
 using System.Collections.Generic;
-using UnityEditorInternal;
 using UnityEngine;
+
+#if UNITY_EDITOR
+using UnityEditorInternal;
+#endif
 
 namespace FRC2025
 {
