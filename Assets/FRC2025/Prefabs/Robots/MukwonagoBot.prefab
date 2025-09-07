@@ -175,20 +175,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af7a6821d08d8414eb8a1b0c8da8a805, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 4527192823480427610}
-  lockXPos: 1
-  lockYPos: 1
-  lockZPos: 1
-  lockXRot: 0
-  lockYRot: 1
-  lockZRot: 1
-  minX: -Infinity
-  minY: -Infinity
-  minZ: -Infinity
-  offset: {x: 0, y: 0.867285, z: 0}
-  hinge: {fileID: 7508599496078746104}
-  isInverted: 1
-  offsetAngle: 90
 --- !u!59 &7508599496078746104
 HingeJoint:
   m_ObjectHideFlags: 0
@@ -303,20 +289,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af7a6821d08d8414eb8a1b0c8da8a805, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 8052614812948048586}
-  lockXPos: 1
-  lockYPos: 1
-  lockZPos: 1
-  lockXRot: 1
-  lockYRot: 0
-  lockZRot: 1
-  minX: -Infinity
-  minY: -Infinity
-  minZ: -Infinity
-  offset: {x: 0, y: 0.22264, z: 0}
-  hinge: {fileID: 8872646918505984822}
-  isInverted: 0
-  offsetAngle: 0
 --- !u!54 &3786246027421429826
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -638,20 +610,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af7a6821d08d8414eb8a1b0c8da8a805, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 2936585621334500646}
-  lockXPos: 1
-  lockYPos: 1
-  lockZPos: 1
-  lockXRot: 0
-  lockYRot: 1
-  lockZRot: 1
-  minX: -Infinity
-  minY: -Infinity
-  minZ: -Infinity
-  offset: {x: 0, y: -0.457537, z: 0}
-  hinge: {fileID: 4200787078706761658}
-  isInverted: 0
-  offsetAngle: -90
 --- !u!54 &1897855704202423393
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -784,9 +742,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bbad19c61466764a99f4f345d56d4a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 3
-  rotateSpeed: 100
-  ejectForce: 3
 --- !u!1 &3426482544176868429
 GameObject:
   m_ObjectHideFlags: 0
@@ -951,20 +906,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af7a6821d08d8414eb8a1b0c8da8a805, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 6119192653728008171}
-  lockXPos: 1
-  lockYPos: 1
-  lockZPos: 1
-  lockXRot: 0
-  lockYRot: 1
-  lockZRot: 1
-  minX: -Infinity
-  minY: -Infinity
-  minZ: -Infinity
-  offset: {x: 0, y: 0.19368, z: -0.319046}
-  hinge: {fileID: 6066417350881723898}
-  isInverted: 1
-  offsetAngle: 0
 --- !u!54 &6421128260026447418
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1348,9 +1289,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecc9a431d4b44b44e97352a0c2f2881e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 10
-  rotateSpeed: 100
-  ejectForce: 10
 --- !u!1 &6885320491126109535
 GameObject:
   m_ObjectHideFlags: 0
@@ -1589,18 +1527,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 428faef4eba0dab4ba3d571ddcf0f0c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 6119192653728008171}
-  lockXPos: 1
-  lockYPos: 0
-  lockZPos: 1
-  lockXRot: 1
-  lockYRot: 1
-  lockZRot: 1
-  minX: -Infinity
-  minY: 0.104692
-  minZ: -Infinity
-  offset: {x: 0, y: 0.104692, z: 0.036309}
-  joint: {fileID: 5704965068942388880}
 --- !u!1 &8815028075416148250
 GameObject:
   m_ObjectHideFlags: 0
@@ -1654,20 +1580,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1449e9652951b854dac376c33476a70b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allianceColor: 1
-  hasCoral: 0
-  hasAlgae: 0
-  maxAngularSpeed: 480
-  rotationAcceleration: 700
-  rotationDeceleration: 1400
-  rotationStickDeadBand: 0.05
-  maxDriveSpeed: 3
-  driveAcceleration: 5
-  driveDeceleration: 8
-  driveStickDeadBand: 0.1
-  coral: {fileID: 0}
-  algae: {fileID: 0}
-  robotRigidbody: {fileID: 2806830469258929261}
+  AllianceColor: 0
 --- !u!114 &8008867757501863287
 MonoBehaviour:
   m_ObjectHideFlags: 0

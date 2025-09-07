@@ -1,0 +1,1 @@
+public enum UnitType { Meters, Centimeters, Inches }
