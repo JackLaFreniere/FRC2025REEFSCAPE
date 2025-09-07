@@ -3,7 +3,7 @@ using UnityEngine;
 namespace FRC2025
 {
     [ExecuteInEditMode]
-    public class DriveTrain : MonoBehaviour
+    public abstract class DriveTrain : MonoBehaviour
     {
 #if UNITY_EDITOR
         [Header("Drive Train Settings")]
@@ -21,9 +21,13 @@ namespace FRC2025
         [SerializeField] protected UnitType _bellyPanUnit = UnitType.Inches;
         [SerializeField, Min(0)] protected float _bellyPanThickness = 1f;
 
-        private float _robotPerimeterMultiplier;
-        private float _driveRailSizeMultiplier;
-        private float _bellyPanThicknessMultiplier;
+        protected Rigidbody _rigidbody;
+
+        protected bool _isInitialized = false;
+
+        protected float _robotPerimeterMultiplier;
+        protected float _driveRailSizeMultiplier;
+        protected float _bellyPanThicknessMultiplier;
 
         private GameObject _driveRailsParent;
         private GameObject _bumpersParent;
@@ -45,14 +49,16 @@ namespace FRC2025
 
         private GameObject _bellyPan;
 
+        protected string _driveTrainName;
+
         private readonly string _driveRailsName = "Drive Rails";
         private readonly string _bumpersName = "Bumpers";
         private readonly string _bumperEdgeName = "BumperEdge";
         private readonly string _bumperCornerName = "BumperCorner";
-        private readonly string _frontDriveRailName = "Front Drive Rail";
-        private readonly string _backDriveRailName = "Back Drive Rail";
-        private readonly string _leftDriveRailName = "Left Drive Rail";
-        private readonly string _rightDriveRailName = "Right Drive Rail";
+        private readonly string _frontDriveRailName = "F_DR"; // Front Drive Rail
+        private readonly string _backDriveRailName = "B_DR"; // Back Drive Rail
+        private readonly string _leftDriveRailName = "L_DR"; // Left Drive Rail
+        private readonly string _rightDriveRailName = "R_DR"; // Right Drive Rail
         private readonly string _frontBumperEdgeName = "F_BE"; // Front Bumper Edge
         private readonly string _backBumperEdgeName = "B_BE"; // Back Bumper Edge
         private readonly string _leftBumperEdgeName = "L_BE"; // Left Bumper Edge
@@ -70,14 +76,18 @@ namespace FRC2025
         /// <remarks>This method ensures that all required parent objects and components are initialized
         /// and properly positioned and scaled based on the current dimensions and multipliers. It is intended to be
         /// used in the Unity Editor and will not execute during runtime.</remarks>
-        private void Update()
+        protected virtual void Update()
         {
-            UpdateUnitMultipliers();
+            if (!_isInitialized) return;
+
+            UpdateDriveTrainMultipliers();
 
             // Ensure parent objects exist for organizational purposes
             ValidateDirectory(ref _driveRailsParent, _driveRailsName);
             ValidateDirectory(ref _bumpersParent, _bumpersName);
             ValidateDirectory(ref _bellyPanParent, _bellyPanName);
+
+            //ValidateRB(ref _rigidbody);
 
             // Create the drive rails and bumpers if they don't exist
             InitializeDriveRails();
@@ -133,7 +143,7 @@ namespace FRC2025
         /// <see cref="GameObject"/> will be created if no such child exists.</param>
         /// <param name="name">The name of the directory to validate or create. This name is used to search for an existing child  object
         /// or to assign to the newly created <see cref="GameObject"/>.</param>
-        private void ValidateDirectory(ref GameObject directory, string name)
+        protected void ValidateDirectory(ref GameObject directory, string name)
         {
             if (directory != null) return;
 
@@ -149,6 +159,23 @@ namespace FRC2025
             };
             directory.transform.SetParent(transform);
             directory.transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
+        }
+
+        /// <summary>
+        /// Ensures that the specified <see cref="Rigidbody"/> reference is valid by adding a new  <see
+        /// cref="Rigidbody"/> component to the current GameObject if one does not already exist.
+        /// </summary>
+        /// <remarks>If the current GameObject does not already have a <see cref="Rigidbody"/> component,
+        /// one will be added.  The provided <paramref name="rb"/> reference is not modified by this method.</remarks>
+        /// <param name="rb">A reference to the <see cref="Rigidbody"/> to validate. This parameter is passed by reference.</param>
+        protected void ValidateRB(ref Rigidbody rb)
+        {
+            if (rb != null) return;
+
+            rb = this.GetComponent<Rigidbody>();
+            if (rb != null) return;
+            
+            rb = this.gameObject.AddComponent<Rigidbody>();
         }
 
         /// <summary>
@@ -193,7 +220,8 @@ namespace FRC2025
         {
             _bellyPan = ValidateBellyPan(_bellyPan, _bellyPanName);
 
-            _bellyPan.SetActive(_hasBellyPan);
+            _bellyPan.GetComponent<BoxCollider>().enabled = _hasBellyPan;
+            _bellyPan.GetComponent<MeshRenderer>().enabled = _hasBellyPan;
         }
 
         /// <summary>
@@ -291,7 +319,7 @@ namespace FRC2025
         /// <remarks>This method recalculates and updates the conversion factors for the robot perimeter, 
         /// drive rail size, and belly pan thickness based on their respective units. The updated  multipliers are used
         /// internally for dimension calculations.</remarks>
-        private void UpdateUnitMultipliers()
+        protected void UpdateDriveTrainMultipliers()
         {
             _robotPerimeterMultiplier = UnitToMeters(_robotPerimeterUnit);
             _driveRailSizeMultiplier = UnitToMeters(_driveRailUnit);
@@ -304,13 +332,27 @@ namespace FRC2025
         /// <param name="unit">The unit of measurement to convert. Supported values include <see cref="UnitType.Meters"/>, <see
         /// cref="UnitType.Centimeters"/>, and <see cref="UnitType.Inches"/>.</param>
         /// <returns>The equivalent value in meters. Returns 1 meter for unsupported or unknown unit types.</returns>
-        private float UnitToMeters(UnitType unit) => unit switch
+        protected float UnitToMeters(UnitType unit) => unit switch
         {
             UnitType.Meters => 1f,
             UnitType.Centimeters => 0.01f,
             UnitType.Inches => 0.0254f,
             _ => 1f
         };
+
+        /// <summary>
+        /// Attempts to remove this component from the GameObject if it has no parent transform.
+        /// </summary>
+        /// <remarks>This method immediately destroys the component if the <see cref="Transform.parent"/>
+        /// property is null. Use with caution, as <see cref="DestroyImmediate"/> is typically intended for editor use
+        /// and may have unintended side effects in runtime scenarios.</remarks>
+        protected void AttemptRemoveSelf(Component script)
+        {
+            if (transform.parent == null)
+            {
+                DestroyImmediate(script);
+            }
+        }
 
         /// <summary>
         /// Removes all child GameObjects of the current Transform.
@@ -320,6 +362,17 @@ namespace FRC2025
         /// objects without confirmation.</remarks>
         private void Reset()
         {
+            if (transform.parent == null)
+            {
+                GameObject child = new(_driveTrainName);
+                child.transform.SetParent(transform, false);
+
+                DriveTrain swerve = (DriveTrain) child.AddComponent(GetType());
+                swerve._isInitialized = true;
+
+                return;
+            }
+
             foreach (Transform child in transform)
             {
                 DestroyImmediate(child.gameObject);
