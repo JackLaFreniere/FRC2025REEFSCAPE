@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace FRC2025
@@ -11,6 +12,12 @@ namespace FRC2025
         [SerializeField, Min(0.01f)] private float _wheelDiameter = 6f;
         [SerializeField, Min(0.01f)] private float _wheelThickness = 11f/8f;
         [SerializeField, Min(0f)] private float _wheelHeightOffset = 1.5f;
+
+        [Header("Drive Settings")]
+        [SerializeField] private float motorForce = 1500f;
+
+        private WheelCollider[] leftWheels;
+        private WheelCollider[] rightWheels;
 
         private GameObject _wheelsParent;
 
@@ -77,6 +84,7 @@ namespace FRC2025
 
             UpdateWheelPosition();
             UpdateWheelScale();
+            //UpdateWheelColliders();
         }
 
         /// <summary>
@@ -125,6 +133,7 @@ namespace FRC2025
                 referenceWheel = GameObject.CreatePrimitive(PrimitiveType.Cylinder);
                 referenceWheel.name = name;
                 referenceWheel.transform.SetParent(_wheelsParent.transform);
+                referenceWheel.AddComponent<WheelCollider>();
 
                 return referenceWheel;
             }
@@ -173,6 +182,25 @@ namespace FRC2025
             _rightMiddleWheel.transform.localScale = new Vector3(xOffset, yOffset, zOffset);
             _rightBackWheel.transform.localScale = new Vector3(xOffset, yOffset, zOffset);
         }
+
+        //private void UpdateWheelColliders()
+        //{
+        //    _leftFrontWheelCollider = UpdateWheelCollider(_leftFrontWheelCollider, _leftFrontWheelName);
+        //}
+
+        //private WheelCollider UpdateWheelCollider(WheelCollider wheelCollider)
+        //{
+        //    if (wheelCollider == null) return null;
+
+        //    GameObject wheelGameObject = wheelCollider.gameObject;
+        //    WheelCollider wheel = wheelGameObject.GetComponent<WheelCollider>();
+        //    if (wheel != null) return wheel;
+
+        //    wheelCollider.radius = 2f / 3f / transform.localScale.x;
+        //    wheelCollider.suspensionDistance = 0.1f;
+
+        //    return wheelCollider;
+        //}
 #endif
     }
 }

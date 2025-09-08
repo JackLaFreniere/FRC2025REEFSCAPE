@@ -87,7 +87,7 @@ namespace FRC2025
             ValidateDirectory(ref _bumpersParent, _bumpersName);
             ValidateDirectory(ref _bellyPanParent, _bellyPanName);
 
-            //ValidateRB(ref _rigidbody);
+            ValidateRB(ref _rigidbody);
 
             // Create the drive rails and bumpers if they don't exist
             InitializeDriveRails();
