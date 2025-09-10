@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
 namespace FRC2025
@@ -14,10 +13,7 @@ namespace FRC2025
         [SerializeField, Min(0f)] private float _wheelHeightOffset = 1.5f;
 
         [Header("Drive Settings")]
-        [SerializeField] private float motorForce = 1500f;
-
-        private WheelCollider[] leftWheels;
-        private WheelCollider[] rightWheels;
+        [SerializeField] private float _motorForce = 10f;
 
         private GameObject _wheelsParent;
 
@@ -56,21 +52,22 @@ namespace FRC2025
         }
 
         /// <summary>
-        /// Initiates the process of attempting to remove the current instance from its context.
+        /// Initiates the process of removing the current instance from its context.
         /// </summary>
-        /// <remarks>This method triggers the removal operation by calling the appropriate internal logic.
-        /// Ensure that the instance is in a valid state before invoking this method.</remarks>
+        /// <remarks>This method triggers the removal of the current instance by invoking the 
+        /// <c>AttemptRemoveSelf</c> method. Ensure that the instance is in a valid state  before calling this method to
+        /// avoid unexpected behavior.</remarks>
         private void Start()
         {
             AttemptRemoveSelf(this);
         }
 
         /// <summary>
-        /// Updates the state of the object, including wheel configuration and drive train multipliers.
+        /// Updates the state of the object, ensuring all components are initialized and synchronized.
         /// </summary>
-        /// <remarks>This method validates and initializes the wheel configuration, updates scaling
-        /// factors,  and adjusts the positions and scales of the wheels. It is called as part of the update cycle  and
-        /// ensures that the object remains in a consistent state.</remarks>
+        /// <remarks>This method performs a series of updates, including validating and initializing wheel
+        /// components,  calculating multipliers, and updating wheel positions, scales, and colliders. It ensures that
+        /// the  object is fully initialized and ready for further operations.</remarks>
         protected override void Update()
         {
             _isInitialized = true;
@@ -84,16 +81,15 @@ namespace FRC2025
 
             UpdateWheelPosition();
             UpdateWheelScale();
-            //UpdateWheelColliders();
+            UpdateWheelColliders();
         }
 
         /// <summary>
-        /// Initializes and validates the wheels of the vehicle, ensuring that each wheel and its corresponding collider
-        /// are properly configured.
+        /// Initializes and validates the wheels and their associated colliders for the vehicle.
         /// </summary>
-        /// <remarks>This method validates the state of each wheel and its associated collider by invoking
-        /// the  <c>ValidateWheel</c> method. It ensures that all wheels are correctly initialized and ready for use.
-        /// This method is intended to be called during the setup or initialization phase of the vehicle.</remarks>
+        /// <remarks>This method ensures that all wheels and their corresponding colliders are properly
+        /// set up  and associated with the vehicle. It validates each wheel and assigns the appropriate references  to
+        /// ensure correct functionality.</remarks>
         private void InitializeWheels()
         {
             _leftFrontWheel = ValidateWheel(_leftFrontWheel, ref _leftFrontWheelCollider, _leftFrontWheelName);
@@ -107,17 +103,14 @@ namespace FRC2025
         /// <summary>
         /// Validates and retrieves a wheel GameObject by name, creating a new one if it does not exist.
         /// </summary>
-        /// <remarks>If the <paramref name="referenceWheel"/> is <see langword="null"/>, the method
-        /// attempts to find a child GameObject with the specified <paramref name="name"/> under the parent object. If
-        /// found, the associated <see cref="WheelCollider"/> is retrieved and assigned to <paramref name="wheel"/>. If
-        /// no such GameObject exists, a new wheel GameObject is created, configured with a <see cref="WheelCollider"/>,
-        /// and returned.</remarks>
-        /// <param name="referenceWheel">The existing wheel GameObject to validate. If this is not <see langword="null"/>, it will be returned as-is.</param>
-        /// <param name="wheel">A reference to the <see cref="WheelCollider"/> associated with the wheel. This will be updated to the <see
+        /// <remarks>If the specified wheel GameObject does not exist, a new wheel GameObject is created
+        /// as a primitive cylinder,  assigned the specified name, and parented to the wheels container. A <see
+        /// cref="WheelCollider"/> is also added  to the newly created GameObject.</remarks>
+        /// <param name="referenceWheel">The existing wheel GameObject to validate. If null, a new wheel will be created.</param>
+        /// <param name="wheel">A reference to the <see cref="WheelCollider"/> associated with the wheel. This will be updated to the  <see
         /// cref="WheelCollider"/> of the validated or newly created wheel.</param>
-        /// <param name="name">The name of the wheel to search for or assign to the newly created wheel.</param>
-        /// <returns>The validated or newly created wheel GameObject. If a wheel with the specified name exists, it is returned;
-        /// otherwise, a new wheel GameObject is created, configured, and returned.</returns>
+        /// <param name="name">The name of the wheel to find or assign to the newly created wheel.</param>
+        /// <returns>The validated wheel GameObject if it exists, or a newly created wheel GameObject if it does not.</returns>
         private GameObject ValidateWheel(GameObject referenceWheel, ref WheelCollider wheel, string name)
         {
             if (referenceWheel != null) return referenceWheel;
@@ -133,7 +126,7 @@ namespace FRC2025
                 referenceWheel = GameObject.CreatePrimitive(PrimitiveType.Cylinder);
                 referenceWheel.name = name;
                 referenceWheel.transform.SetParent(_wheelsParent.transform);
-                referenceWheel.AddComponent<WheelCollider>();
+                wheel = referenceWheel.AddComponent<WheelCollider>();
 
                 return referenceWheel;
             }
@@ -143,8 +136,8 @@ namespace FRC2025
         /// Updates the positions and rotations of the robot's wheels based on the current configuration parameters.
         /// </summary>
         /// <remarks>This method calculates the offsets for the wheel positions and applies them to the
-        /// left and right wheels  of the robot. The positions are adjusted based on the robot's dimensions, wheel
-        /// dimensions, and other  configuration multipliers. The wheels are rotated to align with the robot's expected
+        /// left and right wheels of the robot. The positions are adjusted relative to the robot's dimensions, drive
+        /// rail size, and wheel dimensions. The wheels are rotated to align with the robot's expected
         /// orientation.</remarks>
         private void UpdateWheelPosition()
         {
@@ -165,9 +158,9 @@ namespace FRC2025
         /// <summary>
         /// Updates the scale of all wheels based on the current wheel diameter, thickness, and multiplier values.
         /// </summary>
-        /// <remarks>This method adjusts the local scale of the left and right wheels to ensure they are
-        /// sized proportionally according to the specified wheel dimensions. The scaling factors are derived from the
-        /// wheel diameter, thickness, and a multiplier, and are applied uniformly to all wheels.</remarks>
+        /// <remarks>This method adjusts the local scale of each wheel to ensure they are sized
+        /// proportionally according to the specified wheel dimensions. The scaling factors are derived from the wheel
+        /// diameter, thickness, and a multiplier, and are applied uniformly to all wheels.</remarks>
         private void UpdateWheelScale()
         {
             float xOffset = _wheelDiameter * _wheelMultiplier;
@@ -183,24 +176,39 @@ namespace FRC2025
             _rightBackWheel.transform.localScale = new Vector3(xOffset, yOffset, zOffset);
         }
 
-        //private void UpdateWheelColliders()
-        //{
-        //    _leftFrontWheelCollider = UpdateWheelCollider(_leftFrontWheelCollider, _leftFrontWheelName);
-        //}
+        /// <summary>
+        /// Updates the wheel colliders for all wheels of the vehicle.
+        /// </summary>
+        /// <remarks>This method ensures that the wheel colliders are synchronized with their
+        /// corresponding wheel transforms. It updates the colliders for the left and right front, middle, and back
+        /// wheels.</remarks>
+        private void UpdateWheelColliders()
+        {
+            _leftFrontWheelCollider = UpdateWheelCollider(_leftFrontWheelCollider, _leftFrontWheel);
+            _leftMiddleWheelCollider = UpdateWheelCollider(_leftMiddleWheelCollider, _leftMiddleWheel);
+            _leftBackWheelCollider = UpdateWheelCollider(_leftBackWheelCollider, _leftBackWheel);
 
-        //private WheelCollider UpdateWheelCollider(WheelCollider wheelCollider)
-        //{
-        //    if (wheelCollider == null) return null;
+            _rightFrontWheelCollider = UpdateWheelCollider(_rightFrontWheelCollider, _rightFrontWheel);
+            _rightMiddleWheelCollider = UpdateWheelCollider(_rightMiddleWheelCollider, _rightMiddleWheel);
+            _rightBackWheelCollider = UpdateWheelCollider(_rightBackWheelCollider, _rightBackWheel);
+        }
 
-        //    GameObject wheelGameObject = wheelCollider.gameObject;
-        //    WheelCollider wheel = wheelGameObject.GetComponent<WheelCollider>();
-        //    if (wheel != null) return wheel;
+        /// <summary>
+        /// Updates the properties of a <see cref="WheelCollider"/> based on the specified wheel's transform.
+        /// </summary>
+        /// <remarks>The radius of the <paramref name="referenceWheelCollider"/> is calculated as half the
+        /// ratio of the wheel's local X scale to its local Y scale. The suspension distance is set to zero.</remarks>
+        /// <param name="referenceWheelCollider">The <see cref="WheelCollider"/> to update.</param>
+        /// <param name="wheel">The <see cref="GameObject"/> representing the wheel, whose transform is used to calculate the collider's
+        /// properties.</param>
+        /// <returns>The updated <see cref="WheelCollider"/> with modified radius and suspension distance.</returns>
+        private WheelCollider UpdateWheelCollider(WheelCollider referenceWheelCollider, GameObject wheel)
+        {
+            referenceWheelCollider.radius = 0.5f * wheel.transform.localScale.x / wheel.transform.localScale.y;
+            referenceWheelCollider.suspensionDistance = 0f;
 
-        //    wheelCollider.radius = 2f / 3f / transform.localScale.x;
-        //    wheelCollider.suspensionDistance = 0.1f;
-
-        //    return wheelCollider;
-        //}
+            return referenceWheelCollider;
+        }
 #endif
     }
 }
