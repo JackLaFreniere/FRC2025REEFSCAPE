@@ -3,7 +3,7 @@ using UnityEngine;
 namespace FRC2025
 {
     [ExecuteInEditMode]
-    public class SwerveDrive : DriveTrain
+    public class SwerveDriveGenerator : DriveTrain
     {
         private void Awake()
         {

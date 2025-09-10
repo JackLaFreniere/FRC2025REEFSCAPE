@@ -21,6 +21,14 @@ namespace FRC2025
         [SerializeField] protected UnitType _bellyPanUnit = UnitType.Inches;
         [SerializeField, Min(0)] protected float _bellyPanThickness = 1f;
 
+        [Header("Drive Settings")]
+        [SerializeField] protected float _driveForce = 10f;
+
+        protected GameObject _wheelsParent;
+
+        protected GameObject[] _wheels;
+        protected WheelCollider[] _wheelColliders;
+
         protected Rigidbody _rigidbody;
 
         protected bool _isInitialized = false;
