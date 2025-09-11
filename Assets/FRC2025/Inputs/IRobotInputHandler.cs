@@ -1,3 +1,5 @@
+using UnityEngine.InputSystem;
+
 namespace FRC2025
 {
     public interface IRobotInputHandler

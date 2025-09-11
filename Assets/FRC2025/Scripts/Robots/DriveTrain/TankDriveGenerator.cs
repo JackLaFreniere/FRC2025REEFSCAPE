@@ -12,9 +12,6 @@ namespace FRC2025
         [SerializeField, Min(0.01f)] private float _wheelThickness = 11f/8f;
         [SerializeField, Min(0f)] private float _wheelHeightOffset = 1.5f;
 
-        [Header("Drive Settings")]
-        [SerializeField] protected float _driveForce = 10f;
-
         private readonly int _numWheels = 6;
         private float _wheelMultiplier;
 
@@ -196,7 +193,9 @@ namespace FRC2025
         private WheelCollider UpdateWheelCollider(WheelCollider referenceWheelCollider, GameObject wheel)
         {
             referenceWheelCollider.radius = 0.5f * wheel.transform.localScale.x / wheel.transform.localScale.y;
-            referenceWheelCollider.suspensionDistance = 0f;
+            //referenceWheelCollider.suspensionDistance = 0f;
+            //referenceWheelCollider.mass = 5f;
+            referenceWheelCollider.brakeTorque = 0f;
 
             return referenceWheelCollider;
         }

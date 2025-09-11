@@ -48,7 +48,7 @@ namespace FRC2025
             //_robotCamera = _baseRobot.GetRobotCamera();
             if (_robotCamera == null)
             {
-                Debug.LogError("Robot camera not found.");
+                //Debug.LogError("Robot camera not found.");
                 enabled = false;
                 return;
             }

@@ -10,8 +10,8 @@ namespace FRC2025
 //        public RotatingSubsystem climber { get; private set; }
 //#pragma warning restore IDE1006
 
-        private void Awake()
-        {
+        //private void Awake()
+        //{
             //stateMachine = new StateMachine();
             //stowState = new Stow(this, stateMachine);
             //coralIntakeState = new MukwonagoBotCoralIntakeState(this, stateMachine);
@@ -24,7 +24,7 @@ namespace FRC2025
             //coralEjectState = new MukwonagoBotCoralEjectState(this, stateMachine);
             //algaeEjectState = new MukwonagoBotAlgaeEjectState(this, stateMachine);
             //confirmCoralScore = new MukwonagoBotConfirmCoralScoreState(this, stateMachine);
-        }
+        //}
 
         private void Start()
         {

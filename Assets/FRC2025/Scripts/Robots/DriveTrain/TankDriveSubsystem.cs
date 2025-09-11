@@ -14,11 +14,10 @@ namespace FRC2025
 
             if (_wheelColliders != null)
             {
-                for (int i = 0; i < _wheelColliders.Length; i++)
+                for (int i = 0; i < _wheelColliders.Length / 2; i++)
                 {
-                    Debug.Log(leftSpeed);
-                    _wheelColliders[i].motorTorque = leftSpeed * _driveSpeed * Time.fixedDeltaTime;
-                    _wheelColliders[i + 3].motorTorque = rightSpeed * _driveSpeed * Time.fixedDeltaTime;
+                    _wheelColliders[i].motorTorque = leftSpeed * _driveSpeed;
+                    _wheelColliders[i + 3].motorTorque = rightSpeed * _driveSpeed;
                 }
             }
         }

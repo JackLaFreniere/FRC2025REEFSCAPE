@@ -8,43 +8,43 @@ namespace FRC2025
         [Header("Robot Settings")]
         public AllianceColor AllianceColor;
 
-        private Dictionary<string, Subsystem> subsystems = new();
+        private readonly Dictionary<string, Subsystem> _subsystems = new();
+        private IRobotInputHandler _robotActions;
 
-        private void Awake()
+        protected void Awake()
         {
-
             foreach (var subsystem in GetComponentsInChildren<Subsystem>())
-                subsystems[subsystem.SubsystemName] = subsystem;
+                _subsystems[subsystem.SubsystemName] = subsystem;
 
-            var robotHandler = GetComponent<IRobotInputHandler>();
-            robotHandler.SetBaseRobot(this);
-            robotHandler.InputAwake();
+            _robotActions = this.GetComponent<IRobotInputHandler>();
+            _robotActions.SetBaseRobot(this);
+            _robotActions.InputAwake();
         }
 
         public void ApplyPose(RobotPose pose)
         {
             foreach (var target in pose.targets)
             {
-                if (subsystems.TryGetValue(target.subsystemName, out var subsystem))
+                if (_subsystems.TryGetValue(target.subsystemName, out var subsystem))
                     subsystem.ApplyTarget(target.targetValue);
             }
         }
 
         public bool AllAtTarget()
         {
-            foreach (var s in subsystems.Values)
+            foreach (var s in _subsystems.Values)
                 if (!s.IsAtTarget()) return false;
             return true;
         }
 
         public T GetSubsystem<T>() where T : Subsystem
         {
-            foreach (var s in subsystems.Values)
+            foreach (var s in _subsystems.Values)
                 if (s is T t) return t;
             return null;
         }
 
-        private void OnEnable() => GetComponent<IRobotInputHandler>().InputOnEnable();
-        private void OnDisable() => GetComponent<IRobotInputHandler>().InputOnDisable();
+        private void OnEnable() => _robotActions.InputOnEnable();
+        private void OnDisable() => _robotActions.InputOnDisable();
     }
 }

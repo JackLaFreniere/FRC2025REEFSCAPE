@@ -136,7 +136,7 @@ public partial class @FRC2025_9999Input: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""db4e3290-ef3d-44eb-91ae-428f42526f97"",
-                    ""path"": ""<Gamepad>/leftStick"",
+                    ""path"": ""<Gamepad>/rightStick"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -147,7 +147,7 @@ public partial class @FRC2025_9999Input: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""68922cf4-c30e-4929-bc3c-e2d1c202bbce"",
-                    ""path"": ""<XInputController>/leftStick"",
+                    ""path"": ""<XInputController>/rightStick"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

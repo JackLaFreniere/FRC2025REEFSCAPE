@@ -19,17 +19,17 @@ namespace FRC2025
         /// properly initialized with the provided robot information and input actions.</remarks>
         private void Awake()
         {
-            _robotInstance = Instantiate(RobotInfo.robotPrefab, RobotInfo.spawnPosition, Quaternion.Euler(RobotInfo.spawnEuler));
+            //_robotInstance = Instantiate(RobotInfo.robotPrefab, RobotInfo.spawnPosition, Quaternion.Euler(RobotInfo.spawnEuler));   
 
-            DriverStationCamera.SetActiveRobot(_robotInstance.GetComponent<BaseRobot>());
-            BaseRobot baseRobotScript = _robotInstance.GetComponent<BaseRobot>();
-            //baseRobotScript.SetRobotInfo(RobotInfo);
+            //DriverStationCamera.SetActiveRobot(_robotInstance.GetComponent<BaseRobot>());
+            //BaseRobot baseRobotScript = _robotInstance.GetComponent<BaseRobot>();
+            ////baseRobotScript.SetRobotInfo(RobotInfo);
 
-            _robotActions = _robotInstance.GetComponent<IRobotInputHandler>();
-            this.GetComponent<PlayerInput>().actions = RobotInfo.playerInput;
+            //_robotActions = _robotInstance.GetComponent<IRobotInputHandler>();
+            //this.GetComponent<PlayerInput>().actions = RobotInfo.playerInput;
 
-            _robotActions.SetBaseRobot(_robotInstance.GetComponent<BaseRobot>());
-            _robotActions.InputAwake();
+            //_robotActions.SetBaseRobot(_robotInstance.GetComponent<BaseRobot>());
+            //_robotActions.InputAwake();
         }
 
         /// <summary>
@@ -39,7 +39,7 @@ namespace FRC2025
         /// robot's input actions are active and ready for use.</remarks>
         private void OnEnable()
         {
-            _robotActions.InputOnEnable();
+            //_robotActions.InputOnEnable();
         }
 
         /// <summary>
@@ -50,7 +50,7 @@ namespace FRC2025
         /// disabled.</remarks>
         private void OnDisable()
         {
-            _robotActions.InputOnDisable();
+            //_robotActions.InputOnDisable();
         }
     }
 }

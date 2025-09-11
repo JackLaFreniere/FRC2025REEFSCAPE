@@ -1,7 +1,7 @@
 using UnityEngine;
 
 namespace FRC2025
-{
+{   
     public class FRC2025_9999InputHandler : MonoBehaviour, IRobotInputHandler
     {
         private BaseRobot _robot;
@@ -19,7 +19,6 @@ namespace FRC2025
 
         public void InputOnEnable()
         {
-            Debug.Log("Enabled");
             _controls.Enable();
 
             _controls.Robot.Drive.performed += ctx =>

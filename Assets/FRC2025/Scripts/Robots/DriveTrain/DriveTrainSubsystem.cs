@@ -1,3 +1,4 @@
+using System.Linq;
 using UnityEngine;
 
 namespace FRC2025
@@ -24,9 +25,6 @@ namespace FRC2025
 
         public void SetRotateInput(Vector2 rightJoyStick) => _rightJoystickInput = rightJoyStick;
 
-        public void SetWheelColliders(WheelCollider[] wheelColiders)
-        {
-            _wheelColliders = wheelColiders;
-        }
+        protected virtual void Awake() => _wheelColliders = GetComponentsInChildren<WheelCollider>();
     }
 }
