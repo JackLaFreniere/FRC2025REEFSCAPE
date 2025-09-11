@@ -21,69 +21,72 @@ namespace FRC2025
         [SerializeField] protected UnitType _bellyPanUnit = UnitType.Inches;
         [SerializeField, Min(0)] protected float _bellyPanThickness = 1f;
 
-        [Header("Drive Settings")]
-        [SerializeField] protected float _driveForce = 10f;
-
-        protected GameObject _wheelsParent;
-
-        protected GameObject[] _wheels;
-        protected WheelCollider[] _wheelColliders;
-
+        // Internal functionality
+        protected bool _isInitialized = false;
         protected Rigidbody _rigidbody;
 
-        protected bool _isInitialized = false;
-
-        protected float _robotPerimeterMultiplier;
-        protected float _driveRailSizeMultiplier;
-        protected float _bellyPanThicknessMultiplier;
-
+        // Parent objects for organization
+        protected GameObject _wheelsParent;
         private GameObject _driveRailsParent;
         private GameObject _bumpersParent;
         private GameObject _bellyPanParent;
 
-        private GameObject _frontDriveRail;
-        private GameObject _backDriveRail;
-        private GameObject _leftDriveRail;
-        private GameObject _rightDriveRail;
-
-        private GameObject _frontBumperEdge;
-        private GameObject _backBumperEdge;
-        private GameObject _leftBumperEdge;
-        private GameObject _rightBumperEdge;
-        private GameObject _frontLeftBumperCorner;
-        private GameObject _frontRightBumperCorner;
-        private GameObject _backLeftBumperCorner;
-        private GameObject _backRightBumperCorner;
-
+        // Child objects
         private GameObject _bellyPan;
+        private readonly GameObject[] _driveRails = new GameObject[4];
+        private readonly GameObject[] _bumperEdges = new GameObject[4];
+        private readonly GameObject[] _bumperCorners = new GameObject[4];
+        protected GameObject[] _wheels;
+        protected WheelCollider[] _wheelColliders;
 
+        // Parent names 
         protected string _driveTrainName;
-
         private readonly string _driveRailsName = "Drive Rails";
         private readonly string _bumpersName = "Bumpers";
-        private readonly string _bumperEdgeName = "BumperEdge";
-        private readonly string _bumperCornerName = "BumperCorner";
-        private readonly string _frontDriveRailName = "F_DR"; // Front Drive Rail
-        private readonly string _backDriveRailName = "B_DR"; // Back Drive Rail
-        private readonly string _leftDriveRailName = "L_DR"; // Left Drive Rail
-        private readonly string _rightDriveRailName = "R_DR"; // Right Drive Rail
-        private readonly string _frontBumperEdgeName = "F_BE"; // Front Bumper Edge
-        private readonly string _backBumperEdgeName = "B_BE"; // Back Bumper Edge
-        private readonly string _leftBumperEdgeName = "L_BE"; // Left Bumper Edge
-        private readonly string _rightBumperEdgeName = "R_BE"; // Right Bumper Edge
-        private readonly string _frontLeftBumperCornerName = "FL_BC"; // Front Left Bumper Corner
-        private readonly string _frontRightBumperCornerName = "FR_BC"; // Front Right Bumper Corner
-        private readonly string _backLeftBumperCornerName = "BL_BC"; // Back Left Bumper Corner
-        private readonly string _backRightBumperCornerName = "BR_BC"; // Back Right Bumper Corner
         private readonly string _bellyPanName = "Belly Pan";
 
+        // Asset names
+        private readonly string _bumperEdgeName = "BumperEdge";
+        private readonly string _bumperCornerName = "BumperCorner";
+
+        // Child names
+        private readonly string[] _driveRailnames = new string[]
+        {
+            "F_DR", // Front Drive Rail
+            "B_DR", // Back Drive Rail
+            "L_DR", // Left Drive Rail
+            "R_DR"  // Right Drive Rail
+        };
+
+        private readonly string[] _bumperEdgeNames = new string[]
+        {
+            "F_BE", // Front Bumper Edge
+            "B_BE", // Back Bumper Edge
+            "L_BE", // Left Bumper Edge
+            "R_BE"  // Right Bumper Edge
+        };
+
+        private readonly string[] _bumperCornerNames = new string[]
+        {
+            "FL_BC", // Front Left Bumper Corner
+            "FR_BC", // Front Right Bumper Corner
+            "BL_BC", // Back Left Bumper Corner
+            "BR_BC"  // Back Right Bumper Corner
+        };
+
+        // Multipliers for unit conversion
+        protected float _robotPerimeterMultiplier;
+        protected float _driveRailSizeMultiplier;
+        protected float _bellyPanThicknessMultiplier;
+
         /// <summary>
-        /// Updates the configuration, positioning, and scaling of the robot's structural components, including drive
-        /// rails, bumpers, and the belly pan.
+        /// Updates the state of the object and its associated components, ensuring that all necessary elements
+        /// are initialized and their transforms are updated.
         /// </summary>
-        /// <remarks>This method ensures that all required parent objects and components are initialized
-        /// and properly positioned and scaled based on the current dimensions and multipliers. It is intended to be
-        /// used in the Unity Editor and will not execute during runtime.</remarks>
+        /// <remarks>This method performs several operations to maintain the integrity of the object's
+        /// structure: it validates and initializes parent directories and components, and updates the
+        /// transforms of associated elements. It is intended to be called periodically to ensure the object
+        /// remains in a consistent and updated state.</remarks>
         protected virtual void Update()
         {
             if (!_isInitialized) return;
@@ -97,60 +100,28 @@ namespace FRC2025
 
             ValidateRB(ref _rigidbody);
 
-            // Create the drive rails and bumpers if they don't exist
+            // Initialize components if they don't exist
             InitializeDriveRails();
             InitializeBumpers();
             InitializeBellyPan();
 
-            // Position and scale each drive rail
-            _frontDriveRail.transform.SetLocalPositionAndRotation(new Vector3(0f, 0f, (_length / 2f) * _robotPerimeterMultiplier - (_driveRailWidth / 2f) * _driveRailSizeMultiplier), Quaternion.identity);
-            _backDriveRail.transform.SetLocalPositionAndRotation(new Vector3(0f, 0f, (-_length / 2f) * _robotPerimeterMultiplier + (_driveRailWidth / 2f) * _driveRailSizeMultiplier), Quaternion.identity);
-            _leftDriveRail.transform.SetLocalPositionAndRotation(new Vector3((-_width / 2f) * _robotPerimeterMultiplier + (_driveRailWidth / 2f) * _driveRailSizeMultiplier, 0f, 0f), Quaternion.identity);
-            _rightDriveRail.transform.SetLocalPositionAndRotation(new Vector3((_width / 2f) * _robotPerimeterMultiplier - (_driveRailWidth / 2f) * _driveRailSizeMultiplier, 0f, 0f), Quaternion.identity);
-
-            _frontDriveRail.transform.localScale = new Vector3(_width * _robotPerimeterMultiplier - _driveRailWidth * _driveRailSizeMultiplier * 2f, _driveRailHeight * _driveRailSizeMultiplier, _driveRailWidth * _driveRailSizeMultiplier);
-            _backDriveRail.transform.localScale = new Vector3(_width * _robotPerimeterMultiplier - _driveRailWidth * _driveRailSizeMultiplier * 2f, _driveRailHeight * _driveRailSizeMultiplier, _driveRailWidth * _driveRailSizeMultiplier);
-            _leftDriveRail.transform.localScale = new Vector3(_driveRailWidth * _driveRailSizeMultiplier, _driveRailHeight * _driveRailSizeMultiplier, _length * _robotPerimeterMultiplier);
-            _rightDriveRail.transform.localScale = new Vector3(_driveRailWidth * _driveRailSizeMultiplier, _driveRailHeight * _driveRailSizeMultiplier, _length * _robotPerimeterMultiplier);
-
-            // Position and scale each bumper edge and corner
-            _frontBumperEdge.transform.SetLocalPositionAndRotation(new Vector3(0f, 0f, (_length / 2f) * _robotPerimeterMultiplier), Quaternion.identity);
-            _backBumperEdge.transform.SetLocalPositionAndRotation(new Vector3(0f, 0f, (-_length / 2f) * _robotPerimeterMultiplier), Quaternion.Euler(0f, 180f, 0f));
-            _leftBumperEdge.transform.SetLocalPositionAndRotation(new Vector3((-_width / 2f) * _robotPerimeterMultiplier, 0f, 0f), Quaternion.Euler(0f, -90f, 0f));
-            _rightBumperEdge.transform.SetLocalPositionAndRotation(new Vector3((_width / 2f) * _robotPerimeterMultiplier, 0f, 0f), Quaternion.Euler(0f, 90f, 0f));
-
-            _frontBumperEdge.transform.localScale = new Vector3(_width * _robotPerimeterMultiplier, 1f, 1f);
-            _backBumperEdge.transform.localScale = new Vector3(_width * _robotPerimeterMultiplier, 1f, 1f);
-            _leftBumperEdge.transform.localScale = new Vector3(_length * _robotPerimeterMultiplier, 1f, 1f);
-            _rightBumperEdge.transform.localScale = new Vector3(_length * _robotPerimeterMultiplier, 1f, 1f);
-
-            _frontRightBumperCorner.transform.SetLocalPositionAndRotation(new Vector3((_width / 2f) * _robotPerimeterMultiplier, 0f, (_length / 2f) * _robotPerimeterMultiplier), Quaternion.Euler(0f, 90f, 0f));
-            _frontLeftBumperCorner.transform.SetLocalPositionAndRotation(new Vector3((-_width / 2f) * _robotPerimeterMultiplier, 0f, (_length / 2f) * _robotPerimeterMultiplier), Quaternion.Euler(0f, 0f, 0f));
-            _backRightBumperCorner.transform.SetLocalPositionAndRotation(new Vector3((_width / 2f) * _robotPerimeterMultiplier, 0f, (-_length / 2f) * _robotPerimeterMultiplier), Quaternion.Euler(0f, 180f, 0f));
-            _backLeftBumperCorner.transform.SetLocalPositionAndRotation(new Vector3((-_width / 2f) * _robotPerimeterMultiplier, 0f, (-_length / 2f) * _robotPerimeterMultiplier), Quaternion.Euler(0f, -90f, 0f));
-
-            _frontLeftBumperCorner.transform.localScale = Vector3.one;
-            _frontRightBumperCorner.transform.localScale = Vector3.one;
-            _backLeftBumperCorner.transform.localScale = Vector3.one;
-            _backRightBumperCorner.transform.localScale = Vector3.one;
-
-            // Position and scale the belly pan
-            _bellyPan.transform.SetLocalPositionAndRotation(new Vector3(0f, (-_driveRailHeight * _driveRailSizeMultiplier / 2f) + (_bellyPanThickness * _bellyPanThicknessMultiplier / 2f), 0f), Quaternion.identity);
-
-            _bellyPan.transform.localScale = new Vector3(_width * _robotPerimeterMultiplier - _driveRailWidth * _driveRailSizeMultiplier * 2f, _bellyPanThickness * _bellyPanThicknessMultiplier, _length * _robotPerimeterMultiplier - _driveRailWidth * _driveRailSizeMultiplier * 2f);
+            // Update component transforms
+            UpdateDriveRails();
+            UpdateBumpers();
+            UpdateBellyPan();
         }
 
         /// <summary>
         /// Ensures that the specified directory exists by validating or creating it.
         /// </summary>
-        /// <remarks>If the directory is created, it is parented to the current object's transform, and
-        /// its local position  and rotation are reset to <see cref="Vector3.zero"/> and <see
+        /// <remarks>If the directory is created, it will be parented to the current object's transform,
+        /// and its local position and rotation will be set to <see cref="Vector3.zero"/> and <see
         /// cref="Quaternion.identity"/>, respectively.</remarks>
-        /// <param name="directory">A reference to the <see cref="GameObject"/> representing the directory. If the directory is  <see
-        /// langword="null"/>, it will be initialized to an existing child object with the specified name,  or a new
+        /// <param name="directory">A reference to the <see cref="GameObject"/> representing the directory. If the directory is <see
+        /// langword="null"/>, it will be initialized to an existing child object with the specified name, or a new
         /// <see cref="GameObject"/> will be created if no such child exists.</param>
-        /// <param name="name">The name of the directory to validate or create. This name is used to search for an existing child  object
-        /// or to assign to the newly created <see cref="GameObject"/>.</param>
+        /// <param name="name">The name of the directory to validate or create. This is used to locate an existing child object or to
+        /// assign the name to a newly created <see cref="GameObject"/>.</param>
         protected void ValidateDirectory(ref GameObject directory, string name)
         {
             if (directory != null) return;
@@ -170,12 +141,11 @@ namespace FRC2025
         }
 
         /// <summary>
-        /// Ensures that the specified <see cref="Rigidbody"/> reference is valid by adding a new  <see
-        /// cref="Rigidbody"/> component to the current GameObject if one does not already exist.
+        /// Ensures that the specified <see cref="Rigidbody"/> reference is not null by assigning it to an existing 
+        /// <see cref="Rigidbody"/> component on the current GameObject or by adding a new one if none exists.
         /// </summary>
-        /// <remarks>If the current GameObject does not already have a <see cref="Rigidbody"/> component,
-        /// one will be added.  The provided <paramref name="rb"/> reference is not modified by this method.</remarks>
-        /// <param name="rb">A reference to the <see cref="Rigidbody"/> to validate. This parameter is passed by reference.</param>
+        /// <param name="rb">A reference to the <see cref="Rigidbody"/> to validate. If null, it will be assigned to an existing or
+        /// newly added <see cref="Rigidbody"/> component on the current GameObject.</param>
         protected void ValidateRB(ref Rigidbody rb)
         {
             if (rb != null) return;
@@ -187,43 +157,41 @@ namespace FRC2025
         }
 
         /// <summary>
-        /// Initializes and validates the drive rail components for the system.
+        /// Initializes the drive rails by validating and updating each rail in the collection.
         /// </summary>
-        /// <remarks>This method ensures that all drive rails are properly validated and initialized 
-        /// before use. Each drive rail is checked using the <see cref="ValidateDriveRails"/> method.</remarks>
+        /// <remarks>This method iterates through the collection of drive rails and validates each one 
+        /// using the associated name. The validation process ensures that the drive rails meet  the required criteria
+        /// before being updated.</remarks>
         private void InitializeDriveRails()
         {
-            _frontDriveRail = ValidateDriveRails(_frontDriveRail, _frontDriveRailName);
-            _backDriveRail = ValidateDriveRails(_backDriveRail, _backDriveRailName);
-            _leftDriveRail = ValidateDriveRails(_leftDriveRail, _leftDriveRailName);
-            _rightDriveRail = ValidateDriveRails(_rightDriveRail, _rightDriveRailName);
+            for (int i = 0; i < _driveRails.Length; i++)
+            {
+                _driveRails[i] = ValidateDriveRails(_driveRails[i], _driveRailnames[i]);
+            }
         }
 
         /// <summary>
-        /// Initializes and validates the bumper edges and corners for the object.
+        /// Initializes the bumpers by validating and assigning the appropriate colliders for edges and corners.
         /// </summary>
-        /// <remarks>This method ensures that all bumper edges and corners are properly validated and
-        /// initialized using the <c>ValidateBumpers</c> method. It processes both the front, back, left, and right
-        /// bumper edges, as well as the front-left, front-right, back-left, and back-right bumper corners.</remarks>
+        /// <remarks>This method ensures that each bumper edge and corner is properly validated and
+        /// assigned a collider of the expected type. It processes all elements in the bumper edges and corners arrays,
+        /// ensuring that they are correctly configured for further use.</remarks>
         private void InitializeBumpers()
         {
-            _frontBumperEdge = ValidateBumpers<BoxCollider>(_frontBumperEdge, _frontBumperEdgeName, _bumpersName, _bumperEdgeName);
-            _backBumperEdge = ValidateBumpers<BoxCollider>(_backBumperEdge, _backBumperEdgeName, _bumpersName, _bumperEdgeName);
-            _leftBumperEdge = ValidateBumpers<BoxCollider>(_leftBumperEdge, _leftBumperEdgeName, _bumpersName, _bumperEdgeName);
-            _rightBumperEdge = ValidateBumpers<BoxCollider>(_rightBumperEdge, _rightBumperEdgeName, _bumpersName, _bumperEdgeName);
-
-            _frontLeftBumperCorner = ValidateBumpers<CapsuleCollider>(_frontLeftBumperCorner, _frontLeftBumperCornerName, _bumpersName, _bumperCornerName);
-            _frontRightBumperCorner = ValidateBumpers<CapsuleCollider>(_frontRightBumperCorner, _frontRightBumperCornerName, _bumpersName, _bumperCornerName);
-            _backLeftBumperCorner = ValidateBumpers<CapsuleCollider>(_backLeftBumperCorner, _backLeftBumperCornerName, _bumpersName, _bumperCornerName);
-            _backRightBumperCorner = ValidateBumpers<CapsuleCollider>(_backRightBumperCorner, _backRightBumperCornerName, _bumpersName, _bumperCornerName);
+            for (int i = 0; i < _bumperEdges.Length; i++)
+            {
+                _bumperEdges[i] = ValidateBumpers<BoxCollider>(_bumperEdges[i], _bumperEdgeNames[i], _bumpersName, _bumperEdgeName);
+                _bumperCorners[i] = ValidateBumpers<CapsuleCollider>(_bumperCorners[i], _bumperCornerNames[i], _bumpersName, _bumperCornerName);
+            }
         }
 
         /// <summary>
-        /// Initializes the belly pan by validating its configuration and setting its active state.
+        /// Initializes the belly pan by validating its configuration and enabling or disabling its components based on
+        /// the current state.
         /// </summary>
-        /// <remarks>This method ensures that the belly pan is properly validated and updates its active
-        /// state  based on the current configuration. The belly pan's state is determined by the value of  <see
-        /// cref="_hasBellyPan"/>.</remarks>
+        /// <remarks>This method ensures that the belly pan is properly validated and updates its collider
+        /// and renderer components according to the value of the <c>_hasBellyPan</c> field. If <c>_hasBellyPan</c> is 
+        /// <see langword="true"/>, the components are enabled; otherwise, they are disabled.</remarks>
         private void InitializeBellyPan()
         {
             _bellyPan = ValidateBellyPan(_bellyPan, _bellyPanName);
@@ -235,14 +203,14 @@ namespace FRC2025
         /// <summary>
         /// Validates and retrieves a drive rail GameObject by name, creating a new one if it does not exist.
         /// </summary>
-        /// <remarks>If the <paramref name="referenceDriveRail"/> is null and no existing GameObject with
-        /// the specified <paramref name="name"/> is found, a new GameObject is created as a cube primitive, assigned
-        /// the specified name, and added as a child of the drive rails parent. The BoxCollider component of the newly
-        /// created GameObject is removed immediately.</remarks>
-        /// <param name="referenceDriveRail">The existing drive rail GameObject to validate. If null, a new drive rail will be created.</param>
-        /// <param name="name">The name of the drive rail to find or assign to the newly created GameObject.</param>
-        /// <returns>The validated or newly created drive rail GameObject. If a GameObject with the specified name exists as a
-        /// child of the drive rails parent, it is returned; otherwise, a new GameObject is created and returned.</returns>
+        /// <remarks>If <paramref name="referenceDriveRail"/> is <see langword="null"/>, the method
+        /// attempts to find a child GameObject with the specified <paramref name="name"/>  under the parent object. If
+        /// no such GameObject exists, a new GameObject is created as a cube primitive, assigned the specified name, and
+        /// parented to the drive rails parent.</remarks>
+        /// <param name="referenceDriveRail">The existing drive rail GameObject to validate. Can be <see langword="null"/>.</param>
+        /// <param name="name">The name of the drive rail to find or create.</param>
+        /// <returns>The validated or newly created drive rail GameObject. If <paramref name="referenceDriveRail"/> is not <see
+        /// langword="null"/>, it is returned as-is.</returns>
         private GameObject ValidateDriveRails(GameObject referenceDriveRail, string name)
         {
             if (referenceDriveRail != null) return referenceDriveRail;
@@ -261,18 +229,18 @@ namespace FRC2025
         }
 
         /// <summary>
-        /// Validates and retrieves a bumper GameObject, creating and configuring it if it does not already exist.
+        /// Validates and retrieves a bumper GameObject, creating and initializing it if it does not already exist.
         /// </summary>
-        /// <remarks>If the specified bumper GameObject does not exist, this method will instantiate a new
-        /// GameObject from the specified asset, assign it the specified name, parent it to the designated parent
-        /// transform, and add the specified type of <see cref="Collider"/> to it.</remarks>
+        /// <remarks>If the specified bumper GameObject does not exist, this method creates a new instance
+        /// of the bumper asset from the Resources folder, assigns it the specified name, sets its parent to the
+        /// designated bumpers parent transform, and adds the specified type of <see cref="Collider"/> to it.</remarks>
         /// <typeparam name="T">The type of <see cref="Collider"/> to add to the bumper GameObject if it needs to be created.</typeparam>
-        /// <param name="referenceBumper">The existing bumper GameObject to validate. If not null, it will be returned as-is.</param>
+        /// <param name="referenceBumper">The existing bumper GameObject to validate. If not null, this object is returned as-is.</param>
         /// <param name="objName">The name of the bumper GameObject to search for under the parent transform.</param>
-        /// <param name="subfolderDirectory">The relative path to the subfolder containing the asset to instantiate if the bumper does not exist.</param>
-        /// <param name="assetName">The name of the asset to load and instantiate if the bumper does not exist.</param>
-        /// <returns>The validated or newly created bumper GameObject. If the bumper already exists, it is returned as-is.
-        /// Otherwise, a new bumper GameObject is instantiated, configured, and returned.</returns>
+        /// <param name="subfolderDirectory">The directory path within the Resources folder where the bumper asset is located.</param>
+        /// <param name="assetName">The name of the asset file to load if the bumper GameObject needs to be created.</param>
+        /// <returns>The validated or newly created bumper GameObject. If the bumper already exists, it is returned directly.
+        /// Otherwise, a new bumper is instantiated, initialized, and returned.</returns>
         private GameObject ValidateBumpers<T>(GameObject referenceBumper, string objName, string subfolderDirectory, string assetName) where T : Collider
         {
             if (referenceBumper != null) return referenceBumper;
@@ -294,16 +262,14 @@ namespace FRC2025
         }
 
         /// <summary>
-        /// Validates and retrieves a belly pan GameObject by name, or creates a new one if it does not exist.
+        /// Validates and retrieves a belly pan GameObject based on the provided reference or name.
         /// </summary>
-        /// <remarks>If <paramref name="referenceBellyPan"/> is null, the method attempts to find a
-        /// GameObject with the specified name under the belly pan parent transform. If no such GameObject exists, a new
-        /// GameObject is created as a cube primitive, assigned the specified name, and parented to the belly pan parent
-        /// transform.</remarks>
-        /// <param name="referenceBellyPan">The reference GameObject to validate. If not null, it will be returned as is.</param>
-        /// <param name="name">The name of the belly pan to find or create.</param>
-        /// <returns>The validated or newly created belly pan GameObject. If <paramref name="referenceBellyPan"/> is null and no
-        /// existing GameObject with the specified name is found, a new GameObject is created and returned.</returns>
+        /// <param name="referenceBellyPan">The existing belly pan GameObject to validate. If this parameter is not null, it is returned as-is.</param>
+        /// <param name="name">The name of the belly pan to search for under the parent transform. If no matching GameObject is found, a
+        /// new GameObject with this name is created.</param>
+        /// <returns>The validated or newly created belly pan GameObject. If <paramref name="referenceBellyPan"/> is not null, it
+        /// is returned. Otherwise, the method searches for a GameObject with the specified <paramref name="name"/>
+        /// under the parent transform. If no such GameObject exists, a new GameObject is created, named, and returned.</returns>
         private GameObject ValidateBellyPan(GameObject referenceBellyPan, string name)
         {
             if (referenceBellyPan != null) return referenceBellyPan;
@@ -322,11 +288,11 @@ namespace FRC2025
         }
 
         /// <summary>
-        /// Updates the internal unit multipliers used for converting dimensions to meters.
+        /// Updates the internal multipliers for the robot's drive train dimensions based on the current unit settings.
         /// </summary>
-        /// <remarks>This method recalculates and updates the conversion factors for the robot perimeter, 
-        /// drive rail size, and belly pan thickness based on their respective units. The updated  multipliers are used
-        /// internally for dimension calculations.</remarks>
+        /// <remarks>This method recalculates and updates the multipliers used for the robot perimeter,
+        /// drive rail size, and belly pan thickness. The updated values are derived by converting the respective unit
+        /// settings to meters.</remarks>
         protected void UpdateDriveTrainMultipliers()
         {
             _robotPerimeterMultiplier = UnitToMeters(_robotPerimeterUnit);
@@ -335,11 +301,251 @@ namespace FRC2025
         }
 
         /// <summary>
+        /// Updates the position and scale of the drive rails.
+        /// </summary>
+        /// <remarks>This method adjusts the drive rails by updating their position and scale. It is
+        /// intended to ensure the drive rails are correctly aligned and sized based on the current state of the
+        /// system.</remarks>
+        private void UpdateDriveRails()
+        {
+            UpdateDriveRailPosition();
+            UpdateDriveRailScale();
+        }
+
+        /// <summary>
+        /// Updates the positions and orientations of the drive rails based on the current dimensions and configuration
+        /// of the robot.
+        /// </summary>
+        /// <remarks>This method calculates the offsets for each drive rail using the robot's width,
+        /// length, and scaling multipliers. The calculated positions are applied to the drive rails to ensure they
+        /// are correctly aligned relative to the robot's perimeter. The orientation of the drive rails is reset to the
+        /// default identity rotation.</remarks>
+        private void UpdateDriveRailPosition()
+        {
+            float xOffset = (_width / 2f) * _robotPerimeterMultiplier - (_driveRailWidth / 2f) * _driveRailSizeMultiplier;
+            float yOffset = 0f;
+            float zOffset = (_length / 2f) * _robotPerimeterMultiplier - (_driveRailWidth / 2f) * _driveRailSizeMultiplier;
+            Quaternion driveRailEulerOffset = Quaternion.identity;
+
+            Vector3[] driveRailPositionOffsets =
+            {
+                new (0f, yOffset,  zOffset),    // Front
+                new (0f, yOffset, -zOffset),    // Back
+                new (-xOffset, yOffset, 0f),    // Left
+                new (xOffset,  yOffset, 0f),    // Right
+            };
+
+            for (int i = 0; i < _driveRails.Length; i++)
+            {
+                _driveRails[i].transform.SetLocalPositionAndRotation(driveRailPositionOffsets[i], driveRailEulerOffset);
+            }
+        }
+
+        /// <summary>
+        /// Updates the scale of the drive rails based on the current dimensions and multipliers.
+        /// </summary>
+        /// <remarks>This method calculates the scale for each drive rail using the configured height,
+        /// width, and length dimensions, along with their respective multipliers. The calculated scales are then
+        /// applied to the local scale of each drive rail in the array.</remarks>
+        private void UpdateDriveRailScale()
+        {
+            float driveRailHeightScale = _driveRailHeight * _driveRailSizeMultiplier;
+            float driveRailWidthScale = _driveRailWidth * _driveRailSizeMultiplier;
+            float robotWidthScale = _width * _robotPerimeterMultiplier - _driveRailWidth * _driveRailSizeMultiplier * 2f + _driveRailWidth * _driveRailSizeMultiplier * 2f;
+            float robotLengthScale = _length * _robotPerimeterMultiplier - _driveRailWidth * _driveRailSizeMultiplier * 2f;
+
+            Vector3[] driveRailScaleOffsets =
+            {
+                new (robotWidthScale, driveRailHeightScale, driveRailWidthScale),   // Front
+                new (robotWidthScale, driveRailHeightScale, driveRailWidthScale),   // Back
+                new (driveRailWidthScale, driveRailHeightScale, robotLengthScale),  // Left
+                new (driveRailWidthScale, driveRailHeightScale, robotLengthScale)   // Right
+            };
+
+            for (int i = 0; i < _driveRails.Length; i++)
+            {
+                _driveRails[i].transform.localScale = driveRailScaleOffsets[i];
+            }
+        }
+
+        /// <summary>
+        /// Updates the positions and scales of the bumpers, including their edges and corners.
+        /// </summary>
+        /// <remarks>This method adjusts both the edge and corner positions and scales of the bumpers
+        /// to ensure they are correctly updated. It is intended to be called whenever the bumper layout or
+        /// dimensions need to be refreshed.</remarks>
+        private void UpdateBumpers()
+        {
+            UpdateBumperEdgePosition();
+            UpdateBumperEdgeScale();
+
+            UpdateBumperCornerPosition();
+            UpdateBumperCornerScale();
+        }
+
+        /// <summary>
+        /// Updates the positions and rotations of the bumper edges based on the robot's dimensions and perimeter
+        /// multiplier.
+        /// </summary>
+        /// <remarks>This method recalculates the local positions and rotations of the bumper edges
+        /// relative to the robot's center, using predefined offsets for each edge (front, back, left, and right). The
+        /// offsets are determined by the robot's width, length, and a perimeter multiplier. The updated positions and
+        /// rotations are applied to the corresponding transforms of the bumper edges.</remarks>
+        private void UpdateBumperEdgePosition()
+        {
+            float xOffset = (_width / 2f) * _robotPerimeterMultiplier;
+            float yOffset = 0f;
+            float zOffset = (_length / 2f) * _robotPerimeterMultiplier;
+
+            Quaternion[] bumperEdgeEulerOffsets =
+            {
+                Quaternion.Euler(0f, 0f,   0f), // Front
+                Quaternion.Euler(0f, 180f, 0f), // Back
+                Quaternion.Euler(0f, -90f, 0f), // Left
+                Quaternion.Euler(0f, 90f,  0f)  // Right
+            };
+
+            Vector3[] bumperEdgePositionOffets = 
+            {
+                new (0f, yOffset,  zOffset),    // Front
+                new (0f, yOffset, -zOffset),    // Back
+                new (-xOffset, yOffset, 0f),    // Left
+                new (xOffset,  yOffset, 0f),    // Right
+            };
+
+            for (int i = 0; i < _bumperEdges.Length; i++)
+            {
+                _bumperEdges[i].transform.SetLocalPositionAndRotation(bumperEdgePositionOffets[i], bumperEdgeEulerOffsets[i]);
+            }
+        }
+
+        /// <summary>
+        /// Updates the scale of the bumper edges based on the robot's dimensions and perimeter multiplier.
+        /// </summary>
+        /// <remarks>This method calculates the scale for each bumper edge using the robot's width,
+        /// length, and a perimeter multiplier. The calculated scales are then applied to the local scale of the
+        /// corresponding bumper edge transforms.</remarks>
+        private void UpdateBumperEdgeScale()
+        {
+            float bumperEdgeWidthScale = _width * _robotPerimeterMultiplier;
+            float bumperEdgeLengthScale = _length * _robotPerimeterMultiplier;
+
+            Vector3[] bumperEdgeScaleOffsets =
+            {
+                new (bumperEdgeWidthScale,  1f, 1f),    // Front
+                new (bumperEdgeWidthScale,  1f, 1f),    // Back
+                new (bumperEdgeLengthScale, 1f, 1f),    // Left
+                new (bumperEdgeLengthScale, 1f, 1f)     // Right
+            };
+
+            for (int i= 0; i < _bumperEdges.Length; i++)
+            {
+                _bumperEdges[i].transform.localScale = bumperEdgeScaleOffsets[i];
+            }
+        }
+
+        /// <summary>
+        /// Updates the positions and rotations of the bumper corners based on the robot's dimensions and perimeter
+        /// multiplier.
+        /// </summary>
+        /// <remarks>This method calculates the offsets for each bumper corner using the robot's width,
+        /// length, and perimeter multiplier. It then applies the calculated positions and rotations to the bumper
+        /// corner transforms.</remarks>
+        private void UpdateBumperCornerPosition()
+        {
+            float xOffset = (_width / 2f) * _robotPerimeterMultiplier;
+            float yOffset = 0f;
+            float zOffset = (_length / 2f) * _robotPerimeterMultiplier;
+
+            Quaternion[] bumperCornerEulerOffsets =
+            {
+                Quaternion.Euler(0f,   0f, 0f), // Front Left
+                Quaternion.Euler(0f,  90f, 0f), // Front Right
+                Quaternion.Euler(0f, -90f, 0f), // Back Left
+                Quaternion.Euler(0f, 180f, 0f)  // Back Right
+            };
+
+            Vector3[] bumperCornerPositionOffsets =
+            {
+                new (-xOffset, yOffset,  zOffset), // Front Left
+                new ( xOffset, yOffset,  zOffset), // Front Right
+                new (-xOffset, yOffset, -zOffset), // Back Left
+                new ( xOffset, yOffset, -zOffset)  // Back Right
+            };
+
+            for (int i = 0; i < _bumperCorners.Length; i++)
+            {
+                _bumperCorners[i].transform.SetLocalPositionAndRotation(bumperCornerPositionOffsets[i], bumperCornerEulerOffsets[i]);
+            }
+        }
+
+        /// <summary>
+        /// Updates the scale of all bumper corner objects to the default scale.
+        /// </summary>
+        /// <remarks>This method iterates through all bumper corner objects and sets their local scale to
+        /// a uniform scale of <see cref="Vector3.one"/>. Ensure that the <c>_bumperCorners</c> array is properly
+        /// initialized and populated before calling this method.</remarks>
+        private void UpdateBumperCornerScale()
+        {
+            Vector3 cornerScale = Vector3.one;
+
+            for (int i = 0; i < _bumperCorners.Length; i++)
+            {
+                _bumperCorners[i].transform.localScale = cornerScale;
+            }
+        }
+
+        /// <summary>
+        /// Updates the position and scale of the belly pan.
+        /// </summary>
+        /// <remarks>This method adjusts the belly pan's position and scale to ensure it is correctly
+        /// aligned and sized based on the current state of the system. It is intended to be called as part of the
+        /// update process for maintaining the belly pan's configuration.</remarks>
+        private void UpdateBellyPan()
+        {
+            UpdateBellyPanPosition();
+            UpdateBellyPanScale();
+        }
+
+        /// <summary>
+        /// Updates the position and rotation of the belly pan to align it with the current drive rail configuration.
+        /// </summary>
+        /// <remarks>This method adjusts the belly pan's local position and rotation based on the drive
+        /// rail height, size multiplier, and belly pan thickness. The belly pan is repositioned relative to the drive
+        /// rail to ensure proper alignment within the system.</remarks>
+        private void UpdateBellyPanPosition()
+        {
+            float xOffset = 0f;
+            float yOffset = -_driveRailHeight * _driveRailSizeMultiplier / 2f + _bellyPanThickness * _bellyPanThicknessMultiplier / 2f;
+            float zOffset = 0f;
+            Quaternion bellyPanEulerOffset = Quaternion.identity;
+
+            _bellyPan.transform.SetLocalPositionAndRotation(new Vector3(xOffset, yOffset, zOffset), bellyPanEulerOffset);
+        }
+
+        /// <summary>
+        /// Updates the scale of the belly pan based on the robot's dimensions and scaling multipliers.
+        /// </summary>
+        /// <remarks>This method calculates the belly pan's scale using the robot's width, length, and
+        /// thickness, adjusted by specific multipliers. The calculated scale is then applied to the belly pan's
+        /// transform. Ensure that all relevant dimensions and multipliers are set correctly before calling this
+        /// method.</remarks>
+        private void UpdateBellyPanScale()
+        {
+            float xScale = _width * _robotPerimeterMultiplier - _driveRailWidth * _driveRailSizeMultiplier * 2f;
+            float yScale = _bellyPanThickness * _bellyPanThicknessMultiplier;
+            float zScale = _length * _robotPerimeterMultiplier - _driveRailWidth * _driveRailSizeMultiplier * 2f;
+
+            _bellyPan.transform.localScale = new Vector3(xScale, yScale, zScale);
+        }
+
+        /// <summary>
         /// Converts a specified unit of measurement to its equivalent value in meters.
         /// </summary>
         /// <param name="unit">The unit of measurement to convert. Supported values include <see cref="UnitType.Meters"/>, <see
         /// cref="UnitType.Centimeters"/>, and <see cref="UnitType.Inches"/>.</param>
-        /// <returns>The equivalent value in meters. Returns 1 meter for unsupported or unknown unit types.</returns>
+        /// <returns>The equivalent value in meters as a <see cref="float"/>. If the unit is not recognized, the method defaults
+        /// to returning 1 meter.</returns>
         protected float UnitToMeters(UnitType unit) => unit switch
         {
             UnitType.Meters => 1f,
@@ -349,11 +555,12 @@ namespace FRC2025
         };
 
         /// <summary>
-        /// Attempts to remove this component from the GameObject if it has no parent transform.
+        /// Attempts to remove the specified component if the current object has no parent.
         /// </summary>
-        /// <remarks>This method immediately destroys the component if the <see cref="Transform.parent"/>
-        /// property is null. Use with caution, as <see cref="DestroyImmediate"/> is typically intended for editor use
-        /// and may have unintended side effects in runtime scenarios.</remarks>
+        /// <remarks>This method immediately destroys the specified component if the object's <see
+        /// cref="Transform.parent"/> is null. Use with caution, as <see cref="UnityEngine.Object.DestroyImmediate"/>
+        /// can have unintended side effects.</remarks>
+        /// <param name="script">The component to be removed. Must not be null.</param>
         protected void AttemptRemoveSelf(Component script)
         {
             if (transform.parent == null)
@@ -363,11 +570,11 @@ namespace FRC2025
         }
 
         /// <summary>
-        /// Removes all child GameObjects of the current Transform.
+        /// Resets the current object by either creating a new child object or removing all existing child objects.
         /// </summary>
-        /// <remarks>This method immediately destroys all child GameObjects of the Transform associated
-        /// with the current object. Use with caution, as this operation cannot be undone and will remove all child
-        /// objects without confirmation.</remarks>
+        /// <remarks>If the current object has no parent, a new child object is created with the same type
+        /// as the current object.  Otherwise, all child objects of the current object are destroyed
+        /// immediately.</remarks>
         private void Reset()
         {
             if (transform.parent == null)
