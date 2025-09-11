@@ -3,7 +3,7 @@ using UnityEngine;
 namespace FRC2025
 {
     [ExecuteInEditMode]
-    public class TankDriveGenerator : DriveTrain
+    public class TankDriveGenerator : DriveTrainGenerator<TankDriveSubsystem>
     {
 #if UNITY_EDITOR
         [Header("Tank Drive Settings")]

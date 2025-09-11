@@ -1,0 +1,76 @@
+{
+    "name": "FRC2025_9999Input",
+    "maps": [
+        {
+            "name": "Robot",
+            "id": "d111ea5b-d3bb-4f68-bf91-af4f03cf9816",
+            "actions": [
+                {
+                    "name": "Drive",
+                    "type": "Value",
+                    "id": "d8798bb0-d1a5-4d0e-9feb-ff201d9ba130",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Rotate",
+                    "type": "Value",
+                    "id": "09fa9863-6ae3-48a0-8f0f-53a972d46b61",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "15910b04-d8c4-403e-a717-1b8460fc6738",
+                    "path": "<Gamepad>/leftStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Drive",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8d6d8018-e2ed-47ef-8ecc-f28285a9c18d",
+                    "path": "<XInputController>/leftStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Drive",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "db4e3290-ef3d-44eb-91ae-428f42526f97",
+                    "path": "<Gamepad>/leftStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Rotate",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "68922cf4-c30e-4929-bc3c-e2d1c202bbce",
+                    "path": "<XInputController>/leftStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Rotate",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

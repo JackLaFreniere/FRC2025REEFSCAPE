@@ -3,7 +3,7 @@ using UnityEngine;
 namespace FRC2025
 {
     [ExecuteInEditMode]
-    public abstract class DriveTrain : MonoBehaviour
+    public abstract class DriveTrainGenerator<S> : MonoBehaviour where S : Component
     {
 #if UNITY_EDITOR
         [Header("Drive Train Settings")]
@@ -582,7 +582,7 @@ namespace FRC2025
                 GameObject child = new(_driveTrainName);
                 child.transform.SetParent(transform, false);
 
-                DriveTrain swerve = (DriveTrain) child.AddComponent(GetType());
+                DriveTrainGenerator<S> swerve = (DriveTrainGenerator<S>) child.AddComponent(GetType());
                 swerve._isInitialized = true;
 
                 return;
@@ -592,6 +592,8 @@ namespace FRC2025
             {
                 DestroyImmediate(child.gameObject);
             }
+
+            gameObject.AddComponent<S>();
         }
 #endif
     }

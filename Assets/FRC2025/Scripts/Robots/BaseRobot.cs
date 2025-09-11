@@ -7,13 +7,18 @@ namespace FRC2025
     {
         [Header("Robot Settings")]
         public AllianceColor AllianceColor;
-        
+
         private Dictionary<string, Subsystem> subsystems = new();
 
         private void Awake()
         {
+
             foreach (var subsystem in GetComponentsInChildren<Subsystem>())
                 subsystems[subsystem.SubsystemName] = subsystem;
+
+            var robotHandler = GetComponent<IRobotInputHandler>();
+            robotHandler.SetBaseRobot(this);
+            robotHandler.InputAwake();
         }
 
         public void ApplyPose(RobotPose pose)
@@ -38,5 +43,8 @@ namespace FRC2025
                 if (s is T t) return t;
             return null;
         }
+
+        private void OnEnable() => GetComponent<IRobotInputHandler>().InputOnEnable();
+        private void OnDisable() => GetComponent<IRobotInputHandler>().InputOnDisable();
     }
 }
