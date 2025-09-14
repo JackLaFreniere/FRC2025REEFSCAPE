@@ -39,17 +39,6 @@ namespace FRC2025
         }
 
         /// <summary>
-        /// Initiates the process of removing the current instance from its context.
-        /// </summary>
-        /// <remarks>This method triggers the removal of the current instance by invoking the 
-        /// <c>AttemptRemoveSelf</c> method. Ensure that the instance is in a valid state before calling this method to
-        /// avoid unexpected behavior.</remarks>
-        private void Start()
-        {
-            AttemptRemoveSelf(this);
-        }
-
-        /// <summary>
         /// Updates the state of the object, ensuring all components are initialized and synchronized.
         /// </summary>
         /// <remarks>This method performs several operations to prepare and update the object's wheels and
@@ -193,8 +182,8 @@ namespace FRC2025
         private WheelCollider UpdateWheelCollider(WheelCollider referenceWheelCollider, GameObject wheel)
         {
             referenceWheelCollider.radius = 0.5f * wheel.transform.localScale.x / wheel.transform.localScale.y;
-            //referenceWheelCollider.suspensionDistance = 0f;
-            //referenceWheelCollider.mass = 5f;
+            referenceWheelCollider.suspensionDistance = 0f;
+            referenceWheelCollider.mass = 1f;
             referenceWheelCollider.brakeTorque = 0f;
 
             return referenceWheelCollider;

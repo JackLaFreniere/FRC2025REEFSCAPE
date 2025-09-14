@@ -80,6 +80,17 @@ namespace FRC2025
         protected float _bellyPanThicknessMultiplier;
 
         /// <summary>
+        /// Initiates the process of removing the current instance from its context.
+        /// </summary>
+        /// <remarks>This method triggers the removal of the current instance by invoking the 
+        /// <c>AttemptRemoveSelf</c> method. Ensure that the instance is in a valid state  before calling this method to
+        /// avoid unexpected behavior.</remarks>
+        private void Start()
+        {
+            AttemptRemoveSelf(this);
+        }
+
+        /// <summary>
         /// Updates the state of the object and its associated components, ensuring that all necessary elements
         /// are initialized and their transforms are updated.
         /// </summary>
@@ -561,7 +572,7 @@ namespace FRC2025
         /// cref="Transform.parent"/> is null. Use with caution, as <see cref="UnityEngine.Object.DestroyImmediate"/>
         /// can have unintended side effects.</remarks>
         /// <param name="script">The component to be removed. Must not be null.</param>
-        protected void AttemptRemoveSelf(Component script)
+        private void AttemptRemoveSelf(Component script)
         {
             if (transform.parent == null)
             {
