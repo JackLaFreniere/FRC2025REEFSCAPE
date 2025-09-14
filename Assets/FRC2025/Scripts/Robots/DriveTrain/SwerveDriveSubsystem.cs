@@ -8,46 +8,67 @@ namespace FRC2025
         [SerializeField] private float _driveSpeed = 500f;
         [SerializeField] private float _steerSpeed = 180f; // degrees per second
 
-        // Each wheel's steering transform (should be set up in the generator)
-        [SerializeField] private Transform[] _steerTransforms = new Transform[4];
+        private Transform[] _wheelTransforms;
+
+        private new void Awake()
+        {
+            base.Awake();
+
+            GetWheelSteerTransforms();
+        }
 
         private void FixedUpdate()
         {
+#if UNITY_EDITOR
+            UpdateWheelColliders();
+#endif
+
             // Joystick inputs: y = forward/back, x = strafe, z = rotation (if available)
             float forward = Mathf.Clamp(_leftJoystickInput.y, -1f, 1f);
             float strafe = Mathf.Clamp(_leftJoystickInput.x, -1f, 1f);
             float rotate = Mathf.Clamp(_rightJoystickInput.x, -1f, 1f);
 
-            if (_wheelColliders == null || _steerTransforms == null || _steerTransforms.Length != 4)
-                return;
+            if (_wheelColliders == null || _wheelTransforms == null) return;
 
-            // Calculate desired wheel angles and speeds for swerve
-            for (int i = 0; i < 4; i++)
+            // Only update wheel angles if there is input
+            if (Mathf.Abs(forward) > 0.01f || Mathf.Abs(strafe) > 0.01f || Mathf.Abs(rotate) > 0.01f)
             {
-                // Wheel position relative to robot center
-                Vector2 wheelOffset = GetWheelOffset(i);
-
-                // Calculate desired wheel direction (vector sum of translation and rotation)
-                Vector2 moveDir = new Vector2(strafe, forward);
-                Vector2 rotationDir = new Vector2(-wheelOffset.y, wheelOffset.x) * rotate;
-                Vector2 desiredDir = moveDir + rotationDir;
-
-                float desiredAngle = Mathf.Atan2(desiredDir.x, desiredDir.y) * Mathf.Rad2Deg;
-                float desiredSpeed = desiredDir.magnitude * _driveSpeed;
-
-                // Rotate wheel to desired angle
-                if (_steerTransforms[i] != null)
+                for (int i = 0; i < 4; i++)
                 {
-                    float currentAngle = _steerTransforms[i].localEulerAngles.y;
-                    float angleDelta = Mathf.DeltaAngle(currentAngle, desiredAngle);
-                    float steerStep = Mathf.Clamp(angleDelta, -_steerSpeed * Time.fixedDeltaTime, _steerSpeed * Time.fixedDeltaTime);
-                    _steerTransforms[i].localRotation = Quaternion.Euler(0f, currentAngle + steerStep, 0f);
-                }
+                    // Wheel position relative to robot center
+                    Vector2 wheelOffset = GetWheelOffset(i);
 
-                // Apply drive force in the wheel's forward direction
-                if (_wheelColliders[i] != null)
-                {
-                    _wheelColliders[i].motorTorque = desiredSpeed;
+                    // Calculate desired wheel direction (vector sum of translation and rotation)
+                    Vector2 moveDir = new Vector2(strafe, forward);
+                    Vector2 rotationDir = new Vector2(-wheelOffset.y, wheelOffset.x) * rotate;
+                    Vector2 desiredDir = moveDir + rotationDir;
+
+                    // Calculate the orientation (angle) the wheel should face
+                    float desiredAngle = Mathf.Atan2(desiredDir.x, desiredDir.y) * Mathf.Rad2Deg;
+
+                    // Rotate wheel to desired angle, flipping if closer to opposite
+                    if (_wheelTransforms[i] != null)
+                    {
+                        float currentAngle = _wheelTransforms[i].localEulerAngles.y;
+                        float angleDelta = Mathf.DeltaAngle(currentAngle, desiredAngle);
+
+                        // Check if flipping 180 is closer
+                        float flippedAngle = (desiredAngle + 180f) % 360f;
+                        float flippedDelta = Mathf.DeltaAngle(currentAngle, flippedAngle);
+
+                        if (Mathf.Abs(flippedDelta) < Mathf.Abs(angleDelta))
+                        {
+                            // Flip wheel 180 degrees and steer toward flippedAngle
+                            float steerStep = Mathf.Clamp(flippedDelta, -_steerSpeed * Time.fixedDeltaTime, _steerSpeed * Time.fixedDeltaTime);
+                            _wheelTransforms[i].localRotation = Quaternion.Euler(0f, currentAngle + steerStep, 90f);
+                        }
+                        else
+                        {
+                            // Steer toward desiredAngle normally
+                            float steerStep = Mathf.Clamp(angleDelta, -_steerSpeed * Time.fixedDeltaTime, _steerSpeed * Time.fixedDeltaTime);
+                            _wheelTransforms[i].localRotation = Quaternion.Euler(0f, currentAngle + steerStep, 90f);
+                        }
+                    }
                 }
             }
         }
@@ -61,9 +82,14 @@ namespace FRC2025
             return new Vector2(x, y);
         }
 
-        public void SetSteerTransforms(Transform[] transforms)
+        public void GetWheelSteerTransforms()
         {
-            _steerTransforms = transforms;
+            _wheelTransforms = new Transform[_wheelColliders.Length];
+
+            for (int i = 0; i < _wheelTransforms.Length; i++)
+            {
+                _wheelTransforms[i] = _wheelColliders[i].transform;
+            }
         }
     }
 }

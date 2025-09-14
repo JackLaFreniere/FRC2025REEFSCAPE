@@ -47,13 +47,6 @@ namespace FRC2025
             UpdateWheelPosition();
             UpdateWheelScale();
             UpdateWheelColliders();
-
-            // After wheels are created and positioned
-            var subsystem = GetComponent<SwerveDriveSubsystem>();
-            if (subsystem != null)
-            {
-                subsystem.SetSteerTransforms(GetWheelSteerTransforms());
-            }
         }
 
         private void InitializeWheels()
@@ -103,7 +96,8 @@ namespace FRC2025
 
             for (int i = 0; i < _wheels.Length; i++)
             {
-                _wheels[i].transform.SetLocalPositionAndRotation(wheelPositionOffsets[i], eulerOffset);
+                _wheels[i].transform.localPosition = wheelPositionOffsets[i];
+                //_wheels[i].transform.SetLocalPositionAndRotation(wheelPositionOffsets[i], eulerOffset);
             }
         }
 
@@ -134,23 +128,6 @@ namespace FRC2025
             referenceWheelCollider.mass = 1f;
             referenceWheelCollider.brakeTorque = 0f;
             return referenceWheelCollider;
-        }
-
-        /// <summary>
-        /// Returns the transforms of all wheel GameObjects for use in the SwerveDriveSubsystem.
-        /// </summary>
-        public Transform[] GetWheelSteerTransforms()
-        {
-            Transform[] steerTransforms = new Transform[_numWheels];
-            for (int i = 0; i < _numWheels; i++)
-            {
-                Transform wheelTransform = _wheels[i].transform;
-                if (wheelTransform != null)
-                {
-                    steerTransforms[i] = wheelTransform;
-                }
-            }
-            return steerTransforms;
         }
 #endif
     }
