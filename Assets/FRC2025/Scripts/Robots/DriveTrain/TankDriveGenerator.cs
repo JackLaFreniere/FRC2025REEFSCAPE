@@ -182,9 +182,6 @@ namespace FRC2025
         private WheelCollider UpdateWheelCollider(WheelCollider referenceWheelCollider, GameObject wheel)
         {
             referenceWheelCollider.radius = 0.5f * wheel.transform.localScale.x / wheel.transform.localScale.y;
-            referenceWheelCollider.suspensionDistance = 0f;
-            referenceWheelCollider.mass = 1f;
-            referenceWheelCollider.brakeTorque = 0f;
 
             return referenceWheelCollider;
         }
