@@ -7,7 +7,9 @@ namespace FRC2025
     {
         [Header("Swerve Drive Settings")]
         [SerializeField] private bool _isFieldCentric = true;
-        [SerializeField] private float _driveSpeed = 10f;
+        [SerializeField] private float _driveForceMultiplier = 10f;
+        [SerializeField] private float _rotateForceMultiplier = 10f;
+        [SerializeField] private float _breakTorque = 100;
         [SerializeField] private float _steerSpeed = 720f; // degrees per second
 
         [Header("Deadband Settings")]
@@ -54,6 +56,7 @@ namespace FRC2025
                 for (int i = 0; i < 4; i++)
                 {
                     _wheelColliders[i].motorTorque = 0f;
+                    _wheelColliders[i].brakeTorque = _breakTorque;
                 }
 
                 return;
@@ -62,7 +65,6 @@ namespace FRC2025
             Vector2[] targetVectors = new Vector2[4];
 
             targetVectors = GetTargetVectors(targetVectors, forward, strafe, rotate);
-            targetVectors = NormalizeVectors(targetVectors);
 
             UpdateAllWheels(targetVectors);
         }
@@ -204,42 +206,11 @@ namespace FRC2025
         {
             for (int i = 0; i < 4; i++)
             {
-                Vector2 forwardVector = GetDriveForwardVector2() * forward;
-                Vector2 strafeVector = GetDriveRightVector2() * strafe;
-                Vector2 rotateVector = GetDriveRotateVector2(i) * rotate;
+                Vector2 forwardVector = _driveForceMultiplier * forward * GetDriveForwardVector2();
+                Vector2 strafeVector = _driveForceMultiplier * strafe * GetDriveRightVector2();
+                Vector2 rotateVector = _rotateForceMultiplier * rotate * GetDriveRotateVector2(i);
 
                 vectors[i] = forwardVector + strafeVector + rotateVector;
-            }
-
-            return vectors;
-        }
-
-        /// <summary>
-        /// Normalizes an array of 2D vectors so that their magnitudes are scaled relative to the largest magnitude in
-        /// the array.
-        /// </summary>
-        /// <remarks>This method modifies the input array in place. If the largest magnitude in the array
-        /// is greater than 1, all vectors are scaled down proportionally to ensure the largest magnitude becomes 1. 
-        /// If the array is empty, it is returned unchanged.</remarks>
-        /// <param name="vectors">An array of <see cref="Vector2"/> instances to normalize. The array must not be null.</param>
-        /// <returns>The input array of vectors, where each vector is scaled by the largest magnitude in the array if it exceeds
-        /// 1. If all vectors have magnitudes less than or equal to 1, the array is returned unchanged.</returns>
-        private Vector2[] NormalizeVectors(Vector2[] vectors)
-        {
-            float maxMagnitude = 0f;
-            for (int i = 0; i < vectors.Length; i++)
-            {
-                float mag = vectors[i].magnitude;
-                if (mag > maxMagnitude)
-                    maxMagnitude = mag;
-            }
-
-            if (maxMagnitude > 1f)
-            {
-                for (int i = 0; i < vectors.Length; i++)
-                {
-                    vectors[i] /= maxMagnitude;
-                }
             }
 
             return vectors;
@@ -264,7 +235,7 @@ namespace FRC2025
 
                 float angleDiff = Mathf.DeltaAngle(currentAngle, targetAngle);
                 float steerStep = _steerSpeed * Time.fixedDeltaTime;
-                float driveTorque = targetVector.magnitude * _driveSpeed;
+                float driveTorque = targetVector.magnitude;
 
                 // If the shortest path to the target angle is more than 90 degrees,
                 // flip the target angle by 180 and invert the drive torque

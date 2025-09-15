@@ -1574,6 +1574,10 @@ PrefabInstance:
       value: 720
       objectReference: {fileID: 0}
     - target: {fileID: 2353271605166258757, guid: 21bed2c80d0cd5e4590b17a13008b655, type: 3}
+      propertyPath: _breakTorque
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 2353271605166258757, guid: 21bed2c80d0cd5e4590b17a13008b655, type: 3}
       propertyPath: _forwardStiffness
       value: 5
       objectReference: {fileID: 0}
@@ -1592,6 +1596,14 @@ PrefabInstance:
     - target: {fileID: 2353271605166258757, guid: 21bed2c80d0cd5e4590b17a13008b655, type: 3}
       propertyPath: _suspensionDistance
       value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 2353271605166258757, guid: 21bed2c80d0cd5e4590b17a13008b655, type: 3}
+      propertyPath: _driveForceMultiplier
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2353271605166258757, guid: 21bed2c80d0cd5e4590b17a13008b655, type: 3}
+      propertyPath: _rotateForceMultiplier
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3714756117968608410, guid: 21bed2c80d0cd5e4590b17a13008b655, type: 3}
       propertyPath: m_Name
