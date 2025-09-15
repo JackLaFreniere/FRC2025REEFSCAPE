@@ -3455,29 +3455,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _mass: 20
   _wheelDampingRate: 0.25
-  _suspensionDistance: 0.3
+  _suspensionDistance: 0.05
   _forceAppPointDistance: 0
   _center: {x: 0, y: 0, z: 0}
-  _suspensionSpring: 35000
-  _suspensionDamper: 4500
+  _suspensionSpring: 45
+  _suspensionDamper: 4.5
   _suspensionTargetPosition: 0.5
   _forwardExtremumSlip: 0.4
   _forwardExtremumValue: 1
   _forwardAsymptoteSlip: 0.8
   _forwardAsymptoteValue: 0.5
-  _forwardStiffness: 1
+  _forwardStiffness: 5
   _sidewaysExtremumSlip: 0.2
   _sidewaysExtremumValue: 1
   _sidewaysAsymptoteSlip: 0.5
   _sidewaysAsymptoteValue: 0.75
-  _sidewaysStiffness: 1
-  _driveSpeed: 500
-  _steerSpeed: 180
-  _steerTransforms:
-  - {fileID: 7378459508025663125}
-  - {fileID: 3430727217647124757}
-  - {fileID: 684013186990294726}
-  - {fileID: 9166580196068442107}
+  _sidewaysStiffness: 0.4
+  _isFieldCentric: 1
+  _driveForceMultiplier: 15
+  _rotateForceMultiplier: 7
+  _breakTorque: 14
+  _steerSpeed: 720
+  _driveDeadband: 0.01
+  _rotateDeadband: 0.01
 --- !u!54 &7963332981937845297
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3486,7 +3486,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6883523901566051623}
   serializedVersion: 5
-  m_Mass: 1
+  m_Mass: 61
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -3504,7 +3504,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!1 &6965877047882177918
 GameObject:
   m_ObjectHideFlags: 0

@@ -1565,46 +1565,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2353271605166258757, guid: 21bed2c80d0cd5e4590b17a13008b655, type: 3}
-      propertyPath: _driveSpeed
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 2353271605166258757, guid: 21bed2c80d0cd5e4590b17a13008b655, type: 3}
-      propertyPath: _steerSpeed
-      value: 720
-      objectReference: {fileID: 0}
-    - target: {fileID: 2353271605166258757, guid: 21bed2c80d0cd5e4590b17a13008b655, type: 3}
-      propertyPath: _breakTorque
-      value: 14
-      objectReference: {fileID: 0}
-    - target: {fileID: 2353271605166258757, guid: 21bed2c80d0cd5e4590b17a13008b655, type: 3}
-      propertyPath: _forwardStiffness
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2353271605166258757, guid: 21bed2c80d0cd5e4590b17a13008b655, type: 3}
-      propertyPath: _suspensionDamper
-      value: 4.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2353271605166258757, guid: 21bed2c80d0cd5e4590b17a13008b655, type: 3}
-      propertyPath: _suspensionSpring
-      value: 45
-      objectReference: {fileID: 0}
-    - target: {fileID: 2353271605166258757, guid: 21bed2c80d0cd5e4590b17a13008b655, type: 3}
-      propertyPath: _sidewaysStiffness
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2353271605166258757, guid: 21bed2c80d0cd5e4590b17a13008b655, type: 3}
-      propertyPath: _suspensionDistance
-      value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 2353271605166258757, guid: 21bed2c80d0cd5e4590b17a13008b655, type: 3}
-      propertyPath: _driveForceMultiplier
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 2353271605166258757, guid: 21bed2c80d0cd5e4590b17a13008b655, type: 3}
-      propertyPath: _rotateForceMultiplier
-      value: 7
-      objectReference: {fileID: 0}
     - target: {fileID: 3714756117968608410, guid: 21bed2c80d0cd5e4590b17a13008b655, type: 3}
       propertyPath: m_Name
       value: FRC2025_9999
@@ -1647,22 +1607,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4984795144125454242, guid: 21bed2c80d0cd5e4590b17a13008b655, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6883523901566051623, guid: 21bed2c80d0cd5e4590b17a13008b655, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7963332981937845297, guid: 21bed2c80d0cd5e4590b17a13008b655, type: 3}
-      propertyPath: m_Mass
-      value: 61
-      objectReference: {fileID: 0}
-    - target: {fileID: 7963332981937845297, guid: 21bed2c80d0cd5e4590b17a13008b655, type: 3}
-      propertyPath: m_CollisionDetection
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7993495824413056642, guid: 21bed2c80d0cd5e4590b17a13008b655, type: 3}
-      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
