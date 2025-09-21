@@ -28,7 +28,7 @@ namespace FRC2025
 
         private void Awake()
         {
-            _driveTrainName = "Swerve Drive";
+            _name = "Swerve Drive";
             _wheels = new GameObject[_numWheels];
             _wheelColliders = new WheelCollider[_numWheels];
         }
@@ -41,7 +41,7 @@ namespace FRC2025
             ValidateDirectory(ref _wheelsParent, _wheelsParentName);
             InitializeWheels();
 
-            _wheelMultiplier = UnitToMeters(_wheelUnit);
+            _wheelMultiplier = RobotHelper.UnitToMeters(_wheelUnit);
             UpdateDriveTrainMultipliers();
 
             UpdateWheelPosition();
@@ -97,7 +97,11 @@ namespace FRC2025
             for (int i = 0; i < _wheels.Length; i++)
             {
                 _wheels[i].transform.localPosition = wheelPositionOffsets[i];
-                //_wheels[i].transform.SetLocalPositionAndRotation(wheelPositionOffsets[i], eulerOffset);
+
+                if (!Application.isPlaying)
+                {
+                    _wheels[i].transform.localRotation = eulerOffset;
+                }
             }
         }
 

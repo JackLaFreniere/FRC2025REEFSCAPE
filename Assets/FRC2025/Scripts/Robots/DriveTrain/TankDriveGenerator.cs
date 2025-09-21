@@ -26,7 +26,7 @@ namespace FRC2025
         /// Unity lifecycle to ensure the object is properly initialized before use.</remarks>
         private void Awake()
         {
-            _driveTrainName = "Tank Drive";
+            _name = "Tank Drive";
 
             _wheelNames = new string[]
             {
@@ -53,7 +53,7 @@ namespace FRC2025
             ValidateDirectory(ref _wheelsParent, _wheelsParentName);
             InitializeWheels();
 
-            _wheelMultiplier = UnitToMeters(_wheelUnit);
+            _wheelMultiplier = RobotHelper.UnitToMeters(_wheelUnit);
             UpdateDriveTrainMultipliers();
 
             UpdateWheelPosition();

@@ -60,5 +60,13 @@ namespace FRC2025
             
             return baseRobot.AllianceColor == allianceColor;
         }
+
+        public static float UnitToMeters(UnitType unit) => unit switch
+        {
+            UnitType.Meters => 1f,
+            UnitType.Centimeters => 0.01f,
+            UnitType.Inches => 0.0254f,
+            _ => 1f
+        };
     }
 }

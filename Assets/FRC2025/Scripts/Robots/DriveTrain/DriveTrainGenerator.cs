@@ -3,7 +3,7 @@ using UnityEngine;
 namespace FRC2025
 {
     [ExecuteInEditMode]
-    public abstract class DriveTrainGenerator<S> : MonoBehaviour where S : Component
+    public abstract class DriveTrainGenerator<S> : Generator<S> where S : Component
     {
 #if UNITY_EDITOR
         [Header("Drive Train Settings")]
@@ -22,7 +22,6 @@ namespace FRC2025
         [SerializeField, Min(0)] protected float _bellyPanThickness = 1f;
 
         // Internal functionality
-        protected bool _isInitialized = false;
         protected Rigidbody _rigidbody;
 
         // Parent objects for organization
@@ -40,7 +39,6 @@ namespace FRC2025
         protected WheelCollider[] _wheelColliders;
 
         // Parent names 
-        protected string _driveTrainName;
         private readonly string _driveRailsName = "Drive Rails";
         private readonly string _bumpersName = "Bumpers";
         private readonly string _bellyPanName = "Belly Pan";
@@ -78,17 +76,6 @@ namespace FRC2025
         protected float _robotPerimeterMultiplier;
         protected float _driveRailSizeMultiplier;
         protected float _bellyPanThicknessMultiplier;
-
-        /// <summary>
-        /// Initiates the process of removing the current instance from its context.
-        /// </summary>
-        /// <remarks>This method triggers the removal of the current instance by invoking the 
-        /// <c>AttemptRemoveSelf</c> method. Ensure that the instance is in a valid state  before calling this method to
-        /// avoid unexpected behavior.</remarks>
-        private void Start()
-        {
-            AttemptRemoveSelf(this);
-        }
 
         /// <summary>
         /// Updates the state of the object and its associated components, ensuring that all necessary elements
@@ -306,9 +293,9 @@ namespace FRC2025
         /// settings to meters.</remarks>
         protected void UpdateDriveTrainMultipliers()
         {
-            _robotPerimeterMultiplier = UnitToMeters(_robotPerimeterUnit);
-            _driveRailSizeMultiplier = UnitToMeters(_driveRailUnit);
-            _bellyPanThicknessMultiplier = UnitToMeters(_bellyPanUnit);
+            _robotPerimeterMultiplier = RobotHelper.UnitToMeters(_robotPerimeterUnit);
+            _driveRailSizeMultiplier = RobotHelper.UnitToMeters(_driveRailUnit);
+            _bellyPanThicknessMultiplier = RobotHelper.UnitToMeters(_bellyPanUnit);
         }
 
         /// <summary>
@@ -548,63 +535,6 @@ namespace FRC2025
             float zScale = _length * _robotPerimeterMultiplier - _driveRailWidth * _driveRailSizeMultiplier * 2f;
 
             _bellyPan.transform.localScale = new Vector3(xScale, yScale, zScale);
-        }
-
-        /// <summary>
-        /// Converts a specified unit of measurement to its equivalent value in meters.
-        /// </summary>
-        /// <param name="unit">The unit of measurement to convert. Supported values include <see cref="UnitType.Meters"/>, <see
-        /// cref="UnitType.Centimeters"/>, and <see cref="UnitType.Inches"/>.</param>
-        /// <returns>The equivalent value in meters as a <see cref="float"/>. If the unit is not recognized, the method defaults
-        /// to returning 1 meter.</returns>
-        protected float UnitToMeters(UnitType unit) => unit switch
-        {
-            UnitType.Meters => 1f,
-            UnitType.Centimeters => 0.01f,
-            UnitType.Inches => 0.0254f,
-            _ => 1f
-        };
-
-        /// <summary>
-        /// Attempts to remove the specified component if the current object has no parent.
-        /// </summary>
-        /// <remarks>This method immediately destroys the specified component if the object's <see
-        /// cref="Transform.parent"/> is null. Use with caution, as <see cref="UnityEngine.Object.DestroyImmediate"/>
-        /// can have unintended side effects.</remarks>
-        /// <param name="script">The component to be removed. Must not be null.</param>
-        private void AttemptRemoveSelf(Component script)
-        {
-            if (transform.parent == null)
-            {
-                DestroyImmediate(script);
-            }
-        }
-
-        /// <summary>
-        /// Resets the current object by either creating a new child object or removing all existing child objects.
-        /// </summary>
-        /// <remarks>If the current object has no parent, a new child object is created with the same type
-        /// as the current object.  Otherwise, all child objects of the current object are destroyed
-        /// immediately.</remarks>
-        private void Reset()
-        {
-            if (transform.parent == null)
-            {
-                GameObject child = new(_driveTrainName);
-                child.transform.SetParent(transform, false);
-
-                DriveTrainGenerator<S> swerve = (DriveTrainGenerator<S>) child.AddComponent(GetType());
-                swerve._isInitialized = true;
-
-                return;
-            }
-
-            foreach (Transform child in transform)
-            {
-                DestroyImmediate(child.gameObject);
-            }
-
-            gameObject.AddComponent<S>();
         }
 #endif
     }
