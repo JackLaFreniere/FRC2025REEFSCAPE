@@ -110,35 +110,6 @@ namespace FRC2025
         }
 
         /// <summary>
-        /// Ensures that the specified directory exists by validating or creating it.
-        /// </summary>
-        /// <remarks>If the directory is created, it will be parented to the current object's transform,
-        /// and its local position and rotation will be set to <see cref="Vector3.zero"/> and <see
-        /// cref="Quaternion.identity"/>, respectively.</remarks>
-        /// <param name="directory">A reference to the <see cref="GameObject"/> representing the directory. If the directory is <see
-        /// langword="null"/>, it will be initialized to an existing child object with the specified name, or a new
-        /// <see cref="GameObject"/> will be created if no such child exists.</param>
-        /// <param name="name">The name of the directory to validate or create. This is used to locate an existing child object or to
-        /// assign the name to a newly created <see cref="GameObject"/>.</param>
-        protected void ValidateDirectory(ref GameObject directory, string name)
-        {
-            if (directory != null) return;
-
-            if (transform.Find(name) != null)
-            {
-                directory = transform.Find(name).gameObject;
-                return;
-            }
-
-            directory = new(name)
-            {
-                name = name
-            };
-            directory.transform.SetParent(transform);
-            directory.transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
-        }
-
-        /// <summary>
         /// Ensures that the specified <see cref="Rigidbody"/> reference is not null by assigning it to an existing 
         /// <see cref="Rigidbody"/> component on the current GameObject or by adding a new one if none exists.
         /// </summary>
