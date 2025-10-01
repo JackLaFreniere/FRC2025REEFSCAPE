@@ -82,7 +82,23 @@ namespace FRC2025
         {
             if (directory != null) return;
 
-            Transform target = parent == null ? transform.Find(name): parent.transform.Find(name);
+            if (parent == null)
+            {
+                string partsName = this.name + " Parts";
+                Transform parts = transform.Find(partsName);
+                if (parts == null)
+                {
+                    parent = new(this.name + " Parts");
+                    parent.transform.SetParent(transform);
+                    parent.transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
+                }
+                else
+                {
+                    parent = parts.gameObject;
+                }
+            }
+
+            Transform target = parent.transform.Find(name);
             if (target!= null)
             {
                 directory = target.gameObject;
