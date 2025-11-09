@@ -63,6 +63,8 @@ namespace FRC2025
             ValidateDirectory(ref _topStageParent, _topStageParentName);
             ValidateDirectory(ref _intermediateStagesParent, _intermediateStagesParentName);
 
+            InitializeConfigurableJoint(_topStageParent);
+
             // Validate base and top stages (each has 2 cubes)
             _baseStage = ValidateStage(_baseStage, _baseStageParent, _baseStageParentName);
             _topStage = ValidateStage(_topStage, _topStageParent, _topStageParentName);
@@ -91,6 +93,7 @@ namespace FRC2025
                 GameObject subParent = null;
                 string name = _intermediateStageName + " " + (_intermediateStagesSubParents.Count + 1);
                 ValidateDirectory(ref subParent, name, _intermediateStagesParent);
+                InitializeConfigurableJoint(subParent);
                 _intermediateStagesSubParents.Add(subParent);
             }
 
@@ -222,6 +225,51 @@ namespace FRC2025
                 stageObjects[1].transform.localScale = new Vector3(width, height, length);
                 stageObjects[1].transform.localPosition = rightPos;
             }
+        }
+
+        private void InitializeConfigurableJoint(GameObject stage)
+        {
+            if (stage == null) return;
+
+            // Reuse existing joint if present, otherwise create one.
+            ConfigurableJoint joint = stage.GetComponent<ConfigurableJoint>();
+            if (joint == null)
+            {
+                joint = stage.AddComponent<ConfigurableJoint>();
+            }
+
+            // Prefer connecting to the stage's parent rigidbody if available so motion is relative to parent.
+            Rigidbody parentRb = stage.transform.parent != null ? stage.transform.parent.GetComponent<Rigidbody>() : null;
+            joint.connectedBody = parentRb;
+
+            // Common joint basics
+            joint.anchor = Vector3.zero;
+            joint.axis = Vector3.forward;
+            joint.secondaryAxis = Vector3.zero;
+
+            // Linear motion: lock X and Z, allow limited Y (sliding). Use a generous soft limit so editor won't clip.
+            joint.xMotion = ConfigurableJointMotion.Locked;
+            joint.yMotion = ConfigurableJointMotion.Limited;
+            joint.zMotion = ConfigurableJointMotion.Locked;
+
+            // Angular motion: fully locked (no rotation of stage body)
+            joint.angularXMotion = ConfigurableJointMotion.Locked;
+            joint.angularYMotion = ConfigurableJointMotion.Locked;
+            joint.angularZMotion = ConfigurableJointMotion.Locked;
+
+            SoftJointLimit linearLimit = new SoftJointLimit()
+            {
+                limit = _tubingHeight * _tubingUnitMultiplier
+            };
+            joint.linearLimit = linearLimit;
+
+            JointDrive yDrive = new()
+            {
+                positionSpring = 1000f,
+                positionDamper = 100f,
+                maximumForce = Mathf.Infinity
+            };
+            joint.yDrive = yDrive;
         }
 #endif
     }
