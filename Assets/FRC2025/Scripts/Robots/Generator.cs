@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
 namespace FRC2025
@@ -24,7 +23,7 @@ namespace FRC2025
         /// specified, the current local position and rotation are used as the fallback.</remarks>
         protected void Start()
         {
-            AttemptRemoveSelf(this);
+            if (AttemptRemoveSelf(this)) return;
 
             _initialPosition = transform.position;
             _initialRotation = transform.rotation.eulerAngles;
@@ -75,12 +74,15 @@ namespace FRC2025
         /// cref="UnityEngine.Object.DestroyImmediate"/> can have unintended side effects if called during certain
         /// Unity lifecycle events.</remarks>
         /// <param name="script">The component to be removed. Must not be null.</param>
-        private void AttemptRemoveSelf(Component script)
+        private bool AttemptRemoveSelf(Component script)
         {
             if (transform.parent == null)
             {
                 DestroyImmediate(script);
+                return true;
             }
+
+            return false;
         }
 
         /// <summary>
@@ -157,6 +159,20 @@ namespace FRC2025
             directory = new(name);
             directory.transform.SetParent(parent == null ? transform : parent.transform);
             directory.transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
+        }
+
+        /// <summary>
+        /// Sets the layer of the specified <see cref="GameObject"/> and all its child objects recursively.
+        /// </summary>
+        /// <remarks>This method updates the layer of the specified <paramref name="obj"/> and traverses
+        /// its hierarchy, ensuring that all child objects are assigned the same layer.</remarks>
+        /// <param name="obj">The root <see cref="GameObject"/> whose layer and child layers will be updated.</param>
+        /// <param name="newLayer">The new layer to assign to the <paramref name="obj"/> and its children.</param>
+        protected void SetLayerRecursively(GameObject obj, int newLayer)
+        {
+            obj.layer = newLayer;
+            foreach (Transform child in obj.transform)
+                SetLayerRecursively(child.gameObject, newLayer);
         }
     }
 }

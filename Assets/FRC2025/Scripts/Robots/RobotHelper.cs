@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace FRC2025
 {
-    public class RobotHelper : MonoBehaviour
+    public static class RobotHelper
     {
         private const string _robotTag = "Robot";
 
@@ -68,5 +68,15 @@ namespace FRC2025
             UnitType.Inches => 0.0254f,
             _ => 1f
         };
+
+        public static T GetOrAddComponent<T>(this GameObject go) where T : Component
+        {
+#pragma warning disable UNT0026, IDE0270
+            var comp = go.GetComponent<T>();
+            if (comp == null)
+                comp = go.AddComponent<T>();
+            return comp;
+#pragma warning restore UNT0026, IDE0270
+        }
     }
 }

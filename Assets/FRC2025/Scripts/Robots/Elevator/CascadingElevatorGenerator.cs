@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace FRC2025
@@ -8,9 +9,6 @@ namespace FRC2025
     {
 #if UNITY_EDITOR
 #pragma warning disable CS0414
-        [Header("RigidBody Settings")]
-        [SerializeField] private Rigidbody _targetRigidbody;
-
         [Header("Cascading Elevator Settings")]
         [SerializeField] private UnitType _tubingUnit = UnitType.Inches;
         [SerializeField, Min(0)] private float _tubingLength = 2f;
@@ -75,7 +73,7 @@ namespace FRC2025
             // Handle intermediate stage subparents and cubes
             ValidateIntermediateStages();
 
-            // Ensure the joint chain connects correctly: intermediates -> top, lowest intermediate connects to target Rigidbody.
+            // Ensure the joint chain connects correctly: intermediates -> top, lowest intermediate connects to base stage.
             SetupStageJointChain();
 
             UpdateElevatorOffset();
@@ -87,6 +85,8 @@ namespace FRC2025
             {
                 ConfigureStage(i, _intermediateStages[i - 2]);
             }
+
+            SetLayerRecursively(this.gameObject, LayerMask.NameToLayer("Robot"));
         }
 
         private void ValidateIntermediateStages()
@@ -190,92 +190,39 @@ namespace FRC2025
         }
 
         /// <summary>
-        /// Configure the joint chain so intermediates (if any) chain from the target Rigidbody up to the top.
-        /// The base stage is explicitly excluded (it should never move and must not have a ConfigurableJoint).
-        /// If there are no intermediate stages, the top connects directly to the target Rigidbody.
+        /// Configure the joint chain so intermediates (if any) chain from the base stage up to the top.
+        /// The base stage is explicitly excluded from having a ConfigurableJoint and must be kinematic.
+        /// The lowest intermediate will connect to the base stage Rigidbody. Serialized _targetRigidbody is ignored.
         /// </summary>
         private void SetupStageJointChain()
         {
-            // Use the explicit target Rigidbody if assigned; otherwise fall back to the generator's parent Rigidbody.
-            Rigidbody targetRb = _targetRigidbody != null ? _targetRigidbody : (transform.parent != null ? transform.parent.GetComponent<Rigidbody>() : null);
+            // --- Ensure base stage has a kinematic Rigidbody and no ConfigurableJoint ---
+            Rigidbody baseRb = _baseStageParent.GetOrAddComponent<Rigidbody>();
+            baseRb.isKinematic = true;
+            baseRb.useGravity = false;
 
-            // create or reuse a kinematic anchor on the target Rigidbody and use it as chain root so drivetrain isn't pushed by joints
-            Rigidbody anchorRb = EnsureElevatorAnchor(targetRb);
-
-            // Ensure base stage never has a configurable joint (remove if present) and is kinematic
-            if (_baseStageParent != null)
-            {
-                var baseJoint = _baseStageParent.GetComponent<ConfigurableJoint>();
-                if (baseJoint != null)
-                {
-                    DestroyImmediate(baseJoint);
-                }
-
-                var baseRb = _baseStageParent.GetComponent<Rigidbody>();
-                if (baseRb != null)
-                {
-                    baseRb.isKinematic = true;
-                }
-            }
-
-            // Build ordered chain: intermediates (lowest -> highest) then top. Base intentionally excluded.
-            List<GameObject> chain = new List<GameObject>();
+            // --- Build chain of movable stages (intermediates lowest -> highest, then top) ---
+            var chain = new List<GameObject>();
             if (_intermediateStagesSubParents != null && _intermediateStagesSubParents.Count > 0)
                 chain.AddRange(_intermediateStagesSubParents);
 
-            if (_topStageParent != null)
-                chain.Add(_topStageParent);
+            chain.Add(_topStageParent);
 
-            // previousRb is what the current stage should connect to. Start with the anchor if available, otherwise targetRb.
-            Rigidbody previousRb = anchorRb != null ? anchorRb : targetRb;
-
-            for (int i = 0; i < chain.Count; i++)
+            Rigidbody previousRb = baseRb;
+            // Connect each chain stage to the previous rigidbody in the chain.
+            foreach (GameObject stageObj in chain)
             {
-                GameObject stageObj = chain[i];
                 if (stageObj == null) continue;
-
-                // Ensure joint + rigidbody exist and are initialized (safe to call again)
-                InitializeConfigurableJoint(stageObj);
 
                 ConfigurableJoint joint = stageObj.GetComponent<ConfigurableJoint>();
                 Rigidbody rb = stageObj.GetComponent<Rigidbody>();
 
-                if (joint == null) continue;
-
-                // Connect this joint to the previous Rigidbody (anchor/target for the lowest intermediate, then previous intermediate)
+                // Connect this joint to the previous link (base or previous intermediate)
                 joint.connectedBody = previousRb;
 
-                // Next stage should connect to this stage's Rigidbody
+                // The next stage should connect to this stage's Rigidbody
                 previousRb = rb;
             }
-        }
-
-        // create or reuse a kinematic anchor on the target Rigidbody (call from SetupStageJointChain)
-        private Rigidbody EnsureElevatorAnchor(Rigidbody targetRb)
-        {
-            if (targetRb == null) return null;
-
-            const string anchorName = "_ElevatorAnchor";
-            Transform existing = targetRb.transform.Find(anchorName);
-            if (existing != null)
-            {
-                Rigidbody anchorRb = existing.GetComponent<Rigidbody>();
-                if (anchorRb == null) anchorRb = existing.gameObject.AddComponent<Rigidbody>();
-                anchorRb.isKinematic = true;
-                anchorRb.useGravity = false;
-                anchorRb.interpolation = RigidbodyInterpolation.None;
-                return anchorRb;
-            }
-
-            GameObject anchor = new GameObject(anchorName);
-            anchor.transform.SetParent(targetRb.transform, false);
-            anchor.transform.localPosition = Vector3.zero;
-            anchor.transform.localRotation = Quaternion.identity;
-            Rigidbody rb = anchor.AddComponent<Rigidbody>();
-            rb.isKinematic = true;
-            rb.useGravity = false;
-            rb.interpolation = RigidbodyInterpolation.None;
-            return rb;
         }
 
         /// <summary>
@@ -322,17 +269,21 @@ namespace FRC2025
             }
         }
 
+        /// <summary>
+        /// Initializes a <see cref="ConfigurableJoint"/> on the specified stage object, configuring it for limited
+        /// linear motion along the Y-axis and fully locked angular motion.
+        /// </summary>
+        /// <remarks>If the specified <paramref name="stage"/> does not already have a <see
+        /// cref="Rigidbody"/>, one will be added to ensure the joint can operate. Similarly, if a <see
+        /// cref="ConfigurableJoint"/> is not already present, a new one will be created. The joint is configured to
+        /// allow limited sliding motion along the Y-axis, with the limit determined by the tubing height and unit
+        /// multiplier. All other linear and angular motions are locked. The joint's connected body is set to the parent
+        /// object's <see cref="Rigidbody"/>, if available.</remarks>
+        /// <param name="stage">The <see cref="GameObject"/> representing the stage to which the joint will be added or configured. Must not
+        /// be <see langword="null"/>.</param>
         private void InitializeConfigurableJoint(GameObject stage)
         {
             if (stage == null) return;
-
-            // Ensure a Rigidbody exists on the stage so the joint has something to operate on.
-            // In editor we want kinematic physics objects so generator layout doesn't fall under gravity.
-            Rigidbody rb = stage.GetComponent<Rigidbody>();
-            if (rb == null)
-            {
-                rb = stage.AddComponent<Rigidbody>();
-            }
 
             // Reuse existing joint if present, otherwise create one.
             ConfigurableJoint joint = stage.GetComponent<ConfigurableJoint>();
