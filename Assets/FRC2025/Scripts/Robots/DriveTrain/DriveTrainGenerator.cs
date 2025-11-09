@@ -85,7 +85,7 @@ namespace FRC2025
         /// structure: it validates and initializes parent directories and components, and updates the
         /// transforms of associated elements. It is intended to be called periodically to ensure the object
         /// remains in a consistent and updated state.</remarks>
-        protected virtual void Update()
+        protected override void Update()
         {
             if (!_isInitialized) return;
 

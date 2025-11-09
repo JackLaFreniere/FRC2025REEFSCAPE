@@ -50,8 +50,12 @@ namespace FRC2025
             _name = "Cascading Elevator";
         }
 
-        private void Update()
+        protected override void Update()
         {
+            base.Update();
+
+            if (Application.isPlaying) return;
+
             UpdateElevatorMultipliers();
 
             // Validate main parents

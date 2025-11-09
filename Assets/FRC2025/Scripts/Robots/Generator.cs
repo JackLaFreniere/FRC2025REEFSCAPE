@@ -1,21 +1,70 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace FRC2025
 {
     public class Generator<S> : MonoBehaviour where S : Component
     {
-#if UNITY_EDITOR
+        [Header("Parent GameObject Settings")]
+        [SerializeField] private GameObject _parentObject;
+
         protected string _name;
         protected bool _isInitialized = false;
+        private Vector3 _initialPosition;
+        private Vector3 _initialRotation;
+        private Vector3 _localPosition;
+        private Quaternion _localRotation;
 
         /// <summary>
-        /// Initiates the process of removing the current instance from its context.
+        /// Initializes the object's position and rotation, capturing its initial state and local offsets relative to a
+        /// parent object, if one is specified.
         /// </summary>
-        /// <remarks>This method is intended to be called to trigger the removal of the current instance. 
-        /// The specific behavior depends on the implementation of the <c>AttemptRemoveSelf</c> method.</remarks>
+        /// <remarks>This method records the object's initial world position and rotation. If a parent
+        /// object is assigned, it calculates the local position and rotation relative to the parent. If no parent is
+        /// specified, the current local position and rotation are used as the fallback.</remarks>
         protected void Start()
         {
             AttemptRemoveSelf(this);
+
+            _initialPosition = transform.position;
+            _initialRotation = transform.rotation.eulerAngles;
+
+            // If a parent object is present capture this object's local offsets relative to that parent
+            if (_parentObject != null)
+            {
+                _localPosition = _parentObject.transform.InverseTransformPoint(transform.position);
+                _localRotation = Quaternion.Inverse(_parentObject.transform.rotation) * transform.rotation;
+            }
+            else
+            {
+                // Fallback to current local transform if no parent specified
+                _localPosition = transform.localPosition;
+                _localRotation = transform.localRotation;
+            }
+        }
+
+        protected virtual void Update()
+        {
+            if (_parentObject == null) return;
+
+            // Compute target world transform from stored local offsets
+            Vector3 targetWorldPosition = _parentObject.transform.TransformPoint(_localPosition);
+            Quaternion targetWorldRotation = _parentObject.transform.rotation * _localRotation;
+
+            Vector3 finalPosition = new (
+                targetWorldPosition.x,
+                targetWorldPosition.y,
+                targetWorldPosition.z
+            );
+
+            Vector3 targetEuler = targetWorldRotation.eulerAngles;
+            Vector3 finalEuler = new (
+                targetEuler.x,
+                targetEuler.y,
+                targetEuler.z
+            );
+
+            transform.SetPositionAndRotation(finalPosition, Quaternion.Euler(finalEuler));
         }
 
         /// <summary>
@@ -109,6 +158,5 @@ namespace FRC2025
             directory.transform.SetParent(parent == null ? transform : parent.transform);
             directory.transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
         }
-#endif
     }
 }
