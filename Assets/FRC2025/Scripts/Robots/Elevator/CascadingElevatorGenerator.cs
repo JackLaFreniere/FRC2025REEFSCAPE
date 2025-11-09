@@ -8,6 +8,9 @@ namespace FRC2025
     {
 #if UNITY_EDITOR
 #pragma warning disable CS0414
+        [Header("RigidBody Settings")]
+        [SerializeField] private Rigidbody _targetRigidbody;
+
         [Header("Cascading Elevator Settings")]
         [SerializeField] private UnitType _tubingUnit = UnitType.Inches;
         [SerializeField, Min(0)] private float _tubingLength = 2f;
@@ -71,6 +74,9 @@ namespace FRC2025
 
             // Handle intermediate stage subparents and cubes
             ValidateIntermediateStages();
+
+            // Ensure the joint chain connects correctly: intermediates -> top, lowest intermediate connects to target Rigidbody.
+            SetupStageJointChain();
 
             UpdateElevatorOffset();
 
@@ -184,6 +190,95 @@ namespace FRC2025
         }
 
         /// <summary>
+        /// Configure the joint chain so intermediates (if any) chain from the target Rigidbody up to the top.
+        /// The base stage is explicitly excluded (it should never move and must not have a ConfigurableJoint).
+        /// If there are no intermediate stages, the top connects directly to the target Rigidbody.
+        /// </summary>
+        private void SetupStageJointChain()
+        {
+            // Use the explicit target Rigidbody if assigned; otherwise fall back to the generator's parent Rigidbody.
+            Rigidbody targetRb = _targetRigidbody != null ? _targetRigidbody : (transform.parent != null ? transform.parent.GetComponent<Rigidbody>() : null);
+
+            // create or reuse a kinematic anchor on the target Rigidbody and use it as chain root so drivetrain isn't pushed by joints
+            Rigidbody anchorRb = EnsureElevatorAnchor(targetRb);
+
+            // Ensure base stage never has a configurable joint (remove if present) and is kinematic
+            if (_baseStageParent != null)
+            {
+                var baseJoint = _baseStageParent.GetComponent<ConfigurableJoint>();
+                if (baseJoint != null)
+                {
+                    DestroyImmediate(baseJoint);
+                }
+
+                var baseRb = _baseStageParent.GetComponent<Rigidbody>();
+                if (baseRb != null)
+                {
+                    baseRb.isKinematic = true;
+                }
+            }
+
+            // Build ordered chain: intermediates (lowest -> highest) then top. Base intentionally excluded.
+            List<GameObject> chain = new List<GameObject>();
+            if (_intermediateStagesSubParents != null && _intermediateStagesSubParents.Count > 0)
+                chain.AddRange(_intermediateStagesSubParents);
+
+            if (_topStageParent != null)
+                chain.Add(_topStageParent);
+
+            // previousRb is what the current stage should connect to. Start with the anchor if available, otherwise targetRb.
+            Rigidbody previousRb = anchorRb != null ? anchorRb : targetRb;
+
+            for (int i = 0; i < chain.Count; i++)
+            {
+                GameObject stageObj = chain[i];
+                if (stageObj == null) continue;
+
+                // Ensure joint + rigidbody exist and are initialized (safe to call again)
+                InitializeConfigurableJoint(stageObj);
+
+                ConfigurableJoint joint = stageObj.GetComponent<ConfigurableJoint>();
+                Rigidbody rb = stageObj.GetComponent<Rigidbody>();
+
+                if (joint == null) continue;
+
+                // Connect this joint to the previous Rigidbody (anchor/target for the lowest intermediate, then previous intermediate)
+                joint.connectedBody = previousRb;
+
+                // Next stage should connect to this stage's Rigidbody
+                previousRb = rb;
+            }
+        }
+
+        // create or reuse a kinematic anchor on the target Rigidbody (call from SetupStageJointChain)
+        private Rigidbody EnsureElevatorAnchor(Rigidbody targetRb)
+        {
+            if (targetRb == null) return null;
+
+            const string anchorName = "_ElevatorAnchor";
+            Transform existing = targetRb.transform.Find(anchorName);
+            if (existing != null)
+            {
+                Rigidbody anchorRb = existing.GetComponent<Rigidbody>();
+                if (anchorRb == null) anchorRb = existing.gameObject.AddComponent<Rigidbody>();
+                anchorRb.isKinematic = true;
+                anchorRb.useGravity = false;
+                anchorRb.interpolation = RigidbodyInterpolation.None;
+                return anchorRb;
+            }
+
+            GameObject anchor = new GameObject(anchorName);
+            anchor.transform.SetParent(targetRb.transform, false);
+            anchor.transform.localPosition = Vector3.zero;
+            anchor.transform.localRotation = Quaternion.identity;
+            Rigidbody rb = anchor.AddComponent<Rigidbody>();
+            rb.isKinematic = true;
+            rb.useGravity = false;
+            rb.interpolation = RigidbodyInterpolation.None;
+            return rb;
+        }
+
+        /// <summary>
         /// Scales and positions the left and right GameObjects for a given elevator stage.
         /// </summary>
         /// <param name="stageNumber">The stage number (1 = base, _numStages = top).</param>
@@ -231,6 +326,14 @@ namespace FRC2025
         {
             if (stage == null) return;
 
+            // Ensure a Rigidbody exists on the stage so the joint has something to operate on.
+            // In editor we want kinematic physics objects so generator layout doesn't fall under gravity.
+            Rigidbody rb = stage.GetComponent<Rigidbody>();
+            if (rb == null)
+            {
+                rb = stage.AddComponent<Rigidbody>();
+            }
+
             // Reuse existing joint if present, otherwise create one.
             ConfigurableJoint joint = stage.GetComponent<ConfigurableJoint>();
             if (joint == null)
@@ -238,7 +341,7 @@ namespace FRC2025
                 joint = stage.AddComponent<ConfigurableJoint>();
             }
 
-            // Prefer connecting to the stage's parent rigidbody if available so motion is relative to parent.
+            // Default connected body is left to SetupStageJointChain; keep parent fallback for editor clarity.
             Rigidbody parentRb = stage.transform.parent != null ? stage.transform.parent.GetComponent<Rigidbody>() : null;
             joint.connectedBody = parentRb;
 
@@ -247,7 +350,7 @@ namespace FRC2025
             joint.axis = Vector3.forward;
             joint.secondaryAxis = Vector3.zero;
 
-            // Linear motion: lock X and Z, allow limited Y (sliding). Use a generous soft limit so editor won't clip.
+            // Linear motion: lock X and Z, allow limited Y (sliding).
             joint.xMotion = ConfigurableJointMotion.Locked;
             joint.yMotion = ConfigurableJointMotion.Limited;
             joint.zMotion = ConfigurableJointMotion.Locked;
@@ -257,7 +360,7 @@ namespace FRC2025
             joint.angularYMotion = ConfigurableJointMotion.Locked;
             joint.angularZMotion = ConfigurableJointMotion.Locked;
 
-            SoftJointLimit linearLimit = new SoftJointLimit()
+            SoftJointLimit linearLimit = new()
             {
                 limit = _tubingHeight * _tubingUnitMultiplier
             };
