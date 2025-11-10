@@ -22,6 +22,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "Elevator",
+                    "type": "Button",
+                    "id": "cdeed208-8913-4d60-9b31-060e95469cdf",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -178,6 +187,39 @@
                     "action": "Rotate",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "772783da-7882-4725-8ca8-263b1cdae22a",
+                    "path": "<XInputController>/rightShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Elevator",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2b70ad82-4bd6-4bde-87d0-56cd71521e50",
+                    "path": "<Gamepad>/rightShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Elevator",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2280e721-d0e4-4742-89cb-d45ed2487d7a",
+                    "path": "<Keyboard>/k",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Elevator",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }

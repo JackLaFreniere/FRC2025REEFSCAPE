@@ -6,6 +6,7 @@ namespace FRC2025
     {
         private BaseRobot _robot;
         private FRC2025_9999Input _controls;
+        [SerializeField] private PoseLibrary _poseLibrary;
 
         public void SetBaseRobot(BaseRobot robot)
         {
@@ -30,6 +31,11 @@ namespace FRC2025
                 _robot.GetSubsystem<DriveTrainSubsystem>().SetRotateInput(ctx.ReadValue<Vector2>());
             _controls.Robot.Rotate.canceled += ctx =>
                 _robot.GetSubsystem<DriveTrainSubsystem>().SetRotateInput(Vector2.zero);
+
+            _controls.Robot.Elevator.performed += ctx =>
+                _robot.ApplyPose(_poseLibrary.scoreL1);
+            _controls.Robot.Elevator.canceled += ctx =>
+                _robot.ApplyPose(_poseLibrary.stow);
         }
 
         public void InputOnDisable() => _controls.Disable();

@@ -2116,6 +2116,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 6845054700350026396, guid: 21bed2c80d0cd5e4590b17a13008b655, type: 3}
+      propertyPath: _poseLibrary
+      value: 
+      objectReference: {fileID: 11400000, guid: 9cf3e419c8c41fd49bb2fd9e904d2ea8, type: 2}
     - target: {fileID: 6883523901566051623, guid: 21bed2c80d0cd5e4590b17a13008b655, type: 3}
       propertyPath: m_Layer
       value: 8

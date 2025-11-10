@@ -108,6 +108,15 @@ public partial class @FRC2025_9999Input: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Elevator"",
+                    ""type"": ""Button"",
+                    ""id"": ""cdeed208-8913-4d60-9b31-060e95469cdf"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -264,6 +273,39 @@ public partial class @FRC2025_9999Input: IInputActionCollection2, IDisposable
                     ""action"": ""Rotate"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""772783da-7882-4725-8ca8-263b1cdae22a"",
+                    ""path"": ""<XInputController>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Elevator"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2b70ad82-4bd6-4bde-87d0-56cd71521e50"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Elevator"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2280e721-d0e4-4742-89cb-d45ed2487d7a"",
+                    ""path"": ""<Keyboard>/k"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Elevator"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -274,6 +316,7 @@ public partial class @FRC2025_9999Input: IInputActionCollection2, IDisposable
         m_Robot = asset.FindActionMap("Robot", throwIfNotFound: true);
         m_Robot_Drive = m_Robot.FindAction("Drive", throwIfNotFound: true);
         m_Robot_Rotate = m_Robot.FindAction("Rotate", throwIfNotFound: true);
+        m_Robot_Elevator = m_Robot.FindAction("Elevator", throwIfNotFound: true);
     }
 
     ~@FRC2025_9999Input()
@@ -356,6 +399,7 @@ public partial class @FRC2025_9999Input: IInputActionCollection2, IDisposable
     private List<IRobotActions> m_RobotActionsCallbackInterfaces = new List<IRobotActions>();
     private readonly InputAction m_Robot_Drive;
     private readonly InputAction m_Robot_Rotate;
+    private readonly InputAction m_Robot_Elevator;
     /// <summary>
     /// Provides access to input actions defined in input action map "Robot".
     /// </summary>
@@ -375,6 +419,10 @@ public partial class @FRC2025_9999Input: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Robot/Rotate".
         /// </summary>
         public InputAction @Rotate => m_Wrapper.m_Robot_Rotate;
+        /// <summary>
+        /// Provides access to the underlying input action "Robot/Elevator".
+        /// </summary>
+        public InputAction @Elevator => m_Wrapper.m_Robot_Elevator;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -407,6 +455,9 @@ public partial class @FRC2025_9999Input: IInputActionCollection2, IDisposable
             @Rotate.started += instance.OnRotate;
             @Rotate.performed += instance.OnRotate;
             @Rotate.canceled += instance.OnRotate;
+            @Elevator.started += instance.OnElevator;
+            @Elevator.performed += instance.OnElevator;
+            @Elevator.canceled += instance.OnElevator;
         }
 
         /// <summary>
@@ -424,6 +475,9 @@ public partial class @FRC2025_9999Input: IInputActionCollection2, IDisposable
             @Rotate.started -= instance.OnRotate;
             @Rotate.performed -= instance.OnRotate;
             @Rotate.canceled -= instance.OnRotate;
+            @Elevator.started -= instance.OnElevator;
+            @Elevator.performed -= instance.OnElevator;
+            @Elevator.canceled -= instance.OnElevator;
         }
 
         /// <summary>
@@ -478,5 +532,12 @@ public partial class @FRC2025_9999Input: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnRotate(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Elevator" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnElevator(InputAction.CallbackContext context);
     }
 }

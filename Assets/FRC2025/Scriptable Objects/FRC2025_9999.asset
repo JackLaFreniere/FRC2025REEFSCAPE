@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: FRC2025_9999
   m_EditorClassIdentifier: 
   stow: {fileID: 11400000, guid: 41f1660a5bc6f7b41b4d9028503e8c39, type: 2}
-  scoreL1: {fileID: 0}
+  scoreL1: {fileID: 11400000, guid: 9cfd4c2dbe5dc1d488f9e0846c7bfb71, type: 2}
   scoreL2: {fileID: 0}
   scoreL3: {fileID: 0}
   scoreL4: {fileID: 0}

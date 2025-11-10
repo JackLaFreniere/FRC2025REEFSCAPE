@@ -43,18 +43,30 @@ namespace FRC2025
         private readonly string _topStageParentName = "Top Stage";
         private readonly string _intermediateStagesParentName = "Intermediate Stages";
         private readonly string _intermediateStageName = "Intermediate Stage";
+
+        private bool _hasUpdatedSubstem;
 #pragma warning restore CS0414
 
         private void Awake()
         {
             _name = "Cascading Elevator";
+            _hasUpdatedSubstem = false;
         }
 
         protected override void Update()
         {
             base.Update();
 
-            if (Application.isPlaying) return;
+            if (Application.isPlaying)
+            {
+                if (!_hasUpdatedSubstem)
+                {
+                    SetSubsystemStages();
+                    _hasUpdatedSubstem = true;
+                }
+
+                return;
+            }
 
             UpdateElevatorMultipliers();
 
@@ -69,7 +81,7 @@ namespace FRC2025
             _baseStage = ValidateStage(_baseStage, _baseStageParent, _baseStageParentName);
             _topStage = ValidateStage(_topStage, _topStageParent, _topStageParentName);
 
-            // Handle intermediate stage subparents and cubes
+            // Handle interme Stages();
             ValidateIntermediateStages();
 
             // Ensure the joint chain connects correctly: intermediates -> top, lowest intermediate connects to base stage.
@@ -323,6 +335,27 @@ namespace FRC2025
                 maximumForce = Mathf.Infinity
             };
             joint.yDrive = yDrive;
+        }
+        
+        /// <summary>
+        /// Configures and sets the stages for the cascading elevator subsystem.
+        /// </summary>
+        /// <remarks>This method initializes an array of stage GameObjects based on the number of stages
+        /// and assigns the base stage, intermediate stages, and top stage to their respective positions. The configured
+        /// stages are then passed to the cascading elevator subsystem for further processing.</remarks>
+        private void SetSubsystemStages()
+        {
+            GameObject[] stages = new GameObject[_numStages];
+            stages[0] = GameObject.Find(_baseStageParentName);
+
+            for (int i = 1; i <= _numStages - 2; i++)
+            {
+                stages[i] = GameObject.Find(_intermediateStageName + " " + i);
+            }
+        
+            stages[^1] = GameObject.Find(_topStageParentName);
+        
+            this.GetComponent<CascadingElevatorSubsystem>().SetCascadingElevatorGeneratorAndStages(stages);
         }
 #endif
     }
