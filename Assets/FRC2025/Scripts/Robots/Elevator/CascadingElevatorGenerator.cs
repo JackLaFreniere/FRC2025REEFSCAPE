@@ -20,7 +20,10 @@ namespace FRC2025
         [SerializeField] private float _stageXOffset = 0f;
         [SerializeField] private float _stageYOffset = 0f;
         [SerializeField] private float _stageZOffset = 0f;
-        [SerializeField] private float _stageRotation = 0f;
+        [SerializeField] private float _stageXRotation = 0f;
+        [SerializeField] private float _stageYRotation = 0f;
+        [SerializeField] private float _stageZRotation = 0f;
+
         [Space(10)]
         [SerializeField] private UnitType _baseStageUnit = UnitType.Meters;
         [SerializeField, Min(0f)] private float _baseStageWidth = 1f;
@@ -205,7 +208,7 @@ namespace FRC2025
                 _stageXOffset * _offsetUnitMultiplier,
                 _stageYOffset * _offsetUnitMultiplier,
                 _stageZOffset * _offsetUnitMultiplier);
-            Quaternion rotationOffset = Quaternion.Euler(0f, _stageRotation, 0f);
+            Quaternion rotationOffset = Quaternion.Euler(_stageXRotation, _stageYRotation, _stageZRotation);
 
             transform.SetLocalPositionAndRotation(positionOffset, rotationOffset);
         }

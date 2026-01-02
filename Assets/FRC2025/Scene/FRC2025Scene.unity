@@ -4185,7 +4185,9 @@ MonoBehaviour:
   _stageXOffset: 0
   _stageYOffset: 1
   _stageZOffset: 0
-  _stageRotation: 0
+  _stageXRotation: 0
+  _stageYRotation: 0
+  _stageZRotation: 0
   _baseStageUnit: 0
   _baseStageWidth: 1
   _numStages: 3
