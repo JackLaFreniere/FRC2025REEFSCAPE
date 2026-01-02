@@ -39,6 +39,8 @@ namespace FRC2025
         private GameObject[] _topStage = new GameObject[2];
         private readonly List<GameObject[]> _intermediateStages = new();
 
+        private GameObject[] _runtimeStages;
+
         private readonly string _baseStageParentName = "Base Stage";
         private readonly string _topStageParentName = "Top Stage";
         private readonly string _intermediateStagesParentName = "Intermediate Stages";
@@ -61,8 +63,13 @@ namespace FRC2025
             {
                 if (!_hasUpdatedSubstem)
                 {
-                    SetSubsystemStages();
+                    _runtimeStages = SetSubsystemStages();
                     _hasUpdatedSubstem = true;
+                }
+
+                foreach (GameObject stage in _runtimeStages)
+                {
+                    ConstrainMinPosition(stage);
                 }
 
                 return;
@@ -98,6 +105,16 @@ namespace FRC2025
             }
 
             SetLayerRecursively(this.gameObject, LayerMask.NameToLayer("Robot"));
+        }
+
+        private void ConstrainMinPosition(GameObject stage)
+        {
+            if (stage.transform.localPosition.y < 0f)
+            {
+                Vector3 pos = stage.transform.localPosition;
+                pos.y = 0f;
+                stage.transform.localPosition = pos;
+            }
         }
 
         private void ValidateIntermediateStages()
@@ -337,13 +354,7 @@ namespace FRC2025
             joint.yDrive = yDrive;
         }
         
-        /// <summary>
-        /// Configures and sets the stages for the cascading elevator subsystem.
-        /// </summary>
-        /// <remarks>This method initializes an array of stage GameObjects based on the number of stages
-        /// and assigns the base stage, intermediate stages, and top stage to their respective positions. The configured
-        /// stages are then passed to the cascading elevator subsystem for further processing.</remarks>
-        private void SetSubsystemStages()
+        private GameObject[] GetSubsystemStages()
         {
             GameObject[] stages = new GameObject[_numStages];
             stages[0] = GameObject.Find(_baseStageParentName);
@@ -352,10 +363,24 @@ namespace FRC2025
             {
                 stages[i] = GameObject.Find(_intermediateStageName + " " + i);
             }
-        
+
             stages[^1] = GameObject.Find(_topStageParentName);
-        
+
+            return stages;
+        }
+
+        /// <summary>
+        /// Configures and sets the stages for the cascading elevator subsystem.
+        /// </summary>
+        /// <remarks>This method initializes an array of stage GameObjects based on the number of stages
+        /// and assigns the base stage, intermediate stages, and top stage to their respective positions. The configured
+        /// stages are then passed to the cascading elevator subsystem for further processing.</remarks>
+        private GameObject[] SetSubsystemStages()
+        {
+            GameObject[] stages = GetSubsystemStages();
             this.GetComponent<CascadingElevatorSubsystem>().SetCascadingElevatorGeneratorAndStages(stages);
+
+            return stages;
         }
 #endif
     }
