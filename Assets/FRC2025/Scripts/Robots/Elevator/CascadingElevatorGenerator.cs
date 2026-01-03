@@ -7,15 +7,17 @@ namespace FRC2025
     public class CascadingElevatorGenerator : Generator<CascadingElevatorSubsystem>
     {
 #if UNITY_EDITOR
-#pragma warning disable CS0414
-        [Header("Cascading Elevator Settings")]
+
+        #region Serialized Fields
+
+        [Header("Tubing Dimensions")]
         [SerializeField] private UnitType _tubingUnit = UnitType.Inches;
-        [SerializeField, Min(0)] private float _tubingLength = 2f;
+        [SerializeField, Min(0f)] private float _tubingLength = 2f;
         [SerializeField, Min(0f)] private float _tubingWidth = 1f;
         [SerializeField, Min(0f)] private float _tubingHeight = 12f;
         [SerializeField, Min(0f)] private float _tubingSpacing = 0.125f;
 
-        [Header("Stage Settings")]
+        [Header("Elevator Positioning")]
         [SerializeField] private UnitType _offsetUnit = UnitType.Meters;
         [SerializeField] private float _stageXOffset = 0f;
         [SerializeField] private float _stageYOffset = 0f;
@@ -24,10 +26,14 @@ namespace FRC2025
         [SerializeField] private float _stageYRotation = 0f;
         [SerializeField] private float _stageZRotation = 0f;
 
-        [Space(10)]
+        [Header("Stage Configuration")]
         [SerializeField] private UnitType _baseStageUnit = UnitType.Meters;
         [SerializeField, Min(0f)] private float _baseStageWidth = 1f;
-        [SerializeField, Min(2)] private int _numStages = 2;
+        [SerializeField, Min(2f)] private int _numStages = 2;
+
+        #endregion
+
+        #region Private Fields
 
         private float _tubingUnitMultiplier;
         private float _offsetUnitMultiplier;
@@ -43,75 +49,79 @@ namespace FRC2025
         private readonly List<GameObject[]> _intermediateStages = new();
 
         private GameObject[] _runtimeStages;
+        private bool _hasInitializedSubsystem;
 
         private readonly string _baseStageParentName = "Base Stage";
         private readonly string _topStageParentName = "Top Stage";
         private readonly string _intermediateStagesParentName = "Intermediate Stages";
         private readonly string _intermediateStageName = "Intermediate Stage";
+        
+        private readonly int _tubesPerStage = 2;
 
-        private bool _hasUpdatedSubstem;
-#pragma warning restore CS0414
+        #endregion
+
+        #region Unity Lifecycle
 
         private void Awake()
         {
             _name = "Cascading Elevator";
-            _hasUpdatedSubstem = false;
+            _hasInitializedSubsystem = false;
         }
 
         protected override void Update()
         {
             base.Update();
 
+            UpdateUnitMultipliers();
+
             if (Application.isPlaying)
             {
-                if (!_hasUpdatedSubstem)
-                {
-                    _runtimeStages = SetSubsystemStages();
-                    _hasUpdatedSubstem = true;
-                }
-
-                foreach (GameObject stage in _runtimeStages)
-                {
-                    ConstrainMinPosition(stage);
-                }
-
+                HandleRunTimeUpdate();
                 return;
             }
 
-            UpdateElevatorMultipliers();
+            HandleEditorUpdate();
+        }
 
-            // Validate main parents
-            ValidateDirectory(ref _baseStageParent, _baseStageParentName);
-            ValidateDirectory(ref _topStageParent, _topStageParentName);
-            ValidateDirectory(ref _intermediateStagesParent, _intermediateStagesParentName);
-
-            InitializeConfigurableJoint(_topStageParent);
-
-            // Validate base and top stages (each has 2 cubes)
-            _baseStage = ValidateStage(_baseStage, _baseStageParent, _baseStageParentName);
-            _topStage = ValidateStage(_topStage, _topStageParent, _topStageParentName);
-
-            // Handle interme Stages();
-            ValidateIntermediateStages();
-
-            // Ensure the joint chain connects correctly: intermediates -> top, lowest intermediate connects to base stage.
-            SetupStageJointChain();
-
-            UpdateElevatorOffset();
-
-            ConfigureStage(1, _baseStage);
-            ConfigureStage(_numStages, _topStage);
-
-            for (int i = 2; i < _numStages; i++)
+        private void HandleRunTimeUpdate()
+        {
+            if (!_hasInitializedSubsystem)
             {
-                ConfigureStage(i, _intermediateStages[i - 2]);
+                InitializeSubsystem();
             }
 
-            SetLayerRecursively(this.gameObject, LayerMask.NameToLayer("Robot"));
+            foreach (GameObject stage in _runtimeStages)
+            {
+                ConstrainMinPosition(stage);
+            }
+        }
+
+        private void InitializeSubsystem()
+        {
+            _runtimeStages = GetStageGameObjects();
+            GetComponent<CascadingElevatorSubsystem>().SetElevatorStages(_runtimeStages);
+            _hasInitializedSubsystem = true;
+        }
+
+        private GameObject[] GetStageGameObjects()
+        {
+            GameObject[] stages = new GameObject[_numStages];
+            stages[0] = GameObject.Find(_baseStageParentName);
+
+            for (int i = 1; i <= _numStages - 2; i++)
+            {
+                stages[i] = GameObject.Find($"{_intermediateStageName} {i}");
+            }
+
+            stages[^1] = GameObject.Find(_topStageParentName);
+
+            return stages;
         }
 
         private void ConstrainMinPosition(GameObject stage)
         {
+            if (stage == null) return;
+            
             if (stage.transform.localPosition.y < 0f)
             {
                 Vector3 pos = stage.transform.localPosition;
@@ -120,17 +130,42 @@ namespace FRC2025
             }
         }
 
+        #endregion
+
+        #region Editor Methods
+
+        private void HandleEditorUpdate()
+        {
+            ValidateStageHierarchy();
+            ConfigureAllStages();
+            SetupPhysicsJoints();
+            UpdateElevatorTransform();
+        }
+        
+        private void ValidateStageHierarchy()
+        {
+            ValidateDirectory(ref _baseStageParent, _baseStageParentName);
+            ValidateDirectory(ref _topStageParent, _topStageParentName);
+            ValidateDirectory(ref _intermediateStagesParent, _intermediateStagesParentName);
+
+            _baseStage = ValidateStageTubes(_baseStage, _baseStageParent, _baseStageParentName);
+            _topStage = ValidateStageTubes(_topStage, _topStageParent, _topStageParentName);
+
+            ValidateIntermediateStages();
+        }
+
         private void ValidateIntermediateStages()
         {
-            int intermediateCount = _numStages - 2;
+            int intermediateCount = Mathf.Max(0, _numStages - 2);
 
             // Adds subparents when needed
             while (_intermediateStagesSubParents.Count < intermediateCount)
             {
+                int stageIndex = _intermediateStagesSubParents.Count + 1;
+                string name = $"{_intermediateStageName} {stageIndex}";
+                
                 GameObject subParent = null;
-                string name = _intermediateStageName + " " + (_intermediateStagesSubParents.Count + 1);
                 ValidateDirectory(ref subParent, name, _intermediateStagesParent);
-                InitializeConfigurableJoint(subParent);
                 _intermediateStagesSubParents.Add(subParent);
             }
 
@@ -146,245 +181,226 @@ namespace FRC2025
             // Ensure intermediate stages list matches count
             while (_intermediateStages.Count < intermediateCount)
             {
-                _intermediateStages.Add(new GameObject[2]);
+                _intermediateStages.Add(new GameObject[_tubesPerStage]);
             }
-
 
             while (_intermediateStages.Count > intermediateCount)
             {
-                var arr = _intermediateStages[^1];
-                if (arr != null)
-                {
-                    foreach (var go in arr)
-                        if (go != null)
-                            DestroyImmediate(go);
-                }
-
+                DestroyStageTubes(_intermediateStages[^1]);
                 _intermediateStages.RemoveAt(_intermediateStages.Count - 1);
             }
 
             // Validate each intermediate stage's cubes under its subparent
             for (int i = 0; i < intermediateCount; i++)
             {
-                var subParent = _intermediateStagesSubParents[i];
-                string name = _intermediateStageName + (i + 1);
-                _intermediateStages[i] = ValidateStage(_intermediateStages[i], subParent, name);
+                GameObject subParent = _intermediateStagesSubParents[i];
+                string stageName = $"{_intermediateStageName} {i + 1}";
+                _intermediateStages[i] = ValidateStageTubes(_intermediateStages[i], subParent, stageName);
             }
         }
 
-        // Cleans up duplicate logic, reduces nesting, and clarifies intent.
-        private GameObject[] ValidateStage(GameObject[] referenceStage, GameObject parent, string name)
+        private GameObject[] ValidateStageTubes(GameObject[] tubes, GameObject parent, string name)
         {
-            if (referenceStage == null || referenceStage.Length != 2)
-                referenceStage = new GameObject[2];
+            if (tubes == null || tubes.Length != _tubesPerStage)
+                tubes = new GameObject[_tubesPerStage];
 
             string[] suffixes = { " Left", " Right" };
-            for (int i = 0; i < 2; i++)
+            for (int i = 0; i < _tubesPerStage; i++)
             {
-                string childName = name + suffixes[i];
-                if (referenceStage[i] == null)
+                string tubeName = $"{name} {suffixes[i]}";
+                if (tubes[i] == null)
                 {
-                    Transform t = parent.transform.Find(childName);
-                    if (t != null)
-                    {
-                        referenceStage[i] = t.gameObject;
-                    }
-                    else
-                    {
-                        referenceStage[i] = GameObject.CreatePrimitive(PrimitiveType.Cube);
-                    }
+                    Transform t = parent.transform.Find(tubeName);
+                    tubes[i] = t != null ? t.gameObject : GameObject.CreatePrimitive(PrimitiveType.Cube);
                 }
 
-                referenceStage[i].name = childName;
-                referenceStage[i].transform.SetParent(parent.transform, false);
+                tubes[i].name = tubeName;
+                tubes[i].transform.SetParent(parent.transform, false);
             }
 
-            return referenceStage;
+            return tubes;
         }
-
-        private void UpdateElevatorOffset()
+        
+        private void DestroyStageTubes(GameObject[] tubes)
         {
-            Vector3 positionOffset = new Vector3(
-                _stageXOffset * _offsetUnitMultiplier,
-                _stageYOffset * _offsetUnitMultiplier,
-                _stageZOffset * _offsetUnitMultiplier);
-            Quaternion rotationOffset = Quaternion.Euler(_stageXRotation, _stageYRotation, _stageZRotation);
+            if (tubes == null) return;
 
-            transform.SetLocalPositionAndRotation(positionOffset, rotationOffset);
-        }
-
-        private void UpdateElevatorMultipliers()
-        {
-            _tubingUnitMultiplier = RobotHelper.UnitToMeters(_tubingUnit);
-            _offsetUnitMultiplier = RobotHelper.UnitToMeters(_offsetUnit);
-            _baseStageUnitMultiplier = RobotHelper.UnitToMeters(_baseStageUnit);
-        }
-
-        /// <summary>
-        /// Configure the joint chain so intermediates (if any) chain from the base stage up to the top.
-        /// The base stage is explicitly excluded from having a ConfigurableJoint and must be kinematic.
-        /// The lowest intermediate will connect to the base stage Rigidbody. Serialized _targetRigidbody is ignored.
-        /// </summary>
-        private void SetupStageJointChain()
-        {
-            // --- Ensure base stage has a kinematic Rigidbody and no ConfigurableJoint ---
-            Rigidbody baseRb = _baseStageParent.GetOrAddComponent<Rigidbody>();
-            baseRb.isKinematic = true;
-            baseRb.useGravity = false;
-
-            // --- Build chain of movable stages (intermediates lowest -> highest, then top) ---
-            var chain = new List<GameObject>();
-            if (_intermediateStagesSubParents != null && _intermediateStagesSubParents.Count > 0)
-                chain.AddRange(_intermediateStagesSubParents);
-
-            chain.Add(_topStageParent);
-
-            Rigidbody previousRb = baseRb;
-            // Connect each chain stage to the previous rigidbody in the chain.
-            foreach (GameObject stageObj in chain)
+            foreach (GameObject tube in tubes)
             {
-                if (stageObj == null) continue;
-
-                ConfigurableJoint joint = stageObj.GetComponent<ConfigurableJoint>();
-                Rigidbody rb = stageObj.GetComponent<Rigidbody>();
-
-                // Connect this joint to the previous link (base or previous intermediate)
-                joint.connectedBody = previousRb;
-
-                // The next stage should connect to this stage's Rigidbody
-                previousRb = rb;
+                if (tube != null)
+                {
+                    DestroyImmediate(tube);
+                }
             }
         }
 
-        /// <summary>
-        /// Scales and positions the left and right GameObjects for a given elevator stage.
-        /// </summary>
-        /// <param name="stageNumber">The stage number (1 = base, _numStages = top).</param>
-        /// <param name="stageObjects">Array of two GameObjects: [0] = left, [1] = right.</param>
+        #endregion
+
+        #region Configuration Methods
+
+        private void ConfigureAllStages()
+        {
+            ConfigureStage(1, _baseStage);
+            ConfigureStage(_numStages, _topStage);
+
+            for (int i = 2; i < _numStages; i++)
+            {
+                ConfigureStage(i, _intermediateStages[i - 2]);
+            }
+        }
+
         private void ConfigureStage(int stageNumber, GameObject[] stageObjects)
         {
-            // Replace the code in ConfigureStage to move the tubes along the X axis instead of Z
-            if (stageObjects == null || stageObjects.Length != 2) return;
+            if (stageObjects == null || stageObjects.Length != _tubesPerStage) return;
 
-            // Calculate how many tubes inwards this stage is (0 = outermost/base, increases inward)
             int inwardIndex = stageNumber - 1;
             float width = _tubingWidth * _tubingUnitMultiplier;
             float height = _tubingHeight * _tubingUnitMultiplier;
             float length = _tubingLength * _tubingUnitMultiplier;
             float spacing = _tubingSpacing * _tubingUnitMultiplier;
 
-            // Calculate Z offset for this stage (inward from base)
             float zOffset = inwardIndex * (width + spacing);
 
-            // Calculate X positions for left and right tubes
             float baseStageWidth = _baseStageWidth * _baseStageUnitMultiplier;
             float leftX = -baseStageWidth / 2f + width / 2f + zOffset;
             float rightX = baseStageWidth / 2f - width / 2f - zOffset;
 
-            // Y is always 0 for the base of the tube
-            Vector3 leftPos = new Vector3(leftX, height / 2f, 0f);
-            Vector3 rightPos = new Vector3(rightX, height / 2f, 0f);
+            Vector3 leftPos = new(leftX, height / 2f, 0f);
+            Vector3 rightPos = new(rightX, height / 2f, 0f);
+            Vector3 scale = new(width, height, length);
 
-            // Set scale and position for left tube
-            if (stageObjects[0] != null)
-            {
-                stageObjects[0].transform.localScale = new Vector3(width, height, length);
-                stageObjects[0].transform.localPosition = leftPos;
-            }
+            ConfigureTube(stageObjects[0], scale, leftPos);
+            ConfigureTube(stageObjects[1], scale, rightPos);
+        }
 
-            // Set scale and position for right tube
-            if (stageObjects[1] != null)
+        private void ConfigureTube(GameObject tube, Vector3 scale, Vector3 position)
+        {
+            if (tube == null) return;
+
+            tube.transform.localScale = scale;
+            tube.transform.localPosition = position;
+        }
+
+        private void UpdateElevatorTransform()
+        {
+            Vector3 positionOffset = new(
+                _stageXOffset * _offsetUnitMultiplier,
+                _stageYOffset * _offsetUnitMultiplier,
+                _stageZOffset * _offsetUnitMultiplier);
+
+            Quaternion rotationOffset = Quaternion.Euler(
+                _stageXRotation,
+                _stageYRotation,
+                _stageZRotation);
+
+            transform.SetLocalPositionAndRotation(positionOffset, rotationOffset);
+        }
+
+        private void UpdateUnitMultipliers()
+        {
+            _tubingUnitMultiplier = RobotHelper.UnitToMeters(_tubingUnit);
+            _offsetUnitMultiplier = RobotHelper.UnitToMeters(_offsetUnit);
+            _baseStageUnitMultiplier = RobotHelper.UnitToMeters(_baseStageUnit);
+        }
+
+        #endregion
+
+        #region Physics Joint Setup
+
+        private void SetupPhysicsJoints()
+        {
+            SetupBaseStage();
+            SetupStageJointChain();
+        }
+
+        private void SetupBaseStage()
+        {
+            if (_baseStageParent == null) return;
+
+            DestroyImmediate(_baseStageParent.GetComponent<ConfigurableJoint>());
+
+            InitializedRigidBody(_baseStageParent, true);
+        }
+
+        private void SetupStageJointChain()
+        {
+            if (_baseStageParent == null) return;
+
+            Rigidbody baseRb = _baseStageParent.GetComponent<Rigidbody>();
+
+            List<GameObject> movableStages = new();
+            if (_intermediateStagesSubParents != null && _intermediateStagesSubParents.Count > 0)
+                movableStages.AddRange(_intermediateStagesSubParents);
+
+            if (_topStageParent != null)
+                movableStages.Add(_topStageParent);
+
+            Rigidbody previousRb = baseRb;
+            foreach (GameObject stage in movableStages)
             {
-                stageObjects[1].transform.localScale = new Vector3(width, height, length);
-                stageObjects[1].transform.localPosition = rightPos;
+                if (stage == null) continue;
+
+                InitializeStageJoint(stage);
+
+                ConfigurableJoint joint = stage.GetComponent<ConfigurableJoint>();
+                Rigidbody rb = stage.GetComponent<Rigidbody>();
+
+                if (joint != null && rb != null)
+                {
+                    joint.connectedBody = previousRb;
+                    previousRb = rb;
+                }
             }
         }
 
-        /// <summary>
-        /// Initializes a <see cref="ConfigurableJoint"/> on the specified stage object, configuring it for limited
-        /// linear motion along the Y-axis and fully locked angular motion.
-        /// </summary>
-        /// <remarks>If the specified <paramref name="stage"/> does not already have a <see
-        /// cref="Rigidbody"/>, one will be added to ensure the joint can operate. Similarly, if a <see
-        /// cref="ConfigurableJoint"/> is not already present, a new one will be created. The joint is configured to
-        /// allow limited sliding motion along the Y-axis, with the limit determined by the tubing height and unit
-        /// multiplier. All other linear and angular motions are locked. The joint's connected body is set to the parent
-        /// object's <see cref="Rigidbody"/>, if available.</remarks>
-        /// <param name="stage">The <see cref="GameObject"/> representing the stage to which the joint will be added or configured. Must not
-        /// be <see langword="null"/>.</param>
-        private void InitializeConfigurableJoint(GameObject stage)
+        private void InitializedRigidBody(GameObject gameObject, bool kinematic = false)
+        {
+            if (gameObject == null) return;
+            Rigidbody rb = gameObject.GetOrAddComponent<Rigidbody>();
+            rb.isKinematic = kinematic;
+            rb.useGravity = false;
+        }
+
+        private void InitializeStageJoint(GameObject stage)
         {
             if (stage == null) return;
 
-            // Reuse existing joint if present, otherwise create one.
-            ConfigurableJoint joint = stage.GetComponent<ConfigurableJoint>();
-            if (joint == null)
-            {
-                joint = stage.AddComponent<ConfigurableJoint>();
-            }
+            InitializedRigidBody(stage);
 
-            // Default connected body is left to SetupStageJointChain; keep parent fallback for editor clarity.
-            Rigidbody parentRb = stage.transform.parent != null ? stage.transform.parent.GetComponent<Rigidbody>() : null;
-            joint.connectedBody = parentRb;
+            ConfigurableJoint joint = stage.GetOrAddComponent<ConfigurableJoint>();
 
-            // Common joint basics
+            ConfigureVerticalSliderJoint(joint);
+        }
+
+        private void ConfigureVerticalSliderJoint(ConfigurableJoint joint)
+        {
             joint.anchor = Vector3.zero;
             joint.axis = Vector3.forward;
             joint.secondaryAxis = Vector3.zero;
 
-            // Linear motion: lock X and Z, allow limited Y (sliding).
             joint.xMotion = ConfigurableJointMotion.Locked;
             joint.yMotion = ConfigurableJointMotion.Limited;
             joint.zMotion = ConfigurableJointMotion.Locked;
 
-            // Angular motion: fully locked (no rotation of stage body)
             joint.angularXMotion = ConfigurableJointMotion.Locked;
             joint.angularYMotion = ConfigurableJointMotion.Locked;
             joint.angularZMotion = ConfigurableJointMotion.Locked;
 
-            SoftJointLimit linearLimit = new()
+            joint.linearLimit = new SoftJointLimit
             {
                 limit = _tubingHeight * _tubingUnitMultiplier
             };
-            joint.linearLimit = linearLimit;
 
-            JointDrive yDrive = new()
+            joint.yDrive = new JointDrive
             {
                 positionSpring = 1000f,
                 positionDamper = 100f,
                 maximumForce = Mathf.Infinity
             };
-            joint.yDrive = yDrive;
-        }
-        
-        private GameObject[] GetSubsystemStages()
-        {
-            GameObject[] stages = new GameObject[_numStages];
-            stages[0] = GameObject.Find(_baseStageParentName);
-
-            for (int i = 1; i <= _numStages - 2; i++)
-            {
-                stages[i] = GameObject.Find(_intermediateStageName + " " + i);
-            }
-
-            stages[^1] = GameObject.Find(_topStageParentName);
-
-            return stages;
         }
 
-        /// <summary>
-        /// Configures and sets the stages for the cascading elevator subsystem.
-        /// </summary>
-        /// <remarks>This method initializes an array of stage GameObjects based on the number of stages
-        /// and assigns the base stage, intermediate stages, and top stage to their respective positions. The configured
-        /// stages are then passed to the cascading elevator subsystem for further processing.</remarks>
-        private GameObject[] SetSubsystemStages()
-        {
-            GameObject[] stages = GetSubsystemStages();
-            this.GetComponent<CascadingElevatorSubsystem>().SetCascadingElevatorGeneratorAndStages(stages);
+        #endregion
 
-            return stages;
-        }
 #endif
     }
 }

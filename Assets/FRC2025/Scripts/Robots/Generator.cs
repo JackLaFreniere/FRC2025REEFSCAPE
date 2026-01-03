@@ -8,27 +8,32 @@ namespace FRC2025
         [SerializeField] private GameObject _parentObject;
 
         protected string _name;
+        protected string _layerName = "Robot";
         protected bool _isInitialized = false;
-        private Vector3 _initialPosition;
-        private Vector3 _initialRotation;
+
         private Vector3 _localPosition;
         private Quaternion _localRotation;
+        private bool _hasComputedLocalTransform = false;
 
-        /// <summary>
-        /// Initializes the object's position and rotation, capturing its initial state and local offsets relative to a
-        /// parent object, if one is specified.
-        /// </summary>
-        /// <remarks>This method records the object's initial world position and rotation. If a parent
-        /// object is assigned, it calculates the local position and rotation relative to the parent. If no parent is
-        /// specified, the current local position and rotation are used as the fallback.</remarks>
         protected void Start()
         {
             if (AttemptRemoveSelf(this)) return;
 
-            _initialPosition = transform.position;
-            _initialRotation = transform.rotation.eulerAngles;
+            ComputeLocalTransform();
+        }
 
-            // If a parent object is present capture this object's local offsets relative to that parent
+        protected virtual void Update()
+        {
+            if (_parentObject != null)
+            {
+                UpdateTransformFromParent();
+            }
+
+            SetLayerRecursively(this.gameObject, LayerMask.NameToLayer(_layerName));
+        }
+
+        private void ComputeLocalTransform()
+        {
             if (_parentObject != null)
             {
                 _localPosition = _parentObject.transform.InverseTransformPoint(transform.position);
@@ -36,44 +41,26 @@ namespace FRC2025
             }
             else
             {
-                // Fallback to current local transform if no parent specified
                 _localPosition = transform.localPosition;
                 _localRotation = transform.localRotation;
             }
+
+            _hasComputedLocalTransform = true;
         }
 
-        protected virtual void Update()
+        private void UpdateTransformFromParent()
         {
-            if (_parentObject == null) return;
+            if (!_hasComputedLocalTransform)
+            {
+                ComputeLocalTransform();
+            }
 
-            // Compute target world transform from stored local offsets
             Vector3 targetWorldPosition = _parentObject.transform.TransformPoint(_localPosition);
             Quaternion targetWorldRotation = _parentObject.transform.rotation * _localRotation;
 
-            Vector3 finalPosition = new (
-                targetWorldPosition.x,
-                targetWorldPosition.y,
-                targetWorldPosition.z
-            );
-
-            Vector3 targetEuler = targetWorldRotation.eulerAngles;
-            Vector3 finalEuler = new (
-                targetEuler.x,
-                targetEuler.y,
-                targetEuler.z
-            );
-
-            transform.SetPositionAndRotation(finalPosition, Quaternion.Euler(finalEuler));
+            transform.SetPositionAndRotation(targetWorldPosition, targetWorldRotation);
         }
 
-        /// <summary>
-        /// Attempts to remove the specified component if the current object has no parent.
-        /// </summary>
-        /// <remarks>This method immediately destroys the specified component if the current object's 
-        /// <see cref="Transform.parent"/> is null. Use with caution, as <see
-        /// cref="UnityEngine.Object.DestroyImmediate"/> can have unintended side effects if called during certain
-        /// Unity lifecycle events.</remarks>
-        /// <param name="script">The component to be removed. Must not be null.</param>
         private bool AttemptRemoveSelf(Component script)
         {
             if (transform.parent == null)
@@ -85,28 +72,21 @@ namespace FRC2025
             return false;
         }
 
-        /// <summary>
-        /// Resets the current object by reinitializing its state and ensuring required components are present.
-        /// </summary>
-        /// <remarks>If the object has no parent, a new child object is created, initialized, and attached
-        /// to it. Otherwise, all child objects are destroyed, and a required component of type <see cref="S"/> is
-        /// the corresponding subsystem that is added to the current object if it does not already exist.</remarks>
         private void Reset()
         {
             if (transform.parent == null)
             {
                 GameObject child = new(_name);
                 child.transform.SetParent(transform, false);
-
-                child.AddComponent(this.GetType());
+                child.AddComponent(GetType());
                 _isInitialized = true;
 
                 return;
             }
 
-            foreach (Transform child in transform)
+            while (transform.childCount > 0)
             {
-                DestroyImmediate(child.gameObject);
+                DestroyImmediate(transform.GetChild(0).gameObject);
             }
 
             if (gameObject.GetComponent<S>() == null)
@@ -115,64 +95,58 @@ namespace FRC2025
             }
         }
 
-        /// <summary>
-        /// Ensures that the specified directory exists by validating or creating it.
-        /// </summary>
-        /// <remarks>If the specified directory does not exist, this method attempts to find a child
-        /// object with the specified name under the given parent. If no such child is found, a new <see
-        /// cref="GameObject"/> is created with the specified name and parented to the provided parent or the current
-        /// object's transform. The new directory's position and rotation are reset to local defaults.</remarks>
-        /// <param name="directory">A reference to the <see cref="GameObject"/> representing the directory. If the directory is <see
-        /// langword="null"/>, it will be initialized to an existing child object with the specified name, or a new
-        /// <see cref="GameObject"/> will be created if no such child exists.</param>
-        /// <param name="name">The name of the directory to validate or create. This is used to locate an existing child object or to name
-        /// the newly created <see cref="GameObject"/>.</param>
-        /// <param name="parent">An optional parent <see cref="GameObject"/> under which the directory will be searched for or created. If
-        /// <see langword="null"/>, the current object's transform is used as the parent.</param>
         protected void ValidateDirectory(ref GameObject directory, string name, GameObject parent = null)
         {
             if (directory != null) return;
 
+            // If no parent provided, use parts directory
             if (parent == null)
             {
-                string partsName = this.name + " Parts";
-                Transform parts = transform.Find(partsName);
-                if (parts == null)
-                {
-                    parent = new(this.name + " Parts");
-                    parent.transform.SetParent(transform);
-                    parent.transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
-                }
-                else
-                {
-                    parent = parts.gameObject;
-                }
+                parent = ValidatePartsDirectory();
             }
 
+            // Try to find existing directory
             Transform target = parent.transform.Find(name);
-            if (target!= null)
+            if (target != null)
             {
                 directory = target.gameObject;
                 return;
             }
 
+            // Create new directory
             directory = new(name);
             directory.transform.SetParent(parent == null ? transform : parent.transform);
             directory.transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
         }
 
-        /// <summary>
-        /// Sets the layer of the specified <see cref="GameObject"/> and all its child objects recursively.
-        /// </summary>
-        /// <remarks>This method updates the layer of the specified <paramref name="obj"/> and traverses
-        /// its hierarchy, ensuring that all child objects are assigned the same layer.</remarks>
-        /// <param name="obj">The root <see cref="GameObject"/> whose layer and child layers will be updated.</param>
-        /// <param name="newLayer">The new layer to assign to the <paramref name="obj"/> and its children.</param>
+        private GameObject ValidatePartsDirectory()
+        {
+            string partsName = this.name + " Parts";
+            Transform parts = transform.Find(partsName);
+
+            if (parts == null)
+            {
+                GameObject parent = new(this.name + " Parts");
+                parent.transform.SetParent(transform);
+                parent.transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
+
+                return parent;
+            }
+            else
+            {
+                return parts.gameObject;
+            }
+        }
+
         protected void SetLayerRecursively(GameObject obj, int newLayer)
         {
+            if (obj == null) return;
+
             obj.layer = newLayer;
             foreach (Transform child in obj.transform)
+            {
                 SetLayerRecursively(child.gameObject, newLayer);
+            }
         }
     }
 }
