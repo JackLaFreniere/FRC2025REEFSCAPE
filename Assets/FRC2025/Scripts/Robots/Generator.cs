@@ -5,7 +5,7 @@ namespace FRC2025
     public class Generator<S> : MonoBehaviour where S : Component
     {
         [Header("Parent GameObject Settings")]
-        [SerializeField] private GameObject _parentObject;
+        [SerializeField] protected GameObject _parentObject;
 
         protected string _name;
         protected string _layerName = "Robot";
