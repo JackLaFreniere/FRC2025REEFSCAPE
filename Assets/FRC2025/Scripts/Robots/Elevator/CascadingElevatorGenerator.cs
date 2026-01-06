@@ -70,7 +70,7 @@ namespace FRC2025
         /// lifetime.</remarks>
         private void Awake()
         {
-            _name = "Cascading Elevator";
+            _name = "Cascading Elevator Subsystem";
             _hasInitializedSubsystem = false;
         }
 

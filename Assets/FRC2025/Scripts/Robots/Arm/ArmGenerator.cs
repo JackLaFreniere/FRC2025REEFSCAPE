@@ -58,7 +58,7 @@ namespace FRC2025
         /// lifetime.</remarks>
         private void Awake()
         {
-            _name = "Arm";
+            _name = "Arm Subsystem";
             _hasInitializedSubsystem = false;
         }
 
@@ -379,7 +379,10 @@ namespace FRC2025
         /// <param name="joint">The ConfigurableJoint to configure as a vertical slider. Must not be null.</param>
         private void ConfigureVerticalSliderJoint(ConfigurableJoint joint)
         {
-            joint.connectedBody = _parentObject.GetComponent<Rigidbody>();
+            if (_parentObject != null)
+            {
+                joint.connectedBody = _parentObject.GetComponent<Rigidbody>();
+            }
 
             joint.anchor = Vector3.zero;
             joint.axis = Vector3.forward;
