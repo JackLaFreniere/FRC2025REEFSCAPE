@@ -396,24 +396,27 @@ namespace FRC2025
             joint.angularYMotion = _rotationAxis == AxisDirection.Y ? ConfigurableJointMotion.Free : ConfigurableJointMotion.Locked;
             joint.angularZMotion = _rotationAxis == AxisDirection.Z ? ConfigurableJointMotion.Free : ConfigurableJointMotion.Locked;
 
+            float armSpring = 50000f;
+            float armDamper = 300f;
+
             joint.angularXDrive = new JointDrive
             {
-                positionSpring = 5000f,
-                positionDamper = 800f,
+                positionSpring = armSpring,
+                positionDamper = armDamper,
                 maximumForce = Mathf.Infinity
             };
 
             joint.angularYZDrive = new JointDrive
             {
-                positionSpring = 5000f,
-                positionDamper = 800f,
+                positionSpring = armSpring,
+                positionDamper = armDamper,
                 maximumForce = Mathf.Infinity
             };
 
             joint.slerpDrive = new JointDrive
             {
-                positionSpring = 5000f,
-                positionDamper = 800f,
+                positionSpring = armSpring,
+                positionDamper = armDamper,
                 maximumForce = Mathf.Infinity
             };
         }

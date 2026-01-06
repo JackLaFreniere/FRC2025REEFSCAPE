@@ -108,11 +108,11 @@ namespace FRC2025
             {
                 InitializeSubsystem();
             }
-
+            
             // Keep all stages at or above y = 0
-            foreach (GameObject stage in _runtimeStages)
+            for (int i = 1; i < _numStages; i++)
             {
-                ConstrainMinPosition(stage);
+                ConstrainMinPosition(_runtimeStages[i]);
             }
         }
 
@@ -453,9 +453,43 @@ namespace FRC2025
         {
             if (_baseStageParent == null) return;
 
-            DestroyImmediate(_baseStageParent.GetComponent<ConfigurableJoint>());
+            // Ensure a Rigidbody exists on the base stage and make it kinematic (anchor)
+            InitializedRigidBody(_baseStageParent, false);
 
-            InitializedRigidBody(_baseStageParent, true);
+            // Ensure target connected body exists if a parent object is assigned
+            Rigidbody connectedRb = null;
+            if (_parentObject != null)
+            {
+                connectedRb = _parentObject.GetComponent<Rigidbody>();
+            }
+
+            // Add or reuse a ConfigurableJoint on the base stage
+            ConfigurableJoint joint = _baseStageParent.GetOrAddComponent<ConfigurableJoint>();
+            joint.connectedBody = connectedRb;
+
+            joint.anchor = Vector3.zero;
+            joint.axis = Vector3.forward;
+            joint.secondaryAxis = Vector3.zero;
+
+            // Lock all linear motion
+            joint.xMotion = ConfigurableJointMotion.Locked;
+            joint.yMotion = ConfigurableJointMotion.Locked;
+            joint.zMotion = ConfigurableJointMotion.Locked;
+
+            // Lock all angular motion
+            joint.angularXMotion = ConfigurableJointMotion.Locked;
+            joint.angularYMotion = ConfigurableJointMotion.Locked;
+            joint.angularZMotion = ConfigurableJointMotion.Locked;
+
+            // Stability settings
+            joint.projectionMode = JointProjectionMode.PositionAndRotation;
+            joint.projectionDistance = 0.01f;
+            joint.projectionAngle = 1f;
+            joint.enableCollision = false;
+            joint.enablePreprocessing = true;
+
+            joint.breakForce = Mathf.Infinity;
+            joint.breakTorque = Mathf.Infinity;
         }
 
         /// <summary>

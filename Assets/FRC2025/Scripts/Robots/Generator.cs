@@ -25,7 +25,7 @@ namespace FRC2025
         {
             if (AttemptRemoveSelf(this)) return;
 
-            ComputeLocalTransform();
+            //ComputeLocalTransform();
         }
 
         /// <summary>
@@ -36,10 +36,10 @@ namespace FRC2025
         /// class to customize update behavior.</remarks>
         protected virtual void Update()
         {
-            if (_parentObject != null)
-            {
-                UpdateTransformFromParent();
-            }
+            //if (_parentObject != null)
+            //{
+            //    UpdateTransformFromParent();
+            //}
 
             SetLayerRecursively(this.gameObject, LayerMask.NameToLayer(_layerName));
         }
@@ -51,21 +51,21 @@ namespace FRC2025
         /// <remarks>This method should be called whenever the object's transform or its parent's
         /// transform changes to ensure that the local position and rotation remain accurate. It sets internal state
         /// used by other components that depend on the object's local transform.</remarks>
-        private void ComputeLocalTransform()
-        {
-            if (_parentObject != null)
-            {
-                _localPosition = _parentObject.transform.InverseTransformPoint(transform.position);
-                _localRotation = Quaternion.Inverse(_parentObject.transform.rotation) * transform.rotation;
-            }
-            else
-            {
-                _localPosition = transform.localPosition;
-                _localRotation = transform.localRotation;
-            }
+        //private void ComputeLocalTransform()
+        //{
+        //    if (_parentObject != null)
+        //    {
+        //        _localPosition = _parentObject.transform.InverseTransformPoint(transform.position);
+        //        _localRotation = Quaternion.Inverse(_parentObject.transform.rotation) * transform.rotation;
+        //    }
+        //    else
+        //    {
+        //        _localPosition = transform.localPosition;
+        //        _localRotation = transform.localRotation;
+        //    }
 
-            _hasComputedLocalTransform = true;
-        }
+        //    _hasComputedLocalTransform = true;
+        //}
 
         /// <summary>
         /// Updates this object's world position and rotation to match its local transform relative to the parent
@@ -74,18 +74,18 @@ namespace FRC2025
         /// <remarks>This method recalculates the object's world transform based on its local position and
         /// rotation with respect to its parent. It should be called after changes to the local transform or parent
         /// object to ensure the world transform remains accurate.</remarks>
-        private void UpdateTransformFromParent()
-        {
-            if (!_hasComputedLocalTransform)
-            {
-                ComputeLocalTransform();
-            }
+        //private void UpdateTransformFromParent()
+        //{
+        //    if (!_hasComputedLocalTransform)
+        //    {
+        //        ComputeLocalTransform();
+        //    }
 
-            Vector3 targetWorldPosition = _parentObject.transform.TransformPoint(_localPosition);
-            Quaternion targetWorldRotation = _parentObject.transform.rotation * _localRotation;
+        //    Vector3 targetWorldPosition = _parentObject.transform.TransformPoint(_localPosition);
+        //    Quaternion targetWorldRotation = _parentObject.transform.rotation * _localRotation;
 
-            transform.SetPositionAndRotation(targetWorldPosition, targetWorldRotation);
-        }
+        //    transform.SetPositionAndRotation(targetWorldPosition, targetWorldRotation);
+        //}
 
         /// <summary>
         /// Attempts to remove the specified component from the GameObject if it is not attached to a parent transform.
