@@ -11,10 +11,6 @@ namespace FRC2025
         protected string _layerName = "Robot";
         protected bool _isInitialized = false;
 
-        private Vector3 _localPosition;
-        private Quaternion _localRotation;
-        private bool _hasComputedLocalTransform = false;
-
         /// <summary>
         /// Initializes the component and updates its local transformation state.
         /// </summary>
@@ -24,8 +20,6 @@ namespace FRC2025
         protected void Start()
         {
             if (AttemptRemoveSelf(this)) return;
-
-            //ComputeLocalTransform();
         }
 
         /// <summary>
@@ -36,65 +30,9 @@ namespace FRC2025
         /// class to customize update behavior.</remarks>
         protected virtual void Update()
         {
-            //if (_parentObject != null)
-            //{
-            //    UpdateTransformFromParent();
-            //}
-
             SetLayerRecursively(this.gameObject, LayerMask.NameToLayer(_layerName));
         }
 
-        /// <summary>
-        /// Calculates and updates the local position and rotation of the object relative to its parent or to the world
-        /// if no parent exists.
-        /// </summary>
-        /// <remarks>This method should be called whenever the object's transform or its parent's
-        /// transform changes to ensure that the local position and rotation remain accurate. It sets internal state
-        /// used by other components that depend on the object's local transform.</remarks>
-        //private void ComputeLocalTransform()
-        //{
-        //    if (_parentObject != null)
-        //    {
-        //        _localPosition = _parentObject.transform.InverseTransformPoint(transform.position);
-        //        _localRotation = Quaternion.Inverse(_parentObject.transform.rotation) * transform.rotation;
-        //    }
-        //    else
-        //    {
-        //        _localPosition = transform.localPosition;
-        //        _localRotation = transform.localRotation;
-        //    }
-
-        //    _hasComputedLocalTransform = true;
-        //}
-
-        /// <summary>
-        /// Updates this object's world position and rotation to match its local transform relative to the parent
-        /// object.
-        /// </summary>
-        /// <remarks>This method recalculates the object's world transform based on its local position and
-        /// rotation with respect to its parent. It should be called after changes to the local transform or parent
-        /// object to ensure the world transform remains accurate.</remarks>
-        //private void UpdateTransformFromParent()
-        //{
-        //    if (!_hasComputedLocalTransform)
-        //    {
-        //        ComputeLocalTransform();
-        //    }
-
-        //    Vector3 targetWorldPosition = _parentObject.transform.TransformPoint(_localPosition);
-        //    Quaternion targetWorldRotation = _parentObject.transform.rotation * _localRotation;
-
-        //    transform.SetPositionAndRotation(targetWorldPosition, targetWorldRotation);
-        //}
-
-        /// <summary>
-        /// Attempts to remove the specified component from the GameObject if it is not attached to a parent transform.
-        /// </summary>
-        /// <remarks>Use this method to conditionally remove a component only when the GameObject is not
-        /// part of a parent-child hierarchy. The method performs immediate destruction of the component, which cannot
-        /// be undone.</remarks>
-        /// <param name="script">The component to remove from the GameObject.</param>
-        /// <returns>true if the component was removed; otherwise, false.</returns>
         private bool AttemptRemoveSelf(Component script)
         {
             if (transform.parent == null)

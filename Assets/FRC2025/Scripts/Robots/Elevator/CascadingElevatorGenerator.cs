@@ -31,6 +31,11 @@ namespace FRC2025
         [SerializeField, Min(0f)] private float _baseStageWidth = 1f;
         [SerializeField, Min(2f)] private int _numStages = 2;
 
+        [Header("Physics Configuration")]
+        [SerializeField] private float _positionSpring = 1000f;
+        [SerializeField] private float _positionDamper = 100f;
+        [SerializeField] private float _rbMass = 1f;
+
         #endregion
 
         #region Private Fields
@@ -541,7 +546,9 @@ namespace FRC2025
         private void InitializedRigidBody(GameObject gameObject, bool kinematic = false)
         {
             if (gameObject == null) return;
+
             Rigidbody rb = gameObject.GetOrAddComponent<Rigidbody>();
+            rb.mass = _rbMass;
             rb.isKinematic = kinematic;
             rb.useGravity = false;
         }
@@ -592,8 +599,8 @@ namespace FRC2025
 
             joint.yDrive = new JointDrive
             {
-                positionSpring = 1000f,
-                positionDamper = 100f,
+                positionSpring = _positionSpring,
+                positionDamper = _positionDamper,
                 maximumForce = Mathf.Infinity
             };
         }
@@ -601,5 +608,6 @@ namespace FRC2025
         #endregion
 
 #endif
+
     }
 }

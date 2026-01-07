@@ -16,4 +16,4 @@ MonoBehaviour:
   - subsystemName: Cascading Elevator
     targetValue: 1
   - subsystemName: Arm
-    targetValue: -20
+    targetValue: 20

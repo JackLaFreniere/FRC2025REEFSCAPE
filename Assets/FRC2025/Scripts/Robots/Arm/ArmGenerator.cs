@@ -29,6 +29,11 @@ namespace FRC2025
         [SerializeField] private AxisDirection _rotationAxis = AxisDirection.Y;
         [SerializeField] private bool _rotateAroundCenter = false;
 
+        [Header("Physics Configuration")]
+        [SerializeField] private float _rotationSpring = 50000f;
+        [SerializeField] private float _rotationDamper = 300f;
+        [SerializeField] private float _rbMass = 1f;
+
         #endregion
 
         #region Private Fields
@@ -38,8 +43,6 @@ namespace FRC2025
 
         private GameObject _armParent;
         private GameObject _arm;
-
-        private Vector3 _offsetPos;
 
         private GameObject _runtimeArm;
         private bool _hasInitializedSubsystem;
@@ -53,9 +56,9 @@ namespace FRC2025
         /// <summary>
         /// Initializes the component and prepares it for use when the script instance is being loaded.
         /// </summary>
-        /// <remarks>This method is called by Unity before any Start methods and before the game object is
-        /// enabled. Override this method to perform setup tasks that need to occur once during the component's
-        /// lifetime.</remarks>
+        /// <remarks>This method is called automatically by Unity as part of the MonoBehaviour lifecycle.
+        /// It is typically used to perform initialization tasks before the game starts or the object becomes
+        /// active.</remarks>
         private void Awake()
         {
             _name = "Arm Subsystem";
@@ -63,13 +66,11 @@ namespace FRC2025
         }
 
         /// <summary>
-        /// Performs per-frame update logic for the component, handling both runtime and editor-specific updates as
-        /// appropriate.
+        /// Updates the generator's state for the current frame, handling both runtime and editor-specific logic.
         /// </summary>
-        /// <remarks>This method is called automatically by the Unity engine each frame. It distinguishes
-        /// between play mode and edit mode, invoking the relevant update logic for each context. Override this method
-        /// to extend or customize update behavior, but ensure to call the base implementation to maintain correct
-        /// functionality.</remarks>
+        /// <remarks>This method is called once per frame by the Unity engine. When the application is
+        /// running, it processes runtime updates; otherwise, it performs editor-specific updates. Overrides the base
+        /// <see cref="Generator.Update"/> method to provide custom update behavior.</remarks>
         protected override void Update()
         {
             base.Update(); // Generator.cs Update()
@@ -84,29 +85,24 @@ namespace FRC2025
         }
 
         /// <summary>
-        /// Performs a runtime update by ensuring the subsystem is initialized and applying minimum position constraints
-        /// to all runtime stages.
+        /// Ensures that the subsystem is initialized before processing runtime updates.
         /// </summary>
-        /// <remarks>This method should be called during the runtime update cycle to maintain the correct
-        /// state of the subsystem and its associated stages. It is intended for internal use within the update loop and
-        /// is not thread-safe.</remarks>
+        /// <remarks>This method checks whether the subsystem has been initialized and performs
+        /// initialization if necessary. It should be called before executing operations that depend on the subsystem
+        /// being ready.</remarks>
         private void HandleRunTimeUpdate()
         {
             if (!_hasInitializedSubsystem)
             {
                 InitializeSubsystem();
             }
-
-            // Keep the Arm at (0, 0, 0)
-            //ConstrainMinPosition(_armParent);
         }
 
         /// <summary>
-        /// Initializes the elevator subsystem and prepares it for operation.
+        /// Initializes the arm subsystem and prepares it for operation.
         /// </summary>
-        /// <remarks>This method configures the runtime stages and associates them with the elevator
-        /// subsystem. It should be called before performing any operations that depend on the subsystem being
-        /// initialized.</remarks>
+        /// <remarks>This method must be called before using any functionality that depends on the arm
+        /// subsystem. Subsequent calls have no effect if the subsystem is already initialized.</remarks>
         private void InitializeSubsystem()
         {
             _runtimeArm = GetArmGameObjects();
@@ -115,31 +111,13 @@ namespace FRC2025
         }
 
         /// <summary>
-        /// Retrieves an array of GameObject instances representing each stage in the current configuration.
+        /// Retrieves the parent <see cref="GameObject"/> that contains the arm components.
         /// </summary>
-        /// <remarks>The returned array always has a length equal to the number of stages. The first
-        /// element represents the base stage, intermediate elements represent intermediate stages (if any), and the
-        /// last element represents the top stage. Callers should check for null values in the array if a stage
-        /// GameObject might be missing in the scene.</remarks>
-        /// <returns>An array of GameObject objects, where each element corresponds to a stage. The array is ordered from the
-        /// base stage, through intermediate stages, to the top stage. Elements may be null if a stage GameObject is not
-        /// found.</returns>
+        /// <returns>The <see cref="GameObject"/> representing the parent of the arm components, or <see langword="null"/> if no
+        /// such object is found in the scene.</returns>
         private GameObject GetArmGameObjects()
         {
             return GameObject.Find(_armParentName);
-        }
-
-        /// <summary>
-        /// Ensures that the specified stage object's local Y position is not less than zero.
-        /// </summary>
-        /// <remarks>This method modifies the localPosition of the stage object if its Y component is
-        /// negative, setting it to zero. Other components of the position remain unchanged.</remarks>
-        /// <param name="arm">The GameObject whose local Y position will be constrained. If null, the method performs no action.</param>
-        private void ConstrainMinPosition(GameObject arm)
-        {
-            if (arm == null) return;
-
-            arm.transform.position = _parentObject.transform.position;
         }
 
         #endregion
@@ -147,25 +125,27 @@ namespace FRC2025
         #region Editor Methods
 
         /// <summary>
-        /// Performs editor-time updates to ensure the stage hierarchy, configuration, and physics setup are current.
+        /// Updates the editor state of the arm component to reflect the latest configuration and hierarchy changes.
         /// </summary>
-        /// <remarks>This method is intended to be called within the Unity Editor to synchronize stage
-        /// components and maintain correct editor state. It should not be called at runtime.</remarks>
+        /// <remarks>This method should be called during editor updates to ensure that the arm's
+        /// properties, hierarchy, and physics joints remain consistent with the current settings. It is intended for
+        /// use within the Unity Editor and does not affect runtime behavior.</remarks>
         private void HandleEditorUpdate()
         {
-            UpdateUnitMultipliers(); // Update unit conversion factors
-            ValidateArmHierarchy(); // Ensure all of the directories are valid
-            ConfigureArm(_arm); // Configure all of the objects in the stages
-            SetupPhysicsJoints(); // Setup physics joints for all stages
-            UpdateArmTransform(); // Update elevator position and rotation to offset values
+            UpdateUnitMultipliers();
+            ValidateArmHierarchy();
+            ConfigureArm();
+            SetupPhysicsJoints();
+            UpdateArmTransform();
         }
 
         /// <summary>
-        /// Validates the configuration and hierarchy of all stage-related directories and stage tube assignments.
+        /// Validates the current ARM directory hierarchy and updates internal references to ensure consistency.
         /// </summary>
-        /// <remarks>This method ensures that the base, top, and intermediate stage directories are
-        /// correctly set up and that the associated stage tubes are valid. It should be called before performing
-        /// operations that depend on a consistent stage hierarchy.</remarks>
+        /// <remarks>This method checks the validity of the parent directory and the ARM directory
+        /// structure. It updates internal fields to reflect any changes or corrections found during validation. This
+        /// method is intended for internal use and should be called whenever the ARM hierarchy may have
+        /// changed.</remarks>
         private void ValidateArmHierarchy()
         {
             // Validate parent directories
@@ -176,19 +156,17 @@ namespace FRC2025
         }
 
         /// <summary>
-        /// Validates and initializes the array of stage tube GameObjects, ensuring each tube exists as a child of the
-        /// specified parent and is named according to the provided base name.
+        /// Ensures that a child <see cref="GameObject"/> representing an arm exists under the specified parent,
+        /// creating it if necessary, and sets its name and parent accordingly.
         /// </summary>
-        /// <remarks>If an element in the input array is null or missing, the method attempts to find a
-        /// child GameObject of the parent with the expected name. If not found, a new primitive cube is created in its
-        /// place. The returned array is guaranteed to have the expected number of tubes, each named and parented
-        /// appropriately.</remarks>
-        /// <param name="arm">An array of GameObjects representing the stage tubes to validate or initialize. Can be null or partially
-        /// populated.</param>
-        /// <param name="parent">The parent GameObject under which the stage tubes should be found or created.</param>
-        /// <param name="name">The base name used to identify and assign names to each stage tube GameObject.</param>
-        /// <returns>An array of GameObjects representing the validated or newly created stage tubes, each correctly named and
-        /// parented.</returns>
+        /// <param name="arm">The existing arm <see cref="GameObject"/>, or <see langword="null"/> to create a new one if not found under
+        /// the parent.</param>
+        /// <param name="parent">The parent <see cref="GameObject"/> under which the arm should be located or created. Cannot be <see
+        /// langword="null"/>.</param>
+        /// <param name="name">The base name used to identify or create the arm. The final arm name will be "<paramref name="name"/>
+        /// Cylinder". Cannot be <see langword="null"/> or empty.</param>
+        /// <returns>The <see cref="GameObject"/> representing the arm, either the existing one found under the parent or a newly
+        /// created cylinder primitive with the specified name.</returns>
         private GameObject ValidateArm(GameObject arm, GameObject parent, string name)
         {
             string armName = $"{name} Cylinder";
@@ -209,18 +187,13 @@ namespace FRC2025
         #region Configuration Methods
 
         /// <summary>
-        /// Configures the positions and scales of tubes for a specific stage based on the provided stage number and
-        /// associated GameObjects.
+        /// Configures the arm's local scale and position based on the current arm dimensions and rotation settings.
         /// </summary>
-        /// <remarks>This method does not perform any configuration if the number of objects in
-        /// stageObjects does not match the expected tube count for the stage. The method positions and scales the tubes
-        /// according to the stage layout parameters.</remarks>
-        /// <param name="stageNumber">The one-based index of the stage to configure. Must be greater than or equal to 1.</param>
-        /// <param name="stageObjects">An array of GameObjects representing the tubes for the stage. The array must not be null and must contain
-        /// the expected number of tube objects for the stage.</param>
-        private void ConfigureArm(GameObject arm)
+        /// <remarks>This method updates the arm's transform to reflect the current width, length, and
+        /// rotation center configuration. It has no effect if the arm object is not assigned.</remarks>
+        private void ConfigureArm()
         {
-            if (arm == null) return;
+            if (_arm == null) return;
 
             float width = _armWidth * _armUnitMultiplier;
             float length = _armLength * _armUnitMultiplier;
@@ -229,17 +202,17 @@ namespace FRC2025
             Vector3 scale = new(width, length, width);
             Vector3 position = new(0f, yOffset, 0f);
 
-            arm.transform.localScale = scale;
-            arm.transform.localPosition = position;
+            _arm.transform.localScale = scale;
+            _arm.transform.localPosition = position;
         }
 
         /// <summary>
-        /// Updates the local position and rotation of the elevator based on the current stage offset and rotation
+        /// Updates the local position and rotation of the arm transform based on the current offset and rotation
         /// values.
         /// </summary>
-        /// <remarks>This method applies the configured stage offsets and rotations to the elevator's
-        /// transform. It should be called whenever the stage position or orientation changes to ensure the elevator
-        /// remains correctly aligned.</remarks>
+        /// <remarks>This method applies the configured position and rotation offsets to the arm's
+        /// transform. It should be called whenever the offset or rotation values change to ensure the transform
+        /// reflects the latest configuration.</remarks>
         private void UpdateArmTransform()
         {
             Vector3 positionOffset = new(
@@ -256,11 +229,11 @@ namespace FRC2025
         }
 
         /// <summary>
-        /// Updates the internal unit multipliers based on the current unit settings.
+        /// Updates the internal unit multipliers for the arm and offset based on their current unit settings.
         /// </summary>
-        /// <remarks>This method recalculates conversion factors used for unit-to-meter conversions. It
-        /// should be called whenever the unit settings for tubing, offset, or base stage are changed to ensure that
-        /// subsequent calculations use the correct multipliers.</remarks>
+        /// <remarks>This method recalculates the conversion factors used to translate arm and offset
+        /// measurements to meters.  Call this method after changing the unit settings to ensure that subsequent
+        /// calculations use the correct multipliers.</remarks>
         private void UpdateUnitMultipliers()
         {
             _armUnitMultiplier = RobotHelper.UnitToMeters(_armUnit);
@@ -272,24 +245,22 @@ namespace FRC2025
         #region Physics Joint Setup
 
         /// <summary>
-        /// Initializes and configures the physics joints required for the stage.
+        /// Configures the physics joints required for the current stage.
         /// </summary>
-        /// <remarks>Call this method to set up all necessary physics joint connections before performing
-        /// operations that depend on the stage's physical structure. This method should be invoked during the
-        /// initialization phase of the stage lifecycle.</remarks>
+        /// <remarks>This method should be called during the initialization phase to ensure that all
+        /// necessary physics joints are properly set up before the stage is used. It is intended for internal use and
+        /// is not designed to be called directly by external code.</remarks>
         private void SetupPhysicsJoints()
         {
             SetupBaseStage();
-            //SetupStageJointChain();
         }
 
         /// <summary>
-        /// Initializes the base stage by removing its ConfigurableJoint component and configuring its Rigidbody
-        /// settings.
+        /// Initializes the base stage of the arm if a parent arm is present.
         /// </summary>
-        /// <remarks>This method performs setup operations on the base stage object if it is present. It
-        /// is intended to be called during initialization to ensure the base stage is correctly prepared for further
-        /// processing.</remarks>
+        /// <remarks>This method should be called to ensure the base stage is properly set up before
+        /// performing operations that depend on the arm's initialization. If the parent arm is not set, the method
+        /// performs no action.</remarks>
         private void SetupBaseStage()
         {
             if (_armParent == null) return;
@@ -298,64 +269,30 @@ namespace FRC2025
         }
 
         /// <summary>
-        /// Initializes and connects the stage joints in sequence, forming a joint chain between the base, intermediate,
-        /// and top stage objects.
-        /// </summary>
-        /// <remarks>This method configures the joint connections for all movable stage objects, ensuring
-        /// that each stage's joint is connected to the previous stage's Rigidbody. The method has no effect if the base
-        /// stage parent is not assigned.</remarks>
-        //private void SetupStageJointChain()
-        //{
-        //    if (_baseStageParent == null) return;
-
-        //    Rigidbody baseRb = _baseStageParent.GetComponent<Rigidbody>();
-
-        //    List<GameObject> movableStages = new();
-        //    if (_intermediateStagesSubParents != null && _intermediateStagesSubParents.Count > 0)
-        //        movableStages.AddRange(_intermediateStagesSubParents);
-
-        //    if (_topStageParent != null)
-        //        movableStages.Add(_topStageParent);
-
-        //    Rigidbody previousRb = baseRb;
-        //    foreach (GameObject stage in movableStages)
-        //    {
-        //        if (stage == null) continue;
-
-        //        InitializeStageJoint(stage);
-
-        //        ConfigurableJoint joint = stage.GetComponent<ConfigurableJoint>();
-        //        Rigidbody rb = stage.GetComponent<Rigidbody>();
-
-        //        if (joint != null && rb != null)
-        //        {
-        //            joint.connectedBody = previousRb;
-        //            previousRb = rb;
-        //        }
-        //    }
-        //}
-
-        /// <summary>
-        /// Initializes a Rigidbody component on the specified GameObject and configures its kinematic and gravity
+        /// Initializes a <see cref="Rigidbody"/> component on the specified <see cref="GameObject"/> with predefined
         /// settings.
         /// </summary>
-        /// <remarks>If the GameObject does not already have a Rigidbody component, one is added. The
-        /// Rigidbody's useGravity property is always set to false by this method.</remarks>
-        /// <param name="gameObject">The GameObject to which the Rigidbody component will be added or configured. Cannot be null.</param>
-        /// <param name="kinematic">true to set the Rigidbody as kinematic; otherwise, false. The default is false.</param>
+        /// <remarks>If the <paramref name="gameObject"/> does not already have a <see cref="Rigidbody"/>
+        /// component, one is added. The method sets the mass to a predefined value, disables gravity, and configures
+        /// the kinematic state as specified.</remarks>
+        /// <param name="gameObject">The <see cref="GameObject"/> to which the <see cref="Rigidbody"/> will be added or configured. Cannot be
+        /// <see langword="null"/>.</param>
+        /// <param name="kinematic"><see langword="true"/> to set the <see cref="Rigidbody"/> as kinematic; otherwise, <see langword="false"/>.</param>
         private void InitializedRigidBody(GameObject gameObject, bool kinematic = false)
         {
             if (gameObject == null) return;
             Rigidbody rb = gameObject.GetOrAddComponent<Rigidbody>();
-            rb.mass = 0.5f;
+            rb.mass = _rbMass;
             rb.isKinematic = kinematic;
             rb.useGravity = false;
         }
 
         /// <summary>
-        /// Initializes and configures a vertical slider joint on the specified stage object.
+        /// Initializes the stage joint by attaching and configuring a <see cref="ConfigurableJoint"/> component to the
+        /// specified stage object.
         /// </summary>
-        /// <param name="stage">The GameObject representing the stage to which the joint will be added. Cannot be null.</param>
+        /// <param name="stage">The <see cref="GameObject"/> representing the stage to which the joint will be added and configured. Cannot
+        /// be <see langword="null"/>.</param>
         private void InitializeStageJoint(GameObject stage)
         {
             if (stage == null) return;
@@ -368,15 +305,14 @@ namespace FRC2025
         }
 
         /// <summary>
-        /// Configures the specified joint as a vertical slider, allowing limited movement along the Y axis while
-        /// locking all other motions.
+        /// Configures the specified <see cref="ConfigurableJoint"/> to behave as a vertical slider joint with rotation
+        /// enabled on a single axis.
         /// </summary>
-        /// <remarks>This method sets the joint's anchor and axes, restricts motion to a limited range
-        /// along the Y axis, and applies a spring drive for vertical movement. All angular and other linear motions are
-        /// locked. The linear limit and drive parameters are determined by the current tubing height and unit
-        /// multiplier. This configuration is suitable for scenarios where an object should only move vertically within
-        /// a defined range.</remarks>
-        /// <param name="joint">The ConfigurableJoint to configure as a vertical slider. Must not be null.</param>
+        /// <remarks>This method locks all linear motions and enables free rotation only on the axis
+        /// specified by the current <c>_rotationAxis</c> field. The joint's angular drives are set using the configured
+        /// spring and damper values. If a parent object is assigned, the joint is connected to its <see
+        /// cref="Rigidbody"/>.</remarks>
+        /// <param name="joint">The <see cref="ConfigurableJoint"/> to configure. Must not be <see langword="null"/>.</param>
         private void ConfigureVerticalSliderJoint(ConfigurableJoint joint)
         {
             if (_parentObject != null)
@@ -396,27 +332,24 @@ namespace FRC2025
             joint.angularYMotion = _rotationAxis == AxisDirection.Y ? ConfigurableJointMotion.Free : ConfigurableJointMotion.Locked;
             joint.angularZMotion = _rotationAxis == AxisDirection.Z ? ConfigurableJointMotion.Free : ConfigurableJointMotion.Locked;
 
-            float armSpring = 50000f;
-            float armDamper = 300f;
-
             joint.angularXDrive = new JointDrive
             {
-                positionSpring = armSpring,
-                positionDamper = armDamper,
+                positionSpring = _rotationSpring,
+                positionDamper = _rotationDamper,
                 maximumForce = Mathf.Infinity
             };
 
             joint.angularYZDrive = new JointDrive
             {
-                positionSpring = armSpring,
-                positionDamper = armDamper,
+                positionSpring = _rotationSpring,
+                positionDamper = _rotationDamper,
                 maximumForce = Mathf.Infinity
             };
 
             joint.slerpDrive = new JointDrive
             {
-                positionSpring = armSpring,
-                positionDamper = armDamper,
+                positionSpring = _rotationSpring,
+                positionDamper = _rotationDamper,
                 maximumForce = Mathf.Infinity
             };
         }
