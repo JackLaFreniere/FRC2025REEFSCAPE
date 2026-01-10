@@ -30,7 +30,15 @@ namespace FRC2025
         /// class to customize update behavior.</remarks>
         protected virtual void Update()
         {
-            SetLayerRecursively(this.gameObject, LayerMask.NameToLayer(_layerName));
+            Transform partsDirectory = transform.Find($"{_name} Parts");
+            if (partsDirectory != null)
+            {
+                partsDirectory.name = $"{gameObject.name} Parts";
+            }
+
+            _name = gameObject.name;
+
+            SetLayerRecursively(gameObject, LayerMask.NameToLayer(_layerName));
         }
 
         private bool AttemptRemoveSelf(Component script)
@@ -123,12 +131,12 @@ namespace FRC2025
         /// created, parented to the current transform, and returned.</returns>
         private GameObject ValidatePartsDirectory()
         {
-            string partsName = this.name + " Parts";
+            string partsName = $"{gameObject.name} Parts";
             Transform parts = transform.Find(partsName);
 
             if (parts == null)
             {
-                GameObject parent = new(this.name + " Parts");
+                GameObject parent = new($"{gameObject.name} Parts");
                 parent.transform.SetParent(transform);
                 parent.transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
 
