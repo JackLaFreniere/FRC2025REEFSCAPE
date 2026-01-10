@@ -4,7 +4,6 @@ namespace FRC2025 {
     public abstract class Subsystem : MonoBehaviour
     {
         protected BaseRobot _baseRobot;
-        public abstract string SubsystemName { get; }
         public abstract void ApplyTarget(float value);
         public abstract bool IsAtTarget();
         

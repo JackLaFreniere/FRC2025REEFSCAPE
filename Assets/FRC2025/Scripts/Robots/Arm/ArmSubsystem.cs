@@ -6,8 +6,6 @@ namespace FRC2025
     {
         private GameObject _arm;
         private AxisDirection _axis;
-        public override string SubsystemName => "Arm";
-
         public override void ApplyTarget(float value)
         {
             if (_arm == null) return;

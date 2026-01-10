@@ -34,8 +34,6 @@ namespace FRC2025
         protected Vector2 _leftJoystickInput;
         protected Vector2 _rightJoystickInput;
 
-        public override string SubsystemName => "Drive Train";
-
         public override void ApplyTarget(float value)
         {
             throw new System.NotImplementedException();

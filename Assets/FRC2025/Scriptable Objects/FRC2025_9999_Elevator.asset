@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: FRC2025_9999_Elevator
   m_EditorClassIdentifier: 
   targets:
-  - subsystemName: Cascading Elevator
+  - subsystemName: Cascading Elevator Subsystem
     targetValue: 1
-  - subsystemName: Arm
+  - subsystemName: Arm Subsystem
     targetValue: 20

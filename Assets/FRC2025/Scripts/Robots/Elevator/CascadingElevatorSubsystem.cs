@@ -5,8 +5,6 @@ namespace FRC2025
     public class CascadingElevatorSubsystem : Subsystem
     {
         private GameObject[] _elevatorStages;
-        public override string SubsystemName => "Cascading Elevator";
-
         public override void ApplyTarget(float value)
         {
             if (_elevatorStages == null || _elevatorStages.Length < 2) return;

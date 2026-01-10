@@ -4,8 +4,6 @@ namespace FRC2025
 {
     public class RotatingSubsystem : Subsystem
     {
-        public override string SubsystemName => throw new System.NotImplementedException();
-
         public override void ApplyTarget(float value)
         {
             throw new System.NotImplementedException();
